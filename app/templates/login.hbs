@@ -1,1 +1,25 @@
-{{outlet}}
+<iframe name="frame" class="invisible" title="frame"></iframe>
+<div class="vBox">
+    <form id="loginForm" target="frame" {{on "submit" this.onSubmit}}>
+        <div class="justify-content-center fullWidth">
+            <h1 class="text-arj-huge colorDark justify-content-center">{{localize "New Horizons"}}</h1>
+        </div>  
+        <div class="vBoxItem hBox justify-content-center">
+            <p class="text-def-medium colorDark align-items-end">Name</p>
+        </div>
+        <div class="vBoxItem hBox justify-content-center">
+            <input id="userInput" class="input hBoxItem width75" value={{this.username}} />
+        </div>
+        <div class="vBoxItem hBox justify-content-center">
+            <p class="text-def-medium colorDark align-items-end">PIN</p>
+        </div>
+        <div class="vBoxItem hBox justify-content-center">
+            <input id="pinInput" type="password" class="input hBoxItem width75" value={{this.pin}} />
+        </div>
+        <div class="vBoxItem hBox"></div>
+        <div class="vBoxItem hBox justify-content-center">
+            <button class="button3 hBoxItem justify-content-between width50" type="submit">
+                Login {{fa-icon "sign-in"}}</button>
+        </div>
+    </form>
+</div>

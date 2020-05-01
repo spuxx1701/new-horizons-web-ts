@@ -1,0 +1,34 @@
+/*  Leopold Hock | 30.04.2020
+Description: Contains simple color classes (fg = foreground, bg = background).  */
+
+.fgWhite {
+    color: white;
+}
+
+.bgWhite {
+    background-color: white;
+}
+
+.fgTealNeon {
+    color: var(--colorTealNeon);
+}
+
+.bgTealNeon {
+    background-color: var(--colorTealNeon);
+}
+
+.fgTealBright {
+    color: var(--colorTealBright);
+}
+
+.bgTealBright {
+    background-color: var(--colorTealBright);
+}
+
+.fgTealDark {
+    color: var(--colorTealDark);
+}
+
+.bgTealDark {
+    background-color: var(--colorTealDark);
+}

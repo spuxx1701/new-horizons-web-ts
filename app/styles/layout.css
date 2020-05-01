@@ -1,0 +1,66 @@
+/*  Leopold Hock | 30.04.2020   */
+/*  Description: Contains style information for all layouting.  */
+
+.fullWidth {
+    width: 100%;
+}
+
+.width75 {
+    width: 75%;
+}
+
+.width66 {
+    width: 66.666%;
+}
+
+.width50 {
+    width: 50%;
+}
+
+.width33 {
+    width: 33.333%;
+}
+
+.width25 {
+    width: 25%;
+}
+
+.fullHeight {
+    height: 100%;
+}
+
+.hBox {
+    display: flex;
+    overflow-y: hidden;
+    align-items: center;
+}
+
+.hBoxItem {
+    display: flex;
+    float: left;
+    height: 100%;
+    align-items: center;
+}
+
+.vBox {
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.vBoxItem {
+    margin-bottom: 5px;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+    justify-content: space-between;
+}
+
+.paddingSides10px {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.paddingTopBottom10px {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

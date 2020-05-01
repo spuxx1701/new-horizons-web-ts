@@ -1,3 +1,53 @@
-.header {
-    background-color: var(--colorDeepSpace);
+.header-toolbar {
+    width: 100%;
+    height: 40px;
+    background-color: var(--colorGreyDark);
+    border-bottom: 1px solid var(--colorGreyMedium);
+    display: flex;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.nav-sidebar {
+    display: flex;
+    align-items: flex-start;
+    width: 0;
+    max-width: 300px;
+    position: fixed;
+    z-index: 1;
+    top: 2px;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    background-color: var(--colorGreyDark);
+    border-right: 1px solid var(--colorGreyMedium);
+}
+
+.account-sidebar {
+    direction: rtl;
+    display: flex;
+    align-items: flex-start;
+    width: 0;
+    max-width: 300px;
+    position: fixed;
+    z-index: 1;
+    top: 2px;
+    right: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    background-color: var(--colorGreyDark);
+    border-left: 1px solid var(--colorGreyMedium);
+}
+
+.sidebar-item {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.sidebar-sep {
+    min-height: 2px;
+    height: 2px;
+    margin-right: 5px;
+    margin-left: 5px;
+    background-color: var(--colorTealBright);
 }

@@ -1,0 +1,16 @@
+.button-icon-1 {
+    border: none;
+    background-color: transparent;
+    color: var(--colorTealBright);
+}
+.button-icon-1:hover {
+    color: var(--colorTealNeon);
+}
+
+.button-icon-1:active {
+    color: white;
+}
+
+.button-icon-1:disabled {
+    color: var(--colorGreyTrans);
+}

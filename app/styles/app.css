@@ -1,15 +1,21 @@
 @font-face {
-    font-family: Magelove;
-    src: url('Magelove.otf');
+    font-family: ARJulian;
+    src: url("/assets/fonts/ARJULIAN.ttf");
 }
 
 :root {
     vertical-align: middle;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    /*COLORS*/
+    font-family: Georgia, 'Times New Roman', Times, serif;
     --colorDeepSpace: #0e1015;
-    --colorGreyDark: #323234;
-    --colorTealNeon:
+    --colorGreyBright: #C8C8C8;
+    --colorGreyMedium: #5F5F5F;
+    --colorGreyDark: #454545;
+    --colorGreyTrans: rgba(200, 200, 200, 128);
+    --colorTealNeon: #00FFFF;
+    --colorTealBright: #64C8C8; /*#64C8C8 rgba(100,200,200,150)*/
+    --colorTealDark: #498082;
+    --colorTealTrans: rgba(100,200,200,150);
+    --colorGreenBright: #00FF00;
 }
 
 .ember-application {
@@ -18,5 +24,11 @@
     min-height: 100vh;
     padding: 0;
     margin: 0;
-    background-color: var(--colorGreyDark);
+    background-color: var(--colorDeepSpace);
+}
+
+.branding-bar {
+    width: 100%;
+    height: 2px;
+    background-color: var(--colorTealNeon);
 }

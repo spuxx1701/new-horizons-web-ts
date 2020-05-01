@@ -1,1 +1,39 @@
+{{!--HEADER TOOLBAR--}}
+<div class="header-toolbar justify-content-between">
+    <button id="navSidebarButton" class="button-icon-1" type="button"
+        {{on 'click' (fn this.openSidebar "navSidebar")}}>{{fa-icon "bars" size="2"}}</button>
+    <div class="hBox">
+        <h1 class="text-arj-large fgTealNeon">New Horizons</h1>
+    </div>
+    <button id="navSidebarButton" class="button-icon-1" type="button"
+        {{on 'click' this.test}}>{{fa-icon "code" size="2"}}</button>
+    <button id="accountSidebarButton" class="button-icon-1" type="button"
+        {{on 'click' (fn this.openSidebar "accountSidebar")}}>
+        {{#if this.session.isAuthenticated}}
+        {{fa-icon "user" size="2"}}
+        {{else}}
+        {{fa-icon "user-o" size="2"}}
+        {{/if}}
+    </button>
+</div>
+{{!--NAV SIDEBAR--}}
+<div id="navSidebar" class="nav-sidebar vBox">
+    <button class="button-icon-1 sidebar-item" type="button"
+        {{on 'click' (fn this.closeSidebar "navSidebar")}}>{{fa-icon "times" size="2"}}</button>
+    <div class="sidebar-sep"></div>
+</div>
+{{!--ACCOUNT SIDEBAR--}}
+<div id="accountSidebar" class="account-sidebar vBox">
+    <button class="button-icon-1 sidebar-item" type="button"
+        {{on 'click' (fn this.closeSidebar "accountSidebar")}}>{{fa-icon "times" size="2"}}</button>
+    <div class="sidebar-sep"></div>
+    {{#if this.session.isAuthenticated}}
+    <button class="sidebar-button-1 sidebar-item" type="button"></button>
+    {{else}}
+    <p class="text-def-medium">{{localize "Misc_NotSignedIn"}}</p>
+    <button class="sidebar-button-1 sidebar-item" type="button"></button>
+    {{/if}}
+</div>
+
+{{!--PAGE CONTENT--}}
 {{outlet}}
