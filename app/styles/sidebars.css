@@ -1,0 +1,138 @@
+/*  Leopold Hock | 30.04.2020   */
+
+/*  Description: Contains style information for the sidebars and their child controls.  */
+
+.nav-sidebar {
+    height: 100%;
+    width: 0;
+    max-width: 300px;
+    position: fixed;
+    top: 2px;
+    left: 0;
+    z-index: 1;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: 0.5s;
+    background-color: var(--colorGreyDark);
+    border-right: 1px solid var(--colorGreyMedium);
+}
+
+.nav-sidebar-content {
+    align-items: flex-start;
+    height: 100%;
+    width: 300px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.account-sidebar {
+    height: 100%;
+    width: 0;
+    max-width: 300px;
+    position: fixed;
+    z-index: 1;
+    top: 2px;
+    right: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    transition: 0.5s;
+    background-color: var(--colorGreyDark);
+    border-left: 1px solid var(--colorGreyMedium);
+}
+
+.account-sidebar-content {
+    direction: rtl;
+    align-items: flex-start;
+    height: 100%;
+    width: 300px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.sidebar-item {
+    margin-right: 5px;
+    margin-left: 5px;
+    display: flex;
+    justify-content: start;
+}
+
+.sidebar-header {
+    margin-right: 5px;
+    margin-left: 25px;
+}
+
+.sidebar-header-r {
+    margin-right: 25px;
+    margin-left: 5px;
+}
+
+.sidebar-item p {
+    font-family: ARJulian;
+    font-size: 1.2rem;
+}
+
+.sidebar-sep {
+    width: 100%;
+    min-height: 2px;
+    height: 2px;
+    background-color: var(--colorGreyMedium);
+}
+
+.sidebar-button-1 {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 50px;
+    border: none;
+    background-color: transparent;
+    color: var(--colorGreyBright);
+}
+
+.sidebar-button-1 p {
+    font-family: ARJulian;
+    font-size: 1.2rem;
+}
+
+.sidebar-button-1:hover {
+    background-color: var(--colorGreyMedium);
+}
+
+.sidebar-button-1:active {
+    background-color: var(--colorGreyDark);
+}
+
+.sidebar-button-2 {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 50px;
+    border: none;
+    background-color: transparent;
+    color: var(--colorGreyBright);
+}
+
+.sidebar-button-2 p {
+    font-family: ARJulian;
+    font-size: 1.2rem;
+}
+
+.sidebar-button-2:hover {
+    background-color: var(--colorGreyMedium);
+}
+
+.sidebar-button-2:active {
+    background-color: var(--colorGreyDark);
+}
+
+.sidebar-button-2:disabled {
+    background-color: transparent;
+}
+
+.sidebar-button-2:disabled * {
+    color: var(--colorGreyTrans) !important;
+}
+
+.sidebar-button-2-selected {
+    color: var(--colorTealNeon);
+    background-color: var(--colorGreyMedium);
+}

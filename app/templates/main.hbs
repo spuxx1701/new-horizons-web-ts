@@ -2,11 +2,9 @@
 <div class="header-toolbar justify-content-between">
     <button id="navSidebarButton" class="button-icon-1" type="button"
         {{on 'click' (fn this.openSidebar "navSidebar")}}>{{fa-icon "bars" size="2"}}</button>
-    <div class="hBox">
-        <h1 class="text-arj-large fgTealNeon">New Horizons</h1>
+    <div class="hBoxItem justify-content-center">
+        <h4 class="fgTealNeon marginAuto">New Horizons</h4>
     </div>
-    <button id="navSidebarButton" class="button-icon-1" type="button"
-        {{on 'click' this.test}}>{{fa-icon "code" size="2"}}</button>
     <button id="accountSidebarButton" class="button-icon-1" type="button"
         {{on 'click' (fn this.openSidebar "accountSidebar")}}>
         {{#if this.session.isAuthenticated}}
@@ -16,24 +14,50 @@
         {{/if}}
     </button>
 </div>
+
 {{!--NAV SIDEBAR--}}
-<div id="navSidebar" class="nav-sidebar vBox">
-    <button class="button-icon-1 sidebar-item" type="button"
-        {{on 'click' (fn this.closeSidebar "navSidebar")}}>{{fa-icon "times" size="2"}}</button>
-    <div class="sidebar-sep"></div>
+<div id="navSidebar" class="nav-sidebar">
+    <div class="nav-sidebar-content vBox">
+        <button class="button-icon-1 sidebar-item" type="button"
+            {{on 'click' (fn this.closeSidebar "navSidebar")}}>{{fa-icon "times" size="2"}}</button>
+        {{liquid-outlet "navSidebarOutlet"}}
+    </div>
 </div>
+
 {{!--ACCOUNT SIDEBAR--}}
-<div id="accountSidebar" class="account-sidebar vBox">
-    <button class="button-icon-1 sidebar-item" type="button"
-        {{on 'click' (fn this.closeSidebar "accountSidebar")}}>{{fa-icon "times" size="2"}}</button>
-    <div class="sidebar-sep"></div>
-    {{#if this.session.isAuthenticated}}
-    <button class="sidebar-button-1 sidebar-item" type="button"></button>
-    {{else}}
-    <p class="text-def-medium">{{localize "Misc_NotSignedIn"}}</p>
-    <button class="sidebar-button-1 sidebar-item" type="button"></button>
-    {{/if}}
+<div id="accountSidebar" class="account-sidebar">
+    <div class="account-sidebar-content">
+        <button class="button-icon-1 sidebar-item" type="button"
+            {{on 'click' (fn this.closeSidebar "accountSidebar")}}>{{fa-icon "times" size="2"}}</button>
+        <h5 class="fgWhite margin-vertical-medium text-right sidebar-header-r">{{localize "Misc_Account"}}</h5>
+        <div class="sidebar-sep sidebar-item"></div>
+        {{#if this.session.isAuthenticated}}
+        {{else}}
+        <button class="sidebar-button-1" type="button">
+            {{fa-icon "sign-in" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}}
+            <p class="margin-vertical-auto">{{localize "Misc_SignIn"}}</p>
+        </button>
+        <div class="sidebar-sep"></div>
+        <button class="sidebar-button-1" type="button">
+            {{fa-icon "user-plus" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}}
+            <p class="margin-vertical-auto">{{localize "Misc_SignUp"}}</p>
+        </button>
+        {{/if}}
+        <div class="sidebar-sep"></div>
+        {{#if this.manager.devMode}}
+        <button class="sidebar-button-1" type="button" {{on 'click' (fn this.manager.test)}}>
+            {{fa-icon "code" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}}
+            <p class="margin-vertical-auto">Test</p>
+        </button>
+        <button class="sidebar-button-1" type="button">
+            {{fa-icon "align-left" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}}
+            <p class="margin-vertical-auto">Show Log </p>
+        </button>
+        {{/if}}
+    </div>
 </div>
 
 {{!--PAGE CONTENT--}}
-{{outlet}}
+<div id="pageOutlet" class="page-outlet">
+    {{liquid-outlet}}
+</div>

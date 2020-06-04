@@ -7,7 +7,8 @@ import { inject as service } from '@ember/service';
 export default class Substring extends Helper {
   @service localizationService;
   compute([key, ...rest]) {
-    return this.localizationService.getValue(key);
+    var value = this.localizationService.getValue(key);
+    return (value);
   }
 }
 

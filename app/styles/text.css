@@ -1,45 +1,74 @@
-/*  Leopold Hock | 30.04.2020   */
-/*  Description: Contains style information for all text elements.  */
+/*  Leopold Hock | 30.04.2020
+Description: Contains style information for all text elements.  */
 
 .text-def-small {
-    margin: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 14px;
     display: flex;
 }
 
 .text-def-medium {
-    margin: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: 500;
     font-size: 25px;
     display: flex;
 }
 
 .text-def-large {
-    margin: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: 500;
     font-size: 30px;
     display: flex;
 }
 
-.text-arj-large {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    font-family: ARJulian;
-    font-size: 40px;
-    display: flex;
+:root h1 h2 h3 h4 h5 h6 {
+    margin-bottom: 0;
+    margin-top: 0;
 }
 
-.text-arg-huge {
-    margin-top: 5px;
-    margin-bottom: 5px;
+:root h1 {
     font-family: ARJulian;
-    font-size: 60px;
-    display: flex;
+    font-size: 3.5rem;
 }
 
-.heart {
-    text-align: center;
+:root h2 {
     font-family: ARJulian;
-    font-size: 100px;
+    font-size: 3rem;
+}
+
+:root h3 {
+    font-family: ARJulian;
+    font-size: 2.5rem;
+}
+
+:root h4 {
+    font-family: ARJulian;
+    font-size: 2rem;
+}
+
+:root h5 {
+    font-family: ARJulian;
+    font-size: 1.5rem;
+}
+
+:root h6 {
+    font-family: ARJulian;
+    font-size: 1.1rem;
+}
+
+:root p {
+    font-size: 1rem;
+}
+
+:root p1 {
+    font-size: 1.1rem;
+}
+
+:root a {
+    color: var(--colorTealNeon);
+}
+
+:root a:hover {
+    color: var(--colorTealBright);
 }

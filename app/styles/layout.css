@@ -1,5 +1,39 @@
 /*  Leopold Hock | 30.04.2020   */
+
 /*  Description: Contains style information for all layouting.  */
+
+.marginAuto {
+    margin: auto;
+}
+
+.margin-medium {
+    margin: 15px;
+}
+
+.margin-vertical-auto {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.margin-vertical-medium {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.margin-horizontal-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.marginSidesSmall {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.marginSidesMedium {
+    margin-left: 15px;
+    margin-right: 15px;
+}
 
 .fullWidth {
     width: 100%;
@@ -25,33 +59,34 @@
     width: 25%;
 }
 
-.fullHeight {
+.full-height {
     height: 100%;
 }
 
 .hBox {
+    width: 100%;
     display: flex;
+    flex-direction: row;
     overflow-y: hidden;
     align-items: center;
 }
 
 .hBoxItem {
+    height: 100%;
     display: flex;
     float: left;
-    height: 100%;
     align-items: center;
 }
 
 .vBox {
     height: 100%;
-    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
 }
 
 .vBoxItem {
-    margin-bottom: 5px;
-    height: 50px;
-    background-color: transparent;
-    border: none;
+    width: 100%;
     justify-content: space-between;
 }
 

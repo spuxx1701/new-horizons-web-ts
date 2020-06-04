@@ -32,3 +32,7 @@ Description: Contains simple color classes (fg = foreground, bg = background).  
 .bgTealDark {
     background-color: var(--colorTealDark);
 }
+
+.fgGreyBright {
+    color: var(--colorGreyBright);
+}

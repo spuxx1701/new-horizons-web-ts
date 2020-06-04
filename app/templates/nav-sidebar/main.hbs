@@ -1,0 +1,60 @@
+<h5 class="fgWhite margin-vertical-medium sidebar-header">New Horizons</h5>
+<div class="sidebar-sep"></div>
+<button class="sidebar-button-1" type="button" {{on 'click' (fn this.goToPage "home")}}>
+    {{fa-icon "home" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p class="margin-vertical-auto">
+        {{localize "Misc_Home"}}</p>
+</button>
+<div class="sidebar-sep"></div>
+<button class="sidebar-button-1" type="button" {{on 'click' (fn this.goToPage "news")}}>
+    {{fa-icon "newspaper-o" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
+        class="margin-vertical-auto">
+        {{localize "Misc_News"}}</p>
+</button>
+<div class="sidebar-sep"></div>
+<button class="sidebar-button-1" type="button" {{on 'click' (fn this.goToPage "about")}}>
+    {{fa-icon "globe" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p class="margin-vertical-auto">
+        {{localize "Misc_About"}}</p>
+</button>
+<div class="sidebar-sep"></div>
+<button class="sidebar-button-1" type="button" {{on 'click' (fn this.goToPage "support")}}>
+    {{fa-icon "coffee" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
+        class="margin-vertical-auto">
+        {{localize "Misc_Support"}}</p>
+</button>
+<div class="sidebar-sep"></div>
+<button class="sidebar-button-1" type="button" {{on 'click' (fn this.goToPage "imprint")}}>
+    {{fa-icon "info-circle" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
+        class="margin-vertical-auto">
+        {{localize "Misc_Imprint"}}</p>
+</button>
+<div class="sidebar-sep"></div>
+<h5 class="fgWhite margin-vertical-medium sidebar-header">{{localize "Misc_Editor"}}</h5>
+<div class="sidebar-sep"></div>
+<button class="sidebar-button-1" type="button" {{on 'click' (fn this.goToPage "generator.preset")}}>
+    {{fa-icon "user-plus" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
+        class="margin-vertical-auto">
+        {{localize "Misc_NewCharacter"}}</p>
+</button>
+<div class="sidebar-sep"></div>
+{{#if this.session.isAuthenticated}}
+<button class="sidebar-button-1" type="button">
+    {{fa-icon "user" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p class="margin-vertical-auto">
+        {{localize "Misc_LoadCharacter"}}</p>
+</button>
+<div class="sidebar-sep"></div>
+<button class="sidebar-button-1" type="button">
+    {{fa-icon "user-plus" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
+        class="margin-vertical-auto">
+        {{localize "Misc_NewJournal"}}</p>
+</button>
+<div class="sidebar-sep"></div>
+<button class="sidebar-button-1" type="button">
+    {{fa-icon "user-plus" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
+        class="margin-vertical-auto">
+        {{localize "Misc_LoadJournal"}}</p>
+</button>
+<div class="sidebar-sep"></div>
+{{else}}
+<div class="text-def-small fgWhite text-center margin-medium sidebar-item">
+    {{localize "Misc_SignInForMoreFunctions"}}</div>
+{{/if}}

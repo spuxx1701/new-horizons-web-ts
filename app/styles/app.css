@@ -5,17 +5,23 @@
 
 :root {
     vertical-align: middle;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    --colorDeepSpace: #0e1015;
-    --colorGreyBright: #C8C8C8;
+    --colorDeepSpace: rgb(14, 16, 21);
+    --colorGreyBright: rgb(200, 200, 200);
     --colorGreyMedium: #5F5F5F;
     --colorGreyDark: #454545;
-    --colorGreyTrans: rgba(200, 200, 200, 128);
+    --colorGreyTrans: rgba(200, 200, 200, 0.5);
     --colorTealNeon: #00FFFF;
-    --colorTealBright: #64C8C8; /*#64C8C8 rgba(100,200,200,150)*/
+    --colorTealBright: #64C8C8;
+    /*#64C8C8 rgba(100,200,200,150)*/
     --colorTealDark: #498082;
-    --colorTealTrans: rgba(100,200,200,150);
+    --colorTealTrans: rgba(100, 200, 200, 0.5);
     --colorGreenBright: #00FF00;
+}
+
+:root body {
+    color: white;
+    background-color: var(--colorDeepSpace);
+    /*background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/demo-bg.jpg");*/
 }
 
 .ember-application {
@@ -31,4 +37,15 @@
     width: 100%;
     height: 2px;
     background-color: var(--colorTealNeon);
+}
+
+.page-outlet {
+    width: auto;
+    height: 100%;
+    transition: 0.5s;
+    overflow-y: hidden;
+}
+
+.liquid-container {
+    width: 100%;
 }

@@ -24,6 +24,15 @@ export default class ManagerService extends Service {
             text: messageText
         }
         that.sessionLog.push(message);
+        if (config.APP.environment !== "production") {
+            if (messageType === "error") {
+                console.error(messageText);
+            } else if (messageType === "warning") {
+                console.warn(messageText);
+            } else {
+                console.log(messageText);
+            }
+        }
         /*
         if (messageType === "error") {
 
