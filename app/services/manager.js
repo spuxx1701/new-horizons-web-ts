@@ -52,7 +52,7 @@ export default class ManagerService extends Service {
                 // try to initialize that route's controller
                 Ember.getOwner(that).lookup("controller:" + combinedRouteName).onTransition();
             } catch (exception) {
-                that.log("warning", "Unable to initialize controller for route " + combinedRouteName + ": " + exception.message);
+                // do nothing
             }
         });
         if (currentRouteNameSplit.length > 1) {
@@ -82,9 +82,9 @@ export default class ManagerService extends Service {
             return;
         }
         for (var i = 0; i < buttonGroup.children.length; i++) {
-            buttonGroup.children[i].classlist.remove(classNameSelected);
+            buttonGroup.children[i].classList.remove(classNameSelected);
         }
-        document.getElementById(selectedID).classlist.add(classNameSelected);
+        document.getElementById(selectedID).classList.add(classNameSelected);
     }
 
     log(messageType = "info", messageText) {

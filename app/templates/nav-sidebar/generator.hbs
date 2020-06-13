@@ -10,7 +10,7 @@
     {{#each this.tabs as |tab|}}
     <button id="tab-button-{{tab.id}}" type="button" class="sidebar-button-2" {{on 'click' (fn this.goToTab tab.id)}}>
         {{fa-icon tab.icon size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}}
-        <p class="margin-vertical-auto">{{localize "Misc_{{tab.id}}"}}</p>
+        <p class="margin-vertical-auto">{{localize (concat "Misc_" tab.id)}}</p>
     </button>
     <div class="sidebar-sep"></div>
     {{/each}}
