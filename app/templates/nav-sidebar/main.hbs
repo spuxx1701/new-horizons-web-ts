@@ -1,36 +1,53 @@
 <h5 class="fgWhite margin-vertical-medium sidebar-header">New Horizons</h5>
 <div class="sidebar-sep"></div>
-<button class="sidebar-button-1" type="button" {{on 'click' (fn this.goToPage "home")}}>
-    {{fa-icon "home" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p class="margin-vertical-auto">
-        {{localize "Misc_Home"}}</p>
-</button>
-<div class="sidebar-sep"></div>
-<button class="sidebar-button-1" type="button" {{on 'click' (fn this.goToPage "news")}}>
-    {{fa-icon "newspaper-o" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
-        class="margin-vertical-auto">
-        {{localize "Misc_News"}}</p>
-</button>
-<div class="sidebar-sep"></div>
-<button class="sidebar-button-1" type="button" {{on 'click' (fn this.goToPage "about")}}>
-    {{fa-icon "globe" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p class="margin-vertical-auto">
-        {{localize "Misc_About"}}</p>
-</button>
-<div class="sidebar-sep"></div>
-<button class="sidebar-button-1" type="button" {{on 'click' (fn this.goToPage "support")}}>
-    {{fa-icon "coffee" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
-        class="margin-vertical-auto">
-        {{localize "Misc_Support"}}</p>
-</button>
-<div class="sidebar-sep"></div>
-<button class="sidebar-button-1" type="button" {{on 'click' (fn this.goToPage "imprint")}}>
-    {{fa-icon "info-circle" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
-        class="margin-vertical-auto">
-        {{localize "Misc_Imprint"}}</p>
-</button>
+{{!--MAIN SECTION--}}
+<div class="vBox" id="main-tabs">
+    <button id="sidebar-button-home" class="sidebar-button-1" type="button"
+        {{on 'click' (fn this.goToTab "home" true)}}>
+        {{fa-icon "home" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
+            class="margin-vertical-auto">
+            {{localize "Misc_Home"}}</p>
+    </button>
+    <div class="sidebar-sep"></div>
+    <button id="sidebar-button-news" class="sidebar-button-1" type="button"
+        {{on 'click' (fn this.goToTab "news" true)}}>
+        {{fa-icon "newspaper-o" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
+            class="margin-vertical-auto">
+            {{localize "Misc_News"}}</p>
+    </button>
+    <div class="sidebar-sep"></div>
+    <button id="sidebar-button-about" class="sidebar-button-1" type="button"
+        {{on 'click' (fn this.goToTab "about" true)}}>
+        {{fa-icon "globe" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
+            class="margin-vertical-auto">
+            {{localize "Misc_About"}}</p>
+    </button>
+    <div class="sidebar-sep"></div>
+    <button id="sidebar-button-support" class="sidebar-button-1" type="button"
+        {{on 'click' (fn this.goToTab "support" true)}}>
+        {{fa-icon "coffee" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
+            class="margin-vertical-auto">
+            {{localize "Misc_Support"}}</p>
+    </button>
+    <div class="sidebar-sep"></div>
+    <button id="sidebar-button-imprint" class="sidebar-button-1" type="button" {{on 'click' (fn this.goToTab "imprint" true)}}>
+        {{fa-icon "info-circle" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
+            class="margin-vertical-auto">
+            {{localize "Misc_Imprint"}}</p>
+    </button>
+</div>
+{{!--COMMUNITY SECTION--}}
+{{!--<div class="sidebar-sep"></div>
+<div class="text-def-small fgWhite text-center margin-medium sidebar-item">
+    {{localize "Misc_JoinTheCommunity"}}</div>
+<div class="hBox">
+    <a href="https://discord.gg/8m2VrHH">{{fa-icon "comments-o"}}</a>
+</div>--}}
+{{!--EDITOR SECTION--}}
 <div class="sidebar-sep"></div>
 <h5 class="fgWhite margin-vertical-medium sidebar-header">{{localize "Misc_Editor"}}</h5>
 <div class="sidebar-sep"></div>
-<button class="sidebar-button-1" type="button" {{on 'click' (fn this.goToPage "generator.preset")}}>
+<button class="sidebar-button-1" type="button" {{on 'click' (fn this.goToTab "generator.preset")}}>
     {{fa-icon "user-plus" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
         class="margin-vertical-auto">
         {{localize "Misc_NewCharacter"}}</p>

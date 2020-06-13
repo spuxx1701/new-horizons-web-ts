@@ -26,7 +26,7 @@ export default class LocalizationService extends Service {
         if (result) {
             return result.value;
         } else {
-            that.manager.log("warning", "Missing value for key \"" + key + "\" in localization \"" + that.currentLocalization + "\".");
+            that.manager.log("warning", "Missing value for key '" + key + "' in localization '" + that.currentLocalization + "'.");
             return ("Loc_Error_" + key);
         }
     }
@@ -39,14 +39,14 @@ export default class LocalizationService extends Service {
         var json = await fetch(url).then(function (response) {
             return response.json();
         }).catch(function (e) {
-            that.manager.log("error", "Unable to retrieve localization file for language \"" + language + "\".");
+            that.manager.log("error", "Unable to retrieve localization file for language '" + language + "'.");
         });
         if (json) {
             that.currentLocalization = language;
             that.localizationData = json;
-            that.manager.log("success", "Localization data for language \"" + language + "\" loaded sucessfully.");
+            that.manager.log("success", "Localization data for language '" + language + "' loaded sucessfully.");
         } else {
-            that.manager.log("error", "Unable to retrieve localization file for language \"" + language + "\".");
+            that.manager.log("error", "Unable to retrieve localization file for language '" + language + "'.");
         }
     }
 

@@ -17,7 +17,23 @@ export default class NavbarMainController extends Controller {
         that = this;
     }
     @action
-    goToPage(id) {
+    goToTab(id, showAsSelected) {
         that.manager.goToRoute(id);
+        if (showAsSelected)
+        {
+            that.updateTabGroup("main-tabs", "sidebar-button-" + id, "sidebar-button-2-selected");
+        }
+    }
+
+    updateTabGroup(buttonGroupID, selectedID, classNameSelected) {
+        let buttonGroup = document.getElementById(buttonGroupID);
+        if (!buttonGroup) {
+            that.log("error", "Unable to find control '" + buttonGroupID + "'.");
+            return;
+        }
+        for (var i = 0; i < buttonGroup.children.length; i++) {
+            buttonGroup.children[i].classList.remove(classNameSelected);
+        }
+        document.getElementById(selectedID).classList.add(classNameSelected);
     }
 }
