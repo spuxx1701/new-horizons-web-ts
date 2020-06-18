@@ -10,8 +10,10 @@ import { inject as service } from '@ember/service';
 var that;
 
 export default class ManagerService extends Service {
+    @service store;
     @service localizationService;
     @service messageService;
+    @service databaseService;
     @service router;
 
     // System Variables
@@ -21,19 +23,20 @@ export default class ManagerService extends Service {
     init() {
         super.init();
         that = this;
+        //that.databaseService.readDatabaseFile();
         if (config.environment === "development") that.devMode = true;
         //that.isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
         // subscribe to routeDidChange event
         that.router.on("routeDidChange", (transition) => {
             that.onTransition();
         });
-        that.onTransition();
+        that.renderNavbarMenu();
         that.log("info", "Initialization complete.");
     }
 
     test() {
         console.log("Starting test...");
-        console.log(this.config.environment);
+        console.log(that.store.peekRecord("localization", "Misc_Preset"));
     }
 
     goToRoute(id) {
@@ -55,6 +58,11 @@ export default class ManagerService extends Service {
                 // do nothing
             }
         });
+        that.renderNavbarMenu();
+    }
+
+    renderNavbarMenu() {
+        let currentRouteNameSplit = that.router.currentRouteName.split(".");
         if (currentRouteNameSplit.length > 1) {
             let combinedRouteName = currentRouteNameSplit[0] + "." + currentRouteNameSplit[1];
             try {
@@ -85,6 +93,10 @@ export default class ManagerService extends Service {
             buttonGroup.children[i].classList.remove(classNameSelected);
         }
         document.getElementById(selectedID).classList.add(classNameSelected);
+    }
+
+    localize(key) {
+        return (that.localizationService.getValue(key));
     }
 
     log(messageType = "info", messageText) {

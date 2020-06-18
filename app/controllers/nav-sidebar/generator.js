@@ -11,11 +11,11 @@ export default class NavbarGeneratorController extends Controller {
     @service manager;
     @service session;
     @tracked sidebarIconSize = "1";
-    tabs = [{ id: "preset", icon: "cog" },
-    { id: "origin", icon: "cog" },
-    { id: "personal", icon: "cog" },
-    { id: "traits", icon: "cog" },
-    { id: "skills", icon: "cog" }];
+    tabs = [{ id: "preset", icon: "sliders" },
+    { id: "origin", icon: "globe" },
+    { id: "personal", icon: "user-circle-o" },
+    { id: "traits", icon: "star-half-o" },
+    { id: "skills", icon: "bicycle" }];
 
     init() {
         super.init();
@@ -31,10 +31,10 @@ export default class NavbarGeneratorController extends Controller {
     @action
     goToTab(id) {
         that.updateButtonGroup(id);
-        that.transitionToRoute("generator." + id);
+        that.transitionToRoute("main.generator." + id);
     }
 
     updateButtonGroup(id) {
-        that.manager.updateTabGroup("generator-tabs", "tab-button-" + id, "sidebar-button-2-selected");
+        that.manager.updateTabGroup("generator-tabs", "sidebar-button-" + id, "sidebar-button-2-selected");
     }
 }

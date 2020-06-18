@@ -1,5 +1,7 @@
 // Leopold Hock | 30.04.2020
 // Description: The LocalizationService manages the current localization and supplies localized values for keys.
+// Changes:
+// Leopold Hock | 17.06.2020 | Implemented ember-data. Localization now stored in localization model.
 
 import Ember from 'ember';
 import Service from '@ember/service';
@@ -11,53 +13,40 @@ var that;
 
 export default class LocalizationService extends Service {
     @service manager;
+    @service store;
     @tracked supportedLanguages = ["en", "de"];
     @tracked currentLocalization = "de";
-    @tracked localizationData;
+    //@tracked localizationData;
 
     init() {
         super.init();
         that = this;
+        //this.currentLocalization = this.getUserLanguage();
     }
 
     getValue(key) {
-        if (!that.localizationData) return "";
-        var result = that.localizationData.find(element => element.key.toLowerCase() === key.toLowerCase());
+        /*if (!this.currentLocalization) {
+            this.currentLocalization = this.getUserLanguage();
+        }*/
+        key = key.toLowerCase();
+        if (that.store.peekAll("localization").length == 0) return "";
+        let result = that.store.peekRecord("localization", key);
         if (result) {
             return result.value;
         } else {
             that.manager.log("warning", "Missing value for key '" + key + "' in localization '" + that.currentLocalization + "'.");
-            return ("Loc_Error_" + key);
-        }
-    }
-
-    async readLocalizationFile(language) {
-        if (!language) {
-            language = that.getUserLanguage()
-        }
-        var url = "/assets/localization/localization_" + language.toLowerCase() + ".json";
-        var json = await fetch(url).then(function (response) {
-            return response.json();
-        }).catch(function (e) {
-            that.manager.log("error", "Unable to retrieve localization file for language '" + language + "'.");
-        });
-        if (json) {
-            that.currentLocalization = language;
-            that.localizationData = json;
-            that.manager.log("success", "Localization data for language '" + language + "' loaded sucessfully.");
-        } else {
-            that.manager.log("error", "Unable to retrieve localization file for language '" + language + "'.");
+            return ("loc_miss::" + key);
         }
     }
 
     getUserLanguage() {
-        var userLanguage = navigator.language || navigator.userLanguage;
+        let userLanguage = navigator.language || navigator.userLanguage;
         if (userLanguage) {
             return userLanguage;
         }
         else {
             that.manager.log("warning", "Unable to read user language. Defaulting to English.");
-            return userLanguage;
+            return 'en';
         }
     }
 }

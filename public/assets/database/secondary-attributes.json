@@ -1,0 +1,96 @@
+[
+    {
+        "id": "SecA_LP",
+        "current": 24,
+        "remaining": 0,
+        "bonus": 0,
+        "primaryAttributes": [
+            "PriA_CN",
+            "PriA_CN"
+        ],
+        "div": 1.0
+    },
+    {
+        "id": "SecA_SP",
+        "current": 12,
+        "remaining": 0,
+        "bonus": 0,
+        "primaryAttributes": [
+            "PriA_CN",
+            "PriA_CN",
+            "PriA_AG"
+        ],
+        "div": 2.0
+    },
+    {
+        "id": "SecA_RE",
+        "current": 6,
+        "remaining": 0,
+        "bonus": 0,
+        "primaryAttributes": [
+            "PriA_CR",
+            "PriA_CR",
+            "PriA_IN",
+            "PriA_AG"
+        ],
+        "div": 5.0
+    },
+    {
+        "id": "SecA_AT",
+        "current": 5,
+        "remaining": 0,
+        "bonus": 0,
+        "primaryAttributes": [
+            "PriA_CR",
+            "PriA_DX",
+            "PriA_ST"
+        ],
+        "div": 5.0
+    },
+    {
+        "id": "SecA_DE",
+        "current": 5,
+        "remaining": 0,
+        "bonus": 0,
+        "primaryAttributes": [
+            "PriA_IN",
+            "PriA_AG",
+            "PriA_AG"
+        ],
+        "div": 5.0
+    },
+    {
+        "id": "SecA_PI",
+        "current": 5,
+        "remaining": 0,
+        "bonus": 0,
+        "primaryAttributes": [
+            "PriA_CR",
+            "PriA_IN",
+            "PriA_CN"
+        ],
+        "div": 5.0
+    },
+    {
+        "id": "SecA_VE",
+        "current": 3,
+        "remaining": 0,
+        "bonus": 0,
+        "primaryAttributes": [
+            "PriA_AG",
+            "PriA_AG",
+            "PriA_CN"
+        ],
+        "div": 6.0
+    },
+    {
+        "id": "SecA_WT",
+        "current": 4,
+        "remaining": 0,
+        "bonus": 0,
+        "primaryAttributes": [
+            "PriA_CN"
+        ],
+        "div": 2.0
+    }
+]

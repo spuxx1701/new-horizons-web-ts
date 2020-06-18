@@ -19,19 +19,22 @@ export default class NavbarMainController extends Controller {
     @action
     goToTab(id, showAsSelected) {
         that.manager.goToRoute(id);
-        if (showAsSelected)
-        {
-            that.updateTabGroup("main-tabs", "sidebar-button-" + id, "sidebar-button-2-selected");
-        }
+        /*let splitID = id.split(".");
+        if (showAsSelected) {
+            that.updateTabGroup("main-tabs", "sidebar-button-" + splitID[splitID.length - 1], "sidebar-button-2-selected");
+        }*/
     }
 
     updateTabGroup(buttonGroupID, selectedID, classNameSelected) {
         let buttonGroup = document.getElementById(buttonGroupID);
         if (!buttonGroup) {
-            that.log("error", "Unable to find control '" + buttonGroupID + "'.");
+            that.manager.log("error", "Unable to find control '" + buttonGroupID + "'.");
+            return;
+        } else if (!document.getElementById(selectedID)) {
+            that.manager.log("error", "Unable to find control '" + selectedID + "'.");
             return;
         }
-        for (var i = 0; i < buttonGroup.children.length; i++) {
+        for (let i = 0; i < buttonGroup.children.length; i++) {
             buttonGroup.children[i].classList.remove(classNameSelected);
         }
         document.getElementById(selectedID).classList.add(classNameSelected);

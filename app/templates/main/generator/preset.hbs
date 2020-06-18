@@ -1,7 +1,8 @@
 <div class="panelLarge">
     <h2 class="fgWhite text-center">Generator-Voreinstellungen</h2>
     <div class="panel-large vBox paddingSides10px paddingTopBottom10px">
-        <h5 class="vBoxItem">{{localize "Misc_Preset"}}</h5>
-        <ui::dropdown />
+        <Interactable::Dropdown @labelKey="Misc_Preset" @items={{this.model}}/>
+        <Interactable::Dropdown @labelKey="Misc_Level" />
+        <Interactable::Dropdown @labelKey="Misc_Preset" />
     </div>
 </div>

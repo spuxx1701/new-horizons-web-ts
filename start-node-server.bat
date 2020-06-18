@@ -29,6 +29,5 @@ if '%errorlevel%' NEQ '0' (
     CD /D "%~dp0"
 :--------------------------------------    
 cd C:\Users\ameis\OneDrive\Dev\new-horizons-web
-ember serve
-@echo on
 echo NodeJS Server is booting up, please wait...
+ember serve

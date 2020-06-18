@@ -6,21 +6,10 @@ import { inject as service } from '@ember/service';
 var that;
 
 export default class DatabaseService extends Service {
-    @service localizationService;
-    @service messageService;
-    @tracked database;
+    @service manager;
 
     init() {
         super.init();
         that = this;
-    }
-
-    async readDatabaseFile() {
-        var url = "/assets/database/database.json";
-        var json = await fetch(url).then(function (response) {
-            return response.json();
-        }).catch(function (exception) {
-            that.manager.log("error", "Unable to retrieve database file.");
-        });
     }
 }

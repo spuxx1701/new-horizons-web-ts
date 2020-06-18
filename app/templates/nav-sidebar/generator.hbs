@@ -8,40 +8,10 @@
 <div class="sidebar-sep"></div>
 <div class="vBox" id="generator-tabs">
     {{#each this.tabs as |tab|}}
-    <button id="tab-button-{{tab.id}}" type="button" class="sidebar-button-2" {{on 'click' (fn this.goToTab tab.id)}}>
+    <button id="sidebar-button-{{tab.id}}" type="button" class="sidebar-button-2" {{on 'click' (fn this.goToTab tab.id)}}>
         {{fa-icon tab.icon size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}}
         <p class="margin-vertical-auto">{{localize (concat "Misc_" tab.id)}}</p>
     </button>
     <div class="sidebar-sep"></div>
     {{/each}}
-    {{!--<button class="sidebar-button-2" type="button" {{on 'click' (fn this.goToTab "preset")}}>
-        {{fa-icon "cog" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}}
-        <p class="margin-vertical-auto">{{localize "Misc_Presets"}}</p>
-    </button>
-    <div class="sidebar-sep"></div>
-    <button class="sidebar-button-2" type="button" {{on 'click' (fn this.goToTab "origin")}} disabled>
-        {{fa-icon "home" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}}
-        <p class="margin-vertical-auto">{{localize "Misc_Origin"}}</p>
-    </button>
-    <div class="sidebar-sep"></div>
-    <button class="sidebar-button-2" type="button" {{on 'click' (fn this.goToTab "personal")}} disabled>
-        {{fa-icon "user" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}}
-        <p class="margin-vertical-auto">{{localize "Misc_Personal"}}</p>
-    </button>
-    <div class="sidebar-sep"></div>
-    <button class="sidebar-button-2" type="button" {{on 'click' (fn this.goToTab "attributes")}} disabled>
-        {{fa-icon "chevron-left" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}}
-        <p class="margin-vertical-auto">{{localize "Misc_Attributes"}}</p>
-    </button>
-    <div class="sidebar-sep"></div>
-    <button class="sidebar-button-2" type="button" {{on 'click' (fn this.goToTab "traits")}} disabled>
-        {{fa-icon "chevron-left" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}}
-        <p class="margin-vertical-auto">{{localize "Misc_Traits"}}</p>
-    </button>
-    <div class="sidebar-sep"></div>
-    <button class="sidebar-button-2" type="button" {{on 'click' (fn this.goToTab "skills")}} disabled>
-        {{fa-icon "chevron-left" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}}
-        <p class="margin-vertical-auto">{{localize "Misc_Skills"}}</p>
-    </button>
-    <div class="sidebar-sep"></div>--}}
 </div>

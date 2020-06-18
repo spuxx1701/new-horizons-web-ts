@@ -1,5 +1,17 @@
 [
     {
+        "key": "CharacterPreset_Default",
+        "value": "Standard"
+    },
+    {
+        "key": "Misc_NoData",
+        "value": "Keine Einträge."
+    },
+    {
+        "key": "CharacterPreset_Hero",
+        "value": "Heldin/Held"
+    },
+    {
         "key": "Misc_NotSignedIn",
         "value": "Du bist nicht angemeldet."
     },

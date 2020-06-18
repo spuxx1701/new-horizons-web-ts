@@ -15,6 +15,8 @@ export default class GeneratorPresetController extends Controller {
     init() {
         super.init();
         that = this;
+        if (!that.databaseService.database) {
+        }
     }
 
     onTransition() {
