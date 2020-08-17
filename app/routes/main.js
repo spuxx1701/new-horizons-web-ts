@@ -4,7 +4,7 @@ import RSVP from 'rsvp';
 export default class MainRoute extends Route {
     model() {
         return RSVP.hash({
-            localization: this.store.findAll("localization")
+            localization: this.store.findAll("localization"),
         });
     }
 }

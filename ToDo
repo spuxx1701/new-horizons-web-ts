@@ -1,0 +1,8 @@
+### CURRENTLY ###
++ Interactable Components mit möglichem Info-Button ausstatten
++ Input Field mit möglichem Zusatz versehen, der beim Bearbeiten ausgeblendet und nach dem Bearbeiten wieder eingeblendet wird
+
+ToDo when reading character files:
+
+- Replace "PriA_" with "PrimaryAttribute_"
+- Replace "SecA_" with "SecondaryAttribute_"

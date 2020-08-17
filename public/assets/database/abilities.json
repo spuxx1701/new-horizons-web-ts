@@ -5,7 +5,7 @@
         "editorOnly": true,
         "requirements": [
             {
-                "id": "PriA_CN",
+                "id": "PrimaryAttribute_CN",
                 "type": "",
                 "input": "",
                 "level": 12,
@@ -31,7 +31,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_CN",
+                "id": "PrimaryAttribute_CN",
                 "type": "",
                 "input": "",
                 "level": 12,
@@ -57,7 +57,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_CN",
+                "id": "PrimaryAttribute_CN",
                 "type": "",
                 "input": "",
                 "level": 14,
@@ -65,7 +65,7 @@
                 "oldLevel": 0
             },
             {
-                "id": "PriA_ST",
+                "id": "PrimaryAttribute_ST",
                 "type": "",
                 "input": "",
                 "level": 12,
@@ -99,7 +99,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_CN",
+                "id": "PrimaryAttribute_CN",
                 "type": "",
                 "input": "",
                 "level": 15,
@@ -107,7 +107,7 @@
                 "oldLevel": 0
             },
             {
-                "id": "PriA_ST",
+                "id": "PrimaryAttribute_ST",
                 "type": "",
                 "input": "",
                 "level": 14,
@@ -141,7 +141,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "SecA_DE",
+                "id": "SecondaryAttribute_DE",
                 "type": "",
                 "input": "",
                 "level": 8,
@@ -167,7 +167,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_CN",
+                "id": "PrimaryAttribute_CN",
                 "type": "",
                 "input": "",
                 "level": 12,
@@ -193,7 +193,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_IN",
+                "id": "PrimaryAttribute_IN",
                 "type": "",
                 "input": "",
                 "level": 12,
@@ -201,7 +201,7 @@
                 "oldLevel": 0
             },
             {
-                "id": "PriA_CN",
+                "id": "PrimaryAttribute_CN",
                 "type": "",
                 "input": "",
                 "level": 14,
@@ -269,7 +269,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_IN",
+                "id": "PrimaryAttribute_IN",
                 "type": "",
                 "input": "",
                 "level": 12,
@@ -277,7 +277,7 @@
                 "oldLevel": 0
             },
             {
-                "id": "PriA_DX",
+                "id": "PrimaryAttribute_DX",
                 "type": "",
                 "input": "",
                 "level": 12,
@@ -337,7 +337,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_AG",
+                "id": "PrimaryAttribute_AG",
                 "type": "",
                 "input": "",
                 "level": 12,
@@ -345,7 +345,7 @@
                 "oldLevel": 0
             },
             {
-                "id": "PriA_DX",
+                "id": "PrimaryAttribute_DX",
                 "type": "",
                 "input": "",
                 "level": 10,
@@ -371,7 +371,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_IN",
+                "id": "PrimaryAttribute_IN",
                 "type": "",
                 "input": "",
                 "level": 12,
@@ -379,7 +379,7 @@
                 "oldLevel": 0
             },
             {
-                "id": "SecA_RE",
+                "id": "SecondaryAttribute_RE",
                 "type": "",
                 "input": "",
                 "level": 10,
@@ -399,7 +399,7 @@
         "costs": 300,
         "targets": [
             {
-                "id": "SecA_RE",
+                "id": "SecondaryAttribute_RE",
                 "type": "bonus",
                 "input": "",
                 "level": 4,
@@ -414,7 +414,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_IN",
+                "id": "PrimaryAttribute_IN",
                 "type": "",
                 "input": "",
                 "level": 15,
@@ -450,7 +450,7 @@
         "costs": 200,
         "targets": [
             {
-                "id": "SecA_RE",
+                "id": "SecondaryAttribute_RE",
                 "type": "bonus",
                 "input": "",
                 "level": 2,
@@ -536,7 +536,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_AG",
+                "id": "PrimaryAttribute_AG",
                 "type": "",
                 "input": "",
                 "level": 12,
@@ -562,7 +562,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_CR",
+                "id": "PrimaryAttribute_CR",
                 "type": "",
                 "input": "",
                 "level": 12,
@@ -614,7 +614,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_CL",
+                "id": "PrimaryAttribute_CL",
                 "type": "",
                 "input": "",
                 "level": 12,
@@ -622,7 +622,7 @@
                 "oldLevel": 0
             },
             {
-                "id": "PriA_IN",
+                "id": "PrimaryAttribute_IN",
                 "type": "",
                 "input": "",
                 "level": 12,
@@ -648,7 +648,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_AG",
+                "id": "PrimaryAttribute_AG",
                 "type": "",
                 "input": "",
                 "level": 12,
@@ -656,7 +656,7 @@
                 "oldLevel": 0
             },
             {
-                "id": "SecA_AT",
+                "id": "SecondaryAttribute_AT",
                 "type": "",
                 "input": "",
                 "level": 8,
@@ -682,7 +682,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_CR",
+                "id": "PrimaryAttribute_CR",
                 "type": "",
                 "input": "",
                 "level": 12,
@@ -690,7 +690,7 @@
                 "oldLevel": 0
             },
             {
-                "id": "PriA_ST",
+                "id": "PrimaryAttribute_ST",
                 "type": "",
                 "input": "",
                 "level": 15,
@@ -724,7 +724,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_ST",
+                "id": "PrimaryAttribute_ST",
                 "type": "",
                 "input": "",
                 "level": 13,
@@ -758,7 +758,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_AG",
+                "id": "PrimaryAttribute_AG",
                 "type": "",
                 "input": "",
                 "level": 10,
@@ -784,7 +784,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_AG",
+                "id": "PrimaryAttribute_AG",
                 "type": "",
                 "input": "",
                 "level": 12,
@@ -818,7 +818,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_AG",
+                "id": "PrimaryAttribute_AG",
                 "type": "",
                 "input": "",
                 "level": 15,
@@ -878,7 +878,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_CN",
+                "id": "PrimaryAttribute_CN",
                 "type": "",
                 "input": "",
                 "level": 12,
@@ -912,7 +912,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_ST",
+                "id": "PrimaryAttribute_ST",
                 "type": "",
                 "input": "",
                 "level": 12,
@@ -920,7 +920,7 @@
                 "oldLevel": 0
             },
             {
-                "id": "SecA_DE",
+                "id": "SecondaryAttribute_DE",
                 "type": "",
                 "input": "",
                 "level": 8,
@@ -946,7 +946,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_ST",
+                "id": "PrimaryAttribute_ST",
                 "type": "",
                 "input": "",
                 "level": 14,
@@ -980,7 +980,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_ST",
+                "id": "PrimaryAttribute_ST",
                 "type": "",
                 "input": "",
                 "level": 12,
@@ -988,7 +988,7 @@
                 "oldLevel": 0
             },
             {
-                "id": "SecA_AT",
+                "id": "SecondaryAttribute_AT",
                 "type": "",
                 "input": "",
                 "level": 8,
@@ -1014,7 +1014,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_CR",
+                "id": "PrimaryAttribute_CR",
                 "type": "",
                 "input": "",
                 "level": 15,
@@ -1022,7 +1022,7 @@
                 "oldLevel": 0
             },
             {
-                "id": "PriA_AG",
+                "id": "PrimaryAttribute_AG",
                 "type": "",
                 "input": "",
                 "level": 12,
@@ -1056,7 +1056,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_AG",
+                "id": "PrimaryAttribute_AG",
                 "type": "",
                 "input": "",
                 "level": 12,
@@ -1090,7 +1090,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_AG",
+                "id": "PrimaryAttribute_AG",
                 "type": "",
                 "input": "",
                 "level": 15,
@@ -1098,7 +1098,7 @@
                 "oldLevel": 0
             },
             {
-                "id": "PriA_ST",
+                "id": "PrimaryAttribute_ST",
                 "type": "",
                 "input": "",
                 "level": 12,
@@ -1158,7 +1158,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_CN",
+                "id": "PrimaryAttribute_CN",
                 "type": "",
                 "input": "",
                 "level": 12,
@@ -1166,7 +1166,7 @@
                 "oldLevel": 0
             },
             {
-                "id": "PriA_ST",
+                "id": "PrimaryAttribute_ST",
                 "type": "",
                 "input": "",
                 "level": 12,
@@ -1200,7 +1200,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_CN",
+                "id": "PrimaryAttribute_CN",
                 "type": "",
                 "input": "",
                 "level": 13,
@@ -1208,7 +1208,7 @@
                 "oldLevel": 0
             },
             {
-                "id": "PriA_ST",
+                "id": "PrimaryAttribute_ST",
                 "type": "",
                 "input": "",
                 "level": 13,
@@ -1234,7 +1234,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_DX",
+                "id": "PrimaryAttribute_DX",
                 "type": "",
                 "input": "",
                 "level": 12,
@@ -1242,7 +1242,7 @@
                 "oldLevel": 0
             },
             {
-                "id": "SecA_AT",
+                "id": "SecondaryAttribute_AT",
                 "type": "",
                 "input": "",
                 "level": 8,
@@ -1294,7 +1294,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_DX",
+                "id": "PrimaryAttribute_DX",
                 "type": "",
                 "input": "",
                 "level": 15,
@@ -1328,7 +1328,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_CR",
+                "id": "PrimaryAttribute_CR",
                 "type": "",
                 "input": "",
                 "level": 13,
@@ -1336,7 +1336,7 @@
                 "oldLevel": 0
             },
             {
-                "id": "PriA_AG",
+                "id": "PrimaryAttribute_AG",
                 "type": "",
                 "input": "",
                 "level": 13,
@@ -1370,7 +1370,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_AG",
+                "id": "PrimaryAttribute_AG",
                 "type": "",
                 "input": "",
                 "level": 15,
@@ -1378,7 +1378,7 @@
                 "oldLevel": 0
             },
             {
-                "id": "PriA_DX",
+                "id": "PrimaryAttribute_DX",
                 "type": "",
                 "input": "",
                 "level": 12,
@@ -1412,7 +1412,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_CR",
+                "id": "PrimaryAttribute_CR",
                 "type": "",
                 "input": "",
                 "level": 12,
@@ -1420,7 +1420,7 @@
                 "oldLevel": 0
             },
             {
-                "id": "PriA_CN",
+                "id": "PrimaryAttribute_CN",
                 "type": "",
                 "input": "",
                 "level": 12,
@@ -1462,7 +1462,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_IN",
+                "id": "PrimaryAttribute_IN",
                 "type": "",
                 "input": "",
                 "level": 12,
@@ -1504,7 +1504,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_CR",
+                "id": "PrimaryAttribute_CR",
                 "type": "",
                 "input": "",
                 "level": 13,
@@ -1512,7 +1512,7 @@
                 "oldLevel": 0
             },
             {
-                "id": "PriA_IN",
+                "id": "PrimaryAttribute_IN",
                 "type": "",
                 "input": "",
                 "level": 12,
@@ -1554,7 +1554,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_IN",
+                "id": "PrimaryAttribute_IN",
                 "type": "",
                 "input": "",
                 "level": 13,
@@ -1562,7 +1562,7 @@
                 "oldLevel": 0
             },
             {
-                "id": "PriA_CN",
+                "id": "PrimaryAttribute_CN",
                 "type": "",
                 "input": "",
                 "level": 15,
@@ -1604,7 +1604,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_CR",
+                "id": "PrimaryAttribute_CR",
                 "type": "",
                 "input": "",
                 "level": 14,
@@ -1638,7 +1638,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_CR",
+                "id": "PrimaryAttribute_CR",
                 "type": "",
                 "input": "",
                 "level": 14,
@@ -1766,7 +1766,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_CR",
+                "id": "PrimaryAttribute_CR",
                 "type": "",
                 "input": "",
                 "level": 12,
@@ -1774,7 +1774,7 @@
                 "oldLevel": 0
             },
             {
-                "id": "PriA_IN",
+                "id": "PrimaryAttribute_IN",
                 "type": "",
                 "input": "",
                 "level": 12,
@@ -1816,7 +1816,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_IN",
+                "id": "PrimaryAttribute_IN",
                 "type": "",
                 "input": "",
                 "level": 15,
@@ -1824,7 +1824,7 @@
                 "oldLevel": 0
             },
             {
-                "id": "PriA_CN",
+                "id": "PrimaryAttribute_CN",
                 "type": "",
                 "input": "",
                 "level": 12,
@@ -1858,7 +1858,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_CR",
+                "id": "PrimaryAttribute_CR",
                 "type": "",
                 "input": "",
                 "level": 15,
@@ -1892,7 +1892,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_CR",
+                "id": "PrimaryAttribute_CR",
                 "type": "",
                 "input": "",
                 "level": 12,
@@ -1900,7 +1900,7 @@
                 "oldLevel": 0
             },
             {
-                "id": "PriA_IN",
+                "id": "PrimaryAttribute_IN",
                 "type": "",
                 "input": "",
                 "level": 12,
@@ -1934,7 +1934,7 @@
         "editorOnly": false,
         "requirements": [
             {
-                "id": "PriA_CR",
+                "id": "PrimaryAttribute_CR",
                 "type": "",
                 "input": "",
                 "level": 12,
@@ -1942,7 +1942,7 @@
                 "oldLevel": 0
             },
             {
-                "id": "PriA_IN",
+                "id": "PrimaryAttribute_IN",
                 "type": "",
                 "input": "",
                 "level": 12,

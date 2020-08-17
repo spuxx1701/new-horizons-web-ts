@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import JSONSerializer from '@ember-data/serializer/json';
 
-export default class DatabaseSerializer extends JSONSerializer {
+export default class StellarpediaSerializer extends JSONSerializer {
     // dasherize IDs
     extractId(modelClass, resourceHash) {
         let id = super.extractId(modelClass, resourceHash).replace("_", "/");

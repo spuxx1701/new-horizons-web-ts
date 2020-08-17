@@ -4,6 +4,10 @@
         "value": "Standard"
     },
     {
+        "key": "Misc_CharacterPresetDisclaimer",
+        "value": "Bevor Du loslegst, kannst Du aus einer Reihe von Voreinstellungen für die Charaktererstellung wählen oder alle Parameter selbst anpassen. Wenn Du nicht weißt, was Du hier einstellen sollst und Dir Deine Spielleiterin oder Dein Spielleiter nichts dazu gesagt hat, klicke einfach direkt auf \"Heldenerschaffung beginnen\"!"
+    },
+    {
         "key": "Misc_NoData",
         "value": "Keine Einträge."
     },

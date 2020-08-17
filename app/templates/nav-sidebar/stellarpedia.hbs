@@ -1,0 +1,16 @@
+<button class="sidebar-button-1" type="button" {{on 'click' this.returnToMenu}}>
+    {{fa-icon "chevron-left" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}}
+    <p class="margin-vertical-auto">{{localize "Misc_Back"}}</p>
+</button>
+<div class="sidebar-sep"></div>
+<h5 class="fgWhite margin-vertical-medium sidebar-header">{{localize "Misc_Stellarpedia"}}</h5>
+<div class="sidebar-sep"></div>
+<div class="vBox" id="generator-tabs">
+    {{#each this.model.books as |book|}}
+    <button id="sidebar-button-{{book}}.id}}" type="button" class="sidebar-button-2">
+        {{fa-icon this.bookicon size=this.manager.constants.sidebarIconSize class="marginSidesMedium fgTealNeon"}}
+        <p class="margin-vertical-auto">{{localize (concat "Stellarpedia_" book.id)}}</p>
+    </button>
+    <div class="sidebar-sep"></div>
+    {{/each}}
+</div>

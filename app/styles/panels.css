@@ -8,15 +8,21 @@
     padding-right: 5px;
 }
 
-.panel-large {
+.panel-parent {
     margin: auto;
-    width: 80%;
+    position: relative;
     max-width: 980px;
-    background-color: var(--colorTealTrans);
-    border: none;
-    border-radius: 5px;
+    width: 95%;
 }
 
+.panel-large {
+    margin: auto;
+    width: 100%;
+    padding: 0 2px 0 2px;
+    background-color: var(--colorGreyDark);
+    border: 1px solid var(--colorGreyMedium);
+    border-radius: 1px;
+}
 
 .panel-sep {
     width: 100%;

@@ -1,8 +1,16 @@
 <div class="panelLarge">
     <h2 class="fgWhite text-center">Generator-Voreinstellungen</h2>
-    <div class="panel-large vBox paddingSides10px paddingTopBottom10px">
-        <Interactable::Dropdown @labelKey="Misc_Preset" @items={{this.model}}/>
-        <Interactable::Dropdown @labelKey="Misc_Level" />
-        <Interactable::Dropdown @labelKey="Misc_Preset" />
-    </div>
+    <Layout::Panel>
+        <p class="text-center">{{localize "Misc_CharacterPresetDisclaimer"}}</p>
+        <Interactable::Dropdown @label="Misc_Preset" @size="2" @items={{this.model.characterPresets}}
+            @onChange={{this.onChangePreset}} @info="basic-rules/chapter/entry" />
+        <Interactable::Inputfield @label="Misc_GPBonus" @size="1" @value={{this.selectedPreset.gpBonus}} />
+        <Interactable::Inputfield @label="Misc_AvailableAP" @size="1" @value={{this.selectedPreset.apAvailable}} />
+        <Interactable::Inputfield @label="Misc_MaxTraits" @size="1" @value={{this.selectedPreset.traitsMax}} />
+        <Interactable::Inputfield @label="Misc_MaxAbilities" @size="1" @value={{this.selectedPreset.abilitiesMax}} />
+        <Interactable::Inputfield @label="Misc_AvailableIP" @size="1" @value={{this.selectedPreset.ipAvailable}} />
+        <Interactable::Inputfield @label="Misc_StartEP" @size="1" @value={{this.selectedPreset.epStart}} />
+        <Interactable::Inputfield @label="Misc_StartMoney" @size="1" @value={{this.selectedPreset.crStart}} />
+        <Interactable::Inputfield @label="Misc_StartFP" @size="1" @value={{this.selectedPreset.fpStart}} />
+    </Layout::Panel>
 </div>

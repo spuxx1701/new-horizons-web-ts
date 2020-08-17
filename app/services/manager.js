@@ -11,6 +11,7 @@ var that;
 
 export default class ManagerService extends Service {
     @service store;
+    @service("constantService") constants;
     @service localizationService;
     @service messageService;
     @service databaseService;
@@ -31,7 +32,7 @@ export default class ManagerService extends Service {
             that.onTransition();
         });
         that.renderNavbarMenu();
-        that.log("info", "Initialization complete.");
+        that.log("Manager initialized.");
     }
 
     test() {
@@ -44,6 +45,7 @@ export default class ManagerService extends Service {
     }
 
     onTransition() {
+        if (!that.router.currentRouteName) return;
         let currentRouteNameSplit = that.router.currentRouteName.split(".");
         currentRouteNameSplit.forEach(function (routeName, index) {
             let combinedRouteName = "";
@@ -62,6 +64,7 @@ export default class ManagerService extends Service {
     }
 
     renderNavbarMenu() {
+        if (!that.router.currentRouteName) return;
         let currentRouteNameSplit = that.router.currentRouteName.split(".");
         if (currentRouteNameSplit.length > 1) {
             let combinedRouteName = currentRouteNameSplit[0] + "." + currentRouteNameSplit[1];
@@ -99,7 +102,11 @@ export default class ManagerService extends Service {
         return (that.localizationService.getValue(key));
     }
 
-    log(messageType = "info", messageText) {
+    getIdentifiable(id) {
+        return that.databaseService.getIdentifiable(id);
+    }
+
+    log(messageText, messageType = "info",) {
         that.messageService.logMessage(messageText, messageType);
     }
 }

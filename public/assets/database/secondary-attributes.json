@@ -1,95 +1,95 @@
 [
     {
-        "id": "SecA_LP",
+        "id": "SecondaryAttribute_LP",
         "current": 24,
         "remaining": 0,
         "bonus": 0,
         "primaryAttributes": [
-            "PriA_CN",
-            "PriA_CN"
+            "PrimaryAttribute_CN",
+            "PrimaryAttribute_CN"
         ],
         "div": 1.0
     },
     {
-        "id": "SecA_SP",
+        "id": "SecondaryAttribute_SP",
         "current": 12,
         "remaining": 0,
         "bonus": 0,
         "primaryAttributes": [
-            "PriA_CN",
-            "PriA_CN",
-            "PriA_AG"
+            "PrimaryAttribute_CN",
+            "PrimaryAttribute_CN",
+            "PrimaryAttribute_AG"
         ],
         "div": 2.0
     },
     {
-        "id": "SecA_RE",
+        "id": "SecondaryAttribute_RE",
         "current": 6,
         "remaining": 0,
         "bonus": 0,
         "primaryAttributes": [
-            "PriA_CR",
-            "PriA_CR",
-            "PriA_IN",
-            "PriA_AG"
+            "PrimaryAttribute_CR",
+            "PrimaryAttribute_CR",
+            "PrimaryAttribute_IN",
+            "PrimaryAttribute_AG"
         ],
         "div": 5.0
     },
     {
-        "id": "SecA_AT",
+        "id": "SecondaryAttribute_AT",
         "current": 5,
         "remaining": 0,
         "bonus": 0,
         "primaryAttributes": [
-            "PriA_CR",
-            "PriA_DX",
-            "PriA_ST"
+            "PrimaryAttribute_CR",
+            "PrimaryAttribute_DX",
+            "PrimaryAttribute_ST"
         ],
         "div": 5.0
     },
     {
-        "id": "SecA_DE",
+        "id": "SecondaryAttribute_DE",
         "current": 5,
         "remaining": 0,
         "bonus": 0,
         "primaryAttributes": [
-            "PriA_IN",
-            "PriA_AG",
-            "PriA_AG"
+            "PrimaryAttribute_IN",
+            "PrimaryAttribute_AG",
+            "PrimaryAttribute_AG"
         ],
         "div": 5.0
     },
     {
-        "id": "SecA_PI",
+        "id": "SecondaryAttribute_PI",
         "current": 5,
         "remaining": 0,
         "bonus": 0,
         "primaryAttributes": [
-            "PriA_CR",
-            "PriA_IN",
-            "PriA_CN"
+            "PrimaryAttribute_CR",
+            "PrimaryAttribute_IN",
+            "PrimaryAttribute_CN"
         ],
         "div": 5.0
     },
     {
-        "id": "SecA_VE",
+        "id": "SecondaryAttribute_VE",
         "current": 3,
         "remaining": 0,
         "bonus": 0,
         "primaryAttributes": [
-            "PriA_AG",
-            "PriA_AG",
-            "PriA_CN"
+            "PrimaryAttribute_AG",
+            "PrimaryAttribute_AG",
+            "PrimaryAttribute_CN"
         ],
         "div": 6.0
     },
     {
-        "id": "SecA_WT",
+        "id": "SecondaryAttribute_WT",
         "current": 4,
         "remaining": 0,
         "bonus": 0,
         "primaryAttributes": [
-            "PriA_CN"
+            "PrimaryAttribute_CN"
         ],
         "div": 2.0
     }

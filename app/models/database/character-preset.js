@@ -4,6 +4,7 @@ import DatabaseModel from './database';
 export default class CharacterPresetModel extends DatabaseModel {
     @attr("number") gpBonus;
     @attr("number") gpAvailable;
+    @attr("number") apAvailable;
     @attr("number") traitsMax;
     @attr("number") abilitiesMax;
     @attr("number") ipAvailable;

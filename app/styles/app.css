@@ -6,9 +6,9 @@
 :root {
     vertical-align: middle;
     --colorDeepSpace: rgb(14, 16, 21);
-    --colorGreyBright: rgb(200, 200, 200);
+    --colorGreyBright: #c8c8c8;
     --colorGreyMedium: #5F5F5F;
-    --colorGreyDark: #454545;
+    --colorGreyDark: #2e2e2e;
     --colorGreyTrans: rgba(200, 200, 200, 0.5);
     --colorTealNeon: #00FFFF;
     --colorTealBright: #64C8C8;
@@ -44,6 +44,7 @@
     height: 100%;
     transition: 0.5s;
     overflow-y: hidden;
+    padding: 20px;
 }
 
 .liquid-container {

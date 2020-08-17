@@ -10,7 +10,6 @@ var that = that;
 export default class NavbarMainController extends Controller {
     @service manager;
     @service session;
-    @tracked sidebarIconSize = "1";
 
     init() {
         super.init();

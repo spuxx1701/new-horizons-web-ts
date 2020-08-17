@@ -1,32 +1,25 @@
-<h5>{{localize @labelKey}}</h5>
-{{!--<div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false">
-        <h6 class="dropdown-caption">{{@captionKey}}</h6>
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        {{#each @items as |item|}}
-        <a class="dropdown-item" href="#">{{localize item.id}}</a>
-        {{/each}}
-        <a class="dropdown-item" href="#">Option A</a>
-        <a class="dropdown-item" href="#">Option B</a>
-        <a class="dropdown-item" href="#">Option C</a>
+<div class="interactable-container">
+    <label class="label h5" for="dropdown">{{localize @label}}</label>
+    <div class="interactable-element">
+        <BsDropdown id="dropdown" class="dropdown interactable-size-{{@size}}" @tagName="span" as |dropdown|>
+            <dropdown.button disabled={{this.disabled}}>
+                <h6 class="dropdown-caption">{{this.caption}}</h6>
+                <span class="caret"></span>
+            </dropdown.button>
+            <dropdown.menu as |menu|>
+                {{#each @items as |item|}}
+                <menu.item>
+                    <a class="dropdown-item" href="#" {{on "click" (fn this.onItemClicked item)}}>
+                        <h6 class="dropdown-item-label">{{localize item.id}}</h6>
+                    </a>
+                </menu.item>
+                <menu.divider />
+                {{/each}}
+            </dropdown.menu>
+        </BsDropdown>
+        {{#if (is-empty @info)}}
+        {{else}}
+        <Interactable::ButtonInfo @article={{@info}} />
+        {{/if}}
     </div>
-</div>--}}
-
-<BsDropdown class="dropdown" @tagName="span" as |dropdown|>
-    <dropdown.button disabled={{this.disabled}}>
-        <h6 class="dropdown-caption">{{this.caption}}</h6>
-        <span class="caret"></span>
-    </dropdown.button>
-    <dropdown.menu as |menu|>
-        {{#each @items as |item|}}
-        <menu.item>
-            <a class="dropdown-item" href="#">
-                <h6 class="dropdown-item-label" {{on "click" (fn this.onItemClicked item)}}>{{localize item.id}}</h6>
-            </a>
-        </menu.item>
-        <menu.divider/>
-        {{/each}}
-    </dropdown.menu>
-</BsDropdown>
+</div>

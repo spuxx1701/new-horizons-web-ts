@@ -4,34 +4,35 @@
 <div class="vBox" id="main-tabs">
     <button id="sidebar-button-home" class="sidebar-button-1" type="button"
         {{on 'click' (fn this.goToTab "home" true)}}>
-        {{fa-icon "home" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
+        {{fa-icon "home" size=this.manager.constants.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
             class="margin-vertical-auto">
             {{localize "Misc_Home"}}</p>
     </button>
     <div class="sidebar-sep"></div>
     <button id="sidebar-button-news" class="sidebar-button-1" type="button"
         {{on 'click' (fn this.goToTab "news" true)}}>
-        {{fa-icon "newspaper-o" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
+        {{fa-icon "newspaper-o" size=this.manager.constants.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
             class="margin-vertical-auto">
             {{localize "Misc_News"}}</p>
     </button>
     <div class="sidebar-sep"></div>
     <button id="sidebar-button-about" class="sidebar-button-1" type="button"
         {{on 'click' (fn this.goToTab "about" true)}}>
-        {{fa-icon "globe" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
+        {{fa-icon "globe" size=this.manager.constants.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
             class="margin-vertical-auto">
             {{localize "Misc_About"}}</p>
     </button>
     <div class="sidebar-sep"></div>
     <button id="sidebar-button-support" class="sidebar-button-1" type="button"
         {{on 'click' (fn this.goToTab "support" true)}}>
-        {{fa-icon "coffee" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
+        {{fa-icon "coffee" size=this.manager.constants.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
             class="margin-vertical-auto">
             {{localize "Misc_Support"}}</p>
     </button>
     <div class="sidebar-sep"></div>
-    <button id="sidebar-button-imprint" class="sidebar-button-1" type="button" {{on 'click' (fn this.goToTab "imprint" true)}}>
-        {{fa-icon "info-circle" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
+    <button id="sidebar-button-imprint" class="sidebar-button-1" type="button"
+        {{on 'click' (fn this.goToTab "imprint" true)}}>
+        {{fa-icon "info-circle" size=this.manager.constants.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
             class="margin-vertical-auto">
             {{localize "Misc_Imprint"}}</p>
     </button>
@@ -47,26 +48,33 @@
 <div class="sidebar-sep"></div>
 <h5 class="fgWhite margin-vertical-medium sidebar-header">{{localize "Misc_Editor"}}</h5>
 <div class="sidebar-sep"></div>
+<button class="sidebar-button-1" type="button" {{on 'click' (fn this.goToTab "stellarpedia")}}>
+    {{fa-icon "wikipedia-w " size=this.manager.constants.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
+        class="margin-vertical-auto">
+        {{localize "Misc_Stellarpedia"}}</p>
+</button>
+<div class="sidebar-sep"></div>
 <button class="sidebar-button-1" type="button" {{on 'click' (fn this.goToTab "generator.preset")}}>
-    {{fa-icon "user-plus" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
+    {{fa-icon "user-plus" size=this.manager.constants.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
         class="margin-vertical-auto">
         {{localize "Misc_NewCharacter"}}</p>
 </button>
 <div class="sidebar-sep"></div>
 {{#if this.session.isAuthenticated}}
 <button class="sidebar-button-1" type="button">
-    {{fa-icon "user" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p class="margin-vertical-auto">
+    {{fa-icon "user" size=this.manager.constants.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
+        class="margin-vertical-auto">
         {{localize "Misc_LoadCharacter"}}</p>
 </button>
 <div class="sidebar-sep"></div>
 <button class="sidebar-button-1" type="button">
-    {{fa-icon "user-plus" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
+    {{fa-icon "user-plus" size=this.manager.constants.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
         class="margin-vertical-auto">
         {{localize "Misc_NewJournal"}}</p>
 </button>
 <div class="sidebar-sep"></div>
 <button class="sidebar-button-1" type="button">
-    {{fa-icon "user-plus" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
+    {{fa-icon "user-plus" size=this.manager.constants.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
         class="margin-vertical-auto">
         {{localize "Misc_LoadJournal"}}</p>
 </button>

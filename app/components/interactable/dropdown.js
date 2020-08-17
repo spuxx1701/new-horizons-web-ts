@@ -1,23 +1,18 @@
 //  Leopold Hock | 18.06.2020
-//  Description: Controller for component 'ui::dropdown'.
+//  Description: Controller for component 'Interactable::Dropdown'.
 import InteractableComponent from './interactable';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 
 export default class DropdownComponent extends InteractableComponent {
+    @service manager;
     @tracked caption;
     @tracked selectedIndex = 0;
     @tracked selectedId = "";
 
     init() {
-        super.init()/*
-        // supply all items with indices
-        let items = this.get("items");
-        for (let i = 0; i < items.content.length; i++) {
-            items.content[i].index = i;
-        }
-        this.set(items.index = )*/
+        super.init()
     }
 
     willRender() {
@@ -31,17 +26,24 @@ export default class DropdownComponent extends InteractableComponent {
         }
     }
 
-    @action
-    onItemClicked(item) {
+    // internal event that handles dropdown selection
+    @action onItemClicked(item) {
+        // do dropdown specific stuff
         if (this.get("disabled")) return;
         let items = this.get("items");
         let index = items.indexOf(item);
         this.set("selectedIndex", index);
         this.update();
+        // try to call onChange(itemID, index)
+        if (typeof this.onChange === this.manager.constants.typeOfFunction) {
+            this.onChange(this.get("selectedId"), this.get("selectedIndex"));
+        } else {
+            this.manager.log("error", "Calling onChange(itemID, index) from dropdown component has failed because method has not been subscribed in parent template.");
+        }
     }
 
-    @action
-    update() {
+    // update dropdown state internally
+    @action update() {
         let items = this.get("items");
         // visualize and, if required, adjust the current selected item
         if (this.get("selectedIndex") >= items.content.length)

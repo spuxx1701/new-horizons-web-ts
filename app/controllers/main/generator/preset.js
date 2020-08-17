@@ -5,21 +5,27 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
-var that;
 
 export default class GeneratorPresetController extends Controller {
     @service manager;
     @service databaseService;
     @service characterService;
 
+    @tracked selectedPreset;
+    @tracked isModified = false;
+
     init() {
         super.init();
-        that = this;
-        if (!that.databaseService.database) {
-        }
+        this.onTransition();
     }
 
     onTransition() {
+        this.onChangePreset(this.manager.constants.characterPresetIdDefault);
+        //this.onChangePreset(this.manager.store.peekAll("character-preset").get("firstObject"))
+    }
 
+    @action onChangePreset(itemId) {
+        this.selectedPreset = this.manager.getIdentifiable(itemId);
+        this.isModified = false;
     }
 }

@@ -1,6 +1,6 @@
 [
     {
-        "id": "PriA_CR",
+        "id": "PrimaryAttribute_CR",
         "current": 8,
         "start": 8,
         "min": 8,
@@ -8,7 +8,7 @@
         "bonus": 0
     },
     {
-        "id": "PriA_CL",
+        "id": "PrimaryAttribute_CL",
         "current": 8,
         "start": 8,
         "min": 8,
@@ -16,7 +16,7 @@
         "bonus": 0
     },
     {
-        "id": "PriA_IN",
+        "id": "PrimaryAttribute_IN",
         "current": 8,
         "start": 8,
         "min": 8,
@@ -24,7 +24,7 @@
         "bonus": 0
     },
     {
-        "id": "PriA_CH",
+        "id": "PrimaryAttribute_CH",
         "current": 8,
         "start": 8,
         "min": 8,
@@ -32,7 +32,7 @@
         "bonus": 0
     },
     {
-        "id": "PriA_AG",
+        "id": "PrimaryAttribute_AG",
         "current": 8,
         "start": 8,
         "min": 8,
@@ -40,7 +40,7 @@
         "bonus": 0
     },
     {
-        "id": "PriA_DX",
+        "id": "PrimaryAttribute_DX",
         "current": 8,
         "start": 8,
         "min": 8,
@@ -48,7 +48,7 @@
         "bonus": 0
     },
     {
-        "id": "PriA_CN",
+        "id": "PrimaryAttribute_CN",
         "current": 8,
         "start": 8,
         "min": 8,
@@ -56,7 +56,7 @@
         "bonus": 0
     },
     {
-        "id": "PriA_ST",
+        "id": "PrimaryAttribute_ST",
         "current": 8,
         "start": 8,
         "min": 8,

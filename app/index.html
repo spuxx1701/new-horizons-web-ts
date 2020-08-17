@@ -1,32 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>New Horizons</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {{content-for "head"}}
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>New Horizons</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
-    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/new-horizons-web.css">
-    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/gui-components.css">
-    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/input-components.css">
-    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/text.css">
-    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/layout.css">
-    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/colors.css">
-    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vfx.css">
-    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/sidebars.css">
+  {{content-for "head"}}
 
-    {{content-for "head-footer"}}
-  </head>
-  <body>
-    {{content-for "body"}}
+  <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
+  <link integrity="" rel="stylesheet" href="{{rootURL}}assets/new-horizons-web.css">
+  <link integrity="" rel="stylesheet" href="{{rootURL}}assets/panels.css">
+  <link integrity="" rel="stylesheet" href="{{rootURL}}assets/controls.css">
+  <link integrity="" rel="stylesheet" href="{{rootURL}}assets/text.css">
+  <link integrity="" rel="stylesheet" href="{{rootURL}}assets/layout.css">
+  <link integrity="" rel="stylesheet" href="{{rootURL}}assets/colors.css">
+  <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vfx.css">
+  <link integrity="" rel="stylesheet" href="{{rootURL}}assets/sidebars.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" type="text/css" />
+  <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
 
-    <script src="{{rootURL}}assets/vendor.js"></script>
-    <script src="{{rootURL}}assets/new-horizons-web.js"></script>
+  {{content-for "head-footer"}}
+</head>
 
-    {{content-for "body-footer"}}
-  </body>
+<body>
+  {{content-for "body"}}
+
+  <script src="{{rootURL}}assets/vendor.js"></script>
+  <script src="{{rootURL}}assets/new-horizons-web.js"></script>
+
+  {{content-for "body-footer"}}
+</body>
+
 </html>

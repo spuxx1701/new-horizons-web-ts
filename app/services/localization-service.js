@@ -28,7 +28,8 @@ export default class LocalizationService extends Service {
         /*if (!this.currentLocalization) {
             this.currentLocalization = this.getUserLanguage();
         }*/
-        key = key.toLowerCase();
+        key = key.replace("_", "/");
+        key = Ember.String.dasherize(key);
         if (that.store.peekAll("localization").length == 0) return "";
         let result = that.store.peekRecord("localization", key);
         if (result) {
