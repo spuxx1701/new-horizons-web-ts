@@ -2,11 +2,8 @@ import Ember from 'ember';
 import JSONSerializer from '@ember-data/serializer/json';
 import { EmbeddedRecordsMixin } from '@ember-data/serializer/rest';
 
-export default class StellarpediaSerializer extends JSONSerializer {
+export default class StellarpediaChapterSerializer extends JSONSerializer {
     primaryKey = "key";
-    /*attrs = {
-        chapters: { embedded: 'always' }
-    }*/
 
     // make IDs lower case and dasherize
     extractId(modelClass, resourceHash) {
@@ -14,4 +11,10 @@ export default class StellarpediaSerializer extends JSONSerializer {
         id = Ember.String.dasherize(id);
         return id;
     }
+
+    // copy 'id' to '_id' because id's will get stripped in fragments
+    /*normalize(typeClass, resourceHash) {
+        console.log(resourceHash);
+        return super.normalize(typeClass, resourceHash);
+    }*/
 }

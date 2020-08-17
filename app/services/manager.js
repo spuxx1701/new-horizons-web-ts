@@ -37,7 +37,10 @@ export default class ManagerService extends Service {
 
     test() {
         console.log("Starting test...");
-        console.log(that.store.peekRecord("localization", "Misc_Preset"));
+        let book = that.store.peekRecord("stellarpedia", "basic-rules");
+        console.log(book);
+        let chapters = book.get("chapters");
+        console.log(chapters);
     }
 
     goToRoute(id) {

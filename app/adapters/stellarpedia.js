@@ -4,6 +4,7 @@ import { inject as service } from '@ember/service';
 export default class StellarpediaAdapter extends RESTAdapter {
     @service localizationService;
     namespace = "/assets/stellarpedia/stellarpedia_";
+    //namespace = "/assets/localization/localization_";
 
     urlForFindAll(modelName, snapshot) {
         let url = this.namespace + this.localizationService.currentLocalization + ".json";

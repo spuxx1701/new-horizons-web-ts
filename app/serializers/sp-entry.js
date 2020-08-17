@@ -1,7 +1,8 @@
 import Ember from 'ember';
 import JSONSerializer from '@ember-data/serializer/json';
+import { EmbeddedRecordsMixin } from '@ember-data/serializer/rest';
 
-export default class LocalizationSerializer extends JSONSerializer {
+export default class StellarpediaEntrySerializer extends JSONSerializer {
     primaryKey = "key";
 
     // make IDs lower case and dasherize
