@@ -2,7 +2,7 @@ import RESTAdapter from '@ember-data/adapter/rest';
 import { inject as service } from '@ember/service';
 
 export default class StellarpediaAdapter extends RESTAdapter {
-    /*@service localizationService;
+    @service localizationService;
     namespace = "/assets/stellarpedia/stellarpedia_";
 
     urlForFindAll(modelName, snapshot) {
@@ -13,5 +13,5 @@ export default class StellarpediaAdapter extends RESTAdapter {
     // Needs to return false to prevent reloading data
     shouldBackgroundReloadAll(store, snapshotArray) {
         return false;
-    }*/
+    }
 }

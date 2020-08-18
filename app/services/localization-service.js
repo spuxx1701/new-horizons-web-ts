@@ -35,7 +35,6 @@ export default class LocalizationService extends Service {
         if (result) {
             return result.value;
         } else {
-            that.manager.log("warning", "Missing value for key '" + key + "' in localization '" + that.currentLocalization + "'.");
             return ("loc_miss::" + key);
         }
     }

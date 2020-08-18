@@ -1,7 +1,6 @@
-import Model, { attr, hasMany } from '@ember-data/model';
-import { fragment, fragmentArray, array } from 'ember-data-model-fragments/attributes';
+import Model, { attr } from '@ember-data/model';
 
 export default class StellarpediaModel extends Model {
-    @fragmentArray("sp-chapter") chapters;
-    //@hasMany("sp-chapter") chapters;
+    @attr() faIcon;
+    @attr() chapters;
 }

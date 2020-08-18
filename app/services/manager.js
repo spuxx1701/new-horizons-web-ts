@@ -5,6 +5,7 @@
 import Ember from 'ember';
 import Service from '@ember/service';
 import config from '../config/environment';
+import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 var that;
@@ -25,9 +26,7 @@ export default class ManagerService extends Service {
     init() {
         super.init();
         that = this;
-        //that.databaseService.readDatabaseFile();
         if (config.environment === "development") that.devMode = true;
-        //that.isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
         // subscribe to routeDidChange event
         that.router.on("routeDidChange", (transition) => {
             that.onTransition();
@@ -36,12 +35,10 @@ export default class ManagerService extends Service {
         that.log("Manager initialized.");
     }
 
-    test() {
-        console.log("Starting test...");
-        let book = that.store.peekRecord("stellarpedia", "basic-rules");
-        console.log(book);
-        let chapters = book.get("chapters");
-        console.log(chapters);
+    @action
+    async test() {
+        let result = await this.stellarpedia.get("BasicRules");
+        console.log(result);
     }
 
     goToRoute(id) {
@@ -112,5 +109,11 @@ export default class ManagerService extends Service {
 
     log(messageText, messageType = "info",) {
         that.messageService.logMessage(messageText, messageType);
+    }
+
+    // Dasherize id
+    prepareId(id) {
+        id = Ember.String.dasherize(id.replace("_", "/"));
+        return id;
     }
 }

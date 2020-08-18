@@ -16,19 +16,19 @@
 </div>
 
 {{!--NAV SIDEBAR--}}
-<div id="navSidebar" class="nav-sidebar">
-    <div class="nav-sidebar-content vBox">
-        <button class="button-icon-1 sidebar-item" type="button"
-            {{on 'click' (fn this.closeSidebar "navSidebar")}}>{{fa-icon "times" size="2"}}</button>
+<div id="navSidebar" class="sidebar nav-sidebar">
+    <button class="button-icon-1 sidebar-item" type="button"
+        {{on 'click' (fn this.closeSidebar "navSidebar")}}>{{fa-icon "times" size="2"}}</button>
+    <div class="nav-sidebar-content">
         {{liquid-outlet "navSidebarOutlet"}}
     </div>
 </div>
 
 {{!--ACCOUNT SIDEBAR--}}
-<div id="accountSidebar" class="account-sidebar">
+<div id="accountSidebar" class="sidebar account-sidebar">
+    <button class="button-icon-1 sidebar-item" type="button"
+        {{on 'click' (fn this.closeSidebar "accountSidebar")}}>{{fa-icon "times" size="2"}}</button>
     <div class="account-sidebar-content">
-        <button class="button-icon-1 sidebar-item" type="button"
-            {{on 'click' (fn this.closeSidebar "accountSidebar")}}>{{fa-icon "times" size="2"}}</button>
         <h5 class="fgWhite margin-vertical-medium text-right sidebar-header-r">{{localize "Misc_Account"}}</h5>
         <div class="sidebar-sep sidebar-item"></div>
         {{#if this.session.isAuthenticated}}
