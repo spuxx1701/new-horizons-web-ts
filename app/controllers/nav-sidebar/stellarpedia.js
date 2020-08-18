@@ -10,8 +10,8 @@ var that = that;
 export default class NavbarStellarpediaController extends Controller {
     @service manager;
     @service session;
-    @tracked bookIcon = "book"
-    @tracked chapterIcon = "circle"
+    @tracked chapterIcon = "bookmark-o";
+    @tracked entryIcon = "page-o";
 
     init() {
         super.init();

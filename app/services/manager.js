@@ -14,7 +14,8 @@ export default class ManagerService extends Service {
     @service("constantService") constants;
     @service localizationService;
     @service messageService;
-    @service databaseService;
+    @service("databaseService") database;
+    @service("stellarpediaService") stellarpedia;
     @service router;
 
     // System Variables

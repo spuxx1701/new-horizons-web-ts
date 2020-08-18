@@ -6,11 +6,23 @@
 <h5 class="fgWhite margin-vertical-medium sidebar-header">{{localize "Misc_Stellarpedia"}}</h5>
 <div class="sidebar-sep"></div>
 <div class="vBox" id="generator-tabs">
-    {{#each this.model.books as |book|}}
-    <button id="sidebar-button-{{book}}.id}}" type="button" class="sidebar-button-2">
-        {{fa-icon this.bookicon size=this.manager.constants.sidebarIconSize class="marginSidesMedium fgTealNeon"}}
+    {{#each this.manager.stellarpedia.data.books as |book|}}
+    <button id="sidebar-button-{{book.id}}" type="button" class="sidebar-button-2">
+        {{fa-icon book.faIcon size=this.manager.constants.sidebarIconSize class="marginSidesMedium fgTealNeon"}}
         <p class="margin-vertical-auto">{{localize (concat "Stellarpedia_" book.id)}}</p>
     </button>
+    {{#each book.chapters as |chapter|}}
+    <button id="sidebar-button-{{book.id}}.{{chapter.id}}" type="button" class="sidebar-button-2">
+        {{fa-icon this.chapterIcon class="marginSidesMedium fgTealNeon"}}
+        <p class="margin-vertical-auto">{{chapter.header}}</p>
+    </button>
+    {{#each chapter.entry as |entry|}}
+    <button id="sidebar-button-{{book.id}}.{{chapter.id}}.{{entry.id}}" type="button" class="sidebar-button-2">
+        {{fa-icon this.entryIcon class="marginSidesMedium fgTealNeon"}}
+        <p class="margin-vertical-auto">{{entry.id}}</p>
+    </button>
+    {{/each}}
+    {{/each}}
     <div class="sidebar-sep"></div>
     {{/each}}
 </div>

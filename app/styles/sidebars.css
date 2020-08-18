@@ -68,7 +68,7 @@
 
 .sidebar-item p {
     font-family: ARJulian;
-    font-size: 1.2rem;
+    font-size: 18px;
 }
 
 .sidebar-sep {
@@ -90,7 +90,7 @@
 
 .sidebar-button-1 p {
     font-family: ARJulian;
-    font-size: 1.2rem;
+    font-size: 18px;
 }
 
 .sidebar-button-1:hover {
@@ -113,7 +113,7 @@
 
 .sidebar-button-2 p {
     font-family: ARJulian;
-    font-size: 1.2rem;
+    font-size: 18px
 }
 
 .sidebar-button-2:hover {

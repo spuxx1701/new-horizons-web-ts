@@ -11,10 +11,4 @@ export default class StellarpediaChapterSerializer extends JSONSerializer {
         id = Ember.String.dasherize(id);
         return id;
     }
-
-    // copy 'id' to '_id' because id's will get stripped in fragments
-    /*normalize(typeClass, resourceHash) {
-        console.log(resourceHash);
-        return super.normalize(typeClass, resourceHash);
-    }*/
 }

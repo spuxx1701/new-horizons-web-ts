@@ -3,6 +3,7 @@ import Fragment from 'ember-data-model-fragments/fragment';
 import { fragment, fragmentArray, array } from 'ember-data-model-fragments/attributes';
 
 export default class StellarpediaChapterFragment extends Fragment {
+    @fragment("stellarpedia") book;
     @attr("string") key;
     @attr("string") header;
     @attr("boolean") sortEntriesByLocalization;
