@@ -33,15 +33,5 @@ export default class ManagerService extends Service {
                 console.log(messageText);
             }
         }
-        /*
-        if (messageType === "error") {
-
-        } else if (messageType === "warning") {
-
-        } else if (messageType === "success") {
-
-        } else {
-
-        }*/
     }
 }

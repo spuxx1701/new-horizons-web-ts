@@ -6,7 +6,7 @@
 :root {
     vertical-align: middle;
     --colorDeepSpace: rgb(14, 16, 21);
-    --colorGreyBright: #c8c8c8;
+    --colorGreyBright: #e1e1e1;
     --colorGreyMedium: #5F5F5F;
     --colorGreyDark: #2e2e2e;
     --colorGreyTrans: rgba(200, 200, 200, 0.5);
@@ -16,10 +16,16 @@
     --colorTealDark: #498082;
     --colorTealTrans: rgba(100, 200, 200, 0.5);
     --colorGreenBright: #00FF00;
+
+    --colorPanelBackground: #2e2e2e;
+    --colorPanelBorder: #5F5F5F;
+    --colorTextDefault: #e1e1e1;
+    --colorTextHighlight: #ffffff;
+    --colorTextLink: #64C8C8;
+    --colorTextLinkHover: #00FFFF;
 }
 
 :root body {
-    color: white;
     background-color: var(--colorDeepSpace);
     /*background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/demo-bg.jpg");*/
 }

@@ -107,7 +107,7 @@ export default class ManagerService extends Service {
         return that.databaseService.getIdentifiable(id);
     }
 
-    log(messageText, messageType = "info",) {
+    log(messageText, messageType = "info") {
         that.messageService.logMessage(messageText, messageType);
     }
 
