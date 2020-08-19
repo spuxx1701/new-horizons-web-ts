@@ -1,30 +1,10 @@
 /*  Leopold Hock | 30.04.2020
 Description: Contains style information for all text elements.  */
 
-.text-def-small {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-weight: 500;
-    font-size: 14px;
-    display: flex;
-}
-
-.text-def-medium {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-weight: 500;
-    font-size: 25px;
-    display: flex;
-}
-
-.text-def-large {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-weight: 500;
-    font-size: 30px;
-    display: flex;
-}
-
 h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0;
     margin-top: 0;
+    color: var(--colorTextHighlight);
 }
 
 h1 {
@@ -61,19 +41,32 @@ p {
     font-family: Raleway;
     font-size: 1rem;
     color: var(--colorTextDefault);
+    margin: 5px 0 5px 0;
 }
 
-a {
-    color: var(--colorTextHighlight);
+a, a:link, a:visited {
+    color: var(--colorTextLink);
 }
 
-a:hover {
-    color: var(--colorTextHighlightHover);
+a:hover, a:active {
+    color: var(--colorTextLinkHover);
+    text-decoration: none;
 }
 
 .separator {
     height: 1px;
     width: 100%;
     margin: 5px auto 5px auto;
-    background-color: var(--colorTextHighlight);
+    background-color: var(--colorTealNeon);
+}
+
+.highlighted {
+    color: var(--colorTextHighlight);
+}
+
+.stellarpedia-status-text {
+    margin-left: 10px;
+    font-size: 12px;
+    color: var(--colorTealDark);
+    font-style: italic;
 }

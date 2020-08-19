@@ -22,14 +22,14 @@
     <div id="sidebar-button-{{book.id}}-content" class="sidebar-collapsible-content">
         {{#each book.chapters as |chapter|}}
         <button id="sidebar-button-{{book.id}}.{{chapter.id}}" type="button" class="sidebar-collapsible"
-            {{on "click" this.onChapterClick}}>
+            {{on "click" (fn this.onChapterClick book.id)}}>
             {{fa-icon this.chapterIcon class="marginSidesMedium fgTealNeon"}}
             <p class="margin-vertical-auto">{{chapter.header}}</p>
         </button>
         <div id="sidebar-button-{{book.id}}.{{chapter.id}}-content" class="sidebar-collapsible-content">
             {{#each chapter.entries as |entry|}}
             <button id="sidebar-button-{{book.id}}.{{chapter.id}}.{{entry.id}}" type="button"
-                class="sidebar-collapsible" {{on "click" (fn this.onEntryClick entry)}}>
+                class="sidebar-collapsible" {{on "click" (fn this.onEntryClick entry book.id chapter.id)}}>
                 {{fa-icon this.entryIcon class="marginSidesMedium fgTealNeon"}}
                 <p class="margin-vertical-auto">{{stellarpedia/sp-get-entry-header entry}}</p>
             </button>

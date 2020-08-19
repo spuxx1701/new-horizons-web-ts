@@ -12,6 +12,8 @@ export default class MainController extends Controller {
     @service manager;
     @service session;
     @tracked sidebarIconSize = "1";
+    @tracked navSidebarExpanded = false;
+    @tracked accountSidebarExpanded = false;
 
     init() {
         super.init();
@@ -20,7 +22,7 @@ export default class MainController extends Controller {
 
     @action
     openSidebar(id) {
-        document.getElementById(id).style.width = "80%";
+        document.getElementById(id).style.width = "300px";
         if (!that.manager.isMobile) {
             let reduceBy = "300px";
             if (id == "navSidebar") {
@@ -34,7 +36,7 @@ export default class MainController extends Controller {
 
     @action
     closeSidebar(id) {
-        document.getElementById(id).style.width = "0px";
+        document.getElementById(id).style.width = null;
         if (!that.manager.isMobile) {
             if (id == "navSidebar") {
                 document.getElementById("pageOutlet").style.marginLeft = "0px";

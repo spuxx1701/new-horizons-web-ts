@@ -6,22 +6,20 @@
     display: flex;
     padding-left: 5px;
     padding-right: 5px;
-}
-
-.panel-parent {
-    margin: auto;
     position: relative;
-    max-width: 980px;
-    width: 95%;
+    z-index: 2;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.8);
 }
 
 .panel-large {
-    margin: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 10px auto auto auto;
     width: 100%;
     min-height: 50px;
     padding: 25px;
-    background-color: var(--colorPanelBorder);
-    border: 1px solid var(--colorPanelBackground);
+    background-color: var(--colorPanelBackground);
+    border: 1px solid var(--colorPanelBorder);
     border-radius: 1px;
 }
 

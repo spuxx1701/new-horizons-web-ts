@@ -11,9 +11,16 @@ export default class StellarpediaService extends Service {
     @service localizationService;
 
     namespace = "/assets/stellarpedia/stellarpedia_";
+    defaultEntry = { bookId: "basic-rules", chapterId: "introduction", entryId: "welcome" };
     @tracked data;
     @tracked header;
     @tracked selectedEntry = {};
+    @tracked currentPosition;
+    @tracked history = [];
+    @tracked historyIndex = 0;
+    @tracked historyResetButtonDisabled = "disabled";
+    @tracked historyForwardButtonDisabled = "disabled";
+    @tracked historyBackButtonDisabled = "disabled";
 
     init() {
         super.init();
@@ -27,20 +34,18 @@ export default class StellarpediaService extends Service {
         } else {
             let result = await this.store.findAll("stellarpedia");
             this.data = result;
+            this.setSelectedEntry(this.defaultEntry.bookId, this.defaultEntry.chapterId, this.defaultEntry.entryId);
             return result;
         }
     }
 
     // Returns a book and/or chapter and/or entry (chapterId and entryId are optional)
-    async get(bookId, chapterId = undefined, entryId = undefined) {
+    get(bookId, chapterId = undefined, entryId = undefined) {
         let that = this;
         bookId = this.manager.prepareId(bookId);
         // convert ids if needed
         if (chapterId) chapterId = this.manager.prepareId(chapterId);
         if (entryId) entryId = this.manager.prepareId(entryId);
-        if (!this.stellarpedia) {
-            await this.load();
-        }
         var book = this.store.peekRecord("stellarpedia", bookId);
         if (!book) {
             this.manager.log("Stellarpedia book " + bookId + " does not exist.", "error");
@@ -98,9 +103,16 @@ export default class StellarpediaService extends Service {
     }
 
     // Set selected entry
-    setSelectedEntry(entry) {
+    setSelectedEntry(bookId, chapterId, entryId, addToHistory = true) {
+        let entry = this.get(bookId, chapterId, entryId);
         this.header = this.getEntryHeader(entry);
         this.selectedEntry = entry;
+        this.currentPosition = this.manager.localize(bookId) + " > " + this.get(bookId, chapterId).header + " > " + this.getEntryHeader(entry);
+        this.addSelectedEntryToHistory(bookId, chapterId, entry.id);
+        // update toolbar
+        this.historyResetButtonDisabled = this.historyIndex === 0;
+        this.historyBackButtonDisabled = this.historyIndex === 0 || this.history.length < 2;
+        this.historyForwardButtonDisabled = this.historyIndex >= this.history.length - 1 || this.history.length < 2;
     }
 
     // Return an element's type
@@ -168,12 +180,11 @@ export default class StellarpediaService extends Service {
         // remove tag
         let result = element;
         let split = element.split("]");
-        console.log(split);
         if (split.length === 2) {
             let constructor = split[0];
             result = split[1];
-            let colorDefault = getComputedStyle(document.documentElement).getPropertyValue("--colorTextDefault");
-            let colorHighlight = getComputedStyle(document.documentElement).getPropertyValue("--colorTextHighlight");
+            let colorDefault = getComputedStyle(document.documentElement).getPropertyValue("--colorTextDefault").replace(" ", "");
+            let colorHighlight = getComputedStyle(document.documentElement).getPropertyValue("--colorTextHighlight").replace(" ", "");
             // process constructor
             let params = constructor.split(";");
             for (let i = 0; i < params.length; i++) {
@@ -182,6 +193,17 @@ export default class StellarpediaService extends Service {
                     //colorDefault = colorCode;
                 }
             }
+            // replace <hl> tags
+            result = result.replace("<hl>", "<b><span class='highlighted'>");
+            result = result.replace("</hl>", "</span></b>");
+            // replace \n tags
+            result = result.replace("\\n", "<br>");
+            // replace <link> tags
+            // Example: <link=\"Arsenal;Introduction;WhatThisBookIsFor\">Arsenal des Sonnensystems</link>
+            //result = result.replace("<link=\\\"", "<a href='");
+            result = result.replace("<link=\\\"", "<span class='highlighted'");
+            //result = result.replace("\\\">", "'>");
+            result = result.replace("</link>", "</span>");
         } else {
             // syntax or formatting error, throw exception
             this.manager.log("Syntax error in Stellarpedia element: " + element, "error");
@@ -189,6 +211,66 @@ export default class StellarpediaService extends Service {
         return result;
     }
 
+    addSelectedEntryToHistory(bookId, chapterId, entryId) {
+        let newHistoryEntry = {
+            bookId: this.manager.prepareId(bookId),
+            chapterId: this.manager.prepareId(chapterId),
+            entryId: this.manager.prepareId(entryId)
+        };
+        // if history is empty, add new entry and be done with it
+        if (this.history.length === 0) {
+            this.history.push(newHistoryEntry);
+            this.historyIndex = this.history.length - 1;
+        }
+        // if history is not empty
+        else {
+            let historyContainsEntry = false;
+            let indexOfFoundEntry;
+            for (let i = 0; i < this.history.length; i++) {
+                if (this.history[i].bookId === newHistoryEntry.bookId
+                    && this.history[i].chapterId === newHistoryEntry.chapterId
+                    && this.history[i].entryId === newHistoryEntry.entryId) {
+                    historyContainsEntry = true;
+                    // if history already contains the new entry at some position, don't add it a second time
+                    // and instead set index to that position
+                    this.historyIndex = i;
+                }
+            }
+            // if history does not contain the new entry yet, add it to the array
+            if (!historyContainsEntry) {
+                // if index is currently somewhere in the history, but not at the last position, remove all forward entries
+                // before adding the new entry
+                if (this.historyIndex < this.history.length - 1) {
+                    this.history.splice(this.historyIndex + 1, this.history.length - 1);
+                }
+                this.history.push(newHistoryEntry);
+                this.historyIndex = this.history.length - 1;
+            }
+        }
+    }
+
+    historyForward() {
+        if (this.historyIndex < this.history.length - 1) {
+            this.historyIndex++;
+            let goToEntry = this.history[this.historyIndex];
+            this.setSelectedEntry(goToEntry.bookId, goToEntry.chapterId, goToEntry.entryId, false);
+        }
+    }
+
+    historyBack() {
+        if (this.historyIndex > 0) {
+            this.historyIndex--;
+            let goToEntry = this.history[this.historyIndex];
+            this.setSelectedEntry(goToEntry.bookId, goToEntry.chapterId, goToEntry.entryId, false);
+        }
+    }
+
+    historyReset() {
+        if (this.history.length > 0) {
+            this.historyIndex = 0;
+            this.setSelectedEntry(this.history[0].bookId, this.history[0].chapterId, this.history[0].entryId, false)
+        }
+    }
 }
 
 

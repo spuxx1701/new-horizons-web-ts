@@ -36,3 +36,7 @@ Description: Contains simple color classes (fg = foreground, bg = background).  
 .fgGreyBright {
     color: var(--colorGreyBright);
 }
+
+.fgGreyMedium {
+    color: var(--colorGreyMedium);
+}

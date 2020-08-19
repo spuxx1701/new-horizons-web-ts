@@ -7,39 +7,13 @@
     flex-wrap: wrap;
 }
 
-.interactable-element {
-    width: 100%;
-    max-width: 490px;
-    display: inline-flex;
-}
-
-.interactable-size-1 {
-    max-width: 120px !important;
-}
-
-.interactable-size-2 {
-    max-width: 245px !important;
-}
-
-.interactable-size-3 {
-    max-width: 490px !important;
-}
-
-.interactable-size-4 {
-    max-width: 735px !important;
-}
-
-.interactable-size-5 {
-    max-width: 980px !important;
-}
-
 .label {
     min-width: 345px;
     text-align: start;
     margin-top: auto;
     margin-bottom: auto;
     margin-left: 0;
-    font-family: ARJULIAN;
+    font-family: Raleway;
     color: white;
     display: inline-block;
 }
@@ -51,8 +25,8 @@
     border-radius: 5px;
     box-shadow: none !important;
     color: white;
-    font-family: ARJULIAN;
-    font-size: 1.1rem;
+    font-family: Raleway;
+    font-size: 16px;
     padding-left: 10px;
     padding-right: 10px;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -81,19 +55,32 @@
     margin: 2px;
     border: none;
     background-color: transparent;
-    color: var(--colorTealBright);
+    color: var(--colorTealDark);
 }
 
-.button-icon-1:hover {
+.button-icon-1:hover, .button-icon-1:active {
     color: var(--colorTealNeon);
-}
-
-.button-icon-1:active {
-    color: white;
 }
 
 .button-icon-1:disabled {
     color: var(--colorGreyTrans);
+}
+
+.button-icon-2 {
+    border: 1px solid var(--colorTealDark);
+    color: var(--colorTealDark);
+    border-radius: 1px;
+    background: none;
+}
+
+.button-icon-2:hover, .button-icon-2:active {
+    color: var(--colorTealNeon);
+    border-color: var(--colorTealNeon);
+}
+
+.button-icon-2:disabled {
+    color: var(--colorGreyTrans);
+    border-color: var(--colorGreyTrans);
 }
 
 /*  DROPDOWN */

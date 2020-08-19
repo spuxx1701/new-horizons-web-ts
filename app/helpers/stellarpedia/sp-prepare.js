@@ -3,10 +3,14 @@
 
 import Helper from '@ember/component/helper';
 import { inject as service } from '@ember/service';
+import { htmlSafe } from '@ember/template';
 
 export default class StellarpediaPrepareHelper extends Helper {
     @service stellarpediaService;
     compute([element, ...rest]) {
-        return this.stellarpediaService.prepareElement(element);
+        let result = this.stellarpediaService.prepareElement(element);
+        // mark string as html-safe
+        result = htmlSafe(result);
+        return result;
     }
 }
