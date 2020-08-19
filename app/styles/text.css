@@ -29,44 +29,51 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
     font-family: ARJulian;
-    font-size: 3.5rem;
+    font-size: 45px;
 }
 
 h2 {
     font-family: ARJulian;
-    font-size: 3rem;
+    font-size: 30px;
 }
 
 h3 {
     font-family: ARJulian;
-    font-size: 2.5rem;
+    font-size: 25px;
 }
 
 h4 {
     font-family: ARJulian;
-    font-size: 2rem;
+    font-size: 20px;
 }
 
 h5 {
     font-family: ARJulian;
-    font-size: 1.5rem;
+    font-size: 16px;
 }
 
 h6 {
     font-family: ARJulian;
-    font-size: 1.1rem;
+    font-size: 14px;
 }
 
 p {
     font-family: Raleway;
     font-size: 1rem;
-    color: var(--colorGreyBright);
+    color: var(--colorTextDefault);
 }
 
 a {
-    color: var(--colorTealNeon);
+    color: var(--colorTextHighlight);
 }
 
 a:hover {
-    color: var(--colorTealBright);
+    color: var(--colorTextHighlightHover);
+}
+
+.separator {
+    height: 1px;
+    width: 100%;
+    margin: 5px auto 5px auto;
+    background-color: var(--colorTextHighlight);
 }

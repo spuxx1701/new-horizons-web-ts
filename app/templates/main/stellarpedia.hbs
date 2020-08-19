@@ -1,5 +1,18 @@
-<div class="vBox justify-content-center">
-    <h2 class="text-center">{{this.stellarpediaService.header}}</h2>
-    <div class="panel-large vBoxItem paddingSides10px paddingTopBottom10px">
+    <div class="panel-large">
+            {{#each this.stellarpediaService.selectedEntry.elements as |element|}}
+            {{#if (eq (stellarpedia/sp-get-element-type element) "hdr")}}
+                <h2>{{stellarpedia/sp-prepare element}}</h2>
+                <div class="separator"/>
+            {{else if (eq (stellarpedia/sp-get-element-type element) "spt")}}
+                <div class="separator"/>
+            {{else if (eq (stellarpedia/sp-get-element-type element) "spc")}}
+                <div class="spacer"/>
+            {{else if (eq (stellarpedia/sp-get-element-type element) "txt")}}
+                <p>{{stellarpedia/sp-prepare element}}</p>
+            {{else if (eq (stellarpedia/sp-get-element-type element) "img")}}
+
+            {{else if (eq (stellarpedia/sp-get-element-type element) "row")}}
+
+            {{/if}}
+            {{/each}}
     </div>
-</div>
