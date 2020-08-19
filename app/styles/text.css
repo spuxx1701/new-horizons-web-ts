@@ -1,0 +1,72 @@
+/*  Leopold Hock | 30.04.2020
+Description: Contains style information for all text elements.  */
+
+.text-def-small {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 500;
+    font-size: 14px;
+    display: flex;
+}
+
+.text-def-medium {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 500;
+    font-size: 25px;
+    display: flex;
+}
+
+.text-def-large {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 500;
+    font-size: 30px;
+    display: flex;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+h1 {
+    font-family: ARJulian;
+    font-size: 3.5rem;
+}
+
+h2 {
+    font-family: ARJulian;
+    font-size: 3rem;
+}
+
+h3 {
+    font-family: ARJulian;
+    font-size: 2.5rem;
+}
+
+h4 {
+    font-family: ARJulian;
+    font-size: 2rem;
+}
+
+h5 {
+    font-family: ARJulian;
+    font-size: 1.5rem;
+}
+
+h6 {
+    font-family: ARJulian;
+    font-size: 1.1rem;
+}
+
+p {
+    font-family: Raleway;
+    font-size: 1rem;
+    color: var(--colorGreyBright);
+}
+
+a {
+    color: var(--colorTealNeon);
+}
+
+a:hover {
+    color: var(--colorTealBright);
+}

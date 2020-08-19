@@ -1,0 +1,10 @@
+[
+    {
+        "id": "Ability_General_MIDHacking",
+        "baseSkill": "Skill_Knowledge_Informatics"
+    },
+    {
+        "id": "Ability_General_VTICommanding",
+        "baseSkill": "Skill_Knowledge_TacticsAndStrategy"
+    }
+]

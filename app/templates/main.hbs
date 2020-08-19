@@ -1,1 +1,63 @@
-{{outlet}}
+{{!--HEADER TOOLBAR--}}
+<div class="header-toolbar justify-content-between">
+    <button id="navSidebarButton" class="button-icon-1" type="button"
+        {{on 'click' (fn this.openSidebar "navSidebar")}}>{{fa-icon "bars" size="2"}}</button>
+    <div class="hBoxItem justify-content-center">
+        <h4 class="fgTealNeon marginAuto">New Horizons</h4>
+    </div>
+    <button id="accountSidebarButton" class="button-icon-1" type="button"
+        {{on 'click' (fn this.openSidebar "accountSidebar")}}>
+        {{#if this.session.isAuthenticated}}
+        {{fa-icon "user" size="2"}}
+        {{else}}
+        {{fa-icon "user-o" size="2"}}
+        {{/if}}
+    </button>
+</div>
+
+{{!--NAV SIDEBAR--}}
+<div id="navSidebar" class="sidebar nav-sidebar">
+    <button class="button-icon-1 sidebar-item" type="button"
+        {{on 'click' (fn this.closeSidebar "navSidebar")}}>{{fa-icon "times" size="2"}}</button>
+    <div class="nav-sidebar-content">
+        {{liquid-outlet "navSidebarOutlet"}}
+    </div>
+</div>
+
+{{!--ACCOUNT SIDEBAR--}}
+<div id="accountSidebar" class="sidebar account-sidebar">
+    <button class="button-icon-1 sidebar-item" type="button"
+        {{on 'click' (fn this.closeSidebar "accountSidebar")}}>{{fa-icon "times" size="2"}}</button>
+    <div class="account-sidebar-content">
+        <h5 class="fgWhite margin-vertical-medium text-right sidebar-header-r">{{localize "Misc_Account"}}</h5>
+        <div class="sidebar-sep sidebar-item"></div>
+        {{#if this.session.isAuthenticated}}
+        {{else}}
+        <button class="sidebar-button-1" type="button">
+            {{fa-icon "sign-in" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}}
+            <p class="margin-vertical-auto">{{localize "Misc_SignIn"}}</p>
+        </button>
+        <div class="sidebar-sep"></div>
+        <button class="sidebar-button-1" type="button">
+            {{fa-icon "user-plus" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}}
+            <p class="margin-vertical-auto">{{localize "Misc_SignUp"}}</p>
+        </button>
+        {{/if}}
+        <div class="sidebar-sep"></div>
+        {{#if this.manager.devMode}}
+        <button class="sidebar-button-1" type="button" {{on 'click' (fn this.manager.test)}}>
+            {{fa-icon "code" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}}
+            <p class="margin-vertical-auto">Test</p>
+        </button>
+        <button class="sidebar-button-1" type="button">
+            {{fa-icon "align-left" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}}
+            <p class="margin-vertical-auto">Show Log </p>
+        </button>
+        {{/if}}
+    </div>
+</div>
+
+{{!--PAGE CONTENT--}}
+<div id="pageOutlet" class="page-outlet">
+    {{liquid-outlet}}
+</div>

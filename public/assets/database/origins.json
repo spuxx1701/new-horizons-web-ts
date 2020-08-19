@@ -1,0 +1,796 @@
+[
+    {
+        "id": "Origin_EarthUrban",
+        "convenientTraits": [],
+        "specialPA": 3,
+        "skillsFixed": [
+            {
+                "id": "Skill_Combat_Pistols",
+                "level": 1
+            },
+            {
+                "id": "Skill_Crafting_Computers",
+                "level": 3
+            },
+            {
+                "id": "Skill_Crafting_Cooking",
+                "level": 1
+            },
+            {
+                "id": "Skill_Knowledge_GeneralKnowledge",
+                "level": 2
+            },
+            {
+                "id": "Skill_Knowledge_Orientation",
+                "level": 1
+            },
+            {
+                "id": "Skill_Social_Judgement",
+                "level": 1
+            },
+            {
+                "id": "Skill_Social_Reasoning",
+                "level": 1
+            },
+            {
+                "id": "Skill_Social_SelfControl",
+                "level": 1
+            },
+            {
+                "id": "Skill_Social_SoftSkills",
+                "level": 2
+            },
+            {
+                "id": "Skill_Social_Trading",
+                "level": 1
+            }
+        ],
+        "skillOptions": [
+            {
+                "level": 1,
+                "options": [
+                    "Skill_Combat_MeleeHands",
+                    "Skill_Combat_MeleeWeapons",
+                    "Skill_Combat_Throwing"
+                ]
+            },
+            {
+                "level": 1,
+                "options": [
+                    "Skill_Vehicles_ExtraplanetaryFlying",
+                    "Skill_Vehicles_IntraplanetaryFlying",
+                    "Skill_Vehicles_LandVehicles",
+                    "Skill_Vehicles_WaterVehicles"
+                ]
+            },
+            {
+                "level": 1,
+                "options": [
+                    "Skill_Knowledge_Astronomy",
+                    "Skill_Knowledge_BiologyAndMedicine",
+                    "Skill_Knowledge_Chemistry",
+                    "Skill_Knowledge_Electronics",
+                    "Skill_Knowledge_Geology",
+                    "Skill_Knowledge_History",
+                    "Skill_Knowledge_Informatics",
+                    "Skill_Knowledge_Law",
+                    "Skill_Knowledge_MathematicsAndEconomy",
+                    "Skill_Knowledge_PhysicsAndMechanics",
+                    "Skill_Knowledge_Spaceflight"
+                ]
+            },
+            {
+                "level": 1,
+                "options": [
+                    "Skill_Knowledge_Art",
+                    "Skill_Knowledge_Gaming",
+                    "Skill_Knowledge_Music"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "Origin_EarthRural",
+        "convenientTraits": [],
+        "specialPA": 4,
+        "skillsFixed": [
+            {
+                "id": "Skill_Combat_Pistols",
+                "level": 1
+            },
+            {
+                "id": "Skill_Crafting_Cooking",
+                "level": 1
+            },
+            {
+                "id": "Skill_Crafting_MaterialProcessing",
+                "level": 2
+            },
+            {
+                "id": "Skill_Knowledge_Orientation",
+                "level": 1
+            },
+            {
+                "id": "Skill_Physical_Climbing",
+                "level": 1
+            },
+            {
+                "id": "Skill_Physical_Inebriating",
+                "level": 1
+            },
+            {
+                "id": "Skill_Physical_Perception",
+                "level": 1
+            },
+            {
+                "id": "Skill_Physical_Running",
+                "level": 1
+            },
+            {
+                "id": "Skill_Physical_Swimming",
+                "level": 1
+            }
+        ],
+        "skillOptions": [
+            {
+                "level": 1,
+                "options": [
+                    "Skill_Combat_MeleeHands",
+                    "Skill_Combat_Throwing"
+                ]
+            },
+            {
+                "level": 1,
+                "options": [
+                    "Skill_Combat_EnergyWeapons",
+                    "Skill_Combat_Rifles"
+                ]
+            },
+            {
+                "level": 1,
+                "options": [
+                    "Skill_Vehicles_IntraplanetaryFlying",
+                    "Skill_Vehicles_LandVehicles",
+                    "Skill_Vehicles_WaterVehicles"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "Origin_Mars",
+        "convenientTraits": [],
+        "specialPA": 0,
+        "skillsFixed": [
+            {
+                "id": "Skill_Combat_Pistols",
+                "level": 1
+            },
+            {
+                "id": "Skill_Crafting_Computers",
+                "level": 1
+            },
+            {
+                "id": "Skill_Knowledge_Orientation",
+                "level": 3
+            },
+            {
+                "id": "Skill_Physical_BodyControl",
+                "level": 2
+            },
+            {
+                "id": "Skill_Physical_Inebriating",
+                "level": 1
+            },
+            {
+                "id": "Skill_Physical_Perception",
+                "level": 1
+            },
+            {
+                "id": "Skill_Physical_Running",
+                "level": 1
+            }
+        ],
+        "skillOptions": [
+            {
+                "level": 2,
+                "options": [
+                    "Skill_Combat_MeleeHands",
+                    "Skill_Combat_MeleeWeapons",
+                    "Skill_Combat_Throwing"
+                ]
+            },
+            {
+                "level": 1,
+                "options": [
+                    "Skill_Combat_EnergyWeapons",
+                    "Skill_Combat_OnboardWeapons",
+                    "Skill_Combat_Rifles"
+                ]
+            },
+            {
+                "level": 1,
+                "options": [
+                    "Skill_Knowledge_Electronics",
+                    "Skill_Knowledge_Gaming",
+                    "Skill_Knowledge_Geology",
+                    "Skill_Knowledge_Informatics",
+                    "Skill_Knowledge_Law",
+                    "Skill_Knowledge_MathematicsAndEconomy",
+                    "Skill_Knowledge_PhysicsAndMechanics",
+                    "Skill_Knowledge_Spaceflight",
+                    "Skill_Knowledge_Survival"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "Origin_Venus",
+        "convenientTraits": [],
+        "specialPA": 5,
+        "skillsFixed": [
+            {
+                "id": "Skill_Combat_MeleeHands",
+                "level": 1
+            },
+            {
+                "id": "Skill_Combat_Pistols",
+                "level": 2
+            },
+            {
+                "id": "Skill_Crafting_Computers",
+                "level": 1
+            },
+            {
+                "id": "Skill_Crafting_Cooking",
+                "level": 1
+            },
+            {
+                "id": "Skill_Crafting_Disguising",
+                "level": 1
+            },
+            {
+                "id": "Skill_Crafting_Writing",
+                "level": 1
+            },
+            {
+                "id": "Skill_Knowledge_GeneralKnowledge",
+                "level": 2
+            },
+            {
+                "id": "Skill_Physical_Inebriating",
+                "level": 1
+            },
+            {
+                "id": "Skill_Physical_Perception",
+                "level": 2
+            },
+            {
+                "id": "Skill_Social_Judgement",
+                "level": 1
+            },
+            {
+                "id": "Skill_Social_Reasoning",
+                "level": 1
+            },
+            {
+                "id": "Skill_Social_SelfControl",
+                "level": 1
+            },
+            {
+                "id": "Skill_Social_SoftSkills",
+                "level": 3
+            }
+        ],
+        "skillOptions": [
+            {
+                "level": 1,
+                "options": [
+                    "Skill_Social_Acting",
+                    "Skill_Social_Flirting",
+                    "Skill_Social_Inspiring"
+                ]
+            },
+            {
+                "level": 1,
+                "options": [
+                    "Skill_Knowledge_Art",
+                    "Skill_Knowledge_Gaming",
+                    "Skill_Knowledge_Music"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "Origin_Ceres",
+        "convenientTraits": [],
+        "specialPA": 2,
+        "skillsFixed": [
+            {
+                "id": "Skill_Combat_MeleeHands",
+                "level": 1
+            },
+            {
+                "id": "Skill_Combat_Pistols",
+                "level": 1
+            },
+            {
+                "id": "Skill_Crafting_Computers",
+                "level": 2
+            },
+            {
+                "id": "Skill_Crafting_Cooking",
+                "level": 1
+            },
+            {
+                "id": "Skill_Crafting_MaterialProcessing",
+                "level": 2
+            },
+            {
+                "id": "Skill_Knowledge_GeneralKnowledge",
+                "level": 1
+            },
+            {
+                "id": "Skill_Physical_Inebriating",
+                "level": 2
+            },
+            {
+                "id": "Skill_Physical_Perception",
+                "level": 1
+            },
+            {
+                "id": "Skill_Social_Judgement",
+                "level": 1
+            },
+            {
+                "id": "Skill_Social_Reasoning",
+                "level": 1
+            },
+            {
+                "id": "Skill_Social_Trading",
+                "level": 3
+            },
+            {
+                "id": "Skill_Vehicles_ExtraplanetaryFlying",
+                "level": 3
+            }
+        ],
+        "skillOptions": [
+            {
+                "level": 1,
+                "options": [
+                    "Skill_Knowledge_Astronomy",
+                    "Skill_Knowledge_Electronics",
+                    "Skill_Knowledge_Geology",
+                    "Skill_Knowledge_Informatics",
+                    "Skill_Knowledge_Law",
+                    "Skill_Knowledge_MathematicsAndEconomy",
+                    "Skill_Knowledge_PhysicsAndMechanics",
+                    "Skill_Knowledge_Spaceflight"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "Origin_Europa",
+        "convenientTraits": [],
+        "specialPA": 1,
+        "skillsFixed": [
+            {
+                "id": "Skill_Crafting_Computers",
+                "level": 3
+            },
+            {
+                "id": "Skill_Crafting_Cooking",
+                "level": 1
+            },
+            {
+                "id": "Skill_Crafting_Writing",
+                "level": 1
+            },
+            {
+                "id": "Skill_Knowledge_GeneralKnowledge",
+                "level": 3
+            },
+            {
+                "id": "Skill_Physical_Swimming",
+                "level": 2
+            },
+            {
+                "id": "Skill_Social_Judgement",
+                "level": 1
+            },
+            {
+                "id": "Skill_Social_Reasoning",
+                "level": 3
+            },
+            {
+                "id": "Skill_Social_SelfControl",
+                "level": 1
+            },
+            {
+                "id": "Skill_Social_SoftSkills",
+                "level": 2
+            }
+        ],
+        "skillOptions": [
+            {
+                "level": 1,
+                "options": [
+                    "Skill_Knowledge_Astronomy",
+                    "Skill_Knowledge_BiologyAndMedicine",
+                    "Skill_Knowledge_Chemistry",
+                    "Skill_Knowledge_Geology",
+                    "Skill_Knowledge_Informatics",
+                    "Skill_Knowledge_MathematicsAndEconomy",
+                    "Skill_Knowledge_PhysicsAndMechanics",
+                    "Skill_Knowledge_Spaceflight"
+                ]
+            },
+            {
+                "level": 1,
+                "options": [
+                    "Skill_Knowledge_Art",
+                    "Skill_Knowledge_Gaming",
+                    "Skill_Knowledge_History",
+                    "Skill_Knowledge_Law",
+                    "Skill_Knowledge_Music",
+                    "Skill_Knowledge_TacticsAndStrategy"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "Origin_Ganymed",
+        "convenientTraits": [],
+        "specialPA": 6,
+        "skillsFixed": [
+            {
+                "id": "Skill_Combat_Pistols",
+                "level": 1
+            },
+            {
+                "id": "Skill_Crafting_Cooking",
+                "level": 2
+            },
+            {
+                "id": "Skill_Crafting_MaterialProcessing",
+                "level": 3
+            },
+            {
+                "id": "Skill_Knowledge_Survival",
+                "level": 1
+            },
+            {
+                "id": "Skill_Physical_BodyControl",
+                "level": 1
+            },
+            {
+                "id": "Skill_Physical_Climbing",
+                "level": 2
+            },
+            {
+                "id": "Skill_Physical_Inebriating",
+                "level": 1
+            },
+            {
+                "id": "Skill_Physical_Running",
+                "level": 1
+            },
+            {
+                "id": "Skill_Social_Judgement",
+                "level": 2
+            },
+            {
+                "id": "Skill_Social_SelfControl",
+                "level": 1
+            },
+            {
+                "id": "Skill_Social_Trading",
+                "level": 2
+            },
+            {
+                "id": "Skill_Vehicles_LandVehicles",
+                "level": 1
+            }
+        ],
+        "skillOptions": [
+            {
+                "level": 2,
+                "options": [
+                    "Skill_Combat_MeleeHands",
+                    "Skill_Combat_MeleeWeapons",
+                    "Skill_Combat_Throwing"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "Origin_Titan",
+        "convenientTraits": [],
+        "specialPA": 7,
+        "skillsFixed": [
+            {
+                "id": "Skill_Combat_MeleeHands",
+                "level": 3
+            },
+            {
+                "id": "Skill_Crafting_Computers",
+                "level": 1
+            },
+            {
+                "id": "Skill_Crafting_MaterialProcessing",
+                "level": 3
+            },
+            {
+                "id": "Skill_Knowledge_Orientation",
+                "level": 1
+            },
+            {
+                "id": "Skill_Physical_BodyControl",
+                "level": 1
+            },
+            {
+                "id": "Skill_Physical_Inebriating",
+                "level": 3
+            },
+            {
+                "id": "Skill_Physical_Running",
+                "level": 1
+            },
+            {
+                "id": "Skill_Social_Judgement",
+                "level": 1
+            },
+            {
+                "id": "Skill_Social_Trading",
+                "level": 1
+            }
+        ],
+        "skillOptions": [
+            {
+                "level": 1,
+                "options": [
+                    "Skill_Combat_EnergyWeapons",
+                    "Skill_Combat_OnboardWeapons",
+                    "Skill_Combat_Rifles"
+                ]
+            },
+            {
+                "level": 1,
+                "options": [
+                    "Skill_Vehicles_IntraplanetaryFlying",
+                    "Skill_Vehicles_LandVehicles"
+                ]
+            },
+            {
+                "level": 1,
+                "options": [
+                    "Skill_Knowledge_Chemistry",
+                    "Skill_Knowledge_Electronics",
+                    "Skill_Knowledge_Geology",
+                    "Skill_Knowledge_Informatics",
+                    "Skill_Knowledge_PhysicsAndMechanics",
+                    "Skill_Knowledge_Spaceflight"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "Origin_Miranda",
+        "convenientTraits": [],
+        "specialPA": 0,
+        "skillsFixed": [
+            {
+                "id": "Skill_Combat_Pistols",
+                "level": 1
+            },
+            {
+                "id": "Skill_Crafting_Computers",
+                "level": 2
+            },
+            {
+                "id": "Skill_Knowledge_GeneralKnowledge",
+                "level": 1
+            },
+            {
+                "id": "Skill_Knowledge_History",
+                "level": 1
+            },
+            {
+                "id": "Skill_Social_Inspiring",
+                "level": 1
+            },
+            {
+                "id": "Skill_Social_Judgement",
+                "level": 1
+            },
+            {
+                "id": "Skill_Social_Reasoning",
+                "level": 2
+            },
+            {
+                "id": "Skill_Social_SoftSkills",
+                "level": 1
+            },
+            {
+                "id": "Skill_Social_Trading",
+                "level": 3
+            },
+            {
+                "id": "Skill_Vehicles_ExtraplanetaryFlying",
+                "level": 1
+            }
+        ],
+        "skillOptions": [
+            {
+                "level": 1,
+                "options": [
+                    "Skill_Knowledge_Art",
+                    "Skill_Knowledge_BiologyAndMedicine",
+                    "Skill_Knowledge_Chemistry",
+                    "Skill_Knowledge_Electronics",
+                    "Skill_Knowledge_Gaming",
+                    "Skill_Knowledge_Geology",
+                    "Skill_Knowledge_Informatics",
+                    "Skill_Knowledge_MathematicsAndEconomy",
+                    "Skill_Knowledge_Music",
+                    "Skill_Knowledge_Spaceflight"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "Origin_CodexTriton",
+        "convenientTraits": [],
+        "specialPA": 2,
+        "skillsFixed": [
+            {
+                "id": "Skill_Combat_Pistols",
+                "level": 1
+            },
+            {
+                "id": "Skill_Crafting_Computers",
+                "level": 1
+            },
+            {
+                "id": "Skill_Knowledge_GeneralKnowledge",
+                "level": 3
+            },
+            {
+                "id": "Skill_Physical_BodyControl",
+                "level": 1
+            },
+            {
+                "id": "Skill_Social_Judgement",
+                "level": 1
+            },
+            {
+                "id": "Skill_Social_Reasoning",
+                "level": 2
+            },
+            {
+                "id": "Skill_Social_SoftSkills",
+                "level": 1
+            }
+        ],
+        "skillOptions": [
+            {
+                "level": 2,
+                "options": [
+                    "Skill_Combat_MeleeWeapons",
+                    "Skill_Combat_Throwing"
+                ]
+            },
+            {
+                "level": 1,
+                "options": [
+                    "Skill_Combat_EnergyWeapons",
+                    "Skill_Combat_OnboardWeapons",
+                    "Skill_Combat_Rifles"
+                ]
+            },
+            {
+                "level": 1,
+                "options": [
+                    "Skill_Vehicles_ExtraplanetaryFlying",
+                    "Skill_Vehicles_IntraplanetaryFlying",
+                    "Skill_Vehicles_LandVehicles"
+                ]
+            },
+            {
+                "level": 1,
+                "options": [
+                    "Skill_Knowledge_Art",
+                    "Skill_Knowledge_Astronomy",
+                    "Skill_Knowledge_BiologyAndMedicine",
+                    "Skill_Knowledge_Chemistry",
+                    "Skill_Knowledge_Electronics",
+                    "Skill_Knowledge_History",
+                    "Skill_Knowledge_Informatics",
+                    "Skill_Knowledge_MathematicsAndEconomy",
+                    "Skill_Knowledge_Music",
+                    "Skill_Knowledge_PhysicsAndMechanics",
+                    "Skill_Knowledge_Spaceflight",
+                    "Skill_Knowledge_TacticsAndStrategy"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "Origin_CodexMoons",
+        "convenientTraits": [],
+        "specialPA": 7,
+        "skillsFixed": [
+            {
+                "id": "Skill_Combat_MeleeHands",
+                "level": 2
+            },
+            {
+                "id": "Skill_Crafting_Cooking",
+                "level": 1
+            },
+            {
+                "id": "Skill_Crafting_MaterialProcessing",
+                "level": 3
+            },
+            {
+                "id": "Skill_Physical_BodyControl",
+                "level": 3
+            },
+            {
+                "id": "Skill_Physical_Climbing",
+                "level": 2
+            },
+            {
+                "id": "Skill_Physical_Inebriating",
+                "level": 2
+            },
+            {
+                "id": "Skill_Physical_Perception",
+                "level": 1
+            },
+            {
+                "id": "Skill_Physical_Running",
+                "level": 1
+            },
+            {
+                "id": "Skill_Social_Judgement",
+                "level": 1
+            },
+            {
+                "id": "Skill_Social_SelfControl",
+                "level": 1
+            },
+            {
+                "id": "Skill_Social_Trading",
+                "level": 1
+            },
+            {
+                "id": "Skill_Vehicles_LandVehicles",
+                "level": 1
+            }
+        ],
+        "skillOptions": [
+            {
+                "level": 2,
+                "options": [
+                    "Skill_Combat_MeleeWeapons",
+                    "Skill_Combat_Throwing"
+                ]
+            },
+            {
+                "level": 1,
+                "options": [
+                    "Skill_Knowledge_Chemistry",
+                    "Skill_Knowledge_Electronics",
+                    "Skill_Knowledge_Gaming",
+                    "Skill_Knowledge_Geology",
+                    "Skill_Knowledge_Informatics",
+                    "Skill_Knowledge_PhysicsAndMechanics",
+                    "Skill_Knowledge_Spaceflight",
+                    "Skill_Knowledge_Survival"
+                ]
+            }
+        ]
+    }
+]

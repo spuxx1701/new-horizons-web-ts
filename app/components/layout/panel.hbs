@@ -1,0 +1,9 @@
+<div class="panel-parent">
+    <div class="panel-large vBox paddingSides10px paddingTopBottom10px">
+        {{#if (is-empty @info)}}
+        {{else}}
+        <button type="button" class="button-square panel-info-button">{{fa-icon "info"}}</button>
+        {{/if}}
+        {{yield}}
+    </div>
+</div>

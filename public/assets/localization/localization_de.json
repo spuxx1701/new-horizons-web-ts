@@ -1,0 +1,3506 @@
+[
+    {
+        "key": "CharacterPreset_Default",
+        "value": "Standard"
+    },
+    {
+        "key": "Misc_CharacterPresetDisclaimer",
+        "value": "Bevor Du loslegst, kannst Du aus einer Reihe von Voreinstellungen für die Charaktererstellung wählen oder alle Parameter selbst anpassen. Wenn Du nicht weißt, was Du hier einstellen sollst und Dir Deine Spielleiterin oder Dein Spielleiter nichts dazu gesagt hat, klicke einfach direkt auf \"Heldenerschaffung beginnen\"!"
+    },
+    {
+        "key": "Misc_NoData",
+        "value": "Keine Einträge."
+    },
+    {
+        "key": "CharacterPreset_Hero",
+        "value": "Heldin/Held"
+    },
+    {
+        "key": "Misc_NotSignedIn",
+        "value": "Du bist nicht angemeldet."
+    },
+    {
+        "key": "Abilities_General",
+        "value": "Allgemeine Sonderfertigkeiten"
+    },
+    {
+        "key": "Abilities_Melee",
+        "value": "Nahkampfsonderfertigkeiten"
+    },
+    {
+        "key": "Abilities_Ranged",
+        "value": "Fernkampfsonderfertigkeiten"
+    },
+    {
+        "key": "Abilities_Vehicles",
+        "value": "Fahrzeugsonderfertigkeiten"
+    },
+    {
+        "key": "Ability_General",
+        "value": "Allgemeine Sonderfertigkeit"
+    },
+    {
+        "key": "Ability_General_Acclimatization",
+        "value": "Akklimatisierung"
+    },
+    {
+        "key": "Ability_General_ArmorHabituation1",
+        "value": "Rüstungsgewöhnung I"
+    },
+    {
+        "key": "Ability_General_ArmorHabituation2",
+        "value": "Rüstungsgewöhnung II"
+    },
+    {
+        "key": "Ability_General_ArmorHabituation3",
+        "value": "Rüstungsgewöhnung III"
+    },
+    {
+        "key": "Ability_General_CombatExperience",
+        "value": "Kampferfahrung"
+    },
+    {
+        "key": "Ability_General_ImplantHabituation1",
+        "value": "Implantatgewöhnung I"
+    },
+    {
+        "key": "Ability_General_ImplantHabituation2",
+        "value": "Implantatgewöhnung II"
+    },
+    {
+        "key": "Ability_General_Language",
+        "value": "Sprachkenntnis"
+    },
+    {
+        "key": "Ability_General_LocalKnowledge",
+        "value": "Gebietskunde"
+    },
+    {
+        "key": "Ability_General_MasterOfImprovisation",
+        "value": "Meister der Improvisation"
+    },
+    {
+        "key": "Ability_General_MIDHacking",
+        "value": "MID-Hacking"
+    },
+    {
+        "key": "Ability_General_QuickDrawing",
+        "value": "Schnellziehen"
+    },
+    {
+        "key": "Ability_General_Reflexes1",
+        "value": "Reflexe I"
+    },
+    {
+        "key": "Ability_General_Reflexes2",
+        "value": "Reflexe II"
+    },
+    {
+        "key": "Ability_General_Specialisation",
+        "value": "Fähigkeitspezialisierung"
+    },
+    {
+        "key": "Ability_General_Steady",
+        "value": "Standfest"
+    },
+    {
+        "key": "Ability_General_StrongNerves",
+        "value": "Starke Nerven"
+    },
+    {
+        "key": "Ability_General_VTICommanding",
+        "value": "VTI-Taktieren"
+    },
+    {
+        "key": "Ability_General_WealthOfKnowledge",
+        "value": "Immenser Wissensschatz"
+    },
+    {
+        "key": "Ability_Melee",
+        "value": "Nahkampfsonderfertigkeit"
+    },
+    {
+        "key": "Ability_Melee_AimedStrike",
+        "value": "Gezielter Schlag"
+    },
+    {
+        "key": "Ability_Melee_Breakaway",
+        "value": "Befreiungsschlag"
+    },
+    {
+        "key": "Ability_Melee_Disarming",
+        "value": "Entwaffnen"
+    },
+    {
+        "key": "Ability_Melee_Evasion1",
+        "value": "Ausweichen I"
+    },
+    {
+        "key": "Ability_Melee_Evasion2",
+        "value": "Ausweichen II"
+    },
+    {
+        "key": "Ability_Melee_Evasion3",
+        "value": "Ausweichen III"
+    },
+    {
+        "key": "Ability_Melee_Feint",
+        "value": "Finte"
+    },
+    {
+        "key": "Ability_Melee_FullAttack",
+        "value": "Ausfall"
+    },
+    {
+        "key": "Ability_Melee_ImprovedParrying",
+        "value": "Verbesserte Parade"
+    },
+    {
+        "key": "Ability_Melee_KnockingDown",
+        "value": "Umwerfen"
+    },
+    {
+        "key": "Ability_Melee_PowerAttack",
+        "value": "Wuchtschlag"
+    },
+    {
+        "key": "Ability_Melee_Resisting",
+        "value": "Widerstehen"
+    },
+    {
+        "key": "Ability_Melee_StunningStrike",
+        "value": "Betäubungsschlag"
+    },
+    {
+        "key": "Ability_Melee_TwohandedMelee",
+        "value": "Beidhändiger Nahkampf"
+    },
+    {
+        "key": "Ability_Ranged",
+        "value": "Fernkampfsonderfertigkeit"
+    },
+    {
+        "key": "Ability_Ranged_Accurate",
+        "value": "Treffsicher"
+    },
+    {
+        "key": "Ability_Ranged_BarrageFire",
+        "value": "Sperrfeuer"
+    },
+    {
+        "key": "Ability_Ranged_ExperiencedHeavyWeaponsUser",
+        "value": "Erfahrung mit schweren Waffen"
+    },
+    {
+        "key": "Ability_Ranged_PrecisionShot1",
+        "value": "Präzisionsschuss I"
+    },
+    {
+        "key": "Ability_Ranged_PrecisionShot2",
+        "value": "Präzisionsschuss II"
+    },
+    {
+        "key": "Ability_Ranged_PrecisionShot3",
+        "value": "Präzisionsschuss III"
+    },
+    {
+        "key": "Ability_Ranged_PrepareAttack",
+        "value": "Angriff vorbereiten"
+    },
+    {
+        "key": "Ability_Ranged_TwohandedRanged",
+        "value": "Beidhändiger Fernkampf"
+    },
+    {
+        "key": "Ability_Vehicles",
+        "value": "Fahrzeugsonderfertigkeit"
+    },
+    {
+        "key": "Ability_Vehicles_BarrelRoll",
+        "value": "Fassrolle"
+    },
+    {
+        "key": "Ability_Vehicles_Broadside",
+        "value": "Breitseite"
+    },
+    {
+        "key": "Ability_Vehicles_DiveAttack",
+        "value": "Sturzangriff"
+    },
+    {
+        "key": "Ability_Vehicles_FlyingAce",
+        "value": "Fliegerass"
+    },
+    {
+        "key": "Ability_Vehicles_LowLevelFlight",
+        "value": "Tiefflug"
+    },
+    {
+        "key": "Ability_Vehicles_LuringFlight",
+        "value": "Lockflug"
+    },
+    {
+        "key": "Ability_Vehicles_OnboardMarksman1",
+        "value": "Bordschütze I"
+    },
+    {
+        "key": "Ability_Vehicles_OnboardMarksman2",
+        "value": "Bordschütze II"
+    },
+    {
+        "key": "Ability_Vehicles_OnboardMarksman3",
+        "value": "Bordschütze III"
+    },
+    {
+        "key": "Ability_Vehicles_Outmaneuvering1",
+        "value": "Ausmanövrieren I"
+    },
+    {
+        "key": "Ability_Vehicles_Outmaneuvering2",
+        "value": "Ausmanövrieren II"
+    },
+    {
+        "key": "Ability_Vehicles_RapidTurnaround",
+        "value": "Kehrtwende"
+    },
+    {
+        "key": "Ability_Vehicles_SaveDrivingLandVehicles",
+        "value": "Sicheres Fahren (Landfahrzeuge)"
+    },
+    {
+        "key": "Ability_Vehicles_SaveDrivingWaterVehicles",
+        "value": "Sicheres Fahren (Wasserfahrzeuge)"
+    },
+    {
+        "key": "App_MIDHacking_Expose",
+        "value": "Expose"
+    },
+    {
+        "key": "App_MIDHacking_Freeze",
+        "value": "Freeze"
+    },
+    {
+        "key": "App_MIDHacking_FuckYouSesame",
+        "value": "Fuck you, Sesame!"
+    },
+    {
+        "key": "App_MIDHacking_IFFOverride",
+        "value": "IFFOverride"
+    },
+    {
+        "key": "App_MIDHacking_InstantSC",
+        "value": "InstantSC"
+    },
+    {
+        "key": "App_MIDHacking_NadeSafe",
+        "value": "NadeSafe"
+    },
+    {
+        "key": "App_MIDHacking_Overheat",
+        "value": "Overheat"
+    },
+    {
+        "key": "App_MIDHacking_Slow",
+        "value": "Slow"
+    },
+    {
+        "key": "App_MIDHacking_TakeOver",
+        "value": "TakeOver"
+    },
+    {
+        "key": "App_MIDHacking_Taunt",
+        "value": "Taunt"
+    },
+    {
+        "key": "App_VTICommanding_OrderMove",
+        "value": "Befehl: Bewegen"
+    },
+    {
+        "key": "App_VTICommanding_OrderOpenFire",
+        "value": "Befehl: Feuer eröffnen"
+    },
+    {
+        "key": "App_VTICommanding_OrderTakeAim",
+        "value": "Befehl: Zielen"
+    },
+    {
+        "key": "App_VTICommanding_OrderTakeCover",
+        "value": "Befehl: Deckung einnehmen"
+    },
+    {
+        "key": "App_VTICommanding_ReconCover",
+        "value": "Aufklärung: Deckung"
+    },
+    {
+        "key": "App_VTICommanding_ReconEquipment",
+        "value": "Aufklärung: Ausrüstung"
+    },
+    {
+        "key": "App_VTICommanding_ReconLifeSigns",
+        "value": "Aufklärung: Lebenszeichen"
+    },
+    {
+        "key": "App_VTICommanding_ReconTrajectories",
+        "value": "Aufklärung: Flugvektoren"
+    },
+    {
+        "key": "App_VTICommanding_ReconWeakSpot",
+        "value": "Aufklärung: Schwachstelle"
+    },
+    {
+        "key": "Arsenal",
+        "value": "Arsenal des Sonnensystems"
+    },
+    {
+        "key": "Atlas",
+        "value": "Atlas des Sonnensystems"
+    },
+    {
+        "key": "BasicRules",
+        "value": "Basisregelwerk"
+    },
+    {
+        "key": "Misc_Abilities",
+        "value": "Sonderfertigkeiten"
+    },
+    {
+        "key": "Misc_AbilitiesAvailable",
+        "value": "Verfügbare Sonderfertigkeiten"
+    },
+    {
+        "key": "Misc_AbilitiesOwned",
+        "value": "Erworbene Sonderfertigkeiten"
+    },
+    {
+        "key": "Misc_AddEP",
+        "value": "EP hinzufügen"
+    },
+    {
+        "key": "Misc_Apps",
+        "value": "Apps"
+    },
+    {
+        "key": "Misc_AppsAvailable",
+        "value": "Verfügbare Apps"
+    },
+    {
+        "key": "Misc_AppsOwned",
+        "value": "Erworbene Apps"
+    },
+    {
+        "key": "Misc_Attributes",
+        "value": "Attribute"
+    },
+    {
+        "key": "Misc_NewCharacter",
+        "value": "Neuer Charakter"
+    },
+    {
+        "key": "Misc_Equipment",
+        "value": "Ausrüstung"
+    },
+    {
+        "key": "Misc_Exit",
+        "value": "Beenden"
+    },
+    {
+        "key": "Misc_Finalize",
+        "value": "Finalisieren..."
+    },
+    {
+        "key": "Misc_Interests",
+        "value": "Interessen"
+    },
+    {
+        "key": "Misc_Inventory",
+        "value": "Inventar"
+    },
+    {
+        "key": "Misc_ItemsAvailable",
+        "value": "Verfügbare Gegenstände"
+    },
+    {
+        "key": "Misc_ItemsOwned",
+        "value": "Erworbene Gegenstände"
+    },
+    {
+        "key": "Misc_MainMenu",
+        "value": "Hauptmenü"
+    },
+    {
+        "key": "Misc_ManageCharacters",
+        "value": "Charaktere verwalten"
+    },
+    {
+        "key": "Misc_Origin",
+        "value": "Herkunft"
+    },
+    {
+        "key": "Misc_Personal",
+        "value": "Persönliches"
+    },
+    {
+        "key": "Misc_SaveCharacter",
+        "value": "Character speichern"
+    },
+    {
+        "key": "Misc_Settings",
+        "value": "Einstellungen"
+    },
+    {
+        "key": "Misc_Skills",
+        "value": "Fähigkeiten"
+    },
+    {
+        "key": "Misc_SkillsAvailable",
+        "value": "Verfügbare Fähigkeiten"
+    },
+    {
+        "key": "Misc_SkillsOwned",
+        "value": "Erworbene Fähigkeiten"
+    },
+    {
+        "key": "Misc_StartCreation",
+        "value": "Erschaffung beginnen"
+    },
+    {
+        "key": "Misc_Stellarpedia",
+        "value": "Stellarpedia"
+    },
+    {
+        "key": "Misc_Summary",
+        "value": "Übersicht"
+    },
+    {
+        "key": "Misc_Traits",
+        "value": "Merkmale"
+    },
+    {
+        "key": "Misc_JoinTheCommunity",
+        "value": "Schau auf unseren Kanälen vorbei!"
+    },
+    {
+        "key": "Misc_TraitsAvailable",
+        "value": "Verfügbare Merkmale"
+    },
+    {
+        "key": "Misc_TraitsOwned",
+        "value": "Erworbene Merkmale"
+    },
+    {
+        "key": "CG_CancelGenerationWarning",
+        "value": "Wenn Du zum Hauptmenü zurückkehrst, wird der aktuelle Characterentwurf verworfen. Möchtest Du wirklich fortfahren?"
+    },
+    {
+        "key": "CG_CharakterAlreadyExistsWarning",
+        "value": "Ein Charakter mit diesem Namen existiert schon. Überschreibe ihn oder wähle einen anderen Namen."
+    },
+    {
+        "key": "CG_ChooseAbility_Header",
+        "value": "Wähle eine Sonderfertigkeit"
+    },
+    {
+        "key": "CG_ChooseSkill_Header",
+        "value": "Wähle eine Fähigkeit"
+    },
+    {
+        "key": "CG_ConvenientTraits_Text",
+        "value": "Passende Merkmale"
+    },
+    {
+        "key": "CG_CreateCharacterWarning",
+        "value": "Möchtest Du diesen Charakter wirklich erstellen? Der Dateiname lautet:"
+    },
+    {
+        "key": "CG_SelectMotherTongue_Header",
+        "value": "Wähle eine Muttersprache"
+    },
+    {
+        "key": "CG_SelectMotherTongue_Text",
+        "value": "Du kannst eine beliebige moderne Sprache wählen. Bedenke aber, dass nicht alle Sprachen im Sonnensystem gleichermaßen häufig sind. Die im Sonnensystem am meisten verbreitete Sprache ist Solaire, eine Art Englisch mit verschiedensten Einflüssen anderer, meist europäischer Sprachen. Solaire ist fast überall Amtssprache."
+    },
+    {
+        "key": "CG_StartCreationWarning_Text",
+        "value": "Nach der Wahl der Herkunft kann diese nicht mehr geändert werden. Möchtest Du fortfahren?"
+    },
+    {
+        "key": "CG_TitlePlaceholder",
+        "value": "Neuen Charakter erstellen"
+    },
+    {
+        "key": "CM_CancelManagingWarning",
+        "value": "Wenn Du zum Hauptmenü zurückkehrst, werden nichtgespeicherte Änderungen verworfen. Möchtest Du wirklich fortfahren?"
+    },
+    {
+        "key": "Constraint_Long",
+        "value": "Einschränkung"
+    },
+    {
+        "key": "Constraint_Short",
+        "value": "EN"
+    },
+    {
+        "key": "Item_Ammunition_AB",
+        "value": "Panzerbrechende Munition"
+    },
+    {
+        "key": "Item_Ammunition_AB_c100",
+        "value": "Panzerbrechende Munition .100"
+    },
+    {
+        "key": "Item_Ammunition_AB_c35",
+        "value": "Panzerbrechende Munition .35"
+    },
+    {
+        "key": "Item_Ammunition_AB_c50",
+        "value": "Panzerbrechende Munition .50"
+    },
+    {
+        "key": "Item_Ammunition_AB_c75",
+        "value": "Panzerbrechende Munition .75"
+    },
+    {
+        "key": "Item_Ammunition_AB_g50",
+        "value": "Panzerbrechende Munition .50 (Schrot)"
+    },
+    {
+        "key": "Item_Ammunition_AB_g75",
+        "value": "Panzerbrechende Munition .75 (Schrot)"
+    },
+    {
+        "key": "Item_Ammunition_Decoy",
+        "value": "Täuschkörper"
+    },
+    {
+        "key": "Item_Ammunition_Decoy_Flare",
+        "value": "Leuchtkörper"
+    },
+    {
+        "key": "Item_Ammunition_Decoy_PlasmaCapsule",
+        "value": "Plasmakanüle"
+    },
+    {
+        "key": "Item_Ammunition_FMJ",
+        "value": "Vollmantelmunition"
+    },
+    {
+        "key": "Item_Ammunition_FMJ_c19",
+        "value": "Vollmantelmunition .19"
+    },
+    {
+        "key": "Item_Ammunition_FMJ_c25",
+        "value": "Vollmantelmunition .25"
+    },
+    {
+        "key": "Item_Ammunition_FMJ_c35",
+        "value": "Vollmantelmunition .35"
+    },
+    {
+        "key": "Item_Ammunition_FMJ_c50",
+        "value": "Vollmantelmunition .50"
+    },
+    {
+        "key": "Item_Ammunition_FMJ_c75",
+        "value": "Vollmantelmunition .75"
+    },
+    {
+        "key": "Item_Ammunition_FMJ_g35",
+        "value": "Vollmantelmunition .35 (Schrot)"
+    },
+    {
+        "key": "Item_Ammunition_FMJ_g50",
+        "value": "Vollmantelmunition .50 (Schrot)"
+    },
+    {
+        "key": "Item_Ammunition_FMJ_g75",
+        "value": "Vollmantelmunition .75 (Schrot)"
+    },
+    {
+        "key": "Item_Ammunition_HP",
+        "value": "Hohlspitzmunition"
+    },
+    {
+        "key": "Item_Ammunition_HP_c25",
+        "value": "Hohlspitzmunition .25"
+    },
+    {
+        "key": "Item_Ammunition_HP_c35",
+        "value": "Hohlspitzmunition .35"
+    },
+    {
+        "key": "Item_Ammunition_HP_c50",
+        "value": "Hohlspitzmunition .50"
+    },
+    {
+        "key": "Item_Ammunition_HP_c75",
+        "value": "Hohlspitzmunition .75"
+    },
+    {
+        "key": "Item_Ammunition_HP_g35",
+        "value": "Hohlspitzmunition .35 (Schrot)"
+    },
+    {
+        "key": "Item_Ammunition_HP_g50",
+        "value": "Hohlspitzmunition .50 (Schrot)"
+    },
+    {
+        "key": "Item_Ammunition_HP_g75",
+        "value": "Hohlspitzmunition .75 (Schrot)"
+    },
+    {
+        "key": "Item_Ammunition_MAG",
+        "value": "Magnetische Munition"
+    },
+    {
+        "key": "Item_Ammunition_MAG_c100",
+        "value": "Magnetische Munition .100"
+    },
+    {
+        "key": "Item_Ammunition_MAG_c35",
+        "value": "Magnetische Munition .35"
+    },
+    {
+        "key": "Item_Ammunition_MAG_c50",
+        "value": "Magnetische Munition .50"
+    },
+    {
+        "key": "Item_Ammunition_MAG_c75",
+        "value": "Magnetische Munition .75"
+    },
+    {
+        "key": "Item_Ammunition_MFC",
+        "value": "Mikrofusionszelle"
+    },
+    {
+        "key": "Item_Ammunition_MFC_large",
+        "value": "Mikrofusionszelle (A)"
+    },
+    {
+        "key": "Item_Ammunition_MFC_small",
+        "value": "Mikrofusionszelle (AAA)"
+    },
+    {
+        "key": "Item_Armor_ArmaTitanis",
+        "value": "Armatura Titanis"
+    },
+    {
+        "key": "Item_Armor_ArmaTitanis_Arms",
+        "value": "Armatura Titanis - Armschiene"
+    },
+    {
+        "key": "Item_Armor_ArmaTitanis_Helmet",
+        "value": "Armatura Titanis - Helm"
+    },
+    {
+        "key": "Item_Armor_ArmaTitanis_Legs",
+        "value": "Armatura Titanis - Beinschiene"
+    },
+    {
+        "key": "Item_Armor_ArmaTitanis_Torso",
+        "value": "Armatura Titanis - Brustpanzer"
+    },
+    {
+        "key": "Item_Armor_BehringMirror",
+        "value": "Behring Spiegelrüstung"
+    },
+    {
+        "key": "Item_Armor_BehringMirror_Arms",
+        "value": "Behring Spiegelrüstung - Armschiene"
+    },
+    {
+        "key": "Item_Armor_BehringMirror_Helmet",
+        "value": "Behring Spiegelrüstung - Helm"
+    },
+    {
+        "key": "Item_Armor_BehringMirror_Legs",
+        "value": "Behring Spiegelrüstung - Beinschiene"
+    },
+    {
+        "key": "Item_Armor_BehringMirror_Torso",
+        "value": "Behring Spiegelrüstung - Brustpanzer"
+    },
+    {
+        "key": "Item_Armor_LWFN7",
+        "value": "LWF NL-7 Stahlrüstung"
+    },
+    {
+        "key": "Item_Armor_LWFN7_Arms",
+        "value": "LWF NL-7 Stahlrüstung - Armschiene"
+    },
+    {
+        "key": "Item_Armor_LWFN7_Helmet",
+        "value": "LWF NL-7 Stahlrüstung - Helm"
+    },
+    {
+        "key": "Item_Armor_LWFN7_Legs",
+        "value": "LWF NL-7 Stahlrüstung - Beinschiene"
+    },
+    {
+        "key": "Item_Armor_LWFN7_Torso",
+        "value": "LWF NL-7 Stahlrüstung - Brustpanzer"
+    },
+    {
+        "key": "Item_Armor_MarsianRedPlate",
+        "value": "Marsianische Rote Platte"
+    },
+    {
+        "key": "Item_Armor_MarsianRedPlate_Arms",
+        "value": "Marsianische Rote Platte - Armschiene"
+    },
+    {
+        "key": "Item_Armor_MarsianRedPlate_Helmet",
+        "value": "Marsianische Rote Platte - Helm"
+    },
+    {
+        "key": "Item_Armor_MarsianRedPlate_Legs",
+        "value": "Marsianische Rote Platte - Beinschiene"
+    },
+    {
+        "key": "Item_Armor_MarsianRedPlate_Torso",
+        "value": "Marsianische Rote Platte - Brustpanzer"
+    },
+    {
+        "key": "Item_Armor_PilotSuitOmega",
+        "value": "Pilotenanzug \"Omega\""
+    },
+    {
+        "key": "Item_Armor_PilotSuitOmega_SpaceSuit",
+        "value": "Pilotenanzug \"Omega\""
+    },
+    {
+        "key": "Item_Clothing_DressAverage",
+        "value": "Kleid (ordentlich)"
+    },
+    {
+        "key": "Item_Clothing_DressCheap",
+        "value": "Kleid (billig)"
+    },
+    {
+        "key": "Item_Clothing_DressExpensive",
+        "value": "Kleid (teuer)"
+    },
+    {
+        "key": "Item_Clothing_JacketAverage",
+        "value": "Jacke (ordentlich)"
+    },
+    {
+        "key": "Item_Clothing_JacketCheap",
+        "value": "Jacke (billig)"
+    },
+    {
+        "key": "Item_Clothing_JacketExpensive",
+        "value": "Jacke (teuer)"
+    },
+    {
+        "key": "Item_Clothing_PantsAverage",
+        "value": "Hose (ordentlich)"
+    },
+    {
+        "key": "Item_Clothing_PantsCheap",
+        "value": "Hose (billig)"
+    },
+    {
+        "key": "Item_Clothing_PantsExpensive",
+        "value": "Hose (teuer)"
+    },
+    {
+        "key": "Item_Clothing_ShirtAverage",
+        "value": "Shirt (ordentlich)"
+    },
+    {
+        "key": "Item_Clothing_ShirtCheap",
+        "value": "Shirt (billig)"
+    },
+    {
+        "key": "Item_Clothing_ShirtExpensive",
+        "value": "Shirt (teuer)"
+    },
+    {
+        "key": "Item_Clothing_ShoesAverage",
+        "value": "Schuhe (ordentlich)"
+    },
+    {
+        "key": "Item_Clothing_ShoesCheap",
+        "value": "Schuhe (billig)"
+    },
+    {
+        "key": "Item_Clothing_ShoesExpensive",
+        "value": "Schuhe (teuer)"
+    },
+    {
+        "key": "Item_Clothing_SuitAverage",
+        "value": "Anzug (ordentlich)"
+    },
+    {
+        "key": "Item_Clothing_SuitCheap",
+        "value": "Anzug (billig)"
+    },
+    {
+        "key": "Item_Clothing_SuitExpensive",
+        "value": "Anzug (teuer)"
+    },
+    {
+        "key": "Item_Consumable_FirstAidBox",
+        "value": "Erste-Hilfe-Kasten"
+    },
+    {
+        "key": "Item_Consumable_FirstAidSet",
+        "value": "Erste-Hilfe-Set"
+    },
+    {
+        "key": "Item_Consumable_SuppliesAverage",
+        "value": "Vorräte (durchschnittlich)"
+    },
+    {
+        "key": "Item_Consumable_SuppliesCheap",
+        "value": "Vorräte (billig)"
+    },
+    {
+        "key": "Item_Consumable_SuppliesExpensive",
+        "value": "Vorräte (teuer)"
+    },
+    {
+        "key": "Item_General_ARVisor",
+        "value": "AR-Visor"
+    },
+    {
+        "key": "Item_General_BackpackLarge",
+        "value": "Rucksack (20 Liter)"
+    },
+    {
+        "key": "Item_General_BackpackMedium",
+        "value": "Rucksck (10 Liter)"
+    },
+    {
+        "key": "Item_General_BackpackSmall",
+        "value": "Rucksack (5 Liter)"
+    },
+    {
+        "key": "Item_General_CampingDishes",
+        "value": "Camping-Geschirr"
+    },
+    {
+        "key": "Item_General_Canteen",
+        "value": "Trinkflasche"
+    },
+    {
+        "key": "Item_General_Flashlight",
+        "value": "Taschenlampe"
+    },
+    {
+        "key": "Item_General_GasCartridge",
+        "value": "Gaskartusche"
+    },
+    {
+        "key": "Item_General_GasCooker",
+        "value": "Gaskocher"
+    },
+    {
+        "key": "Item_General_MicroFusionCooker",
+        "value": "Mikrofusionskocher"
+    },
+    {
+        "key": "Item_General_Mobi",
+        "value": "Mobi"
+    },
+    {
+        "key": "Item_General_SleepingBagThick",
+        "value": "Schlafsack (dick)"
+    },
+    {
+        "key": "Item_General_SleepingBagThin",
+        "value": "Schlafsack (dünn)"
+    },
+    {
+        "key": "Item_General_Washbag",
+        "value": "Kulturbeutel"
+    },
+    {
+        "key": "Item_Resource_Aluminium",
+        "value": "Aluminium"
+    },
+    {
+        "key": "Item_Resource_AluminiumAlloy",
+        "value": "Aluminiumlegierung"
+    },
+    {
+        "key": "Item_Resource_Beryllium",
+        "value": "Beryllium"
+    },
+    {
+        "key": "Item_Resource_Chrome",
+        "value": "Chrom"
+    },
+    {
+        "key": "Item_Resource_Cobalt",
+        "value": "Kobalt"
+    },
+    {
+        "key": "Item_Resource_Copper",
+        "value": "Kupfer"
+    },
+    {
+        "key": "Item_Resource_CopperBerylliumAlloy",
+        "value": "Kupfer-Beryllium-Legierung"
+    },
+    {
+        "key": "Item_Resource_Diamond",
+        "value": "Diamant"
+    },
+    {
+        "key": "Item_Resource_ElectronicComponents",
+        "value": "Elektronikkomponenten"
+    },
+    {
+        "key": "Item_Resource_Glass",
+        "value": "Glas"
+    },
+    {
+        "key": "Item_Resource_Gold",
+        "value": "Gold"
+    },
+    {
+        "key": "Item_Resource_Hydrogen",
+        "value": "Wasserstoff"
+    },
+    {
+        "key": "Item_Resource_Iridium",
+        "value": "Iridium"
+    },
+    {
+        "key": "Item_Resource_Iron",
+        "value": "Eisen"
+    },
+    {
+        "key": "Item_Resource_Lithium",
+        "value": "Lithium"
+    },
+    {
+        "key": "Item_Resource_Luminant",
+        "value": "Leuchtmittel"
+    },
+    {
+        "key": "Item_Resource_MechanicComponents",
+        "value": "Mechanikbauteile"
+    },
+    {
+        "key": "Item_Resource_Molybdenum",
+        "value": "Molybdän"
+    },
+    {
+        "key": "Item_Resource_Nickel",
+        "value": "Nickel"
+    },
+    {
+        "key": "Item_Resource_NickelBasicAlloy",
+        "value": "Nickelbasislegierung"
+    },
+    {
+        "key": "Item_Resource_Niobium",
+        "value": "Niob"
+    },
+    {
+        "key": "Item_Resource_Oxygen",
+        "value": "Sauerstoff"
+    },
+    {
+        "key": "Item_Resource_Plastics",
+        "value": "Kunststoff"
+    },
+    {
+        "key": "Item_Resource_ScrapMetal",
+        "value": "Metallschrott"
+    },
+    {
+        "key": "Item_Resource_Silicon",
+        "value": "Silizium"
+    },
+    {
+        "key": "Item_Resource_Silver",
+        "value": "Silber"
+    },
+    {
+        "key": "Item_Resource_Titanium",
+        "value": "Titan"
+    },
+    {
+        "key": "Item_Resource_Vitallium",
+        "value": "Vitallium"
+    },
+    {
+        "key": "Item_Resource_Water",
+        "value": "Wasser"
+    },
+    {
+        "key": "Item_Resource_Xenon",
+        "value": "Xenon"
+    },
+    {
+        "key": "Item_WeaponRanged_Carbine_Be3U47",
+        "value": "BE3 U47 Sturmgewehr"
+    },
+    {
+        "key": "Item_WeaponRanged_Carbine_LwfKiara",
+        "value": "LWF „Kiara“ Multifunktionskarabiner"
+    },
+    {
+        "key": "Item_WeaponRanged_Carbine_LwfViper",
+        "value": "LWF „Viper“ Sturmgewehr"
+    },
+    {
+        "key": "Item_WeaponRanged_Carbine_TwtDesertFox",
+        "value": "TWT „Desert Fox“ Maschinenpistole"
+    },
+    {
+        "key": "Item_WeaponRanged_Pistol_EuroB4",
+        "value": "EURO B4 Combat Pistol"
+    },
+    {
+        "key": "Item_WeaponRanged_Pistol_LwfLd35",
+        "value": "LWF LD-35"
+    },
+    {
+        "key": "Item_WeaponRanged_Pistol_TakashiApp3",
+        "value": "Takashi APP-3"
+    },
+    {
+        "key": "Item_WeaponRanged_Pistol_TwtHandCannon",
+        "value": "TWT Revolver .50 “Hand Cannon”"
+    },
+    {
+        "key": "Item_WeaponRanged_Shotgun_LwfOrthrus",
+        "value": "LWF „Orthrus“ Repetierflinte"
+    },
+    {
+        "key": "Item_WeaponRanged_Shotgun_RedGoldenBoy",
+        "value": "RED Alpha-1 „Golden Boy“ Taktische Schrotflinte"
+    },
+    {
+        "key": "Item_WeaponRanged_Shotgun_Vcr506",
+        "value": "VCR Typ 506 Automatische Schrotflinte"
+    },
+    {
+        "key": "ItemCategory_Ammunition",
+        "value": "Munition"
+    },
+    {
+        "key": "ItemCategory_Armor",
+        "value": "Rüstung"
+    },
+    {
+        "key": "ItemCategory_Clothing",
+        "value": "Kleidung"
+    },
+    {
+        "key": "ItemCategory_Components",
+        "value": "Komponenten"
+    },
+    {
+        "key": "ItemCategory_Consumables",
+        "value": "Verbrauchswaren"
+    },
+    {
+        "key": "ItemCategory_General",
+        "value": "Allgemeine Gegenstände"
+    },
+    {
+        "key": "ItemCategory_PersonalItems",
+        "value": "Persönliche Gegenstände"
+    },
+    {
+        "key": "ItemCategory_Resources",
+        "value": "Rohstoffe"
+    },
+    {
+        "key": "ItemCategory_TravellingEquipment",
+        "value": "Reiseausrüstung"
+    },
+    {
+        "key": "ItemCategory_WeaponsMelee",
+        "value": "Nahkampfwaffen"
+    },
+    {
+        "key": "ItemCategory_WeaponsRanged",
+        "value": "Fernkampfwaffen"
+    },
+    {
+        "key": "Misc__MT/MC",
+        "value": "MT/MK"
+    },
+    {
+        "key": "Misc_AccountBalance:",
+        "value": "Kontostand:"
+    },
+    {
+        "key": "Misc_Actions",
+        "value": "Aktion(en)"
+    },
+    {
+        "key": "Misc_ActiveAbility",
+        "value": "Aktive Sonderfertigkeit"
+    },
+    {
+        "key": "Misc_AddEP",
+        "value": "Erfahrungspunkte hinzufügen"
+    },
+    {
+        "key": "Misc_AdvancedDebugging",
+        "value": "Erweitertes Debugging"
+    },
+    {
+        "key": "Misc_Amount",
+        "value": "Menge"
+    },
+    {
+        "key": "Misc_Amount:",
+        "value": "Menge:"
+    },
+    {
+        "key": "Misc_ArmorPiece",
+        "value": "Rüstungsteil"
+    },
+    {
+        "key": "Misc_ArmorPiece_Arms",
+        "value": "Armschiene"
+    },
+    {
+        "key": "Misc_ArmorPiece_Helmet",
+        "value": "Helm"
+    },
+    {
+        "key": "Misc_ArmorPiece_Legs",
+        "value": "Beinschiene"
+    },
+    {
+        "key": "Misc_ArmorPiece_SpaceSuit",
+        "value": "Raumanzug"
+    },
+    {
+        "key": "Misc_ArmorPiece_Torso",
+        "value": "Brustpanzer"
+    },
+    {
+        "key": "Misc_ASe",
+        "value": "RSe"
+    },
+    {
+        "key": "Misc_ASen_Long",
+        "value": "Rüstungsschutz (energetisch)"
+    },
+    {
+        "key": "Misc_ASp",
+        "value": "RSp"
+    },
+    {
+        "key": "Misc_ASph_Long",
+        "value": "Rüstungsschutz (physisch)"
+    },
+    {
+        "key": "Misc_AutomaticCarbine",
+        "value": "Vollautomatischer Karabiner"
+    },
+    {
+        "key": "Misc_Available",
+        "value": "Verfügbar"
+    },
+    {
+        "key": "Misc_AvailableAP",
+        "value": "Verfügbare Attributpunkte"
+    },
+    {
+        "key": "Misc_AvailableIP",
+        "value": "Verfügbare Interessenspunkte"
+    },
+    {
+        "key": "Misc_AvailableSoon...",
+        "value": "Bald verfügbar..."
+    },
+    {
+        "key": "Misc_Back",
+        "value": "Zurück"
+    },
+    {
+        "key": "Misc_Barrel",
+        "value": "Trommel"
+    },
+    {
+        "key": "Misc_BasicSkill",
+        "value": "Basisfähigkeit"
+    },
+    {
+        "key": "Misc_BodySlot",
+        "value": "Körperteil"
+    },
+    {
+        "key": "Misc_Bonus",
+        "value": "Bonus"
+    },
+    {
+        "key": "Misc_Bonus:",
+        "value": "Bonus:"
+    },
+    {
+        "key": "Misc_BonusAttribute",
+        "value": "Bonusattribut"
+    },
+    {
+        "key": "Misc_BonusSkills",
+        "value": "Bonusfähigkeiten"
+    },
+    {
+        "key": "Misc_Bought/Maximum:",
+        "value": "Erworben/Maximal:"
+    },
+    {
+        "key": "Misc_Bought:",
+        "value": "Erworben:"
+    },
+    {
+        "key": "Misc_Buy",
+        "value": "Kaufen"
+    },
+    {
+        "key": "Misc_Calculation",
+        "value": "Berechnung"
+    },
+    {
+        "key": "Misc_Calculation:",
+        "value": "Berechnung:"
+    },
+    {
+        "key": "Misc_Caliber",
+        "value": "Kaliber"
+    },
+    {
+        "key": "Misc_Caliber_c100",
+        "value": ".100"
+    },
+    {
+        "key": "Misc_Caliber_c19",
+        "value": ".19"
+    },
+    {
+        "key": "Misc_Caliber_c25",
+        "value": ".25"
+    },
+    {
+        "key": "Misc_Caliber_c35",
+        "value": ".35"
+    },
+    {
+        "key": "Misc_Caliber_c50",
+        "value": ".50"
+    },
+    {
+        "key": "Misc_Caliber_c75",
+        "value": ".75"
+    },
+    {
+        "key": "Misc_Caliber_g35",
+        "value": ".35 (Schrot)"
+    },
+    {
+        "key": "Misc_Caliber_g50",
+        "value": ".50 (Schrot)"
+    },
+    {
+        "key": "Misc_Caliber_g75",
+        "value": ".75 (Schrot)"
+    },
+    {
+        "key": "Misc_Cancel",
+        "value": "Abbrechen"
+    },
+    {
+        "key": "Misc_CarriedWhere",
+        "value": "Wo getragen"
+    },
+    {
+        "key": "Misc_CastCosts",
+        "value": "Aktivierungskosten"
+    },
+    {
+        "key": "Misc_CastTime",
+        "value": "Aktivierungsdauer"
+    },
+    {
+        "key": "Misc_CastTime:",
+        "value": "Wirkdauer:"
+    },
+    {
+        "key": "Misc_Category",
+        "value": "Kategorie"
+    },
+    {
+        "key": "Misc_CharacterAge",
+        "value": "Alter"
+    },
+    {
+        "key": "Misc_CharacterAppearance",
+        "value": "Aussehen"
+    },
+    {
+        "key": "Misc_CharacterBirthday",
+        "value": "Geburtstag"
+    },
+    {
+        "key": "Misc_CharacterFamily",
+        "value": "Familie"
+    },
+    {
+        "key": "Misc_CharacterHeight",
+        "value": "Größe (cm)"
+    },
+    {
+        "key": "Misc_CharacterName",
+        "value": "Name"
+    },
+    {
+        "key": "Misc_CharacterOrigin",
+        "value": "Herkunft"
+    },
+    {
+        "key": "Misc_CharacterSex",
+        "value": "Geschlecht"
+    },
+    {
+        "key": "Misc_CharacterSocialStatus",
+        "value": "Sozialstatus"
+    },
+    {
+        "key": "Misc_CharacterWeight",
+        "value": "Gewicht (kg)"
+    },
+    {
+        "key": "Misc_Choose",
+        "value": "Auswählen"
+    },
+    {
+        "key": "Misc_ChooseCharacter",
+        "value": "Wähle einen Charakter"
+    },
+    {
+        "key": "Misc_ChooseSaveDirectory",
+        "value": "Wähle einen Speicherort"
+    },
+    {
+        "key": "Misc_Clip",
+        "value": "Clip"
+    },
+    {
+        "key": "Misc_Close",
+        "value": "Schließen"
+    },
+    {
+        "key": "Misc_Constraint",
+        "value": "EN"
+    },
+    {
+        "key": "Misc_ConstraintTimes",
+        "value": "EN *"
+    },
+    {
+        "key": "Misc_Continue",
+        "value": "Fortsetzen"
+    },
+    {
+        "key": "Misc_Costs",
+        "value": "Kosten"
+    },
+    {
+        "key": "Misc_Costs:",
+        "value": "Kosten:"
+    },
+    {
+        "key": "Misc_Cr",
+        "value": "Cr"
+    },
+    {
+        "key": "Misc_Cr_Long",
+        "value": "Credits"
+    },
+    {
+        "key": "Misc_CreateNewItem",
+        "value": "Neuen Gegenstand erstellen"
+    },
+    {
+        "key": "Misc_CreateOutputLog",
+        "value": "Log speichern"
+    },
+    {
+        "key": "Misc_Current",
+        "value": "Aktuell"
+    },
+    {
+        "key": "Misc_Custom",
+        "value": "Benutzerdefiniert"
+    },
+    {
+        "key": "Misc_CV",
+        "value": "KW"
+    },
+    {
+        "key": "Misc_DecreaseGP",
+        "value": "GP reduzieren"
+    },
+    {
+        "key": "Misc_Description",
+        "value": "Beschreibung"
+    },
+    {
+        "key": "Misc_Dice",
+        "value": "W"
+    },
+    {
+        "key": "Misc_DP",
+        "value": "SP"
+    },
+    {
+        "key": "Misc_DPMod",
+        "value": "SP*"
+    },
+    {
+        "key": "Misc_EnableConsole",
+        "value": "Konsole aktivieren"
+    },
+    {
+        "key": "Misc_EnergyWeapon",
+        "value": "Energiewaffe"
+    },
+    {
+        "key": "Misc_EnterSearchTermHere...",
+        "value": "Suchen..."
+    },
+    {
+        "key": "Misc_EntryIcon",
+        "value": "Eintrags-Icon:"
+    },
+    {
+        "key": "Misc_EP",
+        "value": "EP"
+    },
+    {
+        "key": "Misc_EPAvailable",
+        "value": "EP verfügbar"
+    },
+    {
+        "key": "Misc_ExperienceFaitMoney",
+        "value": "Erfahrungspunkte, Schicksalspunkte und Credits"
+    },
+    {
+        "key": "Misc_ExperiencePoints",
+        "value": "Erfahrungspunkte"
+    },
+    {
+        "key": "Misc_Factor",
+        "value": "Faktor"
+    },
+    {
+        "key": "Misc_Factor:",
+        "value": "Faktor:"
+    },
+    {
+        "key": "Misc_FontStellarpedia",
+        "value": "Schriftart (Stellarpedia)"
+    },
+    {
+        "key": "Misc_FourthRange",
+        "value": "Vierte Reichweitenstufe"
+    },
+    {
+        "key": "Misc_FourthRangeText",
+        "value": "Die Montage eines Zielfernrohrs erlaubt das Feuern auf die vierte ReichweitenStufe."
+    },
+    {
+        "key": "Misc_FP_Long",
+        "value": "Schicksalspunkte"
+    },
+    {
+        "key": "Misc_FT",
+        "value": "FS"
+    },
+    {
+        "key": "Misc_FullScreen",
+        "value": "Vollbildmodus"
+    },
+    {
+        "key": "Misc_Gauge",
+        "value": "Schrot"
+    },
+    {
+        "key": "Misc_GeneratorPreset_Hero",
+        "value": "HeldIn"
+    },
+    {
+        "key": "Misc_GeneratorPreset_Standard",
+        "value": "Standard"
+    },
+    {
+        "key": "Misc_GeneratorPresets",
+        "value": "Generator-Voreinstellungen"
+    },
+    {
+        "key": "Misc_GP",
+        "value": "GP"
+    },
+    {
+        "key": "Misc_GPBonus",
+        "value": "Generierungspunkte-Bonus"
+    },
+    {
+        "key": "Misc_HeavyWeapon",
+        "value": "Schwere Waffe"
+    },
+    {
+        "key": "Misc_HowManyEPToAdd",
+        "value": "Wie viele Erfahrungspunkte sollen hinzugefügt werden?"
+    },
+    {
+        "key": "Misc_IncreaseGP",
+        "value": "GP erhöhen"
+    },
+    {
+        "key": "Misc_InfosForNewbies",
+        "value": "Tipps für Neueinsteiger"
+    },
+    {
+        "key": "Misc_InvalidEPInput",
+        "value": "Was soll ich damit denn anfangen? Probier's nochmal, Du Held."
+    },
+    {
+        "key": "Misc_JournalEnterTextHere...",
+        "value": "Text hier eingeben..."
+    },
+    {
+        "key": "Misc_NewJournal",
+        "value": "Neues Tagebuch"
+    },
+    {
+        "key": "Misc_SignInForMoreFunctions",
+        "value": "Melde Dich an oder registriere Dich, um Zugriff auf weitere Funktionen zu erhalten."
+    },
+    {
+        "key": "Misc_JournalNewEntry",
+        "value": "Neuer Eintrag"
+    },
+    {
+        "key": "Misc_LastEdited",
+        "value": "zuletzt bearbeitet"
+    },
+    {
+        "key": "Misc_LastEditedUnderVersion",
+        "value": "zuletzt bearbeitet unter Version"
+    },
+    {
+        "key": "Misc_Load",
+        "value": "Laden"
+    },
+    {
+        "key": "Misc_LoadCharacter",
+        "value": "Charakter laden"
+    },
+    {
+        "key": "Misc_LoadJournal",
+        "value": "Tagebuch laden"
+    },
+    {
+        "key": "Misc_Localization",
+        "value": "Sprache"
+    },
+    {
+        "key": "Misc_Manual",
+        "value": "Anleitung"
+    },
+    {
+        "key": "Misc_MaxAbilities",
+        "value": "Maximum Sonderfertigkeiten"
+    },
+    {
+        "key": "Misc_Maximum",
+        "value": "Maximal"
+    },
+    {
+        "key": "Misc_Maximum:",
+        "value": "Maximum:"
+    },
+    {
+        "key": "Misc_MaxTraits",
+        "value": "Maximum Merkmale"
+    },
+    {
+        "key": "Misc_MT/MC",
+        "value": "MT/MK"
+    },
+    {
+        "key": "Misc_Music",
+        "value": "Musik"
+    },
+    {
+        "key": "Misc_Name",
+        "value": "Name"
+    },
+    {
+        "key": "Misc_NewEntry",
+        "value": "Neuer Eintrag"
+    },
+    {
+        "key": "Misc_No",
+        "value": "Nein"
+    },
+    {
+        "key": "Misc_None",
+        "value": "Keine"
+    },
+    {
+        "key": "Misc_NoneOrVariableBonus",
+        "value": "Kostenfrei oder variabler Bonus"
+    },
+    {
+        "key": "Misc_NoneOrVariableCosts",
+        "value": "Kostenfrei oder variable Kosten"
+    },
+    {
+        "key": "Misc_NotCombinableWith",
+        "value": "Nicht kombinierbar mit"
+    },
+    {
+        "key": "Misc_Notes",
+        "value": "Notizen"
+    },
+    {
+        "key": "Misc_Open",
+        "value": "Öffnen"
+    },
+    {
+        "key": "Misc_Or",
+        "value": "oder"
+    },
+    {
+        "key": "Misc_Overwrite",
+        "value": "Überschreiben"
+    },
+    {
+        "key": "Misc_PassiveAbility",
+        "value": "Passive Sonderfertigkeit"
+    },
+    {
+        "key": "Misc_PersonalData",
+        "value": "Persönliche Daten"
+    },
+    {
+        "key": "Misc_Pieces",
+        "value": "Stk"
+    },
+    {
+        "key": "Misc_Pistol",
+        "value": "Pistole"
+    },
+    {
+        "key": "Misc_PP",
+        "value": "EnP"
+    },
+    {
+        "key": "Misc_PP_Long",
+        "value": "Energiepunkt(e)"
+    },
+    {
+        "key": "Misc_Preset",
+        "value": "Voreinstellung"
+    },
+    {
+        "key": "Misc_PriAUsedInSecA",
+        "value": "Enthalten in Sekundärattributen"
+    },
+    {
+        "key": "Misc_PriAUsedInSkills",
+        "value": "Enthalten in Fähigkeitsproben"
+    },
+    {
+        "key": "Misc_PricePerKilo:",
+        "value": "Preis (pro Kilogramm):"
+    },
+    {
+        "key": "Misc_PricePerUnit:",
+        "value": "Preis (pro Stück):"
+    },
+    {
+        "key": "Misc_PriceTotal:",
+        "value": "Preis (gesamt):"
+    },
+    {
+        "key": "Misc_PrimaryAttributes",
+        "value": "Primärattribute"
+    },
+    {
+        "key": "Misc_RADMod",
+        "value": "RE*/AT*/DE*"
+    },
+    {
+        "key": "Misc_Range",
+        "value": "Reichweite"
+    },
+    {
+        "key": "Misc_Ranges",
+        "value": "Reichweiten"
+    },
+    {
+        "key": "Misc_RapidFire",
+        "value": "Vollautomatische Waffe"
+    },
+    {
+        "key": "Misc_RapidFireText1",
+        "value": "Innerhalb einer Aktion können beliebig viele Projektile abgefeuert werden. Beginnend mit dem"
+    },
+    {
+        "key": "Misc_RapidFireText2",
+        "value": "Projektil wird die Attacke um"
+    },
+    {
+        "key": "Misc_RapidFireText3",
+        "value": "Punkt(e) je zusätzliches Projektil erschwert"
+    },
+    {
+        "key": "Misc_RemainingIP",
+        "value": "Verbleibende IP:"
+    },
+    {
+        "key": "Misc_RemainingPoints",
+        "value": "Verbleibende Punkte"
+    },
+    {
+        "key": "Misc_Requirements",
+        "value": "Voraussetzungen"
+    },
+    {
+        "key": "Misc_Resolution",
+        "value": "Voraussetzungen"
+    },
+    {
+        "key": "Misc_ResolutionKeepChanges",
+        "value": "Die Anzeigeeinstellungen wurden verändert. Möchtest Du diese Änderung beibehalten? Falls nicht, wird die Anzeige automatisch zurückgesetzt."
+    },
+    {
+        "key": "Misc_RestoreDefaultSettings",
+        "value": "Standardeinstellungen wiederherstellen"
+    },
+    {
+        "key": "Misc_Contact",
+        "value": "Kontakt"
+    },
+    {
+        "key": "Misc_Phone",
+        "value": "Telefon"
+    },
+    {
+        "key": "Misc_Email",
+        "value": "E-Mail"
+    },
+    {
+        "key": "Misc_Feedback",
+        "value": "Feedback"
+    },
+    {
+        "key": "Misc_SocialMedia",
+        "value": "Social Media"
+    },
+    {
+        "key": "Misc_Generator",
+        "value": "Generator"
+    },
+    {
+        "key": "Misc_Twitter",
+        "value": "Twitter"
+    },
+    {
+        "key": "Misc_ReturnToMenu",
+        "value": "Zurück zum Hauptmenü"
+    },
+    {
+        "key": "Misc_ReturnToMenuWarning",
+        "value": "Ungespeicherte Änderungen gehen verloren, wenn Du zum Hauptmenü zurückkehrst. Möchtest Du fortfahren?"
+    },
+    {
+        "key": "Misc_Presets",
+        "value": "Voreinstellungen"
+    },
+    {
+        "key": "Misc_Save",
+        "value": "Speichern"
+    },
+    {
+        "key": "Misc_SaveCharacter",
+        "value": "Charakter Speichern"
+    },
+    {
+        "key": "Misc_SaveDirectory",
+        "value": "Speicherort"
+    },
+    {
+        "key": "Misc_SaveJournal",
+        "value": "Tagebuch speichern"
+    },
+    {
+        "key": "Misc_SE:",
+        "value": "SE"
+    },
+    {
+        "key": "Misc_SecondaryAttributes",
+        "value": "Sekundärattribute"
+    },
+    {
+        "key": "Misc_SecondFireMode",
+        "value": "Alternativer Feuermodus"
+    },
+    {
+        "key": "Misc_SecondFireModeText",
+        "value": "Die Waffe verfügt über einen alternativen Feuermodus. Dieser wird nicht durch Waffenmodifikationen beeinflusst."
+    },
+    {
+        "key": "Misc_Sell",
+        "value": "Verkaufen"
+    },
+    {
+        "key": "Misc_SemiautomaticRifle",
+        "value": "Halbautomatisches Gewehr"
+    },
+    {
+        "key": "Misc_Settings",
+        "value": "Einstellungen"
+    },
+    {
+        "key": "Misc_Shotgun",
+        "value": "Schrotflinte"
+    },
+    {
+        "key": "Misc_Skill",
+        "value": "Fähigkeit"
+    },
+    {
+        "key": "Misc_SkillCategory",
+        "value": "Fähigkeitskategorie"
+    },
+    {
+        "key": "Misc_SkillTest",
+        "value": "Fähigkeitsprobe"
+    },
+    {
+        "key": "Misc_SP_Long",
+        "value": "Ausdauerpunkt(e)"
+    },
+    {
+        "key": "Misc_SpecifyInput",
+        "value": "Eingabe spezifizieren..."
+    },
+    {
+        "key": "Misc_Spent",
+        "value": "Ausgegeben"
+    },
+    {
+        "key": "Misc_Start",
+        "value": "Start"
+    },
+    {
+        "key": "Misc_StartEP",
+        "value": "Start-Erfahrungspunkte"
+    },
+    {
+        "key": "Misc_StartFP",
+        "value": "Start-Schicksalspunkte"
+    },
+    {
+        "key": "Misc_StartMoney",
+        "value": "Startkapital"
+    },
+    {
+        "key": "Misc_Stellarpedia",
+        "value": "Stellarpedia"
+    },
+    {
+        "key": "Misc_StP",
+        "value": "StP"
+    },
+    {
+        "key": "Misc_StP_Long",
+        "value": "Strukturpunkte"
+    },
+    {
+        "key": "Misc_Test",
+        "value": "Probe"
+    },
+    {
+        "key": "Misc_TimeRemaining",
+        "value": "Verbleibende Zeit"
+    },
+    {
+        "key": "Misc_Total",
+        "value": "Gesamt"
+    },
+    {
+        "key": "Misc_UpdateAvailable",
+        "value": "Update verfügbar"
+    },
+    {
+        "key": "Misc_UpdateAvailableText",
+        "value": "Es ist ein Update für den Editor verfügbar. Möchtest Du die Website aufrufen und das Update herunterladen?"
+    },
+    {
+        "key": "Misc_UsedInSecA:",
+        "value": "Verwendet in Sekundärattributen:"
+    },
+    {
+        "key": "Misc_UsedInSkills:",
+        "value": "Verwendet in Fähigkeiten:"
+    },
+    {
+        "key": "Misc_Uses",
+        "value": "Anwendungen"
+    },
+    {
+        "key": "Misc_Value",
+        "value": "Wert"
+    },
+    {
+        "key": "Misc_Value:",
+        "value": "Wert:"
+    },
+    {
+        "key": "Misc_ValuePerWeight",
+        "value": "Wert/Gewicht"
+    },
+    {
+        "key": "Misc_Varies",
+        "value": "Variabel"
+    },
+    {
+        "key": "Misc_Version",
+        "value": "Version"
+    },
+    {
+        "key": "Misc_VersionMismatch1",
+        "value": "Der Charakter wurde zuletzt mit einer älteren Version des Editors bearbeitet"
+    },
+    {
+        "key": "Misc_VersionMismatch2",
+        "value": "aktuelle Version"
+    },
+    {
+        "key": "Misc_VersionMismatch3",
+        "value": "Er wird automatisch auf den aktuellen Stand gebracht. Weil es aber trotzdem zu Fehlern kommen kann, wird empfohlen, die alte Datei nicht zu überschreiben."
+    },
+    {
+        "key": "Misc_VersionMismatchJournal1",
+        "value": "Das Tagebuch wurde zuletzt mit einer älteren Version des Editors bearbeitet"
+    },
+    {
+        "key": "Misc_VersionMismatchJournal2",
+        "value": "aktuelle Version"
+    },
+    {
+        "key": "Misc_VersionMismatchJournal3",
+        "value": "Es wird automatisch auf den aktuellen Stand gebracht. Weil es aber trotzdem zu Fehlern kommen kann, wird empfohlen, die alte Datei nicht zu überschreiben."
+    },
+    {
+        "key": "Misc_VersionMisMatchWarning",
+        "value": "Die Programmversion der Characterdatei und des Editors stimmen nicht überein. Bitte überprüfe, ob der Charakter korrekt eingelesne wurde."
+    },
+    {
+        "key": "Misc_WantToRemoveItem",
+        "value": "Dieser Gegenstand hat eine Menge von null oder er verfügt über keine Anwendungen mehr. Möchtest Du ihn entfernen?"
+    },
+    {
+        "key": "Misc_WarnBeforeDeleteFile",
+        "value": "Möchtest Du diese Datei oder diesen Ordner wirklich löschen? Der Inhalt kann nicht wiederhergestellt werden."
+    },
+    {
+        "key": "Misc_WarnBeforeReplaceFile",
+        "value": "Diese Datei existiert schon. Möchtest Du sie überschreiben?"
+    },
+    {
+        "key": "Misc_Warning",
+        "value": "Achtung"
+    },
+    {
+        "key": "Misc_Warning_APGreaterZero",
+        "value": "Nicht alle AP wurden ausgegeben."
+    },
+    {
+        "key": "Misc_Warning_APSmallerZero",
+        "value": "Es wurden zu viele AP ausgegeben."
+    },
+    {
+        "key": "Misc_Warning_CategoryIPGreaterZero",
+        "value": "In einer Fähigkeitskategorie wurden nicht alle IP ausgegeben"
+    },
+    {
+        "key": "Misc_Warning_CategoryIPSmallerZero",
+        "value": "In einer Fähigkeitskategorie wurden zu viele IP ausgegeben"
+    },
+    {
+        "key": "Misc_Warning_ChangesDetected",
+        "value": "Der Charakter enthält nicht gespeicherte Änderungen."
+    },
+    {
+        "key": "Misc_Warning_GPGreaterZero",
+        "value": "Nicht alle GP wurden ausgegeben."
+    },
+    {
+        "key": "Misc_Warning_GPSmallerZero",
+        "value": "Es wuren zu viele GP ausgegeben."
+    },
+    {
+        "key": "Misc_Warning_InvalidAge",
+        "value": "Das Alter des Charakters ist ungültig."
+    },
+    {
+        "key": "Misc_Warning_IPGreaterZero",
+        "value": "Es wurden nicht alle IP auf die Fähigkeitskategorien aufgeteilt."
+    },
+    {
+        "key": "Misc_Warning_IPSmallerZero",
+        "value": "Es wurden zu viele IP auf die Fähigkeitskategorien aufgeteilt."
+    },
+    {
+        "key": "Misc_Warning_NoChangesDetected",
+        "value": "Der Charakter wurde nicht verändert."
+    },
+    {
+        "key": "Misc_Warning_NoErrorsFound",
+        "value": "Keine kritischen Warnungen gefunden. Der Charakter kann erstellt werden!"
+    },
+    {
+        "key": "Misc_Warning_NoName",
+        "value": "Der Charakter hat keinen Namen."
+    },
+    {
+        "key": "Misc_Warning_PrimaryAttributeTooLow_1",
+        "value": "Das höchste Primärattribut einer Fähigkeit ist zu niedrig für ihren Fähigkeitswert"
+    },
+    {
+        "key": "Misc_Warning_PrimaryAttributeTooLow_2",
+        "value": "Aktuelle Differenz"
+    },
+    {
+        "key": "Misc_Warning_PrimaryAttributeTooLow_3",
+        "value": "Erlaubte Differenz"
+    },
+    {
+        "key": "Misc_Warning_RequirementNotMet",
+        "value": "Voraussetzung nicht erfüllt"
+    },
+    {
+        "key": "Misc_Warning_RestrictionMet",
+        "value": "Nicht miteinander kombinierbar"
+    },
+    {
+        "key": "Misc_Warning_RestrictionViolated",
+        "value": "Folgendes ist nicht miteinander kombinierbar:"
+    },
+    {
+        "key": "Misc_Warning_TooManyAbilities",
+        "value": "Es wurden zu viele Sonderfertigkeiten erworben"
+    },
+    {
+        "key": "Misc_Warning_TooManySkills",
+        "value": "In einer Fähigkeitskategorie wurden zu viele Fähigkeiten erworben"
+    },
+    {
+        "key": "Misc_Warning_TooManyTraits",
+        "value": "Es wurden zu viele Merkmale erworben"
+    },
+    {
+        "key": "Misc_WeaponType",
+        "value": "Waffengattung"
+    },
+    {
+        "key": "Misc_Weight",
+        "value": "Gewicht"
+    },
+    {
+        "key": "Misc_Weight:",
+        "value": "Gewicht:"
+    },
+    {
+        "key": "Misc_WeightMod",
+        "value": "Gewichtsmod."
+    },
+    {
+        "key": "Misc_WeightUnitG",
+        "value": "g"
+    },
+    {
+        "key": "Misc_WeightUnitKG",
+        "value": "kg"
+    },
+    {
+        "key": "Misc_WeightUnitT",
+        "value": "t"
+    },
+    {
+        "key": "Misc_Yes",
+        "value": "Ja"
+    },
+    {
+        "key": "Origin_Ceres",
+        "value": "Kolonie Ceres"
+    },
+    {
+        "key": "Origin_CodexMoons",
+        "value": "Silbernes Reich - Minenkolonien"
+    },
+    {
+        "key": "Origin_CodexTriton",
+        "value": "Silbernes Reich - Triton"
+    },
+    {
+        "key": "Origin_EarthRural",
+        "value": "Erde - Abseits der Städte"
+    },
+    {
+        "key": "Origin_EarthUrban",
+        "value": "Erde - Großstädte und Raumstationen"
+    },
+    {
+        "key": "Origin_Europa",
+        "value": "Republik Europa"
+    },
+    {
+        "key": "Origin_Ganymed",
+        "value": "Kolonie Ganymed"
+    },
+    {
+        "key": "Origin_Mars",
+        "value": "Kolonie Mars"
+    },
+    {
+        "key": "Origin_Miranda",
+        "value": "Trümmerstadt Miranda"
+    },
+    {
+        "key": "Origin_Titan",
+        "value": "Kolonie Titan"
+    },
+    {
+        "key": "Origin_Venus",
+        "value": "Kolonie Venus"
+    },
+    {
+        "key": "PriA_AG",
+        "value": "BE"
+    },
+    {
+        "key": "PriA_AG_Long",
+        "value": "Beweglichkeit"
+    },
+    {
+        "key": "PriA_CH",
+        "value": "CH"
+    },
+    {
+        "key": "PriA_CH_Long",
+        "value": "Charisma"
+    },
+    {
+        "key": "PriA_CL",
+        "value": "KL"
+    },
+    {
+        "key": "PriA_CL_Long",
+        "value": "Klugheit"
+    },
+    {
+        "key": "PriA_CN",
+        "value": "KO"
+    },
+    {
+        "key": "PriA_CN_Long",
+        "value": "Konstitution"
+    },
+    {
+        "key": "PriA_CR",
+        "value": "MU"
+    },
+    {
+        "key": "PriA_CR_Long",
+        "value": "Mut"
+    },
+    {
+        "key": "PriA_Current",
+        "value": "Aktuell"
+    },
+    {
+        "key": "PriA_DX",
+        "value": "FF"
+    },
+    {
+        "key": "PriA_DX_Long",
+        "value": "Fingerfertigkeit"
+    },
+    {
+        "key": "PriA_IN",
+        "value": "IN"
+    },
+    {
+        "key": "PriA_IN_Long",
+        "value": "Intuition"
+    },
+    {
+        "key": "PriA_ST",
+        "value": "ST"
+    },
+    {
+        "key": "PriA_ST_Long",
+        "value": "Stärke"
+    },
+    {
+        "key": "Print_CharacterDocuments",
+        "value": "Charakterdokumente"
+    },
+    {
+        "key": "Print_CreateDocument",
+        "value": "Dokument erstellen"
+    },
+    {
+        "key": "Print_Creation",
+        "value": "Dokumenterstellung"
+    },
+    {
+        "key": "Print_ExportCharDoc",
+        "value": "Characterdokument exportieren"
+    },
+    {
+        "key": "Print_FixedValuesOnly",
+        "value": "Nur unveränderliche Werte eintragen"
+    },
+    {
+        "key": "Print_IncludeAppsDoc",
+        "value": "Einschließlich App-Dokument"
+    },
+    {
+        "key": "Print_IncludeCombatDoc",
+        "value": "Einschließlich Kampfdokument"
+    },
+    {
+        "key": "Print_IncludeCraftingDoc",
+        "value": "Einschließlich Handwerksdokument"
+    },
+    {
+        "key": "Print_IncludeInventoryDoc",
+        "value": "Einschließlich Inventardokument"
+    },
+    {
+        "key": "Print_IncludeMainDoc",
+        "value": "Einschließlich Hauptdokument"
+    },
+    {
+        "key": "Print_IncludeSkillsDoc",
+        "value": "Einschließlich Fähigkeitendokument"
+    },
+    {
+        "key": "Print_Settings",
+        "value": "Einstellungen"
+    },
+    {
+        "key": "Print_SingleDocs",
+        "value": "Seiten einzeln exportieren"
+    },
+    {
+        "key": "Print_UseEcoMode",
+        "value": "Farbsparmodus"
+    },
+    {
+        "key": "SecA_AT",
+        "value": "AT"
+    },
+    {
+        "key": "SecA_AT_Long",
+        "value": "Attacke"
+    },
+    {
+        "key": "SecA_DE",
+        "value": "VE"
+    },
+    {
+        "key": "SecA_DE_Long",
+        "value": "Verteidigung"
+    },
+    {
+        "key": "SecA_LP",
+        "value": "LP"
+    },
+    {
+        "key": "SecA_LP_Long",
+        "value": "Lebenspunkte"
+    },
+    {
+        "key": "SecA_PI",
+        "value": "PI"
+    },
+    {
+        "key": "SecA_PI_Long",
+        "value": "Pilotieren"
+    },
+    {
+        "key": "SecA_RE",
+        "value": "RE"
+    },
+    {
+        "key": "SecA_RE_Long",
+        "value": "Reaktion"
+    },
+    {
+        "key": "SecA_SP",
+        "value": "AP"
+    },
+    {
+        "key": "SecA_SP_Long",
+        "value": "Ausdauerpunkte"
+    },
+    {
+        "key": "SecA_VE",
+        "value": "GS"
+    },
+    {
+        "key": "SecA_VE_Long",
+        "value": "Geschwindigkeit"
+    },
+    {
+        "key": "SecA_WT",
+        "value": "WS"
+    },
+    {
+        "key": "SecA_WT_Long",
+        "value": "Wundschwelle"
+    },
+    {
+        "key": "Skill_Combat_EnergyWeapons",
+        "value": "Energiewaffen"
+    },
+    {
+        "key": "Skill_Combat_HeavyWeapons",
+        "value": "Schwere Waffen"
+    },
+    {
+        "key": "Skill_Combat_MeleeHands",
+        "value": "Unbewaffneter Nahkampf"
+    },
+    {
+        "key": "Skill_Combat_MeleeWeapons",
+        "value": "Bewaffneter Nahkampf"
+    },
+    {
+        "key": "Skill_Combat_OnboardWeapons",
+        "value": "Bordgeschütze"
+    },
+    {
+        "key": "Skill_Combat_Pistols",
+        "value": "Pistolen"
+    },
+    {
+        "key": "Skill_Combat_Rifles",
+        "value": "Gewehre"
+    },
+    {
+        "key": "Skill_Combat_Throwing",
+        "value": "Werfen"
+    },
+    {
+        "key": "Skill_Crafting_AnimalTraining",
+        "value": "Tiere abrichten"
+    },
+    {
+        "key": "Skill_Crafting_Computers",
+        "value": "Computer"
+    },
+    {
+        "key": "Skill_Crafting_Cooking",
+        "value": "Kochen"
+    },
+    {
+        "key": "Skill_Crafting_Disguising",
+        "value": "Verkleiden"
+    },
+    {
+        "key": "Skill_Crafting_Drawing",
+        "value": "Malen/Zeichnen"
+    },
+    {
+        "key": "Skill_Crafting_ElectricalEngineering",
+        "value": "Elektrotechnik"
+    },
+    {
+        "key": "Skill_Crafting_Explosives",
+        "value": "Sprengstoffe"
+    },
+    {
+        "key": "Skill_Crafting_MakingMusic",
+        "value": "Musik machen"
+    },
+    {
+        "key": "Skill_Crafting_MaterialProcessing",
+        "value": "Materialbearbeitung"
+    },
+    {
+        "key": "Skill_Crafting_MechanicalEngineering",
+        "value": "Konstruktion"
+    },
+    {
+        "key": "Skill_Crafting_MedicalCare",
+        "value": "Medizinische Versorgung"
+    },
+    {
+        "key": "Skill_Crafting_Pharmaceutics",
+        "value": "Pharmazie"
+    },
+    {
+        "key": "Skill_Crafting_PlayingGames",
+        "value": "Zocken"
+    },
+    {
+        "key": "Skill_Crafting_Programming",
+        "value": "Programmieren"
+    },
+    {
+        "key": "Skill_Crafting_Writing",
+        "value": "Texte verfassen"
+    },
+    {
+        "key": "Skill_Knowledge_Art",
+        "value": "Kunstverständnis"
+    },
+    {
+        "key": "Skill_Knowledge_Astronomy",
+        "value": "Astronomie"
+    },
+    {
+        "key": "Skill_Knowledge_BiologyAndMedicine",
+        "value": "Biologie und Medizin"
+    },
+    {
+        "key": "Skill_Knowledge_Chemistry",
+        "value": "Chemie"
+    },
+    {
+        "key": "Skill_Knowledge_Electronics",
+        "value": "Elektronik"
+    },
+    {
+        "key": "Skill_Knowledge_Gaming",
+        "value": "Spiel und Glückspiel"
+    },
+    {
+        "key": "Skill_Knowledge_GeneralKnowledge",
+        "value": "Allgemeinwissen"
+    },
+    {
+        "key": "Skill_Knowledge_Geology",
+        "value": "Geologie"
+    },
+    {
+        "key": "Skill_Knowledge_History",
+        "value": "Geschichte"
+    },
+    {
+        "key": "Skill_Knowledge_Informatics",
+        "value": "Informatik"
+    },
+    {
+        "key": "Skill_Knowledge_Law",
+        "value": "Rechtswissenschaften"
+    },
+    {
+        "key": "Skill_Knowledge_MathematicsAndEconomy",
+        "value": "Mathematik und Wirtschaft"
+    },
+    {
+        "key": "Skill_Knowledge_Music",
+        "value": "Musikverständnis"
+    },
+    {
+        "key": "Skill_Knowledge_Orientation",
+        "value": "Orientierung"
+    },
+    {
+        "key": "Skill_Knowledge_PhysicsAndMechanics",
+        "value": "Physik und Mechanik"
+    },
+    {
+        "key": "Skill_Knowledge_Spaceflight",
+        "value": "Raumfahrt"
+    },
+    {
+        "key": "Skill_Knowledge_Survival",
+        "value": "Überleben"
+    },
+    {
+        "key": "Skill_Knowledge_TacticsAndStrategy",
+        "value": "Taktik und Strategie"
+    },
+    {
+        "key": "Skill_Physical_BodyControl",
+        "value": "Körperbeherrschung"
+    },
+    {
+        "key": "Skill_Physical_Climbing",
+        "value": "Klettern"
+    },
+    {
+        "key": "Skill_Physical_Dancing",
+        "value": "Tanzen"
+    },
+    {
+        "key": "Skill_Physical_Diving",
+        "value": "Tauchen"
+    },
+    {
+        "key": "Skill_Physical_ImitatingVoices",
+        "value": "Stimmen imitieren"
+    },
+    {
+        "key": "Skill_Physical_Inebriating",
+        "value": "Zechen"
+    },
+    {
+        "key": "Skill_Physical_Perception",
+        "value": "Aufmerksamkeit"
+    },
+    {
+        "key": "Skill_Physical_Running",
+        "value": "Rennen"
+    },
+    {
+        "key": "Skill_Physical_Singing",
+        "value": "Singen"
+    },
+    {
+        "key": "Skill_Physical_SneakingHiding",
+        "value": "Schleichen/Verstecken"
+    },
+    {
+        "key": "Skill_Physical_Stealing",
+        "value": "Taschendiebstahl"
+    },
+    {
+        "key": "Skill_Physical_Swimming",
+        "value": "Schwimmen"
+    },
+    {
+        "key": "Skill_Social_Acting",
+        "value": "Schauspielern"
+    },
+    {
+        "key": "Skill_Social_Flirting",
+        "value": "Flirten"
+    },
+    {
+        "key": "Skill_Social_Inspiring",
+        "value": "Begeistern"
+    },
+    {
+        "key": "Skill_Social_Intimidating",
+        "value": "Einschüchtern"
+    },
+    {
+        "key": "Skill_Social_Judgement",
+        "value": "Menschenkenntnis"
+    },
+    {
+        "key": "Skill_Social_Reasoning",
+        "value": "Argumentieren"
+    },
+    {
+        "key": "Skill_Social_SelfControl",
+        "value": "Selbstbeherrschung"
+    },
+    {
+        "key": "Skill_Social_SoftSkills",
+        "value": "Sozialkompetenz"
+    },
+    {
+        "key": "Skill_Social_Teaching",
+        "value": "Lehren"
+    },
+    {
+        "key": "Skill_Social_Trading",
+        "value": "Handeln"
+    },
+    {
+        "key": "Skill_Vehicles_ExtraplanetaryFlying",
+        "value": "Extraplanetares Fliegen"
+    },
+    {
+        "key": "Skill_Vehicles_IntraplanetaryFlying",
+        "value": "Intraplanetares Fliegen"
+    },
+    {
+        "key": "Skill_Vehicles_LandVehicles",
+        "value": "Landfahrzeuge"
+    },
+    {
+        "key": "Skill_Vehicles_WaterVehicles",
+        "value": "Wasserfahrzeuge"
+    },
+    {
+        "key": "SkillCategory_Combat",
+        "value": "Kampffähigkeiten"
+    },
+    {
+        "key": "SkillCategory_Crafting",
+        "value": "Handwerkliche Fähigkeiten"
+    },
+    {
+        "key": "SkillCategory_Knowledge",
+        "value": "Wissensfähigkeiten"
+    },
+    {
+        "key": "SkillCategory_Physical",
+        "value": "Körperliche Fähigkeiten"
+    },
+    {
+        "key": "SkillCategory_Social",
+        "value": "Soziale Fähigkeiten"
+    },
+    {
+        "key": "SkillCategory_Vehicles",
+        "value": "Fahrzeugfähigkeiten"
+    },
+    {
+        "key": "SO",
+        "value": "SO"
+    },
+    {
+        "key": "Specialisation_Skill_Combat_OnboardWeapons_BallisticCannons",
+        "value": "Ballistische Kanonen (Bordgeschütze)"
+    },
+    {
+        "key": "Specialisation_Skill_Combat_OnboardWeapons_BallisticTurrets_GaussCannons",
+        "value": "Partikelbeschleunigerkanonen (Bordgeschütze)"
+    },
+    {
+        "key": "Specialisation_Skill_Combat_OnboardWeapons_TorpedoLaunchers",
+        "value": "Torpedowerfer (Bordgeschütze)"
+    },
+    {
+        "key": "Specialisation_Skill_Combat_Rifles_AutomaticRifles",
+        "value": "Vollautomatische Karabiner (Gewehre)"
+    },
+    {
+        "key": "Specialisation_Skill_Combat_Rifles_SemiAutomaticRifles",
+        "value": "Halbautomatische Gewehre (Gewehre)"
+    },
+    {
+        "key": "Specialisation_Skill_Combat_Rifles_Shotguns",
+        "value": "Schrotflinten (Gewehre)"
+    },
+    {
+        "key": "Specialisation_Skill_Crafting_AnimalTraining_AnyKindOfFamily",
+        "value": "Beliebige Familie (Tiere abrichten)"
+    },
+    {
+        "key": "Specialisation_Skill_Crafting_Cooking_DrinkPreparation",
+        "value": "Getränkezubereitung (Kochen)"
+    },
+    {
+        "key": "Specialisation_Skill_Crafting_Cooking_FoodPreparation",
+        "value": "Essenszubereitung (Kochen)"
+    },
+    {
+        "key": "Specialisation_Skill_Crafting_Drawing_Calligraphy",
+        "value": "Kalligrafie (Malen/Zeichnen)"
+    },
+    {
+        "key": "Specialisation_Skill_Crafting_Drawing_Painting",
+        "value": "Malerei (Malen/Zeichnen)"
+    },
+    {
+        "key": "Specialisation_Skill_Crafting_Drawing_TechnicalDrawing",
+        "value": "Technisches Zeichnen (Malen/Zeichnen)"
+    },
+    {
+        "key": "Specialisation_Skill_Crafting_ElectricalEngineering_ComputerEngineering",
+        "value": "Computertechnik (Elektrotechnik)"
+    },
+    {
+        "key": "Specialisation_Skill_Crafting_ElectricalEngineering_ControlEngineering",
+        "value": "Regelungstechnik (Elektrotechnik)"
+    },
+    {
+        "key": "Specialisation_Skill_Crafting_ElectricalEngineering_Cybernetics",
+        "value": "Kybernetik (Elektrotechnik)"
+    },
+    {
+        "key": "Specialisation_Skill_Crafting_ElectricalEngineering_Mechatronics",
+        "value": "Mechatronik (Elektrotechnik)"
+    },
+    {
+        "key": "Specialisation_Skill_Crafting_ElectricalEngineering_PowerEngineering",
+        "value": "Energietechnik (Elektrotechnik)"
+    },
+    {
+        "key": "Specialisation_Skill_Crafting_Explosives_Ammunition",
+        "value": "Munitionsbau (Sprengstoffe)"
+    },
+    {
+        "key": "Specialisation_Skill_Crafting_Explosives_Disarming",
+        "value": "Entschärfen (Sprengstoffe)"
+    },
+    {
+        "key": "Specialisation_Skill_Crafting_Explosives_ExplosivesProduction",
+        "value": "Sprengstoffherstellung (Sprengstoffe)"
+    },
+    {
+        "key": "Specialisation_Skill_Crafting_Explosives_Fuels",
+        "value": "Treibstoffherstellung (Sprengstoffe)"
+    },
+    {
+        "key": "Specialisation_Skill_Crafting_MakingMusic_AnyKindOfInsrument",
+        "value": "Beliebiges Instrument (Musik machen)"
+    },
+    {
+        "key": "Specialisation_Skill_Crafting_MaterialProcessing_MetalProcessing",
+        "value": "Metallverarbeitung (Materialbearbeitung)"
+    },
+    {
+        "key": "Specialisation_Skill_Crafting_MaterialProcessing_PlasticsProcessing",
+        "value": "Kunststoffverarbeitung (Materialbearbeitung)"
+    },
+    {
+        "key": "Specialisation_Skill_Crafting_MaterialProcessing_StoneCutting",
+        "value": "Steinbearbeitung (Materialbearbeitung)"
+    },
+    {
+        "key": "Specialisation_Skill_Crafting_MaterialProcessing_Tailoring",
+        "value": "Schneidern (Materialbearbeitung)"
+    },
+    {
+        "key": "Specialisation_Skill_Crafting_MaterialProcessing_Woodworking",
+        "value": "Holzbearbeitung (Materialbearbeitung)"
+    },
+    {
+        "key": "Specialisation_Skill_Crafting_MechanicalEngineering_MachineryConstruction",
+        "value": "Maschinenbau (Konstruktion)"
+    },
+    {
+        "key": "Specialisation_Skill_Crafting_MechanicalEngineering_StruturalEngineering",
+        "value": "Bautechnik (Konstruktion)"
+    },
+    {
+        "key": "Specialisation_Skill_Crafting_MechanicalEngineering_VehicleConstruction",
+        "value": "Fahrzeugbau (Konstruktion)"
+    },
+    {
+        "key": "Specialisation_Skill_Crafting_MechanicalEngineering_WeaponSmithing",
+        "value": "Waffentechnik (Konstruktion)"
+    },
+    {
+        "key": "Specialisation_Skill_Crafting_MedicalCare_InternalMedicine",
+        "value": "Innere Medizin (Medizinische Versorgung)"
+    },
+    {
+        "key": "Specialisation_Skill_Crafting_MedicalCare_Neurology",
+        "value": "Neurologie (Medizinische Versorgung)"
+    },
+    {
+        "key": "Specialisation_Skill_Crafting_MedicalCare_Psychology",
+        "value": "Psychologie (Medizinische Versorgung)"
+    },
+    {
+        "key": "Specialisation_Skill_Crafting_MedicalCare_VeterinaryMedicine",
+        "value": "Veterinärmedizin (Medizinische Versorgung)"
+    },
+    {
+        "key": "Specialisation_Skill_Crafting_Pharmaceutics_Pharmacology",
+        "value": "Pharmakologie (Pharmazie)"
+    },
+    {
+        "key": "Specialisation_Skill_Crafting_Pharmaceutics_Toxicology",
+        "value": "Toxikologie (Pharmazie)"
+    },
+    {
+        "key": "Specialisation_Skill_Crafting_PlayingGames_Gambling",
+        "value": "Glücksspiel (Zocken)"
+    },
+    {
+        "key": "Specialisation_Skill_Crafting_PlayingGames_VideoGaming",
+        "value": "Videospiele (Zocken)"
+    },
+    {
+        "key": "Specialisation_Skill_Crafting_Programming_Hacking",
+        "value": "Hacking (Programmieren)"
+    },
+    {
+        "key": "Specialisation_Skill_Crafting_Programming_SoftwareEngineering",
+        "value": "Softwareentwicklung (Programmieren)"
+    },
+    {
+        "key": "Specialisation_Skill_Crafting_Writing_FictionalWriting",
+        "value": "Fiktionale Texte (Texte verfassen)"
+    },
+    {
+        "key": "Specialisation_Skill_Crafting_Writing_JournalisticWriting",
+        "value": "Journalistische Texte (Texte verfassen)"
+    },
+    {
+        "key": "Specialisation_Skill_Crafting_Writing_ScientificWriting",
+        "value": "Wissenschaftliche Texte (Texte verfassen)"
+    },
+    {
+        "key": "Stellarpedia_Arsenal",
+        "value": "Arsenal des Sonnensystems"
+    },
+    {
+        "key": "Stellarpedia_Atlas",
+        "value": "Atlas des Sonnensystems"
+    },
+    {
+        "key": "Stellarpedia_BasicRules",
+        "value": "Basisregelwerk"
+    },
+    {
+        "key": "Stellarpedia_BasicRules_Abilities",
+        "value": "Sonderfertigkeiten"
+    },
+    {
+        "key": "Stellarpedia_BasicRules_Attributes",
+        "value": "Attribute"
+    },
+    {
+        "key": "Stellarpedia_BasicRules_Origins",
+        "value": "Herkunft"
+    },
+    {
+        "key": "Stellarpedia_BasicRules_Skills",
+        "value": "Fähigkeiten"
+    },
+    {
+        "key": "Stellarpedia_BasicRules_Skills_Attributes",
+        "value": "Fähigkeitsprobe"
+    },
+    {
+        "key": "Stellarpedia_BasicRules_Skills_Category",
+        "value": "Kategorie: "
+    },
+    {
+        "key": "Stellarpedia_BasicRules_Traits",
+        "value": "Merkmale"
+    },
+    {
+        "key": "Stellarpedia_Bonus_Header",
+        "value": "Bonus:"
+    },
+    {
+        "key": "Stellarpedia_Bonus_Header_Varying",
+        "value": "Bonus: Variabel"
+    },
+    {
+        "key": "Stellarpedia_Costs_Header_Varying",
+        "value": "Kosten: Variabel"
+    },
+    {
+        "key": "Stellarpedia_Error404",
+        "value": "Fehler 404"
+    },
+    {
+        "key": "Stellarpedia_Error404Message1",
+        "value": "Entschuldigung, diese Seite konnten wir leider nicht finden. :/"
+    },
+    {
+        "key": "Stellarpedia_Error404Message2",
+        "value": "Du kannst mithelfen, die Stellarpedia zu verbessern, indem Du einem Administrator diesen Fehlercode schickst:"
+    },
+    {
+        "key": "Stellarpedia_Learnability_Header",
+        "value": "Erlernbarkeit"
+    },
+    {
+        "key": "Stellarpedia_Learnability_Header_PerksAndHandicaps",
+        "value": "Vor- und Nachteile sind nach Spielstart nicht mehr erlernbar."
+    },
+    {
+        "key": "Stellarpedia_Requirements_Header",
+        "value": "Voraussetzungen"
+    },
+    {
+        "key": "Stellarpedia_Requirements_Header_None",
+        "value": "Keine Voraussetzungen"
+    },
+    {
+        "key": "Stellarpedia_Requirements_IsRestriction",
+        "value": "nicht kombinierbar mit"
+    },
+    {
+        "key": "Stellarpedia_TradeAndCraft",
+        "value": "Handel und Handwerk"
+    },
+    {
+        "key": "Tooltip_CategoryExpandReduce",
+        "value": "Kategorie ein-/ausblenden"
+    },
+    {
+        "key": "Tooltip_ConsoleClose",
+        "value": "Konsole schließen"
+    },
+    {
+        "key": "Tooltip_ConsoleCreateLog",
+        "value": "Log exportieren"
+    },
+    {
+        "key": "Tooltip_ConsoleOpen",
+        "value": "Debugging-Konsole öffnen"
+    },
+    {
+        "key": "Tooltip_CreateCharacter",
+        "value": "Neuen Charakter erstellen"
+    },
+    {
+        "key": "Tooltip_CreateJournal",
+        "value": "Neues Tagebuch erstellen"
+    },
+    {
+        "key": "Tooltip_FileBrowserClose",
+        "value": "Datei-Browser schließen"
+    },
+    {
+        "key": "Tooltip_FileBrowserDelete",
+        "value": "Datei/Ordner löschen"
+    },
+    {
+        "key": "Tooltip_FileBrowserDirHome",
+        "value": "Standardverzeichnis öffnen"
+    },
+    {
+        "key": "Tooltip_FileBrowserDirUp",
+        "value": "Ordner nach oben"
+    },
+    {
+        "key": "Tooltip_FileBrowserNewDir",
+        "value": "Neuen Ordner anlegen"
+    },
+    {
+        "key": "Tooltip_ItemAdd",
+        "value": "Gegenstand kaufen/hinzufügen"
+    },
+    {
+        "key": "Tooltip_ItemExpandReduce",
+        "value": "Details ein-/ausblenden"
+    },
+    {
+        "key": "Tooltip_ItemRemove",
+        "value": "Gegenstand verkaufen/löschen"
+    },
+    {
+        "key": "Tooltip_JournalEditorClose",
+        "value": "Tagebucheditor schließen"
+    },
+    {
+        "key": "Tooltip_JournalEditorDelete",
+        "value": "Tagebucheintrag löschen"
+    },
+    {
+        "key": "Tooltip_JournalEditorDown",
+        "value": "Tagebucheintrag nach unten"
+    },
+    {
+        "key": "Tooltip_JournalEditorDropdown",
+        "value": "Tagebucheintrags-Icon ändern"
+    },
+    {
+        "key": "Tooltip_JournalEditorNew",
+        "value": "Neuen Tagebucheintrag anlegen"
+    },
+    {
+        "key": "Tooltip_JournalEditorPin",
+        "value": "Tagebucheintrag an/abpinnen"
+    },
+    {
+        "key": "Tooltip_JournalEditorSave",
+        "value": "Tagebuch speichern"
+    },
+    {
+        "key": "Tooltip_JournalEditorTitle",
+        "value": "Tagebuchtitel ändern"
+    },
+    {
+        "key": "Tooltip_JournalEditorUp",
+        "value": "Tagebucheintrag nach oben"
+    },
+    {
+        "key": "Tooltip_LoadCharacter",
+        "value": "Charaktere verwalten"
+    },
+    {
+        "key": "Tooltip_LoadJournal",
+        "value": "Tagebücher verwalten"
+    },
+    {
+        "key": "Tooltip_Misc_DecreaseValue",
+        "value": "Wert reduzieren"
+    },
+    {
+        "key": "Tooltip_Misc_IncreaseValue",
+        "value": "Wert erhöhen"
+    },
+    {
+        "key": "Tooltip_StellarpediaBack",
+        "value": "Eintrag nach hinten"
+    },
+    {
+        "key": "Tooltip_StellarpediaClose",
+        "value": "Stellarpedia schließen"
+    },
+    {
+        "key": "Tooltip_StellarpediaExpandReduceChapter",
+        "value": "Kapitel ein-/ausklappen"
+    },
+    {
+        "key": "Tooltip_StellarpediaForward",
+        "value": "Eintrag nach vorne"
+    },
+    {
+        "key": "Tooltip_StellarpediaOpen",
+        "value": "Stellarpedia öffnen"
+    },
+    {
+        "key": "TradeAndCraft",
+        "value": "Handel und Handwerk"
+    },
+    {
+        "key": "Trait_AcademicEducation",
+        "value": "Akademische Ausbildung"
+    },
+    {
+        "key": "Trait_Addiction",
+        "value": "Sucht"
+    },
+    {
+        "key": "Trait_AnnoyingVoice",
+        "value": "Unangenehme Stimme"
+    },
+    {
+        "key": "Trait_Arrogance",
+        "value": "Arrogant"
+    },
+    {
+        "key": "Trait_BadRegeneration",
+        "value": "Schlechte Regeneration"
+    },
+    {
+        "key": "Trait_BadReputation",
+        "value": "Schlechter Ruf"
+    },
+    {
+        "key": "Trait_BadTrait",
+        "value": "Charakterzug:"
+    },
+    {
+        "key": "Trait_Bitter",
+        "value": "Verbittert"
+    },
+    {
+        "key": "Trait_Bloodthirsty",
+        "value": "Blutdurstig"
+    },
+    {
+        "key": "Trait_Clumsy",
+        "value": "Tollpatsch"
+    },
+    {
+        "key": "Trait_CombatTraining",
+        "value": "Kampfausbildung"
+    },
+    {
+        "key": "Trait_CompetetiveSportsman",
+        "value": "Leistungssportler"
+    },
+    {
+        "key": "Trait_Confrontational",
+        "value": "Streitlustig"
+    },
+    {
+        "key": "Trait_Connections",
+        "value": "Verbindungen"
+    },
+    {
+        "key": "Trait_Curious",
+        "value": "Neugierig"
+    },
+    {
+        "key": "Trait_Debt",
+        "value": "Schulden"
+    },
+    {
+        "key": "Trait_Delusions",
+        "value": "Wahnvorstellungen"
+    },
+    {
+        "key": "Trait_DigitalImmigrant",
+        "value": "Digital Immigrant"
+    },
+    {
+        "key": "Trait_DigitalNative",
+        "value": "Digital Native"
+    },
+    {
+        "key": "Trait_Egoist",
+        "value": "Egoist"
+    },
+    {
+        "key": "Trait_EnhancedHearing",
+        "value": "Empfindliches Gehör"
+    },
+    {
+        "key": "Trait_EnhancedSmelling",
+        "value": "Empfindlicher Geruchssinn"
+    },
+    {
+        "key": "Trait_EnhancedVision",
+        "value": "Empfindlicher Sehsinn"
+    },
+    {
+        "key": "Trait_Euphony",
+        "value": "Wohlklang"
+    },
+    {
+        "key": "Trait_FavoredByFaith",
+        "value": "Schutzengel"
+    },
+    {
+        "key": "Trait_FoodRestriction",
+        "value": "Nahrungsrestriktion"
+    },
+    {
+        "key": "Trait_Forgetful",
+        "value": "Vergesslich"
+    },
+    {
+        "key": "Trait_GoodMemory",
+        "value": "Gutes Gedächtnis"
+    },
+    {
+        "key": "Trait_GoodReputation",
+        "value": "Guter Ruf"
+    },
+    {
+        "key": "Trait_Greedy",
+        "value": "Habgierig"
+    },
+    {
+        "key": "Trait_HeavySleeper",
+        "value": "Langschläfer"
+    },
+    {
+        "key": "Trait_Helpful",
+        "value": "Hilfsbereit"
+    },
+    {
+        "key": "Trait_HighStamina",
+        "value": "Hohe Ausdauer"
+    },
+    {
+        "key": "Trait_HighVigour",
+        "value": "Hohe Lebenskraft"
+    },
+    {
+        "key": "Trait_Hoggish",
+        "value": "Verfressen"
+    },
+    {
+        "key": "Trait_Homesick",
+        "value": "Heimwehkrank"
+    },
+    {
+        "key": "Trait_Horny",
+        "value": "Rallig"
+    },
+    {
+        "key": "Trait_Imaginations",
+        "value": "Einbildungen"
+    },
+    {
+        "key": "Trait_Immunity",
+        "value": "Immunität"
+    },
+    {
+        "key": "Trait_Impulsive",
+        "value": "Impulsiv"
+    },
+    {
+        "key": "Trait_InabilityForSkillCategory",
+        "value": "Unfähigkeit für"
+    },
+    {
+        "key": "Trait_Insomnia",
+        "value": "Schlaflosigkeit"
+    },
+    {
+        "key": "Trait_Jinx",
+        "value": "Pechvogel"
+    },
+    {
+        "key": "Trait_JobTraining",
+        "value": "Berufsausbildung"
+    },
+    {
+        "key": "Trait_Joker",
+        "value": "Stimmungskanone"
+    },
+    {
+        "key": "Trait_JumpStart",
+        "value": "Startvorteil"
+    },
+    {
+        "key": "Trait_LimitedHearing",
+        "value": "Eingeschränktes Gehör"
+    },
+    {
+        "key": "Trait_LimitedSmelling",
+        "value": "Eingeschränkter Geruchssinn"
+    },
+    {
+        "key": "Trait_LimitedVision",
+        "value": "Eingeschränkte Sicht"
+    },
+    {
+        "key": "Trait_Loyale",
+        "value": "Loyal"
+    },
+    {
+        "key": "Trait_LuckyAtCards",
+        "value": "Glück im Spiel"
+    },
+    {
+        "key": "Trait_MiserableAttribute",
+        "value": "Miserables Attribut"
+    },
+    {
+        "key": "Trait_Nemesis",
+        "value": "Erzfeind"
+    },
+    {
+        "key": "Trait_Nimble",
+        "value": "Flink"
+    },
+    {
+        "key": "Trait_Obese",
+        "value": "Fettleibig"
+    },
+    {
+        "key": "Trait_Obligations",
+        "value": "Verpflichtungen"
+    },
+    {
+        "key": "Trait_Outdoorsy",
+        "value": "Frischluftfanatiker"
+    },
+    {
+        "key": "Trait_OutstandingAttribute",
+        "value": "Herausragendes Attribut"
+    },
+    {
+        "key": "Trait_Pacifist",
+        "value": "Pazifist"
+    },
+    {
+        "key": "Trait_PetPal",
+        "value": "Tierfreund"
+    },
+    {
+        "key": "Trait_Phobia",
+        "value": "Phobie"
+    },
+    {
+        "key": "Trait_PilotTraining",
+        "value": "Pilotenausbildung"
+    },
+    {
+        "key": "Trait_PoorStamina",
+        "value": "Niedrige Ausdauer"
+    },
+    {
+        "key": "Trait_PoorVigour",
+        "value": "Niedrige Lebenskraft"
+    },
+    {
+        "key": "Trait_Prejudices",
+        "value": "Vorurteile"
+    },
+    {
+        "key": "Trait_Pretty",
+        "value": "Hübsch"
+    },
+    {
+        "key": "Trait_Prudent",
+        "value": "Besonnen"
+    },
+    {
+        "key": "Trait_QuickRegeneration",
+        "value": "Schnelle Regeneration"
+    },
+    {
+        "key": "Trait_QuickSleeper",
+        "value": "Kurzschläfer"
+    },
+    {
+        "key": "Trait_RobustCirculation",
+        "value": "Robuster Kreislauf"
+    },
+    {
+        "key": "Trait_SelfTalker",
+        "value": "Selbstgespräche"
+    },
+    {
+        "key": "Trait_SenseOfDirection",
+        "value": "Richtungssinn"
+    },
+    {
+        "key": "Trait_SenseOfJustice",
+        "value": "Gerechtigkeitsgefühl"
+    },
+    {
+        "key": "Trait_SenseOfTime",
+        "value": "Zeitgefühl"
+    },
+    {
+        "key": "Trait_SensitiveToImplants",
+        "value": "Implantatempfindlich"
+    },
+    {
+        "key": "Trait_Sickly",
+        "value": "Kränklich"
+    },
+    {
+        "key": "Trait_Simplehearted",
+        "value": "Naiv"
+    },
+    {
+        "key": "Trait_Sleepwalker",
+        "value": "Schlafwandler"
+    },
+    {
+        "key": "Trait_Slowpoke",
+        "value": "Schnarchnase"
+    },
+    {
+        "key": "Trait_Small",
+        "value": "Kleinwüchsig"
+    },
+    {
+        "key": "Trait_SocialNature",
+        "value": "Soziales Wesen"
+    },
+    {
+        "key": "Trait_SpecialPossession",
+        "value": "Besonderer Besitz"
+    },
+    {
+        "key": "Trait_SpeechDefect",
+        "value": "Sprachfehler"
+    },
+    {
+        "key": "Trait_Spoiled",
+        "value": "Verwöhnt"
+    },
+    {
+        "key": "Trait_Stench",
+        "value": "Übelriechend"
+    },
+    {
+        "key": "Trait_Submissive",
+        "value": "Gefügig"
+    },
+    {
+        "key": "Trait_TalentForSkill",
+        "value": "Begabung für"
+    },
+    {
+        "key": "Trait_TechnicalDummie",
+        "value": "Technik-Dummie"
+    },
+    {
+        "key": "Trait_Tinkerer",
+        "value": "Bastler"
+    },
+    {
+        "key": "Trait_ToughDog",
+        "value": "Zäher Hund"
+    },
+    {
+        "key": "Trait_Unsightly",
+        "value": "Unansehnlich"
+    },
+    {
+        "key": "Trait_Vanity",
+        "value": "Eitel"
+    },
+    {
+        "key": "Trait_Wanted",
+        "value": "Gesucht"
+    },
+    {
+        "key": "Trait_WeatherResistent",
+        "value": "Wetterresistent"
+    },
+    {
+        "key": "Trait_Wimp",
+        "value": "Weichei"
+    },
+    {
+        "key": "Traits_Owned",
+        "value": "Erworbene Merkmale"
+    },
+    {
+        "key": "WeightModifier_Backpack",
+        "value": "Rucksack (75 %)"
+    },
+    {
+        "key": "WeightModifier_Clothing",
+        "value": "Kleidung/Rüstung (50 %)"
+    },
+    {
+        "key": "WeightModifier_None",
+        "value": "Keiner (100 %)"
+    },
+    {
+        "key": "WeightModifier_Storage",
+        "value": "Lager (0 %)"
+    },
+    {
+        "key": "Misc_SignIn",
+        "value": "Anmelden"
+    },
+    {
+        "key": "Misc_SignUp",
+        "value": "Registrieren"
+    },
+    {
+        "key": "Misc_NewHorizons",
+        "value": "New Horizons"
+    },
+    {
+        "key": "Misc_Account",
+        "value": "Account"
+    },
+    {
+        "key": "Misc_Editor",
+        "value": "Editor"
+    },
+    {
+        "key": "Misc_News",
+        "value": "Neuigkeiten"
+    },
+    {
+        "key": "Misc_Home",
+        "value": "Home"
+    },
+    {
+        "key": "Misc_Support",
+        "value": "Unterstützung"
+    },
+    {
+        "key": "Misc_Imprint",
+        "value": "Impressum"
+    },
+    {
+        "key": "Misc_About",
+        "value": "Über das Spiel"
+    }
+]

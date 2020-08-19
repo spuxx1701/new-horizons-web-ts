@@ -1,0 +1,18 @@
+[
+    {
+        "id": "WeightModifier_None",
+        "value": 1.0
+    },
+    {
+        "id": "WeightModifier_Backpack",
+        "value": 0.75
+    },
+    {
+        "id": "WeightModifier_Clothing",
+        "value": 0.5
+    },
+    {
+        "id": "WeightModifier_Storage",
+        "value": 0.0
+    }
+]

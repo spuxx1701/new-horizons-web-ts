@@ -1,0 +1,25 @@
+<div class="interactable-container">
+    <label class="label h5" for="dropdown">{{localize @label}}</label>
+    <div class="interactable-element">
+        <BsDropdown id="dropdown" class="dropdown interactable-size-{{@size}}" @tagName="span" as |dropdown|>
+            <dropdown.button disabled={{this.disabled}}>
+                <h6 class="dropdown-caption">{{this.caption}}</h6>
+                <span class="caret"></span>
+            </dropdown.button>
+            <dropdown.menu as |menu|>
+                {{#each @items as |item|}}
+                <menu.item>
+                    <a class="dropdown-item" href="#" {{on "click" (fn this.onItemClicked item)}}>
+                        <h6 class="dropdown-item-label">{{localize item.id}}</h6>
+                    </a>
+                </menu.item>
+                <menu.divider />
+                {{/each}}
+            </dropdown.menu>
+        </BsDropdown>
+        {{#if (is-empty @info)}}
+        {{else}}
+        <Interactable::ButtonInfo @article={{@info}} />
+        {{/if}}
+    </div>
+</div>

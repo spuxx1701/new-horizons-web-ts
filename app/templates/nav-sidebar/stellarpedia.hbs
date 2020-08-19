@@ -1,0 +1,42 @@
+<button class="sidebar-button-1" type="button" {{on 'click' this.returnToMenu}}>
+    {{fa-icon "chevron-left" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}}
+    <p class="margin-vertical-auto">{{localize "Misc_Back"}}</p>
+</button>
+<div class="sidebar-sep"></div>
+<div class="hBox justify-content-between">
+    <h5 class="fgWhite margin-vertical-medium sidebar-header">{{localize "Misc_Stellarpedia"}}</h5>
+    <div class="sidebar-header-toolbar">
+        <button id="sidebar-reduce-all-button" type="button" class="sidebar-button-tiny"
+            {{on "click" this.onReduceAllClick}}>
+            {{fa-icon "arrows-v"}}
+        </button>
+    </div>
+</div>
+<div class="sidebar-sep"></div>
+<div class="vBox" id="generator-tabs">
+    {{#each this.manager.stellarpedia.data as |book|}}
+    <button id="sidebar-button-{{book.id}}" type="button" class="sidebar-collapsible" {{on "click" this.onBookClick}}>
+        {{fa-icon book.faIcon size=this.manager.constants.sidebarIconSize class="marginSidesMedium fgTealNeon"}}
+        <p class="margin-vertical-auto">{{localize (concat "Stellarpedia_" book.id)}}</p>
+    </button>
+    <div id="sidebar-button-{{book.id}}-content" class="sidebar-collapsible-content">
+        {{#each book.chapters as |chapter|}}
+        <button id="sidebar-button-{{book.id}}.{{chapter.id}}" type="button" class="sidebar-collapsible"
+            {{on "click" this.onChapterClick}}>
+            {{fa-icon this.chapterIcon class="marginSidesMedium fgTealNeon"}}
+            <p class="margin-vertical-auto">{{chapter.header}}</p>
+        </button>
+        <div id="sidebar-button-{{book.id}}.{{chapter.id}}-content" class="sidebar-collapsible-content">
+            {{#each chapter.entries as |entry|}}
+            <button id="sidebar-button-{{book.id}}.{{chapter.id}}.{{entry.id}}" type="button"
+                class="sidebar-collapsible" {{on "click" (fn this.onEntryClick entry)}}>
+                {{fa-icon this.entryIcon class="marginSidesMedium fgTealNeon"}}
+                <p class="margin-vertical-auto">{{sp-get-entry-header entry}}</p>
+            </button>
+            {{/each}}
+        </div>
+        {{/each}}
+    </div>
+    <div class="sidebar-sep"></div>
+    {{/each}}
+</div>

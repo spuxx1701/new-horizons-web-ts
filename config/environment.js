@@ -20,6 +20,7 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+      APIURL: "https://new-horizons-game.com/api/development/"
     }
   };
 
@@ -44,7 +45,16 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    // here you can enable a production-specific feature
+    ENV.APP.APIURL = "https://new-horizons-game.com/api/";
+    ENV.contentSecurityPolicy = {
+      'default-src': "'self'",
+      'script-src': "'self'",
+      'font-src': "'self'",
+      'connect-src': "'self'",
+      'img-src': "'self'",
+      'style-src': "'self'",
+      'media-src': "'self'"
+    };
   }
 
   return ENV;

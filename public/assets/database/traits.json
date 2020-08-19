@@ -1,0 +1,2383 @@
+[
+    {
+        "id": "Trait_AcademicEducation",
+        "costs": 5,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [
+            {
+                "id": "SkillCategory_Knowledge",
+                "type": "available",
+                "input": "",
+                "level": 10,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "SkillCategory_Knowledge",
+                "type": "total",
+                "input": "",
+                "level": 10,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "SkillCategory_Knowledge",
+                "type": "min",
+                "input": "",
+                "level": 10,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "requirements": [
+            {
+                "id": "SO",
+                "type": "",
+                "input": "",
+                "level": 5,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "restrictions": [
+            {
+                "id": "Trait_InabilityForSkillCategory",
+                "type": "",
+                "input": "SkillCategory_Knowledge",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_Addiction",
+        "costs": -5,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": true,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": []
+    },
+    {
+        "id": "Trait_AnnoyingVoice",
+        "costs": -3,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_Euphony",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_Arrogance",
+        "costs": -5,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_Submissive",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_BadRegeneration",
+        "costs": -7,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_QuickRegeneration",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_BadReputation",
+        "costs": -4,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": true,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_GoodReputation",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_BadTrait",
+        "costs": -5,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": true,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": []
+    },
+    {
+        "id": "Trait_Bitter",
+        "costs": -3,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_Joker",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_Bloodthirsty",
+        "costs": -7,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_Pacifist",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_Clumsy",
+        "costs": -10,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": []
+    },
+    {
+        "id": "Trait_CombatTraining",
+        "costs": 7,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [
+            {
+                "id": "SkillCategory_Combat",
+                "type": "available",
+                "input": "",
+                "level": 10,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "SkillCategory_Combat",
+                "type": "total",
+                "input": "",
+                "level": 10,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "SkillCategory_Combat",
+                "type": "min",
+                "input": "",
+                "level": 10,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "requirements": [
+            {
+                "id": "SO",
+                "type": "",
+                "input": "",
+                "level": 2,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "restrictions": [
+            {
+                "id": "Trait_InabilityForSkillCategory",
+                "type": "",
+                "input": "SkillCategory_Combat",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_CompetetiveSportsman",
+        "costs": 7,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [
+            {
+                "id": "SkillCategory_Physical",
+                "type": "available",
+                "input": "",
+                "level": 10,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "SkillCategory_Physical",
+                "type": "total",
+                "input": "",
+                "level": 10,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "SkillCategory_Physical",
+                "type": "min",
+                "input": "",
+                "level": 10,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_InabilityForSkillCategory",
+                "type": "",
+                "input": "SkillCategory_Physical",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Trait_Obese",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_Confrontational",
+        "costs": -5,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_Prudent",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_Connections",
+        "costs": 1,
+        "hasLevel": true,
+        "level": 0,
+        "minLevel": 1,
+        "maxLevel": 20,
+        "options": [],
+        "needsInput": true,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": []
+    },
+    {
+        "id": "Trait_Curious",
+        "costs": -5,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": []
+    },
+    {
+        "id": "Trait_Debt",
+        "costs": -3,
+        "hasLevel": true,
+        "level": 0,
+        "minLevel": 1,
+        "maxLevel": 5,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": []
+    },
+    {
+        "id": "Trait_Delusions",
+        "costs": -10,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_Prudent",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Trait_Imaginations",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_DigitalImmigrant",
+        "costs": -3,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_DigitalNative",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_DigitalNative",
+        "costs": 3,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_DigitalImmigrant",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_Egoist",
+        "costs": -5,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_Helpful",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Trait_Loyale",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_EnhancedHearing",
+        "costs": 4,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_LimitedHearing",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_EnhancedSmelling",
+        "costs": 3,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_LimitedSmelling",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_EnhancedVision",
+        "costs": 5,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_LimitedVision",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_Euphony",
+        "costs": 5,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_SpeechDefect",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Trait_AnnoyingVoice",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_FavoredByFaith",
+        "costs": 10,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": []
+    },
+    {
+        "id": "Trait_FoodRestriction",
+        "costs": -2,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": true,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": []
+    },
+    {
+        "id": "Trait_Forgetful",
+        "costs": -5,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_GoodMemory",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_GoodMemory",
+        "costs": 3,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_Forgetful",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_GoodReputation",
+        "costs": 4,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": true,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_BadReputation",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_Greedy",
+        "costs": -5,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": []
+    },
+    {
+        "id": "Trait_HeavySleeper",
+        "costs": -3,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_QuickSleeper",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_Helpful",
+        "costs": -5,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_Egoist",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_HighStamina",
+        "costs": 1,
+        "hasLevel": true,
+        "level": 0,
+        "minLevel": 1,
+        "maxLevel": 6,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [
+            {
+                "id": "SecondaryAttribute_SP",
+                "type": "bonus",
+                "input": "",
+                "level": 1,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_PoorStamina",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_HighVigour",
+        "costs": 2,
+        "hasLevel": true,
+        "level": 0,
+        "minLevel": 1,
+        "maxLevel": 6,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [
+            {
+                "id": "SecondaryAttribute_LP",
+                "type": "bonus",
+                "input": "",
+                "level": 1,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_PoorVigour",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_Hoggish",
+        "costs": -5,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": []
+    },
+    {
+        "id": "Trait_Homesick",
+        "costs": -10,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": []
+    },
+    {
+        "id": "Trait_Horny",
+        "costs": -5,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": []
+    },
+    {
+        "id": "Trait_Imaginations",
+        "costs": -5,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_Prudent",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Trait_Delusions",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_Immunity",
+        "costs": 3,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": true,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": []
+    },
+    {
+        "id": "Trait_Impulsive",
+        "costs": -5,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_Prudent",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_InabilityForSkillCategory",
+        "costs": -99,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [
+            "SkillCategory_Combat",
+            "SkillCategory_Physical",
+            "SkillCategory_Crafting",
+            "SkillCategory_Vehicles",
+            "SkillCategory_Social",
+            "SkillCategory_Knowledge"
+        ],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_Education/Training",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_Insomnia",
+        "costs": -5,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": []
+    },
+    {
+        "id": "Trait_Jinx",
+        "costs": -12,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": []
+    },
+    {
+        "id": "Trait_JobTraining",
+        "costs": 7,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [
+            {
+                "id": "SkillCategory_Crafting",
+                "type": "available",
+                "input": "",
+                "level": 10,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "SkillCategory_Crafting",
+                "type": "total",
+                "input": "",
+                "level": 10,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "SkillCategory_Crafting",
+                "type": "min",
+                "input": "",
+                "level": 10,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "requirements": [
+            {
+                "id": "SO",
+                "type": "",
+                "input": "",
+                "level": 3,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "restrictions": [
+            {
+                "id": "Trait_InabilityForSkillCategory",
+                "type": "",
+                "input": "SkillCategory_Crafting",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_Joker",
+        "costs": 3,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_Bitter",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_JumpStart",
+        "costs": 1,
+        "hasLevel": true,
+        "level": 0,
+        "minLevel": 1,
+        "maxLevel": 10,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": []
+    },
+    {
+        "id": "Trait_LimitedHearing",
+        "costs": -4,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_EnhancedHearing",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_LimitedSmelling",
+        "costs": -3,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_EnhancedSmelling",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_LimitedVision",
+        "costs": -7,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_EnhancedVision",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_Loyale",
+        "costs": -5,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_Egoist",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_LuckyAtCards",
+        "costs": 3,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": []
+    },
+    {
+        "id": "Trait_MiserableAttribute",
+        "costs": -12,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [
+            "PrimaryAttribute_CR",
+            "PrimaryAttribute_CL",
+            "PrimaryAttribute_IN",
+            "PrimaryAttribute_CH",
+            "PrimaryAttribute_AG",
+            "PrimaryAttribute_DX",
+            "PrimaryAttribute_CN",
+            "PrimaryAttribute_ST"
+        ],
+        "needsInput": false,
+        "input": "",
+        "targets": [
+            {
+                "id": "PriA",
+                "type": "min",
+                "input": "",
+                "level": 7,
+                "overrideCurrent": true,
+                "oldLevel": 0
+            },
+            {
+                "id": "PriA",
+                "type": "max",
+                "input": "",
+                "level": 7,
+                "overrideCurrent": true,
+                "oldLevel": 0
+            }
+        ],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_OutstandingAttribute",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_Nemesis",
+        "costs": -1,
+        "hasLevel": true,
+        "level": 0,
+        "minLevel": 1,
+        "maxLevel": 10,
+        "options": [],
+        "needsInput": true,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": []
+    },
+    {
+        "id": "Trait_Nimble",
+        "costs": 10,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [
+            {
+                "id": "SecondaryAttribute_RE",
+                "type": "bonus",
+                "input": "",
+                "level": 1,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "SecondaryAttribute_VE",
+                "type": "bonus",
+                "input": "",
+                "level": 1,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_Slowpoke",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Trait_Obese",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_Obese",
+        "costs": -15,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [
+            {
+                "id": "PrimaryAttribute_AG",
+                "type": "max",
+                "input": "",
+                "level": -2,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "PrimaryAttribute_DX",
+                "type": "max",
+                "input": "",
+                "level": -2,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "PrimaryAttribute_CN",
+                "type": "max",
+                "input": "",
+                "level": -2,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "SecondaryAttribute_RE",
+                "type": "bonus",
+                "input": "",
+                "level": -2,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "SecondaryAttribute_VE",
+                "type": "bonus",
+                "input": "",
+                "level": -4,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_Nimble",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Trait_CompetetiveSportsman",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_Obligations",
+        "costs": -12,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": true,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": []
+    },
+    {
+        "id": "Trait_Outdoorsy",
+        "costs": -7,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": []
+    },
+    {
+        "id": "Trait_OutstandingAttribute",
+        "costs": 10,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [
+            "PrimaryAttribute_CR",
+            "PrimaryAttribute_CL",
+            "PrimaryAttribute_IN",
+            "PrimaryAttribute_CH",
+            "PrimaryAttribute_AG",
+            "PrimaryAttribute_DX",
+            "PrimaryAttribute_CN",
+            "PrimaryAttribute_ST"
+        ],
+        "needsInput": false,
+        "input": "",
+        "targets": [
+            {
+                "id": "PriA",
+                "type": "min",
+                "input": "",
+                "level": 1,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "PriA",
+                "type": "max",
+                "input": "",
+                "level": 1,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_MiserableAttribute",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_Pacifist",
+        "costs": -10,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_Bloodthirsty",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_PetPal",
+        "costs": 3,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": []
+    },
+    {
+        "id": "Trait_Phobia",
+        "costs": -5,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": true,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": []
+    },
+    {
+        "id": "Trait_PilotTraining",
+        "costs": 7,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [
+            {
+                "id": "SkillCategory_Vehicles",
+                "type": "available",
+                "input": "",
+                "level": 10,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "SkillCategory_Vehicles",
+                "type": "total",
+                "input": "",
+                "level": 10,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "SkillCategory_Vehicles",
+                "type": "min",
+                "input": "",
+                "level": 10,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "requirements": [
+            {
+                "id": "SO",
+                "type": "",
+                "input": "",
+                "level": 4,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "restrictions": [
+            {
+                "id": "Trait_InabilityForSkillCategory",
+                "type": "",
+                "input": "SkillCategory_Vehicles",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_PoorStamina",
+        "costs": -1,
+        "hasLevel": true,
+        "level": 0,
+        "minLevel": 1,
+        "maxLevel": 6,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [
+            {
+                "id": "SecondaryAttribute_SP",
+                "type": "bonus",
+                "input": "",
+                "level": -1,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_HighStamina",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_PoorVigour",
+        "costs": -2,
+        "hasLevel": true,
+        "level": 0,
+        "minLevel": 1,
+        "maxLevel": 6,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [
+            {
+                "id": "SecondaryAttribute_LP",
+                "type": "bonus",
+                "input": "",
+                "level": -1,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_HighVigour",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_Prejudices",
+        "costs": -5,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": true,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": []
+    },
+    {
+        "id": "Trait_Pretty",
+        "costs": 5,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_Unsightly",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_Prudent",
+        "costs": 5,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_Impulsive",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Trait_Imaginations",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Trait_Confrontational",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Trait_Delusions",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_QuickRegeneration",
+        "costs": 7,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_BadRegeneration",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_QuickSleeper",
+        "costs": 3,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_HeavySleeper",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_RobustCirculation",
+        "costs": 5,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": []
+    },
+    {
+        "id": "Trait_SelfTalker",
+        "costs": -3,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": []
+    },
+    {
+        "id": "Trait_SenseOfDirection",
+        "costs": 3,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": []
+    },
+    {
+        "id": "Trait_SenseOfJustice",
+        "costs": -5,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": []
+    },
+    {
+        "id": "Trait_SenseOfTime",
+        "costs": 2,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": []
+    },
+    {
+        "id": "Trait_SensitiveToImplants",
+        "costs": -5,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": []
+    },
+    {
+        "id": "Trait_Sickly",
+        "costs": -5,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_ToughDog",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_Simplehearted",
+        "costs": -6,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": []
+    },
+    {
+        "id": "Trait_Sleepwalker",
+        "costs": -3,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": []
+    },
+    {
+        "id": "Trait_Slowpoke",
+        "costs": -7,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [
+            {
+                "id": "SecondaryAttribute_RE",
+                "type": "bonus",
+                "input": "",
+                "level": -1,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "SecondaryAttribute_VE",
+                "type": "bonus",
+                "input": "",
+                "level": -1,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_Nimble",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_Small",
+        "costs": -7,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [
+            {
+                "id": "PrimaryAttribute_ST",
+                "type": "max",
+                "input": "",
+                "level": -2,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "SecondaryAttribute_VE",
+                "type": "bonus",
+                "input": "",
+                "level": -2,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "requirements": [],
+        "restrictions": []
+    },
+    {
+        "id": "Trait_SocialNature",
+        "costs": 7,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [
+            {
+                "id": "SkillCategory_Social",
+                "type": "available",
+                "input": "",
+                "level": 10,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "SkillCategory_Social",
+                "type": "total",
+                "input": "",
+                "level": 10,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "SkillCategory_Social",
+                "type": "min",
+                "input": "",
+                "level": 10,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_InabilityForSkillCategory",
+                "type": "",
+                "input": "SkillCategory_Social",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_SpecialPossession",
+        "costs": 5,
+        "hasLevel": true,
+        "level": 0,
+        "minLevel": 1,
+        "maxLevel": 5,
+        "options": [],
+        "needsInput": true,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": []
+    },
+    {
+        "id": "Trait_SpeechDefect",
+        "costs": -10,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_Euphony",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_Spoiled",
+        "costs": -6,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": []
+    },
+    {
+        "id": "Trait_Stench",
+        "costs": -5,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": []
+    },
+    {
+        "id": "Trait_Submissive",
+        "costs": -5,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_Arrogance",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_TalentForSkill",
+        "costs": 99,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [
+            "Skill_Combat_EnergyWeapons",
+            "Skill_Combat_HeavyWeapons",
+            "Skill_Combat_MeleeHands",
+            "Skill_Combat_MeleeWeapons",
+            "Skill_Combat_OnboardWeapons",
+            "Skill_Combat_Pistols",
+            "Skill_Combat_Rifles",
+            "Skill_Combat_Throwing",
+            "Skill_Crafting_AnimalTraining",
+            "Skill_Crafting_Computers",
+            "Skill_Crafting_Cooking",
+            "Skill_Crafting_Disguising",
+            "Skill_Crafting_Drawing",
+            "Skill_Crafting_ElectricalEngineering",
+            "Skill_Crafting_Explosives",
+            "Skill_Crafting_MakingMusic",
+            "Skill_Crafting_MaterialProcessing",
+            "Skill_Crafting_MechanicalEngineering",
+            "Skill_Crafting_MedicalCare",
+            "Skill_Crafting_Pharmaceutics",
+            "Skill_Crafting_PlayingGames",
+            "Skill_Crafting_Programming",
+            "Skill_Crafting_Writing",
+            "Skill_Knowledge_Art",
+            "Skill_Knowledge_Astronomy",
+            "Skill_Knowledge_BiologyAndMedicine",
+            "Skill_Knowledge_Chemistry",
+            "Skill_Knowledge_Electronics",
+            "Skill_Knowledge_Gaming",
+            "Skill_Knowledge_GeneralKnowledge",
+            "Skill_Knowledge_Geology",
+            "Skill_Knowledge_History",
+            "Skill_Knowledge_Informatics",
+            "Skill_Knowledge_Law",
+            "Skill_Knowledge_MathematicsAndEconomy",
+            "Skill_Knowledge_Music",
+            "Skill_Knowledge_Orientation",
+            "Skill_Knowledge_PhysicsAndMechanics",
+            "Skill_Knowledge_Spaceflight",
+            "Skill_Knowledge_Survival",
+            "Skill_Knowledge_TacticsAndStrategy",
+            "Skill_Physical_BodyControl",
+            "Skill_Physical_Climbing",
+            "Skill_Physical_Dancing",
+            "Skill_Physical_Diving",
+            "Skill_Physical_ImitatingVoices",
+            "Skill_Physical_Inebriating",
+            "Skill_Physical_Perception",
+            "Skill_Physical_Running",
+            "Skill_Physical_Singing",
+            "Skill_Physical_SneakingHiding",
+            "Skill_Physical_Stealing",
+            "Skill_Physical_Swimming",
+            "Skill_Social_Acting",
+            "Skill_Social_Flirting",
+            "Skill_Social_Inspiring",
+            "Skill_Social_Intimidating",
+            "Skill_Social_Judgement",
+            "Skill_Social_Reasoning",
+            "Skill_Social_SelfControl",
+            "Skill_Social_SoftSkills",
+            "Skill_Social_Teaching",
+            "Skill_Social_Trading",
+            "Skill_Vehicles_ExtraplanetaryFlying",
+            "Skill_Vehicles_IntraplanetaryFlying",
+            "Skill_Vehicles_LandVehicles",
+            "Skill_Vehicles_WaterVehicles"
+        ],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": []
+    },
+    {
+        "id": "Trait_TechnicalDummie",
+        "costs": -5,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_Tinkerer",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_Tinkerer",
+        "costs": 5,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_TechnicalDummie",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_ToughDog",
+        "costs": 10,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [
+            {
+                "id": "SecondaryAttribute_WT",
+                "type": "bonus",
+                "input": "",
+                "level": 2,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_Wimp",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Trait_Sickly",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_Unsightly",
+        "costs": -5,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_Pretty",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Trait_Vanity",
+        "costs": -5,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": []
+    },
+    {
+        "id": "Trait_Wanted",
+        "costs": -5,
+        "hasLevel": true,
+        "level": 0,
+        "minLevel": 1,
+        "maxLevel": 3,
+        "options": [],
+        "needsInput": true,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": []
+    },
+    {
+        "id": "Trait_WeatherResistent",
+        "costs": 7,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [],
+        "requirements": [],
+        "restrictions": []
+    },
+    {
+        "id": "Trait_Wimp",
+        "costs": -7,
+        "hasLevel": false,
+        "level": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "options": [],
+        "needsInput": false,
+        "input": "",
+        "targets": [
+            {
+                "id": "SecondaryAttribute_WT",
+                "type": "bonus",
+                "input": "",
+                "level": -2,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "requirements": [],
+        "restrictions": [
+            {
+                "id": "Trait_ToughDog",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    }
+]

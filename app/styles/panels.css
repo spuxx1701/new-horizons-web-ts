@@ -1,0 +1,34 @@
+.header-toolbar {
+    width: 100%;
+    height: 40px;
+    background-color: var(--colorGreyDark);
+    border-bottom: 1px solid var(--colorGreyMedium);
+    display: flex;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.panel-parent {
+    margin: auto;
+    position: relative;
+    max-width: 980px;
+    width: 95%;
+}
+
+.panel-large {
+    margin: auto;
+    width: 100%;
+    padding: 0 2px 0 2px;
+    background-color: var(--colorGreyDark);
+    border: 1px solid var(--colorGreyMedium);
+    border-radius: 1px;
+}
+
+.panel-sep {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    min-height: 2px;
+    height: 2px;
+    background-color: white;
+}
