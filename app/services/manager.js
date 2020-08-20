@@ -46,21 +46,6 @@ export default class ManagerService extends Service {
     }
 
     onTransition() {
-        if (!that.router.currentRouteName) return;
-        let currentRouteNameSplit = that.router.currentRouteName.split(".");
-        currentRouteNameSplit.forEach(function (routeName, index) {
-            let combinedRouteName = "";
-            for (let i = 0; i <= index; i++) {
-                combinedRouteName += currentRouteNameSplit[i];
-                if (i < index) combinedRouteName += ".";
-            }
-            try {
-                // try to initialize that route's controller
-                Ember.getOwner(that).lookup("controller:" + combinedRouteName).onTransition();
-            } catch (exception) {
-                // do nothing
-            }
-        });
         that.renderNavbarMenu();
     }
 
@@ -115,5 +100,10 @@ export default class ManagerService extends Service {
     prepareId(id) {
         id = Ember.String.dasherize(id.replace("_", "/"));
         return id;
+    }
+
+    // Shows stellarpedia entry
+    showStellarpediaEntry(bookId, chapterId, entryId, returnRoute = "main.home") {
+        that.router.transitionTo("main.stellarpedia", that.prepareId(bookId) + "+" + that.prepareId(chapterId) + "+" + that.prepareId(entryId));
     }
 }

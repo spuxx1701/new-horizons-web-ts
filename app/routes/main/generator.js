@@ -1,5 +1,6 @@
 import Route from '@ember/routing/route';
 import RSVP from 'rsvp';
+import { action } from '@ember/object';
 
 export default class GeneratorRoute extends Route {
     model() {
@@ -19,5 +20,11 @@ export default class GeneratorRoute extends Route {
             traits: this.store.findAll("database/trait"),
             weightModifiers: this.store.findAll("database/weight-modifier")*/
         });
+    }
+
+    @action
+    didTransition() {
+        this.controller.title = this.controller.manager.localizationService.getValue("Misc_NewCharacter");
+        return true;
     }
 }

@@ -16,12 +16,6 @@ export default class GeneratorPresetController extends Controller {
 
     init() {
         super.init();
-        this.onTransition();
-    }
-
-    onTransition() {
-        this.onChangePreset(this.manager.constants.characterPresetIdDefault);
-        //this.onChangePreset(this.manager.store.peekAll("character-preset").get("firstObject"))
     }
 
     @action onChangePreset(itemId) {
