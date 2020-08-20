@@ -14,13 +14,10 @@ export default class StellarpediaService extends Service {
     defaultEntry = { bookId: "basic-rules", chapterId: "introduction", entryId: "welcome" };
     @tracked data;
     @tracked header;
+    @tracked selectedBookId;
+    @tracked selectedChapterId;
     @tracked selectedEntry = {};
     @tracked currentPosition;
-    @tracked history = [];
-    @tracked historyIndex = 0;
-    @tracked historyResetButtonDisabled = "disabled";
-    @tracked historyForwardButtonDisabled = "disabled";
-    @tracked historyBackButtonDisabled = "disabled";
 
     init() {
         super.init();
@@ -34,7 +31,6 @@ export default class StellarpediaService extends Service {
         } else {
             let result = await this.store.findAll("stellarpedia");
             this.data = result;
-            this.setSelectedEntry(this.defaultEntry.bookId, this.defaultEntry.chapterId, this.defaultEntry.entryId);
             return result;
         }
     }
@@ -57,7 +53,7 @@ export default class StellarpediaService extends Service {
         } else {
             let chapter;
             book.chapters.forEach(function (element, i) {
-                if (that.manager.prepareId(element.id) === chapterId) {
+                if (element.id === chapterId) {
                     chapter = element;
                 }
             });
@@ -71,7 +67,7 @@ export default class StellarpediaService extends Service {
             } else {
                 let entry;
                 chapter.entries.forEach(function (element, i) {
-                    if (that.manager.prepareId(element.id) === entryId) {
+                    if (element.id === entryId) {
                         entry = element;
                     }
                 })
@@ -103,16 +99,13 @@ export default class StellarpediaService extends Service {
     }
 
     // Set selected entry
-    setSelectedEntry(bookId, chapterId, entryId, addToHistory = true) {
+    setSelectedEntry(bookId, chapterId, entryId) {
         let entry = this.get(bookId, chapterId, entryId);
         this.header = this.getEntryHeader(entry);
+        this.selectedBookId = bookId;
+        this.selectedChapterId = chapterId;
         this.selectedEntry = entry;
         this.currentPosition = this.manager.localize(bookId) + " > " + this.get(bookId, chapterId).header + " > " + this.getEntryHeader(entry);
-        this.addSelectedEntryToHistory(bookId, chapterId, entry.id);
-        // update toolbar
-        this.historyResetButtonDisabled = this.historyIndex === 0;
-        this.historyBackButtonDisabled = this.historyIndex === 0 || this.history.length < 2;
-        this.historyForwardButtonDisabled = this.historyIndex >= this.history.length - 1 || this.history.length < 2;
     }
 
     // Return an element's type
@@ -209,67 +202,6 @@ export default class StellarpediaService extends Service {
             this.manager.log("Syntax error in Stellarpedia element: " + element, "error");
         }
         return result;
-    }
-
-    addSelectedEntryToHistory(bookId, chapterId, entryId) {
-        let newHistoryEntry = {
-            bookId: this.manager.prepareId(bookId),
-            chapterId: this.manager.prepareId(chapterId),
-            entryId: this.manager.prepareId(entryId)
-        };
-        // if history is empty, add new entry and be done with it
-        if (this.history.length === 0) {
-            this.history.push(newHistoryEntry);
-            this.historyIndex = this.history.length - 1;
-        }
-        // if history is not empty
-        else {
-            let historyContainsEntry = false;
-            let indexOfFoundEntry;
-            for (let i = 0; i < this.history.length; i++) {
-                if (this.history[i].bookId === newHistoryEntry.bookId
-                    && this.history[i].chapterId === newHistoryEntry.chapterId
-                    && this.history[i].entryId === newHistoryEntry.entryId) {
-                    historyContainsEntry = true;
-                    // if history already contains the new entry at some position, don't add it a second time
-                    // and instead set index to that position
-                    this.historyIndex = i;
-                }
-            }
-            // if history does not contain the new entry yet, add it to the array
-            if (!historyContainsEntry) {
-                // if index is currently somewhere in the history, but not at the last position, remove all forward entries
-                // before adding the new entry
-                if (this.historyIndex < this.history.length - 1) {
-                    this.history.splice(this.historyIndex + 1, this.history.length - 1);
-                }
-                this.history.push(newHistoryEntry);
-                this.historyIndex = this.history.length - 1;
-            }
-        }
-    }
-
-    historyForward() {
-        if (this.historyIndex < this.history.length - 1) {
-            this.historyIndex++;
-            let goToEntry = this.history[this.historyIndex];
-            this.setSelectedEntry(goToEntry.bookId, goToEntry.chapterId, goToEntry.entryId, false);
-        }
-    }
-
-    historyBack() {
-        if (this.historyIndex > 0) {
-            this.historyIndex--;
-            let goToEntry = this.history[this.historyIndex];
-            this.setSelectedEntry(goToEntry.bookId, goToEntry.chapterId, goToEntry.entryId, false);
-        }
-    }
-
-    historyReset() {
-        if (this.history.length > 0) {
-            this.historyIndex = 0;
-            this.setSelectedEntry(this.history[0].bookId, this.history[0].chapterId, this.history[0].entryId, false)
-        }
     }
 }
 

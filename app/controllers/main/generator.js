@@ -18,8 +18,4 @@ export default class GeneratorController extends Controller {
         super.init();
         that = this;
     }
-
-    onTransition() {
-        title = that.manager.localizationService.getValue("Misc_NewCharacter");
-    }
 }

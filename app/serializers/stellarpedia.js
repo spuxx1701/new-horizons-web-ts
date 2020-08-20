@@ -8,4 +8,15 @@ export default class StellarpediaSerializer extends JSONSerializer {
         id = Ember.String.dasherize(id);
         return id;
     }
+
+    // also make IDs in chapters and entries lower case and dasherize
+    normalize(typeClass, hash) {
+        for (let chapter of hash.chapters) {
+            chapter.id = Ember.String.dasherize(chapter.id.replace("_", "/"));
+            for (let entry of chapter.entries) {
+                entry.id = Ember.String.dasherize(entry.id.replace("_", "/"));
+            }
+        }
+        return super.normalize(typeClass, hash);
+    }
 }

@@ -1,11 +1,5 @@
 <div class="panel-large hBox paddingTopBottomNone justify-content-between">
     <div class="hBoxItem">
-        <button type="button" class="button-icon-2" {{on "click" this.onHistoryResetClick}}
-            disabled={{this.stellarpediaService.historyResetButtonDisabled}}>{{fa-icon "step-backward"}}</button>
-        <button type="button" class="button-icon-2" {{on "click" this.onHistoryBackClick}}
-            disabled={{this.stellarpediaService.historyBackButtonDisabled}}>{{fa-icon "chevron-left"}}</button>
-        <button type="button" class="button-icon-2" {{on "click" this.onHistoryForwardClick}}
-            disabled={{this.stellarpediaService.historyForwardButtonDisabled}}>{{fa-icon "chevron-right"}}</button>
         <p class="stellarpedia-status-text">{{this.stellarpediaService.currentPosition}}</p>
     </div>
     <div class="hBoxItem justify-content-end">

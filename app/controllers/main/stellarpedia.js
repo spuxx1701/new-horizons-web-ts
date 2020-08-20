@@ -13,22 +13,4 @@ export default class GeneratorController extends Controller {
     init() {
         super.init();
     }
-
-    onTransition() {
-    }
-
-    @action
-    onHistoryForwardClick() {
-        this.stellarpediaService.historyForward();
-    }
-
-    @action
-    onHistoryBackClick() {
-        this.stellarpediaService.historyBack();
-    }
-
-    @action
-    onHistoryResetClick() {
-        this.stellarpediaService.historyReset();
-    }
 }

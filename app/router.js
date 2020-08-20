@@ -18,7 +18,7 @@ Router.map(function () {
       this.route('preset');
     });
     this.route('editor');
-    this.route('stellarpedia');
+    this.route('stellarpedia', { path: '/stellarpedia/:fullEntryAdress' });
     this.route('settings');
     this.route('page-not-found', { path: '/*' });
   });

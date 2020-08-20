@@ -23,12 +23,6 @@ export default class NavbarStellarpediaController extends Controller {
         that.manager.goToRoute("home");
     }
 
-    @action
-    goToTab(id) {
-        that.updateButtonGroup(id);
-        that.transitionToRoute("main.generator." + id);
-    }
-
     updateButtonGroup(id) {
         that.manager.updateTabGroup("generator-tabs", "sidebar-button-" + id, "sidebar-button-2-selected");
     }
@@ -61,6 +55,7 @@ export default class NavbarStellarpediaController extends Controller {
     @action
     onEntryClick(entry, bookId, chapterId, event) {
         let button = event.currentTarget;
+        this.manager.showStellarpediaEntry(bookId, chapterId, entry.id);
         this.selectEntry(entry, bookId, chapterId, button);
     }
 
@@ -70,12 +65,18 @@ export default class NavbarStellarpediaController extends Controller {
             buttonList[i].classList.remove("sidebar-collapsible-highlighted");
         }
         button.classList.add("sidebar-collapsible-highlighted");
-        this.manager.stellarpedia.setSelectedEntry(bookId, chapterId, entry.id);
         // expand chapter & book contents
         let bookContent = document.getElementById("sidebar-button-" + bookId + "-content");
         let chapterContent = document.getElementById("sidebar-button-" + bookId + "." + chapterId + "-content");
         chapterContent.style.maxHeight = chapterContent.scrollHeight + "px";
         bookContent.style.maxHeight = bookContent.scrollHeight + "px";
+    }
+
+    updateSelectedButton() {
+        let button = document.getElementsById(this.manager.stellarpedia.selectedButtonId);
+        if (button) {
+            this.selectEntry(this.manager.selectedEntry, this.manager.stellarpedia.selectedBookId, this.manager.stellarpedia.selectedChapterId, button);
+        }
     }
 
     @action
