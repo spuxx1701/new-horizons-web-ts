@@ -15,21 +15,4 @@ export default class StellarpediaRoute extends Route {
             // throw error
         }
     }
-
-    @action
-    afterModel(posts, transition) {
-        let bookId = this.stellarpediaService.selectedBookId;
-        let chapterId = this.stellarpediaService.selectedChapterId;
-        let entry = this.stellarpediaService.selectedEntry;
-        if (bookId && chapterId && entry) {
-            let selectedButtonId = "sidebar-button-" + bookId + "." + chapterId + "." + entry.id;
-            console.log(selectedButtonId);
-            let button = document.getElementById(selectedButtonId);
-            let navbarController =  Ember.getOwner(this).lookup("controller:nav-sidebar/stellarpedia");
-            console.log(button);
-            console.log(navbarController);
-            if (button && navbarController) navbarController.selectEntry(entry.id, bookId, chapterId, button = undefined)
-        }
-        return true;
-    }
 }
