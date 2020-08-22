@@ -1,5 +1,8 @@
-//  Leopold Hock | 30.04.2020
-//  Description: Controller for nav-bar template 'stellarpedia'.
+//----------------------------------------------------------------------------//
+// Leopold Hock / 2020-08-21
+// Description:
+// Controller for nav-bar template 'stellarpedia'.
+//----------------------------------------------------------------------------//
 
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
@@ -14,21 +17,32 @@ export default class NavbarStellarpediaController extends Controller {
     @tracked entryIcon = "file-text-o";
 
     init() {
+        //----------------------------------------------------------------------------//
+        // Leopold Hock / 2020-08-21
+        // Description:
+        // Runs on initialization.
+        //----------------------------------------------------------------------------//
         super.init();
         that = this;
     }
 
     @action
-    returnToMenu() {
+    returnToPrevious() {
+        //----------------------------------------------------------------------------//
+        // Leopold Hock / 2020-08-21
+        // Description:
+        // Returns to previous menu.
+        //----------------------------------------------------------------------------//
         that.manager.goToRoute("home");
-    }
-
-    updateButtonGroup(id) {
-        that.manager.updateTabGroup("generator-tabs", "sidebar-button-" + id, "sidebar-button-2-selected");
     }
 
     @action
     onBookClick(event) {
+        //----------------------------------------------------------------------------//
+        // Leopold Hock / 2020-08-21
+        // Description:
+        // Is being triggered when a book is being clicked.
+        //----------------------------------------------------------------------------//
         let coll = event.currentTarget;
         let content = document.getElementById(coll.id + "-content");
         if (content.style.maxHeight) {
@@ -40,6 +54,11 @@ export default class NavbarStellarpediaController extends Controller {
 
     @action
     onChapterClick(bookId, event) {
+        //----------------------------------------------------------------------------//
+        // Leopold Hock / 2020-08-21
+        // Description:
+        // Is being triggered when a chapter is being clicked.
+        //----------------------------------------------------------------------------//
         let coll = event.currentTarget;
         let content = document.getElementById(coll.id + "-content");
         if (content.style.maxHeight) {
@@ -54,12 +73,22 @@ export default class NavbarStellarpediaController extends Controller {
 
     @action
     onEntryClick(entry, bookId, chapterId, event) {
+        //----------------------------------------------------------------------------//
+        // Leopold Hock / 2020-08-21
+        // Description:
+        // Is being triggered when an entry is being clicked.
+        //----------------------------------------------------------------------------//
         let button = event.currentTarget;
         this.manager.showStellarpediaEntry(bookId, chapterId, entry.id);
         this.selectEntry(entry, bookId, chapterId, button);
     }
 
     selectEntry(entry, bookId, chapterId, button = undefined) {
+        //----------------------------------------------------------------------------//
+        // Leopold Hock / 2020-08-21
+        // Description:
+        // Selects a button and collapses the groups it belongs to.
+        //----------------------------------------------------------------------------//
         let buttonList = document.getElementsByClassName("sidebar-collapsible");
         for (let i = 0; i < buttonList.length; i++) {
             buttonList[i].classList.remove("sidebar-collapsible-highlighted");
@@ -72,15 +101,28 @@ export default class NavbarStellarpediaController extends Controller {
         bookContent.style.maxHeight = bookContent.scrollHeight + "px";
     }
 
+    @action
     updateSelectedButton() {
-        let button = document.getElementsById(this.manager.stellarpedia.selectedButtonId);
+        //----------------------------------------------------------------------------//
+        // Leopold Hock / 2020-08-21
+        // Description:
+        // Is being called by did-render modifier to update selection in hierarchy
+        // to match selected*-properties of stellarpedia service.
+        //----------------------------------------------------------------------------//
+        let buttonId = "sidebar-button-" + this.manager.stellarpedia.selectedBookId + "." + this.manager.stellarpedia.selectedChapterId + "." + this.manager.stellarpedia.selectedEntry.id;
+        let button = document.getElementById(buttonId);
         if (button) {
-            this.selectEntry(this.manager.selectedEntry, this.manager.stellarpedia.selectedBookId, this.manager.stellarpedia.selectedChapterId, button);
+            this.selectEntry(this.manager.stellarpedia.selectedEntry, this.manager.stellarpedia.selectedBookId, this.manager.stellarpedia.selectedChapterId, button);
         }
     }
 
     @action
     onReduceAllClick() {
+        //----------------------------------------------------------------------------//
+        // Leopold Hock / 2020-08-21
+        // Description:
+        // Reduces all collapsed sidebar-groups.
+        //----------------------------------------------------------------------------//
         let contentList = document.getElementsByClassName("sidebar-collapsible-content");
         for (let i = 0; i < contentList.length; i++) {
             contentList[i].style.maxHeight = null;

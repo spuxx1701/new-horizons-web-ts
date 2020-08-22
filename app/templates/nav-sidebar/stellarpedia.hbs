@@ -1,4 +1,4 @@
-<button class="sidebar-button-1" type="button" {{on 'click' this.returnToMenu}}>
+<button class="sidebar-button-1" type="button" {{on 'click' this.returnToPrevious}}>
     {{fa-icon "chevron-left" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}}
     <p class="margin-vertical-auto">{{localize "Misc_Back"}}</p>
 </button>
@@ -13,7 +13,7 @@
     </div>
 </div>
 <div class="sidebar-sep"></div>
-<div class="vBox" id="generator-tabs">
+<div class="vBox" id="generator-tabs" {{did-insert this.updateSelectedButton}}>
     {{#each this.manager.stellarpedia.data as |book|}}
     <button id="sidebar-button-{{book.id}}" type="button" class="sidebar-collapsible" {{on "click" this.onBookClick}}>
         {{fa-icon book.faIcon size=this.manager.constants.sidebarIconSize class="marginSidesMedium fgTealNeon"}}
