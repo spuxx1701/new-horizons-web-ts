@@ -1,7 +1,11 @@
-// Leopold Hock | 30.04.2020
-// Description: This service manages Stellarpedia.
+//----------------------------------------------------------------------------//
+// Leopold Hock / 2020-08-22
+// Description:
+// This service manages Stellarpedia.
+//----------------------------------------------------------------------------//
 import Ember from 'ember';
 import Service from '@ember/service';
+import config from '../config/environment';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 
@@ -20,23 +24,37 @@ export default class StellarpediaService extends Service {
     @tracked currentPosition;
 
     init() {
+        //----------------------------------------------------------------------------//
+        // Leopold Hock / 2020-08-22
+        // Description:
+        // Initializer method.
+        //----------------------------------------------------------------------------//
         super.init();
         this.load();
     }
 
-    // load and return stellarpedia
     async load() {
-        if (this.stellarpedia) {
-            return this.stellarpedia;
+        //----------------------------------------------------------------------------//
+        // Leopold Hock / 2020-08-22
+        // Description:
+        // Load and returns the Stellarpedia.
+        //----------------------------------------------------------------------------//
+        if (this.data) {
+            return this.data;
         } else {
             let result = await this.store.findAll("stellarpedia");
             this.data = result;
+            this.manager.log("Stellarpedia initialized.");
             return result;
         }
     }
 
-    // Returns a book and/or chapter and/or entry (chapterId and entryId are optional)
     get(bookId, chapterId = undefined, entryId = undefined) {
+        //----------------------------------------------------------------------------//
+        // Leopold Hock / 2020-08-22
+        // Description:
+        // Returns a book and/or chapter and/or entry (chapterId and entryId are optional).
+        //----------------------------------------------------------------------------//
         let that = this;
         bookId = this.manager.prepareId(bookId);
         // convert ids if needed
@@ -80,8 +98,12 @@ export default class StellarpediaService extends Service {
         }
     }
 
-    // Returns an entry's header without tags
     getEntryHeader(entry, localize = true) {
+        //----------------------------------------------------------------------------//
+        // Leopold Hock / 2020-08-22
+        // Description:
+        // Returns an entry's header without tags
+        //----------------------------------------------------------------------------//
         if (entry.elements.length) {
             for (let i = 0; entry.elements.length; i++) {
                 if (entry.elements[i].startsWith("[hdr]")) {
@@ -98,8 +120,12 @@ export default class StellarpediaService extends Service {
         return null;
     }
 
-    // Set selected entry
     setSelectedEntry(bookId, chapterId, entryId) {
+        //----------------------------------------------------------------------------//
+        // Leopold Hock / 2020-08-22
+        // Description:
+        // Sets selectedEntry property.
+        //----------------------------------------------------------------------------//
         let entry = this.get(bookId, chapterId, entryId);
         this.header = this.getEntryHeader(entry);
         this.selectedBookId = bookId;
@@ -108,10 +134,14 @@ export default class StellarpediaService extends Service {
         this.currentPosition = this.manager.localize(bookId) + " > " + this.get(bookId, chapterId).header + " > " + this.getEntryHeader(entry);
     }
 
-    // Return an element's type
-    //  Available types are: 'hdr' (Header element), 'txt' (Text element), 'spt' (Separator element),
-    //  'spc' (Spacer element), 'img' (Image element) and 'row' (Table row element)
     getElementType(element, bookId = "", chapterId = "", entryId = "") {
+        //----------------------------------------------------------------------------//
+        // Leopold Hock / 2020-08-22
+        // Description:
+        // Return an element's type
+        // Available types are: 'hdr' (Header element), 'txt' (Text element), 'spt' (Separator element),
+        // 'spc' (Spacer element), 'img' (Image element) and 'row' (Table row element).
+        //----------------------------------------------------------------------------//
         // Header element
         if (element.startsWith("[hdr")) {
             return "hdr";
@@ -136,6 +166,10 @@ export default class StellarpediaService extends Service {
         else if (element.startsWith("[row")) {
             return "row";
         }
+        // Missing element
+        else if (element.startsWith("[mis]")) {
+            return "mis";
+        }
         // Element type not recognizable
         else {
             this.manager.log("Type of Stellarpedia element not recognizable: " + element + " (" + bookId + "/" + chapterId + "/" + entryId + ")");
@@ -143,13 +177,19 @@ export default class StellarpediaService extends Service {
         }
     }
 
-    // Returns the processes version of an element depending on its type.
     prepareElement(element) {
+        //----------------------------------------------------------------------------//
+        // Leopold Hock / 2020-08-22
+        // Description:
+        // Returns the processes version of an element depending on its type.
+        //----------------------------------------------------------------------------//
         let type = this.getElementType(element);
         let result;
         switch (type) {
             case "hdr":
                 result = element.substring(5, element.length);
+                let localized = this.manager.localize(result);
+                if (!localized.startsWith("loc_miss:")) result = localized;
                 break;
             case "txt":
                 result = this.prepareText(element);
@@ -160,6 +200,9 @@ export default class StellarpediaService extends Service {
             case "row":
                 result = element;
                 break;
+            case "mis":
+                result = "";
+                break;
             default:
                 result = element;
                 break;
@@ -168,16 +211,20 @@ export default class StellarpediaService extends Service {
     }
 
 
-    // Returns the processed version of a text element.
     prepareText(element) {
+        //----------------------------------------------------------------------------//
+        // Leopold Hock / 2020-08-22
+        // Description:
+        // Returns the processed version of a text element.
+        //----------------------------------------------------------------------------//
         // remove tag
         let result = element;
         let split = element.split("]");
         if (split.length === 2) {
             let constructor = split[0];
             result = split[1];
-            let colorDefault = getComputedStyle(document.documentElement).getPropertyValue("--colorTextDefault").replace(" ", "");
-            let colorHighlight = getComputedStyle(document.documentElement).getPropertyValue("--colorTextHighlight").replace(" ", "");
+            //let colorDefault = getComputedStyle(document.documentElement).getPropertyValue("--colorTextDefault").replace(" ", "");
+            //let colorHighlight = getComputedStyle(document.documentElement).getPropertyValue("--colorTextHighlight").replace(" ", "");
             // process constructor
             let params = constructor.split(";");
             for (let i = 0; i < params.length; i++) {
@@ -187,16 +234,46 @@ export default class StellarpediaService extends Service {
                 }
             }
             // replace <hl> tags
-            result = result.replace("<hl>", "<b><span class='highlighted'>");
-            result = result.replace("</hl>", "</span></b>");
+            result = result.replaceAll(/<hl>/g, "<b><span class='highlighted'>");
+            result = result.replaceAll(/<\/hl>/g, "</span></b>");
             // replace \n tags
-            result = result.replace("\\n", "<br>");
-            // replace <link> tags
-            // Example: <link=\"Arsenal;Introduction;WhatThisBookIsFor\">Arsenal des Sonnensystems</link>
-            //result = result.replace("<link=\\\"", "<a href='");
-            result = result.replace("<link=\\\"", "<span class='highlighted'");
-            //result = result.replace("\\\">", "'>");
-            result = result.replace("</link>", "</span>");
+            result = result.replaceAll(/\\n/g, "<br>");
+            // process <lc> tags
+            let locRegex = /<lc>(.*?)<\/lc>/g;
+            let locMatches = [...result.matchAll(locRegex)];
+            for (let locMatch of locMatches) {
+                result = result.replace(locMatch[0], this.manager.localize(locMatch[1]))
+            }
+            // process <dt> tags
+            let dataRegex = /<dt>(.*?)<\/dt>/g;
+            let dataMatches = [...result.matchAll(dataRegex)];
+            for (let dataMatch of dataMatches) {
+                let dataPath = dataMatch[1];
+                let dataResult = this.manager.database.getDataFromPath(dataPath);
+                if (dataResult) {
+                    result.replace(dataMatch[0], dataResult);
+                } else {
+                    result = result.replace(dataMatch[0], "data_miss::" + dataPath);
+                }
+            }
+            // process <link> tags
+            let linkRegex = /<link=(.*?)<\/link>/g;
+            let linkMatches = [...result.matchAll(linkRegex)];
+            for (let linkMatch of linkMatches) {
+                let linkPath = linkMatch[1].split(">")[0].replaceAll(/\"/g);
+                let linkText = linkMatch[1].split(">")[1];
+                if (!linkText) linkText = "";
+                // if link contains an actual URL, replace with <a href=url>
+                if (linkPath.startsWith("http") || linkPath.startsWith("mailto")) {
+                    result = result.replaceAll(linkMatch[0], "<a href='" + linkPath + "'>" + linkText + "</a>");
+                }
+                // if not, 
+                else {
+                    let entryUrl = config.APP.stellarpediaUrl + this.manager.prepareId(linkPath);
+                    entryUrl = entryUrl.replaceAll(/;/g, "+");
+                    console.log(entryUrl);
+                }
+            }
         } else {
             // syntax or formatting error, throw exception
             this.manager.log("Syntax error in Stellarpedia element: " + element, "error");
@@ -207,6 +284,20 @@ export default class StellarpediaService extends Service {
 
 
 /*
+    public string PrepareText(string text, bool highlightHyperlinks = true)
+    {
+        Regex dataRegex = new Regex("<dt>(.*?)</dt>");
+        MatchCollection dataMatches = dataRegex.Matches(text);
+        foreach (Match match in dataMatches)
+        {
+            Regex dataMatchRegex = new Regex(match.ToString());
+            string dataResult = match.ToString();
+            if (DatabaseStorage.instance.TryReadDataFromString(match.ToString().Replace("<dt>", "").Replace("</dt>", ""), out dataResult))
+                text = dataMatchRegex.Replace(text, dataResult);
+        }
+    }
+
+
             else if (element.StartsWith("[txt"))
             {
                 string[] split = cleanString.Split(new string[] { ")]" }, StringSplitOptions.RemoveEmptyEntries);

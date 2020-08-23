@@ -1,11 +1,12 @@
 import RESTAdapter from '@ember-data/adapter/rest';
+import { inject as service } from '@ember/service';
 
 export default class DatabaseAdapter extends RESTAdapter {
+    @service databaseService;
     namespace = "/assets/database/";
-    databaseName;
 
     urlForFindAll(modelName, snapshot) {
-        let url = this.namespace + this.databaseName + ".json";
+        let url = this.namespace + "database.json";
         return url;
     }
 

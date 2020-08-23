@@ -6,7 +6,7 @@ export default class LocalizationSerializer extends JSONSerializer {
 
     // make IDs lower case and dasherize
     extractId(modelClass, resourceHash) {
-        let id = super.extractId(modelClass, resourceHash).replace("_", "/");
+        let id = super.extractId(modelClass, resourceHash);
         id = Ember.String.dasherize(id);
         return id;
     }

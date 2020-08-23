@@ -140,7 +140,7 @@
     margin-left: 25px;
     overflow: hidden;
     max-height: 0;
-    transition: max-height 200ms ease-out;
+    transition: max-height 200ms ease-in-out;
 }
 
 .sidebar-button-tiny {

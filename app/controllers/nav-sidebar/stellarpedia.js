@@ -8,6 +8,7 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
+import EmberResolver from 'ember-resolver';
 var that = that;
 
 export default class NavbarStellarpediaController extends Controller {
@@ -80,10 +81,10 @@ export default class NavbarStellarpediaController extends Controller {
         //----------------------------------------------------------------------------//
         let button = event.currentTarget;
         this.manager.showStellarpediaEntry(bookId, chapterId, entry.id);
-        this.selectEntry(entry, bookId, chapterId, button);
+        this.selectEntry(bookId, chapterId, button, true);
     }
 
-    selectEntry(entry, bookId, chapterId, button = undefined) {
+    selectEntry(bookId, chapterId, button, hasBeenClicked = false) {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2020-08-21
         // Description:
@@ -94,11 +95,31 @@ export default class NavbarStellarpediaController extends Controller {
             buttonList[i].classList.remove("sidebar-collapsible-highlighted");
         }
         button.classList.add("sidebar-collapsible-highlighted");
-        // expand chapter & book contents
-        let bookContent = document.getElementById("sidebar-button-" + bookId + "-content");
-        let chapterContent = document.getElementById("sidebar-button-" + bookId + "." + chapterId + "-content");
-        chapterContent.style.maxHeight = chapterContent.scrollHeight + "px";
-        bookContent.style.maxHeight = bookContent.scrollHeight + "px";
+        // expand chapter & book contents if button has not been clicked manually
+        if (!hasBeenClicked) {
+            let bookContent = document.getElementById("sidebar-button-" + bookId + "-content");
+            let chapterContent = document.getElementById("sidebar-button-" + bookId + "." + chapterId + "-content");
+            // override transition
+            bookContent.style.transition = "0ms";
+            chapterContent.style.transition = "0ms";
+            // adjust height
+            chapterContent.style.maxHeight = chapterContent.scrollHeight + "px";
+            bookContent.style.maxHeight = bookContent.scrollHeight + "px";
+            // adjust scroll position
+            let navSidebarContent = document.getElementById("navSidebarContent");
+            let offset = button.offsetTop - (navSidebarContent.clientHeight / 2);
+            if (offset <= navSidebarContent.scrollHeight) {
+                if (offset >= 0) {
+                    navSidebarContent.scrollTo(0, offset);
+                } else {
+                    navSidebarContent.scrollTo(0, 0);
+                }
+            } else {
+                navSidebarContent.scrollTo(0, navSidebarContent.scrollHeight);
+            }
+            bookContent.style.transition = null;
+            chapterContent.style.transition = null;
+        }
     }
 
     @action
@@ -112,7 +133,7 @@ export default class NavbarStellarpediaController extends Controller {
         let buttonId = "sidebar-button-" + this.manager.stellarpedia.selectedBookId + "." + this.manager.stellarpedia.selectedChapterId + "." + this.manager.stellarpedia.selectedEntry.id;
         let button = document.getElementById(buttonId);
         if (button) {
-            this.selectEntry(this.manager.stellarpedia.selectedEntry, this.manager.stellarpedia.selectedBookId, this.manager.stellarpedia.selectedChapterId, button);
+            this.selectEntry(this.manager.stellarpedia.selectedBookId, this.manager.stellarpedia.selectedChapterId, button);
         }
     }
 

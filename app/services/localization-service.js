@@ -16,18 +16,14 @@ export default class LocalizationService extends Service {
     @service store;
     @tracked supportedLanguages = ["en", "de"];
     @tracked currentLocalization = "de";
-    //@tracked localizationData;
 
     init() {
         super.init();
         that = this;
-        //this.currentLocalization = this.getUserLanguage();
     }
 
     getValue(key) {
-        /*if (!this.currentLocalization) {
-            this.currentLocalization = this.getUserLanguage();
-        }*/
+        if (key.string) key = key.string;
         key = key.replace("_", "/");
         key = Ember.String.dasherize(key);
         if (that.store.peekAll("localization").length == 0) return "";

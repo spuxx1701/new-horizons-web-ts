@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(environment) {
+module.exports = function (environment) {
   let ENV = {
     modulePrefix: 'new-horizons-web',
     environment,
@@ -20,7 +20,8 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-      APIURL: "https://new-horizons-game.com/api/development/"
+      APIURL: "https://new-horizons-game.de/api/development/",
+      stellarpediaUrl: "https://localhost:4200/stellarpedia/"
     }
   };
 
@@ -46,6 +47,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.APP.APIURL = "https://new-horizons-game.com/api/";
+    ENV.APP.stellarpediaUrl = "https://www.new-horizons-game.de/stellarpedia/";
     ENV.contentSecurityPolicy = {
       'default-src': "'self'",
       'script-src': "'self'",

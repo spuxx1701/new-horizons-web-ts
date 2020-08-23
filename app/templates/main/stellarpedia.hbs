@@ -11,7 +11,7 @@
 <div class=" panel-large">
     {{#each this.stellarpediaService.selectedEntry.elements as |element|}}
     {{#if (eq (stellarpedia/sp-get-element-type element) "hdr")}}
-    <h2>{{stellarpedia/sp-prepare element}}</h2>
+    <h2>{{stellarpedia/sp-prepare element true}}</h2>
     <div class="separator" />
     {{else if (eq (stellarpedia/sp-get-element-type element) "spt")}}
     <div class="separator" />

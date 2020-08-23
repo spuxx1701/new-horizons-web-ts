@@ -1,29 +1,30 @@
 {{!--HEADER TOOLBAR--}}
 <div class="header-toolbar justify-content-between">
     <button id="navSidebarButton" class="button-icon-1" type="button"
-        {{on 'click' (fn this.openSidebar "navSidebar")}}>{{fa-icon "bars" size="2"}}</button>
+        {{on 'click' (fn this.toggleSidebar "navSidebar")}}>
+        {{fa-icon (if this.navSidebarExpanded "chevron-left" "bars") size="2"}}</button>
     <div class="hBoxItem justify-content-center">
         <h4 class="fgTealNeon marginAuto">New Horizons</h4>
     </div>
     <button id="accountSidebarButton" class="button-icon-1" type="button"
-        {{on 'click' (fn this.openSidebar "accountSidebar")}}>
+        {{on 'click' (fn this.toggleSidebar "accountSidebar")}}>
         {{#if this.session.isAuthenticated}}
-        {{fa-icon "user" size="2"}}
+        {{fa-icon (if this.accountSidebarExpanded "chevron-right" "user") size="2"}}
         {{else}}
-        {{fa-icon "user-o" size="2"}}
+        {{fa-icon (if this.accountSidebarExpanded "chevron-right" "user-o") size="2"}}
         {{/if}}
     </button>
 </div>
 {{!--NAV SIDEBAR--}}
 <div id="navSidebar" class="sidebar nav-sidebar">
-    <div class="nav-sidebar-content">
+    <div id="navSidebarContent" class="nav-sidebar-content">
         {{liquid-outlet "navSidebarOutlet"}}
     </div>
 </div>
 
 {{!--ACCOUNT SIDEBAR--}}
 <div id="accountSidebar" class="sidebar account-sidebar">
-    <div class="account-sidebar-content">
+    <div id="accountSidebarContent" class="account-sidebar-content">
         <h4 class="fgWhite margin-vertical-medium text-right sidebar-header-r">{{localize "Misc_Account"}}</h4>
         <div class="sidebar-sep sidebar-item"></div>
         {{#if this.session.isAuthenticated}}
