@@ -1,12 +1,13 @@
 {{!--HEADER TOOLBAR--}}
+<div class="branding-bar"></div>
 <div class="header-toolbar justify-content-between">
-    <button id="navSidebarButton" class="button-icon-1" type="button"
+    <button id="navSidebarButton" class="header-sidebar-button" type="button"
         {{on 'click' (fn this.toggleSidebar "navSidebar")}}>
         {{fa-icon (if this.navSidebarExpanded "chevron-left" "bars") size="2"}}</button>
     <div class="hBoxItem justify-content-center">
         <h4 class="fgTealNeon marginAuto">New Horizons</h4>
     </div>
-    <button id="accountSidebarButton" class="button-icon-1" type="button"
+    <button id="accountSidebarButton" class="header-sidebar-button" type="button"
         {{on 'click' (fn this.toggleSidebar "accountSidebar")}}>
         {{#if this.session.isAuthenticated}}
         {{fa-icon (if this.accountSidebarExpanded "chevron-right" "user") size="2"}}
@@ -45,6 +46,7 @@
             {{fa-icon "code" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}}
             <p class="margin-vertical-auto">Test</p>
         </button>
+        <div class="sidebar-sep"></div>
         <button class="sidebar-button-1" type="button">
             {{fa-icon "align-left" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}}
             <p class="margin-vertical-auto">Show Log </p>
@@ -52,7 +54,15 @@
         {{/if}}
     </div>
 </div>
+
 {{!--PAGE CONTENT--}}
 <div id="pageOutlet" class="page-outlet">
     {{liquid-outlet}}
+</div>
+
+{{!--MODALS--}}
+<div id="modal-container" class="modal-container">
+    {{#if this.modalService.isActive}}
+    {{component this.modalService.componentName}}
+    {{/if}}
 </div>

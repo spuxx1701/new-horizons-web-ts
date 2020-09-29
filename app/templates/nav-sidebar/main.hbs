@@ -9,27 +9,6 @@
             {{localize "Misc_Home"}}</p>
     </button>
     <div class="sidebar-sep"></div>
-    {{!--<button id="sidebar-button-news" class="sidebar-button-1" type="button"
-        {{on 'click' (fn this.goToTab "news" true)}}>
-        {{fa-icon "newspaper-o" size=this.manager.constants.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
-            class="margin-vertical-auto">
-            {{localize "Misc_News"}}</p>
-    </button>
-    <div class="sidebar-sep"></div>
-    <button id="sidebar-button-about" class="sidebar-button-1" type="button"
-        {{on 'click' (fn this.goToTab "about" true)}}>
-        {{fa-icon "globe" size=this.manager.constants.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
-            class="margin-vertical-auto">
-            {{localize "Misc_About"}}</p>
-    </button>
-    <div class="sidebar-sep"></div>
-    <button id="sidebar-button-support" class="sidebar-button-1" type="button"
-        {{on 'click' (fn this.goToTab "support" true)}}>
-        {{fa-icon "coffee" size=this.manager.constants.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
-            class="margin-vertical-auto">
-            {{localize "Misc_Support"}}</p>
-    </button>
-    <div class="sidebar-sep"></div>--}}
     <button id="sidebar-button-imprint" class="sidebar-button-1" type="button"
         {{on 'click' (fn this.goToTab "imprint" true)}}>
         {{fa-icon "info-circle" size=this.manager.constants.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
@@ -48,7 +27,8 @@
 <div class="sidebar-sep"></div>
 <h4 class="fgWhite margin-vertical-medium sidebar-header">{{localize "Misc_Editor"}}</h4>
 <div class="sidebar-sep"></div>
-<button class="sidebar-button-1" type="button" {{on 'click' (fn this.manager.showStellarpediaEntry "basic-rules" "introduction" "welcome")}}>
+<button class="sidebar-button-1" type="button"
+    {{on 'click' (fn this.manager.showStellarpediaEntry "basic-rules" "introduction" "welcome")}}>
     {{fa-icon "wikipedia-w " size=this.manager.constants.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
         class="margin-vertical-auto">
         {{localize "Misc_Stellarpedia"}}</p>

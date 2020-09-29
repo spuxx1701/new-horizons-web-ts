@@ -1,0 +1,28 @@
+<div class="modal-inner modal-size-medium">
+    <div class="modal-inner-header modal-header-default">
+        <div class="modal-header-title-container">
+            {{#if this.icon}}
+            {{fa-icon this.icon class="modal-header-icon"}}
+            {{/if}}
+            <h4 class="modal-header-title">{{localize "Modal_ReportBug_Title"}}</h4>
+        </div>
+        <button id="modal-button-close" type="button" class="modal-button-close" {{on "click" this.modalService.hide}}>
+            {{fa-icon "times"}}
+        </button>
+    </div>
+    <div class="modal-inner-content">
+        <Interactable::text-area @id="modal-input-description" @label="Modal_ReportBug_Description01"
+            @value={{this.description}} @subtitle="Modal_ReportBug_Description02" @focus={{true}} />
+        <Interactable::text-area @id="modal-input-reproduction" @label="Modal_ReportBug_Reproduction01"
+            @value={{this.reproduction}} @subtitle="Modal_ReportBug_Reproduction02" />
+        <Interactable::inputfield @id="modal-input-email" @label="Modal_ReportBug_Email01" @value={{this.email}}
+            @subtitle="Modal_ReportBug_Email02" />
+        <Interactable::toggle @id="modal-toggle-includeLog" @label="Modal_ReportBug_IncludeLog01"
+            @value={{this.includeLog}} @subtitle="Modal_ReportBug_IncludeLog02" />
+    </div>
+    <div class="modal-inner-footer">
+        <button id="modal-button-footer-yes" type="button" class="button" {{on "click" this.onSendClick}}>
+            {{localize "Modal_ReportBug_Send"}}
+        </button>
+    </div>
+</div>

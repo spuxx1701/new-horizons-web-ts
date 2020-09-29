@@ -20,12 +20,13 @@ module.exports = function (environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-      APIURL: "https://new-horizons-game.de/api/development/",
-      stellarpediaUrl: "https://localhost:4200/stellarpedia/"
+      apiUrl: "/api/",
+      stellarpediaUrl: "/assets/stellarpedia/"
     }
   };
 
   if (environment === 'development') {
+    ENV.APP.apiUrl = "/api/development/";
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
@@ -46,8 +47,6 @@ module.exports = function (environment) {
   }
 
   if (environment === 'production') {
-    ENV.APP.APIURL = "https://new-horizons-game.com/api/";
-    ENV.APP.stellarpediaUrl = "https://www.new-horizons-game.de/stellarpedia/";
     ENV.contentSecurityPolicy = {
       'default-src': "'self'",
       'script-src': "'self'",

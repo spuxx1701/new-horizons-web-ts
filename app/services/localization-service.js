@@ -22,16 +22,16 @@ export default class LocalizationService extends Service {
         that = this;
     }
 
-    getValue(key) {
+    getValue(key, allowUndefined = false) {
         if (key.string) key = key.string;
-        key = key.replace("_", "/");
         key = Ember.String.dasherize(key);
         if (that.store.peekAll("localization").length == 0) return "";
         let result = that.store.peekRecord("localization", key);
         if (result) {
             return result.value;
         } else {
-            return ("loc_miss::" + key);
+            if (allowUndefined) return undefined;
+            else return ("loc-miss::" + key);
         }
     }
 

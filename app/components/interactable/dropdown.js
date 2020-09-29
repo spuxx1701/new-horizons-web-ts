@@ -38,7 +38,7 @@ export default class DropdownComponent extends InteractableComponent {
         if (typeof this.onChange === this.manager.constants.typeOfFunction) {
             this.onChange(this.get("selectedId"), this.get("selectedIndex"));
         } else {
-            this.manager.log("error", "Calling onChange(itemID, index) from dropdown component has failed because method has not been subscribed in parent template.");
+            this.manager.log("Calling onChange(itemID, index) from dropdown component has failed because method has not been subscribed in parent template.", this.manager.msgType.x);
         }
     }
 

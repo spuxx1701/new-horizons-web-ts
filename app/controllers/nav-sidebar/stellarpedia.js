@@ -8,8 +8,6 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
-import EmberResolver from 'ember-resolver';
-var that = that;
 
 export default class NavbarStellarpediaController extends Controller {
     @service manager;
@@ -24,7 +22,6 @@ export default class NavbarStellarpediaController extends Controller {
         // Runs on initialization.
         //----------------------------------------------------------------------------//
         super.init();
-        that = this;
     }
 
     @action
@@ -34,7 +31,7 @@ export default class NavbarStellarpediaController extends Controller {
         // Description:
         // Returns to previous menu.
         //----------------------------------------------------------------------------//
-        that.manager.goToRoute("home");
+        this.manager.goToRoute(this.manager.stellarpedia.returnRoute);
     }
 
     @action
@@ -82,6 +79,9 @@ export default class NavbarStellarpediaController extends Controller {
         let button = event.currentTarget;
         this.manager.showStellarpediaEntry(bookId, chapterId, entry.id);
         this.selectEntry(bookId, chapterId, button, true);
+        if (this.manager.isMobile) {
+            this.manager.tryCloseSidebar("navSidebar");
+        }
     }
 
     selectEntry(bookId, chapterId, button, hasBeenClicked = false) {

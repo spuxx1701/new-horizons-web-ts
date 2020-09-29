@@ -14,13 +14,7 @@ export default class StellarpediaSerializer extends JSONSerializer {
         for (let chapter of hash.chapters) {
             chapter.id = Ember.String.dasherize(chapter.id);
             for (let entry of chapter.entries) {
-                if (entry.id.startsWith("SecA")) {
-                    console.log(entry.id);
-                }
                 entry.id = Ember.String.dasherize(entry.id);
-                if (entry.id.startsWith("sec-a")) {
-                    console.log(entry.id);
-                }
             }
         }
         return super.normalize(typeClass, hash);

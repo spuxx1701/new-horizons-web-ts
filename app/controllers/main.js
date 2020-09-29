@@ -11,6 +11,7 @@ var that;
 export default class MainController extends Controller {
     @service manager;
     @service session;
+    @service modalService;
     @tracked sidebarIconSize = "1";
     @tracked navSidebarExpanded = false;
     @tracked accountSidebarExpanded = false;
@@ -25,23 +26,31 @@ export default class MainController extends Controller {
         let isExpanded = that.get(id + "Expanded");
         if (isExpanded) {
             document.getElementById(id).style.width = null;
-            if (!that.manager.isMobile) {
-                if (id == "navSidebar") {
-                    document.getElementById("pageOutlet").style.marginLeft = "0px";
-                }
-                else if (id == "accountSidebar") {
-                    document.getElementById("pageOutlet").style.marginRight = "0px";
-                }
+            if (id == "navSidebar") {
+                document.getElementById("pageOutlet").style.marginLeft = "0px";
+            }
+            else if (id == "accountSidebar") {
+                document.getElementById("pageOutlet").style.marginRight = "0px";
             }
         } else {
-            document.getElementById(id).style.width = "300px";
-            if (!that.manager.isMobile) {
-                let reduceBy = "300px";
+            let expandedWidth = "300px";
+            let reduceBy = "300px";
+            document.getElementById(id).style.width = expandedWidth;
+            if (!this.manager.isMobile) {
                 if (id == "navSidebar") {
                     document.getElementById("pageOutlet").style.marginLeft = reduceBy;
                 }
                 else if (id == "accountSidebar") {
                     document.getElementById("pageOutlet").style.marginRight = reduceBy;
+                }
+            } else {
+                if (this.accountSidebarExpanded) {
+                    document.getElementById("accountSidebar").style.width = null;
+                    this.accountSidebarExpanded = false;
+                }
+                if (this.navSidebarExpanded) {
+                    document.getElementById("navSidebar").style.width = null;
+                    this.navSidebarExpanded = false;
                 }
             }
         }

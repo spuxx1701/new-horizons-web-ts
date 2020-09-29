@@ -5,7 +5,6 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
-var that = that;
 
 export default class NavbarMainController extends Controller {
     @service manager;
@@ -13,24 +12,22 @@ export default class NavbarMainController extends Controller {
 
     init() {
         super.init();
-        that = this;
     }
     @action
     goToTab(id, showAsSelected) {
-        that.manager.goToRoute(id);
-        /*let splitID = id.split(".");
-        if (showAsSelected) {
-            that.updateTabGroup("main-tabs", "sidebar-button-" + splitID[splitID.length - 1], "sidebar-button-2-selected");
-        }*/
+        this.manager.goToRoute(id);
+        if (this.manager.isMobile) {
+            this.manager.tryCloseSidebar("navSidebar");
+        }
     }
 
     updateTabGroup(buttonGroupID, selectedID, classNameSelected) {
         let buttonGroup = document.getElementById(buttonGroupID);
         if (!buttonGroup) {
-            that.manager.log("error", "Unable to find control '" + buttonGroupID + "'.");
+            this.manager.log("Unable to find control '" + buttonGroupID + "'.", this.manager.msgType.x);
             return;
         } else if (!document.getElementById(selectedID)) {
-            that.manager.log("error", "Unable to find control '" + selectedID + "'.");
+            this.manager.log("Unable to find control '" + selectedID + "'.", this.manager.msgType.x);
             return;
         }
         for (let i = 0; i < buttonGroup.children.length; i++) {

@@ -3,7 +3,7 @@
     <label class="label h6" for="input">{{localize @label}}</label>
     {{/if}}
     <div class="interactable-element">
-        <input class="inputfield inputfield-{{this.type}} interactable-size-medium interactable" value="{{this.value}}"
+        <textarea class="inputfield interactable text-area text-area-height-{{this.height}}" value="{{this.value}}"
             minLength="{{@minLength}}" maxLength="{{@maxLength}}" disabled={{@disabled}} autofocus={{@autofocus}} />
         {{#if @info}}
         <Interactable::ButtonInfo @article={{@info}} />

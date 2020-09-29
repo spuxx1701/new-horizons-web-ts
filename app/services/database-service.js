@@ -57,11 +57,11 @@ export default class DatabaseService extends Service {
             if (result) {
                 return result;
             } else {
-                this.manager.log("error", `Unable to find object with ID '${id}' in database model '${modelName}'.`)
+                this.manager.log(`Unable to find object with ID '${id}' in database model '${modelName}'.`, this.manager.msgType.x)
                 return undefined;
             }
         } else {
-            this.manager.log("error", `ID '${id}' has an invalid format, thus cannot be retrieved from any database model.`);
+            this.manager.log(`ID '${id}' has an invalid format and cannot be retrieved from any database model.`, this.manager.msgType.x);
             return undefined;
         }
     }
@@ -73,13 +73,34 @@ export default class DatabaseService extends Service {
         // This returns a data entry's property from a path like it is used in the
         // Stellarpedia.
         //----------------------------------------------------------------------------//
-        let pathSplit = path.split("/");
-        let result;
-        let database = this.store.peekRecord("database", pathSplit[0]);
+        let pathSplit = path.split(";");
+        let databaseId = this.manager.prepareId(pathSplit[0]);
+        let database = this.store.peekRecord("database", databaseId);
+        // try to find correct database array
         if (database) {
-
+            let entryId = this.manager.prepareId(pathSplit[1]);
+            // try to find entry
+            for (let entry of database.entries) {
+                if (entry.id === entryId) {
+                    // if this is a constant, return value
+                    if (entryId.startsWith("constant")) {
+                        return entry.value;
+                    }
+                    // else, try to find property
+                    else {
+                        if (entry.hasOwnProperty(pathSplit[2])) {
+                            return entry[pathSplit[2]];
+                        }
+                    }
+                }
+            }
         }
         // throw error
-        return result;
+        this.manager.log("Unable to find data by path: " + path, this.manager.msgType.x);
+        return undefined;
+    }
+
+    getDataFromId(id) {
+
     }
 }

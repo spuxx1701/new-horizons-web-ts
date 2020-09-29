@@ -1,5 +1,65 @@
 [
     {
+        "key": "Modal_ReportBug_Title",
+        "value": "Bug melden"
+    },
+    {
+        "key": "Modal_ReportBug_Description01",
+        "value": "Beschreibung"
+    },
+    {
+        "key": "Modal_ReportBug_Description02",
+        "value": "Bitte beschreibe den Bug so genau wie möglich. Was wolltest Du tun? Was ist passiert?"
+    },
+    {
+        "key": "Modal_ReportBug_Reproduction01",
+        "value": "Reproduktion"
+    },
+    {
+        "key": "Modal_ReportBug_Reproduction02",
+        "value": "Bitte beschreibe, wie man den Bug reproduzieren kann. Welche (Unter-)Seiten hast Du besucht und welche Funktionen hast Du genutzt, bevor das Problem aufgetaucht ist?"
+    },
+    {
+        "key": "Modal_ReportBug_IncludeLog01",
+        "value": "Aktivitäten-Log senden"
+    },
+    {
+        "key": "Modal_ReportBug_IncludeLog02",
+        "value": "Das Aktivitäten-Log hilft uns dabei, den Fehler zu finden. Es enthält Informationen darüber, was Du während dieser Sitzung auf der Webseite bereits gemacht hast (z.B. einen Charakter geladen, eine Fähigkeit erworben o.ä.)."
+    },
+    {
+        "key": "Modal_ReportBug_Email01",
+        "value": "Email"
+    },
+    {
+        "key": "Modal_ReportBug_Email02",
+        "value": "Wenn Du eine Email-Adresse angibst, können wir Dich bei Rückfragen erreichen."
+    },
+    {
+        "key": "Modal_ReportBug_Send",
+        "value": "Absenden"
+    },
+    {
+        "key": "Modal_ReportException_Title",
+        "value": "Entschuldigung!"
+    },
+    {
+        "key": "Modal_ReportException_Text01",
+        "value": "Das hätte nicht passieren sollen. Es ist folgender Fehler aufgetreten:"
+    },
+    {
+        "key": "Modal_ReportException_Text02",
+        "value": "Es wäre eine große Hilfe, wenn Du den Fehler melden würdest. Möchtest Du das jetzt tun?"
+    },
+    {
+        "key": "Misc_CharacterTrait",
+        "value": "Charakterzug"
+    },
+    {
+        "key": "Misc_Ok",
+        "value": "OK"
+    },
+    {
         "key": "CharacterPreset_Default",
         "value": "Standard"
     },

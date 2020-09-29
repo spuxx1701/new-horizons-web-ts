@@ -1,22 +1,38 @@
-/*  Leopold Hock | 30.04.2020   */
+/*
+Leopold Hock | 30.04.2020
+Description: Contains style information for the sidebars and their child controls.
+*/
 
-/*  Description: Contains style information for the sidebars and their child controls.  */
+.header-sidebar-button {
+    width: 40px;
+    border: none;
+    background-color: transparent;
+    color: var(--colorTealDark);
+}
+
+.header-sidebar-button:hover, .header-sidebar-button:active {
+    color: var(--colorTealNeon);
+}
+
+.header-sidebar-button:disabled {
+    color: var(--colorGreyTrans);
+}
 
 .sidebar {
     height: calc(100% - 40px);
     width: 0px;
     max-width: 300px;
     position: fixed;
-    z-index: 1;
+    z-index: 3;
     overflow-x: hidden;
     overflow-y: hidden;
     transition: 0.5s;
-    background-color: var(--colorGreyDark);
+    background-color: var(--colorPanelBackground);
 }
 
 .nav-sidebar {
     left: 0;
-    border-right: 1px solid var(--colorGreyMedium);
+    border-right: 1px solid var(--colorPanelBorder);
 }
 
 .nav-sidebar-content {
@@ -29,7 +45,7 @@
 
 .account-sidebar {
     right: 0;
-    border-left: 1px solid var(--colorGreyMedium);
+    border-left: 1px solid var(--colorPanelBorder);
 }
 
 .account-sidebar-content {

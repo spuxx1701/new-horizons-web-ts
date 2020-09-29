@@ -20,10 +20,12 @@ export default class ManagerService extends Service {
     @service("databaseService") database;
     @service("stellarpediaService") stellarpedia;
     @service router;
+    @service modalService;
 
     // System Variables
     @tracked devMode = false;
     @tracked isMobile = false;
+    @tracked msgType;
 
     init() {
         //----------------------------------------------------------------------------//
@@ -40,17 +42,22 @@ export default class ManagerService extends Service {
         });
         that.renderNavbarMenu();
         that.log("Manager initialized.");
+        that.msgType = that.messageService.msgType;
+        // listen to media query event to keep isMobile property updated
+        let mediaQuery = window.matchMedia("(max-width: 600px)");
+        this.onMediaChange(mediaQuery);
+        mediaQuery.addListener(that.onMediaChange);
     }
 
     @action
-    async test() {
+    test() {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2020-08-22
         // Description:
-        // Testing method.
+        // Method for testing purposes only.
         //----------------------------------------------------------------------------//
-        let result = await this.stellarpedia.get("BasicRules");
-        console.log(result);
+        console.log("Testing...");
+        console.log(that.manager.diesdas());
     }
 
     goToRoute(id) {
@@ -81,15 +88,17 @@ export default class ManagerService extends Service {
         let currentRouteNameSplit = that.router.currentRouteName.split(".");
         if (currentRouteNameSplit.length > 1) {
             let combinedRouteName = currentRouteNameSplit[0] + "." + currentRouteNameSplit[1];
-            try {
-                // check whether this route has an own navbar template
+            // check whether this route has an own navbar template
+            let navSidebarTemplate = Ember.getOwner(that).lookup("template:" + "nav-sidebar/" + currentRouteNameSplit[1]);
+            let navSidebarController = Ember.getOwner(that).lookup("controller:" + "nav-sidebar/" + currentRouteNameSplit[1]);
+            if (navSidebarTemplate && navSidebarController) {
                 Ember.getOwner(that).lookup("route:" + combinedRouteName).render("nav-sidebar/" + currentRouteNameSplit[1], {
                     outlet: "navSidebarOutlet",
                     into: "main",
                     controller: "nav-sidebar/" + currentRouteNameSplit[1]
                 });
-            } catch (exception) {
-                // if that fails, render main navbar template
+            } else {
+                // if none exists, render main navbar template
                 Ember.getOwner(that).lookup("route:main").render("nav-sidebar/main", {
                     outlet: "navSidebarOutlet",
                     into: "main",
@@ -107,7 +116,7 @@ export default class ManagerService extends Service {
         //----------------------------------------------------------------------------//
         let buttonGroup = document.getElementById(buttonGroupID);
         if (!buttonGroup) {
-            that.log("error", "Unable to find control '" + buttonGroupID + "'.");
+            that.log("Unable to find control '" + buttonGroupID + "'.", this.manager.msgType.x);
             return;
         }
         for (var i = 0; i < buttonGroup.children.length; i++) {
@@ -116,13 +125,13 @@ export default class ManagerService extends Service {
         document.getElementById(selectedID).classList.add(classNameSelected);
     }
 
-    localize(key) {
+    localize(key, allowUndefined = false) {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2020-08-22
         // Description:
         // Sends the input to the localizationService and returns its value.
         //----------------------------------------------------------------------------//
-        return (that.localizationService.getValue(key));
+        return (that.localizationService.getValue(key, allowUndefined));
     }
 
     getIdentifiable(id) {
@@ -134,7 +143,7 @@ export default class ManagerService extends Service {
         return that.database.getIdentifiable(id);
     }
 
-    log(messageText, messageType = "info") {
+    log(messageText, messageType = "info", showToUser = false) {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2020-08-22
         // Description:
@@ -149,16 +158,57 @@ export default class ManagerService extends Service {
         // Description:
         // Adjusts an identifier to match the serialized identifier schema.
         //----------------------------------------------------------------------------//
-        id = Ember.String.dasherize(id.replaceAll(/_/g, "/"));
+        id = Ember.String.dasherize(id);
         return id;
     }
 
-    showStellarpediaEntry(bookId, chapterId, entryId, returnRoute = "main.home") {
+    showStellarpediaEntry(bookId, chapterId, entryId) {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2020-08-22
         // Description:
         // Calls stellarpediaService to show a specific Stellarpedia article.
         //----------------------------------------------------------------------------//
         that.router.transitionTo("main.stellarpedia", that.prepareId(bookId) + "+" + that.prepareId(chapterId) + "+" + that.prepareId(entryId));
+    }
+
+    onMediaChange(mediaQuery) {
+        //----------------------------------------------------------------------------//
+        // Leopold Hock / 2020-09-09
+        // Description:
+        // Is being triggered on media screen width change. Sets isMobile property.
+        //----------------------------------------------------------------------------//
+        that.isMobile = mediaQuery.matches;
+    }
+
+    tryCloseSidebar(id) {
+        //----------------------------------------------------------------------------//
+        // Leopold Hockh / 2020-09-11
+        // Description:
+        // This method tries to close the specified sidebar.
+        //----------------------------------------------------------------------------//
+        let mainController = Ember.getOwner(that).lookup("controller:main");
+        if (id === "accountSidebar") {
+            if (mainController.accountSidebarExpanded) mainController.toggleSidebar("accountSidebar");
+        } else {
+            if (mainController.navSidebarExpanded) mainController.toggleSidebar("navSidebar");
+        }
+    }
+
+    callModal(type, args, listeners) {
+        //----------------------------------------------------------------------------//
+        // Leopold Hock / 2020-09-19
+        // Description:
+        // Renders a specified modal.
+        //----------------------------------------------------------------------------//
+        that.modalService.render(type, args, listeners);
+    }
+
+    hideModal() {
+        //----------------------------------------------------------------------------//
+        // Leopold Hock / 2020-09-19
+        // Description:
+        // Hides the currently active modal.
+        //----------------------------------------------------------------------------//
+        that.modalService.hide();
     }
 }
