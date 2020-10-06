@@ -4,7 +4,7 @@
         <label class="label label-inline h6">{{localize @label}}</label>
         {{/if}}
         <div class="toggle">
-            <input type="checkbox" checked={{@value}} />
+            <input type="checkbox" checked={{changeset-get @changeset @key}} {{on "change" this.onChange}} />
             <span class="toggle-slider"></span>
         </div>
         {{#if @info}}

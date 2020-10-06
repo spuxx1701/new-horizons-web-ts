@@ -72,3 +72,7 @@ body {
 .screen-blocker {
     background-color: var(--colorGreyTrans);
 }
+
+.invisible {
+    display: none;
+}

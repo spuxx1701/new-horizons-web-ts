@@ -6,6 +6,14 @@ module.exports = function (environment) {
     environment,
     rootURL: '/',
     locationType: 'auto',
+    contentSecurityPolicy: {
+      'default-src': "'none'",
+      'script-src': "'self' 'liveReloadPort' 'unsafe-inline' 'unsafe-eval'",
+      'font-src': "'self'",
+      'connect-src': "'self' 'liveReloadPort' 'localhost'",
+      'img-src': "'self'",
+      'style-src': "'self' 'unsafe-inline'"
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -21,12 +29,14 @@ module.exports = function (environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
       apiUrl: "/api/",
+      apiSuffix: "",
       stellarpediaUrl: "/assets/stellarpedia/"
     }
   };
 
   if (environment === 'development') {
-    ENV.APP.apiUrl = "/api/development/";
+    ENV.APP.apiUrl = "http://localhost:80/new-horizons-web-api/";//"https://www.new-horizons-game.com/api/";"https://localhost:80/new-horizons-web-api/"
+    ENV.APP.apiSuffix = ".php";
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;

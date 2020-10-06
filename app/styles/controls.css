@@ -158,9 +158,12 @@
     padding-right: 5px;
 }
 
-.inputfield:focus, .inputfield:not(:disabled):not(.disabled):active:focus, .inputfield:focus:hover {
+.inputfield:not(:disabled):not(:invalid):focus {
     border: 2px solid var(--colorTealBright);
-    background-color: var(--colorDeepSpace);
+}
+
+.inputfield:invalid {
+    border: 2px solid var(--colorModalHeaderError);
 }
 
 .inputfield-single-line {

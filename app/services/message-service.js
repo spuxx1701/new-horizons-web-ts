@@ -84,7 +84,7 @@ export default class ManagerService extends Service {
         let noLabel = { "name": "noLabel", "value": "Misc_No" };
         let yesListener = {
             "event": "click", "id": "modal-button-footer-yes", "function": function () {
-                that.modalService.render("bug-report", [{ "name": "description", "value": messageText }]);
+                that.modalService.render("bug-report", [{ "name": "data.description", "value": messageText }]);
             }
         }
         let noListener = {
@@ -93,5 +93,20 @@ export default class ManagerService extends Service {
             }
         }
         this.manager.callModal("confirm", [modalType, modalTitle, modalText, yesLabel, noLabel], [yesListener, noListener]);
+    }
+
+    getSessionLog(maxEntries = undefined, asJson = false) {
+        //----------------------------------------------------------------------------//
+        // Leopold Hock / 2020-10-04
+        // Description:
+        // Returns the current log up to n entries and stringifies if required.
+        //----------------------------------------------------------------------------//
+        let result = [];
+        for (let i = this.sessionLog.length - 1; i >= 0; i--) {
+            if (!this.sessionLog[i] || (maxEntries && result.length >= maxEntries)) break;
+            result.push(this.sessionLog[i]);
+        }
+        if (asJson) result = JSON.stringify(result);
+        return result;
     }
 }

@@ -12,6 +12,7 @@ import { inject as service } from '@ember/service';
 export default class InteractableComponent extends Component {
     @service manager;
     @tracked focus = false;
+    initialRender = true;
 
     init() {
         super.init();
@@ -31,6 +32,8 @@ export default class InteractableComponent extends Component {
         // Description:
         // Triggered after interactable component has been rendered.
         //----------------------------------------------------------------------------//
+        if (!this.initialRender) return;
+        this.initialRender = false;
         let component = document.getElementById(this.id);
         let interactables = component.getElementsByClassName("interactable");
         if (interactables.length < 1) return;

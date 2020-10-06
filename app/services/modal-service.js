@@ -40,13 +40,4 @@ export default class ModalService extends Service {
         this.listeners = [];
         this.isActive = false;
     }
-
-    @action callModalBugReport(description = "") {
-        //----------------------------------------------------------------------------//
-        // Leopold Hock / 2020-09-23
-        // Description:
-        // Calls the modal for reporting bugs.
-        //----------------------------------------------------------------------------//
-        this.render("bugReport", [{ "name": "description", "value": description }]);
-    }
 }

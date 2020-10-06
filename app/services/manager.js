@@ -21,6 +21,12 @@ export default class ManagerService extends Service {
     @service("stellarpediaService") stellarpedia;
     @service router;
     @service modalService;
+    @tracked config;
+
+    // Input patterns
+    @tracked pattern = {
+        email: /(?!(^[.-].*|[^@]*[.-]@|.*\.{2,}.*)|^.{254}.)([a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@)(?!-.*|.*-\.)([a-zA-Z0-9-]{1,63}\.)+[a-zA-Z]{2,15}/
+    }
 
     // System Variables
     @tracked devMode = false;
@@ -35,6 +41,7 @@ export default class ManagerService extends Service {
         //----------------------------------------------------------------------------//
         super.init();
         that = this;
+        this.config = config;
         if (config.environment === "development") that.devMode = true;
         // subscribe to routeDidChange event
         that.router.on("routeDidChange", (transition) => {
