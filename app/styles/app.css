@@ -25,7 +25,7 @@
     --colorModalFooter: rgba(0, 0, 0, 0);
     --colorScrollbarHandle: #5F5F5F;
     --colorScrollbarBackground: #252525;
-    --colorTextDefault: #e1e1e1;
+    --colorTextDefault: #f1f1f1;
     --colorTextHighlight: #ffffff;
     --colorTextLink: #64C8C8;
     --colorTextLinkHover: #00FFFF;
@@ -61,7 +61,7 @@ body {
 }
 
 .page-outlet {
-    position: absolute;
+    /*position: absolute;*/
     z-index: 0;
     transition: 500ms;
     height: calc(100% - (var(--headerToolbarHeight) + var(--brandingBarHeight)));

@@ -4,7 +4,7 @@
 			"path": "."
 		},
 		{
-			"path": "C:/xampp/htdocs/laravel.newhorizons"
+			"path": "..\\laravel.newhorizons"
 		}
 	],
 	"settings": {}

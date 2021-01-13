@@ -35,7 +35,7 @@ module.exports = function (environment) {
   };
 
   if (environment === 'development') {
-    ENV.APP.apiUrl = "http://localhost:80/new-horizons-web-api/";//"https://www.new-horizons-game.com/api/";"https://localhost:80/new-horizons-web-api/"
+    ENV.APP.apiUrl = "http://localhost:8000/api/";//"https://www.new-horizons-game.com/api/";"https://localhost:80/new-horizons-web-api/"
     ENV.APP.apiSuffix = ".php";
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
