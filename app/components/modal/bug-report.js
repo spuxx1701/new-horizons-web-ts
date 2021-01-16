@@ -11,7 +11,8 @@ import { Changeset } from 'ember-changeset';
 
 export default class ModalBugReportComponent extends ModalComponent {
     @service manager;
-    @tracked data = { description: "", reproduction: "", email: "", includeLog: true };
+    @service store;
+    @tracked data = { description: "", reproduction: "", email: "", stack: "", includeLog: true };
     @tracked changeset = Changeset(this.data);
 
     willRender() {
@@ -22,6 +23,7 @@ export default class ModalBugReportComponent extends ModalComponent {
         // happening here. Calling super.willRender() is required.
         //----------------------------------------------------------------------------//
         super.willRender();
+
     }
 
     didRender() {
@@ -32,6 +34,10 @@ export default class ModalBugReportComponent extends ModalComponent {
         // Calling super.didRender() is required.
         //----------------------------------------------------------------------------//
         super.didRender();
+        // if session is authentiacted, prefill the mail adress
+        // if (this.manager.session.authenticated) {
+        //     this.data.email = session.authenticated.data.user.email;
+        // }
     }
 
     @action onSubmit() {
@@ -45,7 +51,15 @@ export default class ModalBugReportComponent extends ModalComponent {
             this.changeset.save();
             let logAsJson = "";
             if (this.data.includeLog) logAsJson = this.manager.messageService.getSessionLog(100, true);
-            fetch(this.manager.config.APP.apiUrl + "bug-report" + this.manager.config.APP.apiSuffix, {
+            let post = this.store.createRecord("bug-report", {
+                description: this.data.description,
+                reproduction: this.data.reproduction,
+                email: this.data.email,
+                stack: this.manager.messageService.latestError.stack,
+                applog: logAsJson
+            });
+            post.save();
+            /*fetch(this.manager.config.APP.apiUrl + "bug-report", {
                 method: "POST",
                 credentials: "same-origin",
                 headers: {
@@ -65,43 +79,7 @@ export default class ModalBugReportComponent extends ModalComponent {
                 }).catch(function (exception) {
                     console.log(exception);
                 });
-            this.manager.hideModal();
+            this.manager.hideModal();*/
         }
-        /*if (that.session.isAuthenticated) {
-            that.session.store.persist(that.session.data);
-            fetch(config.APP.APIURL + "user", {
-                method: 'POST',
-                credentials: 'same-origin',
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    username: that.session.data.authenticated.user.name,
-                    password: that.session.data.authenticated.user.pin,
-                    accessToken: that.session.data.authenticated.access_token,
-                    mode: "update",
-                    user: that.session.data.authenticated.user
-                })
-            })
-                .then(
-                    function (response) {
-                        if (response.error) {
-                            that.manager.showMessageToast("Das hat leider nicht geklappt. Der Server hat folgende Meldung ausgespuckt: "
-                                + response.error + " - " + response.error_description);
-                        }
-                        else {
-                            response.json().then(function (response) {
-                                if (showSuccessMessage) {
-                                    that.showMessageToast("Benutzereinstellungen gespeichert.");
-                                }
-                                that.readUser();
-                            });
-                        }
-                    }
-                )
-                .catch(function (err) {
-                    console.error('Fetch Error :-S', err);
-                });
-        }*/
     }
 }

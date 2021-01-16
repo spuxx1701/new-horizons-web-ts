@@ -17,6 +17,7 @@ export default class ManagerService extends Service {
     @service modalService;
 
     @tracked sessionLog = [];
+    @tracked latestError = {};
     @tracked msgType = {
         s: "s", // success
         i: "i", // information
@@ -35,8 +36,9 @@ export default class ManagerService extends Service {
         //----------------------------------------------------------------------------//
         super.init();
         let that = this;
-        window.onerror = function (exception) {
-            that.logMessage("An uncaught exception has been raised (" + exception + ").", "x");
+        window.onerror = function (message, source, lineno, colno, error) {
+            that.logMessage(message + " (at: '" + source + "', line: " + lineno + ", column: " + colno + ")", "x");
+            that.latestError = error;
         };
     }
 

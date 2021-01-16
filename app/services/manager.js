@@ -1,6 +1,5 @@
 //----------------------------------------------------------------------------//
 // Leopold Hock / 2020-08-22
-// Description:
 // Description: This is the central service for the entire application. The manager supplies the magnitude of utility
 // functions that are not part of another independent service.
 //----------------------------------------------------------------------------//
@@ -64,7 +63,10 @@ export default class ManagerService extends Service {
         // Method for testing purposes only.
         //----------------------------------------------------------------------------//
         console.log("Testing...");
-        console.log(that.manager.diesdas());
+        // this.store.findRecord("bug-report", 1).then(function (bugReport.data) {
+        //     console.log(bugReport);
+        // });
+        console.log(that.diesdas());
     }
 
     goToRoute(id) {

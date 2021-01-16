@@ -28,15 +28,17 @@ module.exports = function (environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-      apiUrl: "/api/",
+      apiUrl: "localhost",
+      apiNamespace: "/api/v1/",
       apiSuffix: "",
       stellarpediaUrl: "/assets/stellarpedia/"
     }
   };
 
   if (environment === 'development') {
-    ENV.APP.apiUrl = "http://localhost:8000/api/";//"https://www.new-horizons-game.com/api/";"https://localhost:80/new-horizons-web-api/"
-    ENV.APP.apiSuffix = ".php";
+    ENV.APP.apiUrl = "http://laravel.newhorizons/";
+    ENV.APP.apiNamespace = "api/v1/";
+    // ENV.APP.apiSuffix = ".php";
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
