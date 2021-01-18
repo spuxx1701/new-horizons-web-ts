@@ -1,5 +1,17 @@
 [
     {
+        "key": "Modal_ReportBugSuccess_Title",
+        "value": "Bug gemeldet!"
+    },
+    {
+        "key": "Modal_ReportBugSuccess_Text01",
+        "value": "Vielen Dank! Das hilft uns sehr, um New Horizons noch besser zu machen."
+    },
+    {
+        "key": "Modal_ReportBugSuccess_YesLabel",
+        "value": "Gern geschehen!"
+    },
+    {
         "key": "Modal_ReportBug_Title",
         "value": "Bug melden"
     },

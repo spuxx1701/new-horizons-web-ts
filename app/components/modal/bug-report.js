@@ -12,7 +12,7 @@ import { Changeset } from 'ember-changeset';
 export default class ModalBugReportComponent extends ModalComponent {
     @service manager;
     @service store;
-    @tracked data = { description: "", reproduction: "", email: "", stack: "", includeLog: true };
+    @tracked data = { error: "", description: "", reproduction: "", email: "", stack: "", includeLog: true };
     @tracked changeset = Changeset(this.data);
 
     willRender() {
@@ -23,7 +23,6 @@ export default class ModalBugReportComponent extends ModalComponent {
         // happening here. Calling super.willRender() is required.
         //----------------------------------------------------------------------------//
         super.willRender();
-
     }
 
     didRender() {
@@ -54,32 +53,23 @@ export default class ModalBugReportComponent extends ModalComponent {
             let post = this.store.createRecord("bug-report", {
                 description: this.data.description,
                 reproduction: this.data.reproduction,
+                applog: logAsJson,
                 email: this.data.email,
-                stack: this.manager.messageService.latestError.stack,
-                applog: logAsJson
             });
             post.save();
-            /*fetch(this.manager.config.APP.apiUrl + "bug-report", {
-                method: "POST",
-                credentials: "same-origin",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    description: this.data.description,
-                    reproduction: this.data.reproduction,
-                    email: this.data.email,
-                    applog: logAsJson
-                })
-            }).then(
-                function (response) {
-                    response.json().then(function (json) {
-                        console.log(json);
-                    });
-                }).catch(function (exception) {
-                    console.log(exception);
-                });
-            this.manager.hideModal();*/
+            this.manager.hideModal();
+            // show success modal
+            let that = this;
+            let modalType = { "name": "type", "value": "success" };
+            let modalTitle = { "name": "title", "value": "Modal_ReportBugSuccess_Title" };
+            let modalText = { "name": "text", "value": ["Modal_ReportBugSuccess_Text01"] };
+            let yesLabel = { "name": "yesLabel", "value": "Modal_ReportBugSuccess_YesLabel" };
+            let yesListener = {
+                "event": "click", "id": "modal-button-footer-yes", "function": function () {
+                    that.manager.hideModal();
+                }
+            }
+            this.manager.callModal("confirm", [modalType, modalTitle, modalText, yesLabel], [yesListener]);
         }
     }
 }
