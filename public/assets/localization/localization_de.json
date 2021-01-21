@@ -1,5 +1,61 @@
 [
     {
+        "key": "Modal_Applog_Title",
+        "value": "Application Log"
+    },
+    {
+        "key": "Modal_SignUpError_Text01",
+        "value": "Bei Deiner Registrierung ist etwas schiefgegangen. Bitte versuche es später nochmal!"
+    },
+    {
+        "key": "Route_SignUp_PasswordReq_Text01",
+        "value": "Achte darauf, dass das Passwort..."
+    },
+    {
+        "key": "Route_SignUp_PasswordReq_Text02",
+        "value": "... zwischen 8 und 40 Zeichen lang ist"
+    },
+    {
+        "key": "Route_SignUp_PasswordReq_Text03",
+        "value": "... nur Buchstaben, Zahlen und die Sonderzeichen !@#$%&*()-+=^ enthält"
+    },
+    {
+        "key": "Route_SignUp_Title",
+        "value": "Neues Konto registrieren"
+    },
+    {
+        "key": "Route_SignUp_SignUp",
+        "value": "Registrieren"
+    },
+    {
+        "key": "Route_SignUp_EmailLabel",
+        "value": "Email"
+    },
+    {
+        "key": "Route_SignUp_EmailPlaceholder",
+        "value": "Gib Deine Email ein"
+    },
+    {
+        "key": "Route_SignUp_UsernameLabel",
+        "value": "Benutzername"
+    },
+    {
+        "key": "Route_SignUp_UsernamePlaceholder",
+        "value": "Gib einen Benutzernamen ein"
+    },
+    {
+        "key": "Route_SignUp_PasswordLabel",
+        "value": "Passwort"
+    },
+    {
+        "key": "Route_SignUp_PasswordPlaceholder",
+        "value": "Erstelle ein Passwort"
+    },
+    {
+        "key": "Route_SignUp_SubmitConfirmText",
+        "value": "Mit Deiner Registrierung bestätigst Du, dass Du die Nutzungsbedingungen von New Horizons akzeptierst und die Datenschutzrichtlinien anerkennst."
+    },
+    {
         "key": "Modal_ReportBugSuccess_Title",
         "value": "Bug gemeldet!"
     },
@@ -52,7 +108,7 @@
         "value": "Absenden"
     },
     {
-        "key": "Modal_ReportException_Title",
+        "key": "Misc_Sorry",
         "value": "Entschuldigung!"
     },
     {

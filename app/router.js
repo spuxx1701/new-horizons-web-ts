@@ -12,14 +12,14 @@ Router.map(function () {
     this.route('news');
     this.route('support');
     this.route('imprint');
-    this.route('login');
-    this.route('registration');
+    this.route('sign-up');
+    this.route('settings');
+    this.route('app-log');
     this.route('generator', function () {
       this.route('preset');
     });
     this.route('editor');
     this.route('stellarpedia', { path: '/stellarpedia/:fullEntryAdress' });
-    this.route('settings');
     this.route('page-not-found', { path: '/*' });
   });
 });

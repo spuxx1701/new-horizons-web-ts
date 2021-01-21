@@ -39,14 +39,12 @@ Description: Contains style information for modals and their components.
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    height: 34px;
+    height: 40px;
     background-color: var(--colorModalHeaderDefault);
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     padding-left: 5px;
     padding-right: 5px;
-    padding-top: 2px;
-    padding-bottom: 2px;
     box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
 }
 
@@ -105,17 +103,15 @@ Description: Contains style information for modals and their components.
 }
 
 .modal-inner-footer button {
-    min-height: 36px;
-    height: 30px;
     min-width: 60px;
     margin-left: 5px;
 }
 
 .modal-button-close {
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
     border: none;
     background: none;
     color: white;
-    font-size: larger;
+    font-size: x-large;
 }

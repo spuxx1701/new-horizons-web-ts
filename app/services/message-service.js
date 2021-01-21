@@ -8,6 +8,7 @@
 import Ember from 'ember';
 import Service from '@ember/service';
 import config from '../config/environment';
+import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 
@@ -15,8 +16,8 @@ export default class ManagerService extends Service {
     @service manager;
     @service localizationService;
     @service modalService;
+    @service store;
 
-    @tracked sessionLog = [];
     @tracked msgType = {
         s: "s", // success
         i: "i", // information
@@ -27,7 +28,7 @@ export default class ManagerService extends Service {
         xi: "xi" // non-critical exception
     };
 
-    init() {
+    @action init() {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2020-08-23
         // Description:
@@ -40,7 +41,7 @@ export default class ManagerService extends Service {
         };
     }
 
-    logMessage(messageText, messageType = this.manager.msgType.i, showToUser = false) {
+    @action logMessage(messageText, messageType = this.manager.msgType.i, showToUser = false) {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2020-08-23
         // Description:
@@ -52,7 +53,9 @@ export default class ManagerService extends Service {
             type: messageType,
             text: messageText
         }
-        this.sessionLog.push(message);
+        this.store.createRecord("app-log", { timestamp: new Date().getTime(), type: messageType, text: messageText })
+        // this.store.push({ data: [{ id: timestamp, type: "app-log", attributes: message }] });
+        //this.sessionLog.push(message);
         if (config.environment === "development") {
             if (messageType === this.msgType.x || messageType === this.msgType.xw || messageType === this.msgType.xi) {
                 console.error(messageText);
@@ -67,7 +70,7 @@ export default class ManagerService extends Service {
         }
     }
 
-    askForExceptionReport(messageText) {
+    @action askForExceptionReport(messageText) {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2020-09-23
         // Description:
@@ -78,7 +81,7 @@ export default class ManagerService extends Service {
         //----------------------------------------------------------------------------//
         let that = this;
         let modalType = { "name": "type", "value": "error" };
-        let modalTitle = { "name": "title", "value": "Modal_ReportException_Title" };
+        let modalTitle = { "name": "title", "value": "Misc_Sorry" };
         let modalText = { "name": "text", "value": ["Modal_ReportException_Text01", "\"" + messageText + "\"", "Modal_ReportException_Text02"] };
         let yesLabel = { "name": "yesLabel", "value": "Misc_Yes" };
         let noLabel = { "name": "noLabel", "value": "Misc_No" };
@@ -95,7 +98,11 @@ export default class ManagerService extends Service {
         this.manager.callModal("confirm", [modalType, modalTitle, modalText, yesLabel, noLabel], [yesListener, noListener]);
     }
 
-    getSessionLog(maxEntries = undefined, asJson = false) {
+    @action showAppLog() {
+        this.manager.callModal("app-log");
+    }
+
+    @action getAppLog(maxEntries = undefined, asJson = false) {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2020-10-04
         // Description:

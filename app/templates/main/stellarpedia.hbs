@@ -1,16 +1,16 @@
-<div class="panel-large hBox paddingTopBottomNone justify-content-between">
-    <div class="hBoxItem">
+<div class="panel panel-large h-box paddingTopBottomNone justify-content-between">
+    <div class="h-boxItem">
         <p class="stellarpedia-status-text">{{this.stellarpediaService.currentPosition}}</p>
     </div>
-    <div class="hBoxItem justify-content-end">
+    <div class="h-boxItem justify-content-end">
         <button type="button" class="button-icon-1">{{fa-icon "share"}}</button>
         <button type="button" class="button-icon-1">{{fa-icon "search"}}</button>
-        {{!--<input class="inputfield interactable-size-2" value=""
-            placeholder="{{localize "Misc_EnterSearchTermHere..."}}" />--}}
+        {{!--<input class="inputfield interactable-size-2" value="" placeholder="{{localize "
+            Misc_EnterSearchTermHere..."}}" />--}}
     </div>
 </div>
 
-<div class="panel-large">
+<div class="panel panel-large">
     {{#each this.stellarpediaService.selectedEntry.elements as |element|}}
     {{#if (eq (stellarpedia/sp-get-element-type element) "hdr")}}
     <h2>{{stellarpedia/sp-prepare element true}}</h2>

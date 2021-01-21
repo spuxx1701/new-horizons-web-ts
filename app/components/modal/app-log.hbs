@@ -1,0 +1,18 @@
+<div class="modal-inner modal-size-medium">
+    <div class="modal-inner-header modal-header-default">
+        <div class="modal-header-title-container">
+            {{fa-icon "align-left" class="modal-header-icon"}}
+            <h4 class="modal-header-title">{{localize "Modal_Applog_Title"}}</h4>
+        </div>
+        <button id="modal-button-close" type="button" class="modal-button-close" {{on "click" this.modalService.hide}}>
+            {{fa-icon "times"}}
+        </button>
+    </div>
+    <div class="modal-inner-content">
+    </div>
+    <div class="modal-inner-footer">
+        <button id="modal-button-footer-yes" type="submit" class="button" {{on "click" this.modalService.hide}}>
+            {{localize "Misc_Close"}}
+        </button>
+    </div>
+</div>

@@ -1,65 +1,65 @@
-<h4 class="fgWhite margin-vertical-medium sidebar-header">New Horizons</h4>
+<h4 class="fg-white margin-vertical-medium sidebar-header">New Horizons</h4>
 <div class="sidebar-sep"></div>
 {{!--MAIN SECTION--}}
-<div class="vBox" id="main-tabs">
-    <button id="sidebar-button-home" class="sidebar-button-1" type="button"
-        {{on 'click' (fn this.goToTab "home" true)}}>
-        {{fa-icon "home" size=this.manager.constants.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
+<div class="v-box" id="main-tabs">
+    <button id="sidebar-button-home" class="sidebar-button-1" type="button" {{on 'click' (fn this.goToTab "home"
+        true)}}>
+        {{fa-icon "home" size=this.manager.constants.sidebarIconSize class="marginSidesMedium fg-teal-neon"}} <p
             class="margin-vertical-auto">
             {{localize "Misc_Home"}}</p>
     </button>
     <div class="sidebar-sep"></div>
-    <button id="sidebar-button-imprint" class="sidebar-button-1" type="button"
-        {{on 'click' (fn this.goToTab "imprint" true)}}>
-        {{fa-icon "info-circle" size=this.manager.constants.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
+    <button id="sidebar-button-imprint" class="sidebar-button-1" type="button" {{on 'click' (fn this.goToTab "imprint"
+        true)}}>
+        {{fa-icon "info-circle" size=this.manager.constants.sidebarIconSize class="marginSidesMedium fg-teal-neon"}} <p
             class="margin-vertical-auto">
             {{localize "Misc_Imprint"}}</p>
     </button>
 </div>
 {{!--COMMUNITY SECTION--}}
 {{!--<div class="sidebar-sep"></div>
-<div class="text-def-small fgWhite text-center margin-medium sidebar-item">
+<div class="text-def-small fg-white text-center margin-medium sidebar-item">
     {{localize "Misc_JoinTheCommunity"}}</div>
-<div class="hBox">
+<div class="h-box">
     <a href="https://discord.gg/8m2VrHH">{{fa-icon "comments-o"}}</a>
 </div>--}}
 {{!--EDITOR SECTION--}}
 <div class="sidebar-sep"></div>
-<h4 class="fgWhite margin-vertical-medium sidebar-header">{{localize "Misc_Editor"}}</h4>
+<h4 class="fg-white margin-vertical-medium sidebar-header">{{localize "Misc_Editor"}}</h4>
 <div class="sidebar-sep"></div>
-<button class="sidebar-button-1" type="button"
-    {{on 'click' (fn this.manager.showStellarpediaEntry "basic-rules" "introduction" "welcome")}}>
-    {{fa-icon "wikipedia-w " size=this.manager.constants.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
+<button class="sidebar-button-1" type="button" {{on 'click' (fn
+    this.manager.showStellarpediaEntry "basic-rules" "introduction" "welcome" )}}>
+    {{fa-icon "wikipedia-w " size=this.manager.constants.sidebarIconSize class="marginSidesMedium fg-teal-neon"}} <p
         class="margin-vertical-auto">
         {{localize "Misc_Stellarpedia"}}</p>
 </button>
 <div class="sidebar-sep"></div>
-<button class="sidebar-button-1" type="button" {{on 'click' (fn this.goToTab "generator.preset")}}>
-    {{fa-icon "user-plus" size=this.manager.constants.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
+<button class="sidebar-button-1" type="button" {{on 'click' (fn this.goToTab "generator.preset" )}}>
+    {{fa-icon "user-plus" size=this.manager.constants.sidebarIconSize class="marginSidesMedium fg-teal-neon"}} <p
         class="margin-vertical-auto">
         {{localize "Misc_NewCharacter"}}</p>
 </button>
 <div class="sidebar-sep"></div>
 {{#if this.session.isAuthenticated}}
 <button class="sidebar-button-1" type="button">
-    {{fa-icon "user" size=this.manager.constants.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
+    {{fa-icon "user" size=this.manager.constants.sidebarIconSize class="marginSidesMedium fg-teal-neon"}} <p
         class="margin-vertical-auto">
         {{localize "Misc_LoadCharacter"}}</p>
 </button>
 <div class="sidebar-sep"></div>
 <button class="sidebar-button-1" type="button">
-    {{fa-icon "user-plus" size=this.manager.constants.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
+    {{fa-icon "user-plus" size=this.manager.constants.sidebarIconSize class="marginSidesMedium fg-teal-neon"}} <p
         class="margin-vertical-auto">
         {{localize "Misc_NewJournal"}}</p>
 </button>
 <div class="sidebar-sep"></div>
 <button class="sidebar-button-1" type="button">
-    {{fa-icon "user-plus" size=this.manager.constants.sidebarIconSize class="marginSidesMedium fgTealNeon"}} <p
+    {{fa-icon "user-plus" size=this.manager.constants.sidebarIconSize class="marginSidesMedium fg-teal-neon"}} <p
         class="margin-vertical-auto">
         {{localize "Misc_LoadJournal"}}</p>
 </button>
 <div class="sidebar-sep"></div>
 {{else}}
-<div class="text-def-small fgWhite text-center margin-medium sidebar-item">
+<div class="text-def-small fg-white text-center margin-medium sidebar-item">
     {{localize "Misc_SignInForMoreFunctions"}}</div>
 {{/if}}

@@ -6,7 +6,7 @@
 :root {
     vertical-align: middle;
     --colorDeepSpace: #0e1015;
-    --colorGreyBright: #e1e1e1;
+    --colorGreyBright: #c1c1c1;
     --colorGreyMedium: #5F5F5F;
     --colorGreyDark: #2c2c2c;
     --colorGreyTrans: rgba(200, 200, 200, 0.5);
@@ -29,7 +29,7 @@
     --colorTextHighlight: #ffffff;
     --colorTextLink: #64C8C8;
     --colorTextLinkHover: #00FFFF;
-    --colorTextSubtitle: #498082;
+    --colorTextSubtitle: #c1c1c1;
     --brandingBarHeight: 2px;
     --headerToolbarHeight: 40px;
 }
@@ -75,4 +75,15 @@ body {
 
 .invisible {
     display: none;
+}
+
+.password-sec-level-bar {
+    margin-left: 5px;
+    margin-right: 5px;
+    height: 3px;
+    width: 50px;
+    background-color: var(--colorGreyMedium);
+    border-radius: 2px;
+    border: none;
+    transition: 150ms;
 }

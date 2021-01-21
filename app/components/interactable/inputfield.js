@@ -10,13 +10,22 @@ export default class InputfieldComponent extends InteractableComponent {
     @tracked valueSuffix; // Shown before the value when inputfield is not currently being focused
     @tracked valueCombined; // Shown after the value when inputfield is not currently being focused
 
+    @action didRender(event) {
+        // add event listeners
+        if (this.eventListeners) {
+            for (let listener of this.eventListeners) {
+                document.getElementById(this.id + "-input").addEventListener(listener.event, listener.function);
+            }
+        }
+        // override
+    }
+
     @action onChange(event) {
-        //----------------------------------------------------------------------------//
-        // Leopold Hock / 2020-10-04
-        // Description:
-        // Is being triggered when the value is being changed. Invokes an update on the
-        // original changeset.
-        //----------------------------------------------------------------------------//
         this.changeset.set(this.key, event.srcElement.value);
+    }
+
+    @action onInvalid(event) {
+        // expose invalidity to user
+        event.srcElement.classList.remove("inputfield-hide-invalidity");
     }
 }

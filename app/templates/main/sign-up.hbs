@@ -1,0 +1,35 @@
+<div class="v-box justify-content-center overflow-hidden">
+    <h3 class="fg-white text-center">{{localize "Route_SignUp_Title"}}</h3>
+    <form class="panel panel-small align-items-center" {{on "submit" this.onSubmit}}>
+        <Interactable::inputfield class="paddingTopBottom10px" @id="signup-input-email" @label="Route_SignUp_EmailLabel"
+            @required={{true}} @placeholder="Route_SignUp_EmailPlaceholder" @maxLength="255"
+            @pattern={{this.manager.pattern.emailAsString}} @changeset={{this.changeset}} @key="email" @type="email"
+            @style="width: 300px;" />
+        <div class="panel-spacer" />
+        <Interactable::inputfield class="paddingTopBottom10px" @id="signup-input-username"
+            @label="Route_SignUp_UsernameLabel" @required={{true}} @placeholder="Route_SignUp_UsernamePlaceholder"
+            @minLength="4" @maxLength="255" @changeset={{this.changeset}} @key="username" @type="text"
+            @style="width: 300px;" />
+        <Interactable::inputfield class="paddingTopBottom10px" @id="signup-input-password"
+            @label="Route_SignUp_PasswordLabel" @required={{true}} @placeholder="Route_SignUp_PasswordPlaceholder"
+            @changeset={{this.changeset}} @key="passwordRaw" @type="password" @minLength="8" @maxLength="40"
+            @pattern={{this.manager.pattern.passwordAsString}} @style="width: 300px;"
+            @eventListeners={{this.passwordEventListeners}} />
+        <div class="h-box justify-content-center paddingTopBottom10px">
+            <div id="password-sec-bar-1" class="h-box-item password-sec-level-bar" />
+            <div id="password-sec-bar-2" class="h-box-item password-sec-level-bar" />
+            <div id="password-sec-bar-3" class="h-box-item password-sec-level-bar" />
+            <div id="password-sec-bar-4" class="h-box-item password-sec-level-bar" />
+        </div>
+        <div class="text-area-height-small">
+            <p id="password-requirements-text" class="text-center interactable-subtitle display-none">{{localize
+                "Route_SignUp_PasswordReq_Text01"}}
+                <br />{{localize "Route_SignUp_PasswordReq_Text02"}}
+                <br />{{localize "Route_SignUp_PasswordReq_Text03"}}
+            </p>
+        </div>
+        <p class="text-center paddingTopBottom10px">{{localize "Route_SignUp_SubmitConfirmText"}}</p>
+        <Interactable::button @id="signup-submit" @type="submit" class="width50 flex" @busy={{this.submitIsBusy}}
+            @label={{localize "Route_SignUp_SignUp" }} />
+    </form>
+</div>

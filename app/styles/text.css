@@ -20,10 +20,10 @@ Description: Contains style information for all text elements.  */
         font-size: 14px;
     }
     h6, .h6, p {
-        font-size: 12px;
+        font-size: 14px;
     }
     .inputfield {
-        font-size: 2.75vmin;
+        font-size: 14px;
     }
 }
 

@@ -4,14 +4,14 @@
 {{!--HEADER TOOLBAR--}}
 <div class="branding-bar"></div>
 <div class="header-toolbar justify-content-between">
-    <button id="navSidebarButton" class="header-sidebar-button" type="button"
-        {{on 'click' (fn this.toggleSidebar "navSidebar")}}>
+    <button id="navSidebarButton" class="header-sidebar-button" type="button" {{on 'click' (fn
+        this.toggleSidebar "navSidebar" )}}>
         {{fa-icon (if this.navSidebarExpanded "chevron-left" "bars") size="2"}}</button>
-    <div class="hBoxItem justify-content-center">
-        <h4 class="fgTealNeon marginAuto">New Horizons</h4>
+    <div class="h-boxItem justify-content-center">
+        <h4 class="fg-teal-neon marginAuto">New Horizons</h4>
     </div>
-    <button id="accountSidebarButton" class="header-sidebar-button" type="button"
-        {{on 'click' (fn this.toggleSidebar "accountSidebar")}}>
+    <button id="accountSidebarButton" class="header-sidebar-button" type="button" {{on 'click' (fn
+        this.toggleSidebar "accountSidebar" )}}>
         {{#if this.session.isAuthenticated}}
         {{fa-icon (if this.accountSidebarExpanded "chevron-right" "user") size="2"}}
         {{else}}
@@ -29,30 +29,30 @@
 {{!--ACCOUNT SIDEBAR--}}
 <div id="accountSidebar" class="sidebar account-sidebar">
     <div id="accountSidebarContent" class="account-sidebar-content">
-        <h4 class="fgWhite margin-vertical-medium text-right sidebar-header-r">{{localize "Misc_Account"}}</h4>
+        <h4 class="fg-white margin-vertical-medium text-right sidebar-header-r">{{localize "Misc_Account"}}</h4>
         <div class="sidebar-sep sidebar-item"></div>
         {{#if this.session.isAuthenticated}}
         {{else}}
         <button class="sidebar-button-1" type="button">
-            {{fa-icon "sign-in" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}}
+            {{fa-icon "sign-in" size=this.sidebarIconSize class="marginSidesMedium fg-teal-neon"}}
             <p class="margin-vertical-auto">{{localize "Misc_SignIn"}}</p>
         </button>
         <div class="sidebar-sep"></div>
-        <button class="sidebar-button-1" type="button">
-            {{fa-icon "user-plus" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}}
+        <button class="sidebar-button-1" type="button" {{on 'click' (fn this.manager.goToRoute "sign-up" )}}>
+            {{fa-icon "user-plus" size=this.sidebarIconSize class="marginSidesMedium fg-teal-neon"}}
             <p class="margin-vertical-auto">{{localize "Misc_SignUp"}}</p>
         </button>
         {{/if}}
         <div class="sidebar-sep"></div>
         {{#if this.manager.devMode}}
         <button class="sidebar-button-1" type="button" {{on 'click' (fn this.manager.test)}}>
-            {{fa-icon "code" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}}
+            {{fa-icon "code" size=this.sidebarIconSize class="marginSidesMedium fg-teal-neon"}}
             <p class="margin-vertical-auto">Test</p>
         </button>
         <div class="sidebar-sep"></div>
-        <button class="sidebar-button-1" type="button">
-            {{fa-icon "align-left" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}}
-            <p class="margin-vertical-auto">Show Log </p>
+        <button class="sidebar-button-1" type="button" {{on 'click' this.manager.messageService.showAppLog }}>
+            {{fa-icon "align-left" size=this.sidebarIconSize class="marginSidesMedium fg-teal-neon"}}
+            <p class="margin-vertical-auto">Show Log</p>
         </button>
         {{/if}}
     </div>

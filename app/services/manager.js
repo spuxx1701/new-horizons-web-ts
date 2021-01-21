@@ -1,7 +1,7 @@
 //----------------------------------------------------------------------------//
 // Leopold Hock / 2020-08-22
 // Description: This is the central service for the entire application. The manager supplies the magnitude of utility
-// functions that are not part of another independent service.
+// functions this are not part of another independent service.
 //----------------------------------------------------------------------------//
 import Ember from 'ember';
 import Service from '@ember/service';
@@ -9,7 +9,6 @@ import config from '../config/environment';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
-var that;
 
 export default class ManagerService extends Service {
     @service store;
@@ -24,7 +23,10 @@ export default class ManagerService extends Service {
 
     // Input patterns
     @tracked pattern = {
-        email: /(?!(^[.-].*|[^@]*[.-]@|.*\.{2,}.*)|^.{254}.)([a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@)(?!-.*|.*-\.)([a-zA-Z0-9-]{1,63}\.)+[a-zA-Z]{2,15}/
+        email: /(?!(^[.-].*|[^@]*[.-]@|.*\.{2,}.*)|^.{254}.)([a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@)(?!-.*|.*-\.)([a-zA-Z0-9-]{1,63}\.)+[a-zA-Z]{2,15}/,
+        emailasString: "(?!(^[.-].*|[^@]*[.-]@|.*\.{2,}.*)|^.{254}.)([a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@)(?!-.*|.*-\.)([a-zA-Z0-9-]{1,63}\.)+[a-zA-Z]{2,15}",
+        password: /^[a-zA-Z0-9!@#$%&*()-+=^]{8,40}$/,
+        passwordAsString: "^[a-zA-Z0-9!@#$%&*()-+=^]{8,40}$"
     }
 
     // System Variables
@@ -39,76 +41,75 @@ export default class ManagerService extends Service {
         // Initializer method.
         //----------------------------------------------------------------------------//
         super.init();
-        that = this;
         this.config = config;
-        if (config.environment === "development") that.devMode = true;
+        if (config.environment === "development") this.devMode = true;
         // subscribe to routeDidChange event
-        that.router.on("routeDidChange", (transition) => {
+        let that = this;
+        this.router.on("routeDidChange", (transition) => {
             that.onTransition(transition);
         });
-        that.renderNavbarMenu();
-        that.log("Manager initialized.");
-        that.msgType = that.messageService.msgType;
+        this.renderNavbarMenu();
+        this.log("Manager initialized.");
+        this.msgType = this.messageService.msgType;
         // listen to media query event to keep isMobile property updated
         let mediaQuery = window.matchMedia("(max-width: 600px)");
         this.onMediaChange(mediaQuery);
-        mediaQuery.addListener(that.onMediaChange);
+        mediaQuery.addListener(this.onMediaChange);
     }
 
-    @action
-    test() {
+    @action test() {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2020-08-22
         // Description:
         // Method for testing purposes only.
         //----------------------------------------------------------------------------//
-        console.log("Testing...");
-        // this.store.findRecord("bug-report", 1).then(function (bugReport.data) {
-        //     console.log(bugReport);
-        // });
-        console.log(that.diesdas());
+        this.callModal("app-log");
     }
 
-    goToRoute(id) {
+    @action goToRoute(id) {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2020-08-22
         // Description:
         // Calls router to transition to a specific subroute of main (default routing).
         //----------------------------------------------------------------------------//
-        that.router.transitionTo("main." + id);
+        this.router.transitionTo("main." + id);
+        if (this.isMobile) {
+            this.tryCloseSidebar("navSidebar");
+            this.tryCloseSidebar("accountSidebar");
+        }
     }
 
-    onTransition(transition) {
+    @action onTransition(transition) {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2020-08-22
         // Description:
         // This method is being called by the router after every transition.
         //----------------------------------------------------------------------------//
-        that.renderNavbarMenu(transition);
+        this.renderNavbarMenu(transition);
     }
 
-    renderNavbarMenu(transition) {
+    @action renderNavbarMenu(transition) {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2020-08-22
         // Description:
         // (Re-)Renders the nav-sidebar's content.
         //----------------------------------------------------------------------------//
-        if (!that.router.currentRouteName) return;
-        let currentRouteNameSplit = that.router.currentRouteName.split(".");
+        if (!this.router.currentRouteName) return;
+        let currentRouteNameSplit = this.router.currentRouteName.split(".");
         if (currentRouteNameSplit.length > 1) {
             let combinedRouteName = currentRouteNameSplit[0] + "." + currentRouteNameSplit[1];
             // check whether this route has an own navbar template
-            let navSidebarTemplate = Ember.getOwner(that).lookup("template:" + "nav-sidebar/" + currentRouteNameSplit[1]);
-            let navSidebarController = Ember.getOwner(that).lookup("controller:" + "nav-sidebar/" + currentRouteNameSplit[1]);
+            let navSidebarTemplate = Ember.getOwner(this).lookup("template:" + "nav-sidebar/" + currentRouteNameSplit[1]);
+            let navSidebarController = Ember.getOwner(this).lookup("controller:" + "nav-sidebar/" + currentRouteNameSplit[1]);
             if (navSidebarTemplate && navSidebarController) {
-                Ember.getOwner(that).lookup("route:" + combinedRouteName).render("nav-sidebar/" + currentRouteNameSplit[1], {
+                Ember.getOwner(this).lookup("route:" + combinedRouteName).render("nav-sidebar/" + currentRouteNameSplit[1], {
                     outlet: "navSidebarOutlet",
                     into: "main",
                     controller: "nav-sidebar/" + currentRouteNameSplit[1]
                 });
             } else {
                 // if none exists, render main navbar template
-                Ember.getOwner(that).lookup("route:main").render("nav-sidebar/main", {
+                Ember.getOwner(this).lookup("route:main").render("nav-sidebar/main", {
                     outlet: "navSidebarOutlet",
                     into: "main",
                     controller: "nav-sidebar/main"
@@ -117,7 +118,7 @@ export default class ManagerService extends Service {
         }
     }
 
-    updateTabGroup(buttonGroupID, selectedID, classNameSelected) {
+    @action updateTabGroup(buttonGroupID, selectedID, classNameSelected) {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2020-08-22
         // Description:
@@ -125,7 +126,7 @@ export default class ManagerService extends Service {
         //----------------------------------------------------------------------------//
         let buttonGroup = document.getElementById(buttonGroupID);
         if (!buttonGroup) {
-            that.log("Unable to find control '" + buttonGroupID + "'.", this.manager.msgType.x);
+            this.log("Unable to find control '" + buttonGroupID + "'.", this.manager.msgType.x);
             return;
         }
         for (var i = 0; i < buttonGroup.children.length; i++) {
@@ -134,34 +135,34 @@ export default class ManagerService extends Service {
         document.getElementById(selectedID).classList.add(classNameSelected);
     }
 
-    localize(key, allowUndefined = false) {
+    @action localize(key, allowUndefined = false) {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2020-08-22
         // Description:
         // Sends the input to the localizationService and returns its value.
         //----------------------------------------------------------------------------//
-        return (that.localizationService.getValue(key, allowUndefined));
+        return (this.localizationService.getValue(key, allowUndefined));
     }
 
-    getIdentifiable(id) {
+    @action getIdentifiable(id) {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2020-08-22
         // Description:
         // Looks up the identifier with the databaseService and returns the result.
         //----------------------------------------------------------------------------//
-        return that.database.getIdentifiable(id);
+        return this.database.getIdentifiable(id);
     }
 
-    log(messageText, messageType = "info", showToUser = false) {
+    @action log(messageText, messageType = "info", showToUser = false) {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2020-08-22
         // Description:
         // Calls messageService to log a specific message.
         //----------------------------------------------------------------------------//
-        that.messageService.logMessage(messageText, messageType);
+        this.messageService.logMessage(messageText, messageType);
     }
 
-    prepareId(id) {
+    @action prepareId(id) {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2020-08-22
         // Description:
@@ -171,31 +172,31 @@ export default class ManagerService extends Service {
         return id;
     }
 
-    showStellarpediaEntry(bookId, chapterId, entryId) {
+    @action showStellarpediaEntry(bookId, chapterId, entryId) {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2020-08-22
         // Description:
         // Calls stellarpediaService to show a specific Stellarpedia article.
         //----------------------------------------------------------------------------//
-        that.router.transitionTo("main.stellarpedia", that.prepareId(bookId) + "+" + that.prepareId(chapterId) + "+" + that.prepareId(entryId));
+        this.router.transitionTo("main.stellarpedia", this.prepareId(bookId) + "+" + this.prepareId(chapterId) + "+" + this.prepareId(entryId));
     }
 
-    onMediaChange(mediaQuery) {
+    @action onMediaChange(mediaQuery) {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2020-09-09
         // Description:
         // Is being triggered on media screen width change. Sets isMobile property.
         //----------------------------------------------------------------------------//
-        that.isMobile = mediaQuery.matches;
+        this.isMobile = mediaQuery.matches;
     }
 
-    tryCloseSidebar(id) {
+    @action tryCloseSidebar(id) {
         //----------------------------------------------------------------------------//
         // Leopold Hockh / 2020-09-11
         // Description:
         // This method tries to close the specified sidebar.
         //----------------------------------------------------------------------------//
-        let mainController = Ember.getOwner(that).lookup("controller:main");
+        let mainController = Ember.getOwner(this).lookup("controller:main");
         if (id === "accountSidebar") {
             if (mainController.accountSidebarExpanded) mainController.toggleSidebar("accountSidebar");
         } else {
@@ -203,21 +204,32 @@ export default class ManagerService extends Service {
         }
     }
 
-    callModal(type, args, listeners) {
+    @action callModal(type, args, listeners) {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2020-09-19
         // Description:
         // Renders a specified modal.
         //----------------------------------------------------------------------------//
-        that.modalService.render(type, args, listeners);
+        this.modalService.render(type, args, listeners);
     }
 
-    hideModal() {
+    @action hideModal() {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2020-09-19
         // Description:
         // Hides the currently active modal.
         //----------------------------------------------------------------------------//
-        that.modalService.hide();
+        this.modalService.hide();
+    }
+
+    @action isNullOrWhitespace(input) {
+        //----------------------------------------------------------------------------//
+        // Leopold Hock / 2021-01-20
+        // Description:
+        // Checks whether the input value is undefined, null, empty or contains
+        // only whitespaces.
+        //----------------------------------------------------------------------------//
+        if (typeof input === 'undefined' || input == null) return true;
+        return input.replace(/\s/g, '').length < 1;
     }
 }

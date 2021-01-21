@@ -2,14 +2,15 @@
     {{#if @label}}
     <label class="label h6" for="input">{{localize @label}}
         {{#if @required}}
-        <p class="label h5 fgTealNeon marginSidesSmall">*</p>
+        <p class="label h5 fg-teal-neon marginSidesSmall">*</p>
         {{/if}}
     </label>
     {{/if}}
     <div class="interactable-element">
         <textarea class="inputfield interactable text-area text-area-height-{{this.height}}" minLength={{@minLength}}
             maxLength={{@maxLength}} disabled={{@disabled}} autofocus={{@autofocus}} required={{@required}}
-            value={{changeset-get @changeset @key}} {{on "change" this.onChange}} />{{!--changeset-get @changeset @key--}} 
+            value={{changeset-get @changeset @key}} {{on "change" this.onChange}} />{{!--changeset-get @changeset
+        @key--}}
         {{#if @info}}
         <Interactable::ButtonInfo @article={{@info}} />
         {{/if}}
