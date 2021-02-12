@@ -180,22 +180,6 @@
     overflow-x: auto;
 }
 
-.text-area {
-    resize: none;
-}
-
-.text-area-height-small {
-    height: 68px;
-}
-
-.text-area-height-medium {
-    height: 112px;
-}
-
-.text-area-height-large {
-    height: 154px;
-}
-
 .toggle {
     position: relative;
     display: inline-block;

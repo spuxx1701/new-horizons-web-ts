@@ -1,8 +1,10 @@
-<button id="{{@id}}-button" type={{@type}} class="button full-width" disabled={{this.isDisabled}}>
-    {{#if @busy}}
-    <i class="fa fa-spinner fa-pulse fa-2x fa-fw position-absolute"></i>
-    <span class="sr-only">Loading...</span>
-    {{else}}
-    {{@label}}
-    {{/if}}
-</button>
+<div class="interactable-element" style={{@style}}>
+    <button id="{{@id}}-button" type={{@type}} class="button full-width" disabled={{this.isDisabled}}>
+        {{#if @busy}}
+        <i class="fa fa-spinner fa-pulse fa-2x fa-fw position-absolute"></i>
+        <span class="sr-only">Loading...</span>
+        {{else}}
+        {{@label}}
+        {{/if}}
+    </button>
+</div>

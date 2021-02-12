@@ -17,11 +17,15 @@
     --colorGreenBright: #00FF00;
     --colorPanelBackground: #2c2c2c;
     --colorPanelBorder: #5F5F5F;
+    --colorPanelInnerBackground: #3b3b3b;
     --colorScreenBlocker: rgba(0, 0, 0, 0.75);
     --colorModalHeaderDefault: #498082;
     --colorModalHeaderWarning: #c89832;
     --colorModalHeaderError: #c83232;
     --colorModalHeaderSuccess: #21922b;
+    --colorWarning: #c89832;
+    --colorError: #c83232;
+    --colorSuccess: #21922b;
     --colorModalFooter: rgba(0, 0, 0, 0);
     --colorScrollbarHandle: #5F5F5F;
     --colorScrollbarBackground: #252525;

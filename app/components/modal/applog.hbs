@@ -1,0 +1,44 @@
+<div class="modal-inner modal-size-medium">
+    <div class="modal-inner-header modal-header-default">
+        <div class="modal-header-title-container">
+            {{fa-icon "align-left" class="modal-header-icon"}}
+            <h4 class="modal-header-title">{{localize "Modal_Applog_Title"}}</h4>
+        </div>
+        <button id="modal-button-close" type="button" class="modal-button-close" {{on "click" this.modalService.hide}}>
+            {{fa-icon "times"}}
+        </button>
+    </div>
+    <div class="modal-inner-content">
+        {{#each this.applog as |entry|}}
+        <div class="panel-inner border-color-{{entry.type}}">
+            <div class="v-box">
+                <div class="h-box">
+                    {{#if (eq entry.type this.manager.msgType.i)}}
+                    <i class="fa fa-info-circle fg-text-default"></i>
+                    {{/if}}
+                    {{#if (eq entry.type this.manager.msgType.s)}}
+                    <i class="fa fa-check-circle fg-success"></i>
+                    {{/if}}
+                    {{#if (eq entry.type this.manager.msgType.w)}}
+                    <i class="fa fa-exclamation-triangle fg-warning"></i>
+                    {{/if}}
+                    {{#if (eq entry.type this.manager.msgType.e)}}
+                    <i class="fa fa-exclamation-circle fg-error"></i>
+                    {{/if}}
+                    {{#if (eq entry.type this.manager.msgType.x)}}
+                    <i class="fa fa-bolt fg-error"></i>
+                    {{/if}}
+                    <div class="margin-sides-tiny" />
+                    <h6 class="fg-grey-bright">{{entry.createdAt}} (UTC)</h6>
+                </div>
+                <p>{{entry.text}}</p>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <div class="modal-inner-footer">
+        <button id="modal-button-footer-yes" type="submit" class="button" {{on "click" this.modalService.hide}}>
+            {{localize "Misc_Close"}}
+        </button>
+    </div>
+</div>

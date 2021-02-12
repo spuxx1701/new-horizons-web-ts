@@ -5,7 +5,7 @@
 //----------------------------------------------------------------------------//
 import Ember from 'ember';
 import Service from '@ember/service';
-import config from '../config/environment';
+import ENV from 'new-horizons-web/config/environment';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 
@@ -31,7 +31,6 @@ export default class StellarpediaService extends Service {
         // Initializer method.
         //----------------------------------------------------------------------------//
         super.init();
-        this.load();
     }
 
     async load() {
@@ -414,7 +413,7 @@ export default class StellarpediaService extends Service {
         let result = element;
         let split = element.split("]");
         if (split.length > 1) {
-            let url = config.APP.stellarpediaUrl + split[1].slice(13, split[1].length) + ".png";
+            let url = ENV.APP.stellarpediaUrl + split[1].slice(13, split[1].length) + ".png";
             return url;
         } else {
             this.manager.log("Syntax error in Stellarpedia element: " + element, this.manager.msgType.x);

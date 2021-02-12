@@ -2596,6 +2596,18 @@
                         ]
                     },
                     {
+                        "id": "Ability_Ranged_Focus",
+                        "elements": [
+                            "[hdr]Ability_Ranged_Focus",
+                            "[txt]Fokus erlaubt es einem geübten Kämpfer, während einer Kampfrunde auf eine Aktion zu verzichten. Die Aktion kann in der darauffolgenden Kampfrunde als Zielen-Aktion verwendet werden. Durch Fokus gewonnene Aktionen verfallen nach spätestens einer Kampfrunde.",
+                            "[txt(col=#9F9F9F)]<lc>Ability_Ranged</lc>",
+                            "[txt(col=#9F9F9F)]</hl><lc>Misc_PassiveAbility</lc></hl>",
+                            "[mis]",
+                            "[txt(col=#9F9F9F)]<lc>Misc_Costs</lc>: <hl>300 <lc>Misc_EP</lc> (3 <lc>Misc_GP</lc>)</hl>",
+                            "[txt(col=#9F9F9F)]<lc>Misc_Requirements</lc>: <link=\"BasicRules;SupplementPrimaryAttributes;PriA_IN\"><lc>PriA_IN</lc></link> (13), <link=\"BasicRules;SupplementPrimaryAttributes;PriA_AG\"><lc>PriA_AG</lc></link> (13), <link=\"BasicRules;SupplementAbilities;Ability_Ranged_PrecisionShot1\"><lc>Ability_Ranged_PrecisionShot1</lc></link>"
+                        ]
+                    },
+                    {
                         "id": "Ability_Ranged_PrecisionShot1",
                         "elements": [
                             "[hdr]Ability_Ranged_PrecisionShot1",

@@ -10,12 +10,13 @@ import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 import { Changeset } from 'ember-changeset';
 import fetch from 'fetch';
+import ENV from 'new-horizons-web/config/environment';
 
 export default class SignUpController extends Controller {
     @service manager;
     @tracked data = {};
     @tracked changeset = Changeset(this.data);
-    @tracked passwordEventListeners = [{ event: "input", function: this.onPasswordChange }, { event: "invalid", function: this.onPasswordInvalid }]
+    @tracked passwordEventListeners = [{ event: "input", function: this.onPasswordChange }, { event: "invalid", function: this.onPasswordInvalid }];
     @tracked submitIsBusy = false;
 
     @tracked title = "";
@@ -26,31 +27,33 @@ export default class SignUpController extends Controller {
 
     @action onSubmit(event) {
         event.preventDefault();
-        let sha256 = require('js-sha256');
         let form = event.srcElement;
         if (form.checkValidity()) {
-            let user = {
-                email: this.changeset.get("email"),
-                username: this.changeset.get("username"),
-                password: sha256(this.changeset.get("passwordRaw"))
+            let data = {
+                "type": "users",
+                "attributes": {
+                    email: this.changeset.get("email"),
+                    username: this.changeset.get("username"),
+                    password: this.changeset.get("passwordRaw")
+                }
             }
-            this.signUp(user);
+            this.signUp(data);
         }
     }
 
-    @action signUp(user) {
+    @action signUp(data) {
         // send the sign-up request
         let that = this;
         this.submitIsBusy = true;
-        fetch(this.manager.config.APP.apiUrl + this.manager.config.APP.apiNamespace + "sign-up", {
+        fetch(ENV.APP.apiUrl + ENV.APP.apiNamespace + "users", {
             method: 'POST',
-            headers: { "Content-Type": "application/vnd.api+json" },
-            body: JSON.stringify({ data: user })
+            headers: { "Content-Type": "application/vnd.api+json", "Accept": "application/vnd.api+json" },
+            body: JSON.stringify({ "data": data })
         }).then(function (response) {
             that.submitIsBusy = false;
-            // on success, notify the user and ask them to confirm their email
-            let modalType = { "name": "type", "value": "success" };
-            let modalTitle = { "name": "title", "value": "Modal_SignUpError_Title" };
+            // by default, prepare an error message and ask the user to try again later
+            let modalType = { "name": "type", "value": "error" };
+            let modalTitle = { "name": "title", "value": "Misc_Sorry" };
             let modalText = { "name": "text", "value": ["Modal_SignUpError_Text01"] };
             let yesLabel = { "name": "yesLabel", "value": "Misc_Ok" };
             let yesListener = {
@@ -58,10 +61,25 @@ export default class SignUpController extends Controller {
                     that.manager.hideModal();
                 }
             }
-            this.manager.callModal("confirm", [modalType, modalTitle, modalText, yesLabel], [yesListener]);
+            if (response.status === 201) {
+                // on success, notify the user and ask them to confirm their email
+                modalType = { "name": "type", "value": "success" };
+                modalTitle = { "name": "title", "value": "Modal_Signup_Success_Title" };
+                modalText = { "name": "text", "value": ["Modal_Signup_Success_Text01"] };
+                yesListener = {
+                    "event": "click", "id": "modal-button-footer-yes", "function": function () {
+                        that.manager.goToRoute("home");
+                        that.manager.hideModal();
+                    }
+                }
+            } else if (response.status === 422) {
+                modalTitle = { "name": "title", "value": "Modal_Signup_Duplicate_Title" };
+                modalText = { "name": "text", "value": ["Modal_Signup_Duplicate_Text01"] };
+            }
+            that.manager.callModal("confirm", [modalType, modalTitle, modalText, yesLabel], [yesListener]);
         }).catch(function (error) {
             that.submitIsBusy = false;
-            // if the request fails, ask the user to try again later
+            // if the request fails without receiving a response, ask the user to try again later
             let modalType = { "name": "type", "value": "error" };
             let modalTitle = { "name": "title", "value": "Misc_Sorry" };
             let modalText = { "name": "text", "value": ["Modal_SignUpError_Text01"] };

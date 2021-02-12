@@ -49,7 +49,7 @@ export default class ModalBugReportComponent extends ModalComponent {
         if (form.reportValidity()) {
             this.changeset.save();
             let logAsJson = "";
-            if (this.data.includeLog) logAsJson = this.manager.messageService.getSessionLog(100, true);
+            if (this.data.includeLog) logAsJson = this.manager.messageService.getApplog(100, true);
             let post = this.store.createRecord("bug-report", {
                 description: this.data.description,
                 reproduction: this.data.reproduction,

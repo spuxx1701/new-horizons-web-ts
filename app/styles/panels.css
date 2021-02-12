@@ -9,18 +9,31 @@
     box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
 }
 
+.panel, form {
+    display: flex;
+    flex-direction: column;
+}
+
 .panel {
     margin: 10px auto 10px auto;
     padding: 25px;
     min-height: 50px;
-    display: flex;
-    flex-direction: column;
     background-color: var(--colorPanelBackground);
     border: 1px solid var(--colorPanelBorder);
     border-radius: 1px;
 }
 
-.panel * {
+.panel-inner {
+    width: calc(100% - 10px);
+    margin: 5px auto 5px auto;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--colorPanelInnerBackground);
+    border: 1px solid var(--colorPanelBorder);
+}
+
+.panel *, form * {
     max-width: 100%;
 }
 

@@ -40,3 +40,23 @@ Description: Contains simple color classes (fg = foreground, bg = background).  
 .fg-grey-medium {
     color: var(--colorGreyMedium);
 }
+
+.fg-success, .fg-s {
+    color: var(--colorSuccess);
+}
+
+.fg-warning, .fg-w {
+    color: var(--colorWarning);
+}
+
+.fg-error, .fg-e, .fg-x {
+    color: var(--colorError);
+}
+
+.fg-text-default {
+    color: var(--colorTextDefault);
+}
+
+.border-color-x {
+    border-color: var(--colorError);
+}

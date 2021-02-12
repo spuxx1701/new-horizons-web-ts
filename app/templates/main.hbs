@@ -29,32 +29,52 @@
 {{!--ACCOUNT SIDEBAR--}}
 <div id="accountSidebar" class="sidebar account-sidebar">
     <div id="accountSidebarContent" class="account-sidebar-content">
+        {{#if this.session.isAuthenticated}}
+        <div class="h-box margin-vertical-medium overflow-hidden sidebar-header-r">
+            <h4 class="fg-white text-right">!</h4>
+            <h4 class="fg-teal-neon text-right">
+                {{this.session.data.authenticated.username}} </h4>
+            <div class="marginSidesSmall" />
+            <h4 class="fg-white text-right">,{{localize "Misc_Hello"}}</h4>
+        </div>
+        {{else}}
         <h4 class="fg-white margin-vertical-medium text-right sidebar-header-r">{{localize "Misc_Account"}}</h4>
+        {{/if}}
         <div class="sidebar-sep sidebar-item"></div>
         {{#if this.session.isAuthenticated}}
+        <button class="sidebar-button-1" type="button" {{on 'click' (fn this.callSignOutModal )}}>
+            {{fa-icon "sign-out" size=this.sidebarIconSize class="marginSidesMedium fg-teal-neon"}}
+            <p class="margin-vertical-auto">{{localize "Misc_SignOut"}}</p>
+        </button>
         {{else}}
-        <button class="sidebar-button-1" type="button">
+        <button class="sidebar-button-1" type="button" {{on 'click' (fn this.manager.goToSignIn "modal" )}}>
             {{fa-icon "sign-in" size=this.sidebarIconSize class="marginSidesMedium fg-teal-neon"}}
             <p class="margin-vertical-auto">{{localize "Misc_SignIn"}}</p>
         </button>
-        <div class="sidebar-sep"></div>
+        <div class="sidebar-sep" />
         <button class="sidebar-button-1" type="button" {{on 'click' (fn this.manager.goToRoute "sign-up" )}}>
             {{fa-icon "user-plus" size=this.sidebarIconSize class="marginSidesMedium fg-teal-neon"}}
             <p class="margin-vertical-auto">{{localize "Misc_SignUp"}}</p>
         </button>
         {{/if}}
-        <div class="sidebar-sep"></div>
+        <div class="sidebar-sep" />
         {{#if this.manager.devMode}}
         <button class="sidebar-button-1" type="button" {{on 'click' (fn this.manager.test)}}>
             {{fa-icon "code" size=this.sidebarIconSize class="marginSidesMedium fg-teal-neon"}}
             <p class="margin-vertical-auto">Test</p>
         </button>
-        <div class="sidebar-sep"></div>
-        <button class="sidebar-button-1" type="button" {{on 'click' this.manager.messageService.showAppLog }}>
-            {{fa-icon "align-left" size=this.sidebarIconSize class="marginSidesMedium fg-teal-neon"}}
-            <p class="margin-vertical-auto">Show Log</p>
-        </button>
         {{/if}}
+        <div class="sidebar-sep" />
+        <button class="sidebar-button-1" type="button" {{on 'click' (fn this.manager.modalService.render "bug-report"
+            )}}>
+            {{fa-icon "bug" size=this.sidebarIconSize class="marginSidesMedium fg-teal-neon"}}
+            <p class="margin-vertical-auto">Report Bug</p>
+        </button>
+        <div class="sidebar-sep" />
+        <button class="sidebar-button-1" type="button" {{on 'click' this.manager.messageService.showApplog }}>
+            {{fa-icon "align-left" size=this.sidebarIconSize class="marginSidesMedium fg-teal-neon"}}
+            <p class="margin-vertical-auto">Application Log</p>
+        </button>
     </div>
 </div>
 

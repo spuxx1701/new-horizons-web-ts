@@ -7,10 +7,12 @@
 //----------------------------------------------------------------------------//
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
+import { tracked } from '@glimmer/tracking';
 
 export default class ModalComponent extends Component {
     @service manager;
     @service modalService;
+    @tracked type = "default";
 
     willRender() {
         //----------------------------------------------------------------------------//
@@ -21,6 +23,8 @@ export default class ModalComponent extends Component {
         //----------------------------------------------------------------------------//
         // Argument interpretation
         for (let argument of this.modalService.args) {
+            // skip undefined parameters to allow defaults
+            if (argument === undefined) continue;
             if (typeof argument.name !== "undefined" && typeof argument.name !== "null"
                 && typeof argument.value !== "undefined" && typeof argument.value !== "null") {
                 this.set(argument.name, argument.value);

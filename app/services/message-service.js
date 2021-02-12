@@ -1,13 +1,14 @@
 //----------------------------------------------------------------------------//
 // Leopold Hock / 2020-08-23
 // Description:
-// This service manages messaging and logging. This includes the session log
+// This service manages messaging and logging. This includes the app log
 // that can be observed in production, console-logging (only active during development)
 // as well as messageToasts that can be seen by the user.
 //----------------------------------------------------------------------------//
 import Ember from 'ember';
 import Service from '@ember/service';
-import config from '../config/environment';
+import Model from '@ember-data/model';
+import ENV from 'new-horizons-web/config/environment';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
@@ -23,9 +24,7 @@ export default class ManagerService extends Service {
         i: "i", // information
         w: "w", // warning
         e: "e", // error
-        x: "x",  // exception
-        xw: "xw", // possibly non-critical exception
-        xi: "xi" // non-critical exception
+        x: "x"  // exception
     };
 
     @action init() {
@@ -41,22 +40,15 @@ export default class ManagerService extends Service {
         };
     }
 
-    @action logMessage(messageText, messageType = this.manager.msgType.i, showToUser = false) {
+    @action logMessage(messageText, messageType = this.msgType.i, showToUser = false) {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2020-08-23
         // Description:
         // This method logs a message, decides where to do so and whether it should be
         // displayed to the user. Should not be called directly (use manager.log() instead).
         //----------------------------------------------------------------------------//
-        var message = {
-            timestamp: new Date().getTime(),
-            type: messageType,
-            text: messageText
-        }
-        this.store.createRecord("app-log", { timestamp: new Date().getTime(), type: messageType, text: messageText })
-        // this.store.push({ data: [{ id: timestamp, type: "app-log", attributes: message }] });
-        //this.sessionLog.push(message);
-        if (config.environment === "development") {
+        this.store.createRecord("applog", { createdAt: this.getCurrentUTCTime(), type: messageType, text: messageText })
+        if (ENV.environment === "development") {
             if (messageType === this.msgType.x || messageType === this.msgType.xw || messageType === this.msgType.xi) {
                 console.error(messageText);
             } else if (messageType === this.msgType.w || messageType === this.msgType.e) {
@@ -98,22 +90,45 @@ export default class ManagerService extends Service {
         this.manager.callModal("confirm", [modalType, modalTitle, modalText, yesLabel, noLabel], [yesListener, noListener]);
     }
 
-    @action showAppLog() {
-        this.manager.callModal("app-log");
+    @action showApplog() {
+        this.manager.callModal("applog");
     }
 
-    @action getAppLog(maxEntries = undefined, asJson = false) {
+    @action getApplog(maxEntries = undefined, asJson = false) {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2020-10-04
         // Description:
         // Returns the current log up to n entries and stringifies if required.
         //----------------------------------------------------------------------------//
         let result = [];
-        for (let i = this.sessionLog.length - 1; i >= 0; i--) {
-            if (!this.sessionLog[i] || (maxEntries && result.length >= maxEntries)) break;
-            result.push(this.sessionLog[i]);
+        let applog = this.store.peekAll("applog").content;
+        for (let i = applog.length - 1; i >= 0; i--) {
+            if (!applog[i] || (maxEntries && result.length >= maxEntries)) break;
+            result.push(applog[i].getRecord().toJSON());
         }
         if (asJson) result = JSON.stringify(result);
+        return result;
+    }
+
+    @action getCurrentUTCTime() {
+        let d = new Date();
+        let year = String(d.getUTCFullYear());
+        let month = (d.getUTCMonth() + 1);
+        if (month < 10) month = "0" + String(month);
+        else month = String(month);
+        let date = d.getUTCDate();
+        if (date < 10) date = "0" + String(date);
+        else date = String(date);
+        let hours = d.getUTCHours();
+        if (hours < 10) hours = "0" + String(hours);
+        else hours = String(hours);
+        let minutes = d.getUTCMinutes();
+        if (minutes < 10) minutes = "0" + String(minutes);
+        else minutes = String(minutes);
+        let seconds = d.getUTCSeconds();
+        if (seconds < 10) seconds = "0" + String(seconds);
+        else seconds = String(seconds);
+        let result = year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds;
         return result;
     }
 }

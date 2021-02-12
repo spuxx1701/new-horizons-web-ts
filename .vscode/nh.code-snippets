@@ -17,8 +17,8 @@
 	// 	"description": "Log output to console"
 	// }
 	"Header (JavaScript)": {
-		"scope": "javascript,typescript",
-		"prefix": "head-js",
+		"scope": "javascript,typescript, php, c++, c#",
+		"prefix": "c-head",
 		"body": [
 			"//----------------------------------------------------------------------------//",
 			"// Leopold Hock / $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",

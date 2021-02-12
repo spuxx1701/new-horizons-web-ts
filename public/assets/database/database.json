@@ -6027,6 +6027,48 @@
                 "targets": []
             },
             {
+                "id": "Ability_Ranged_Focus",
+                "abilityCategory": "AbilityCategory_Ranged",
+                "editorOnly": false,
+                "requirements": [
+                    {
+                        "id": "PriA_IN",
+                        "type": "",
+                        "input": "",
+                        "level": 13,
+                        "overrideCurrent": false,
+                        "oldLevel": 0
+                    },
+                    {
+                        "id": "PriA_AG",
+                        "type": "",
+                        "input": "",
+                        "level": 13,
+                        "overrideCurrent": false,
+                        "oldLevel": 0
+                    },
+                    {
+                        "id": "Ability_Ranged_PrecisionShot1",
+                        "type": "",
+                        "input": "",
+                        "level": 0,
+                        "overrideCurrent": false,
+                        "oldLevel": 0
+                    }
+                ],
+                "needsInput": false,
+                "input": "",
+                "isSpecialisation": false,
+                "options": [],
+                "isActive": false,
+                "castTime": 0,
+                "staminaUse": 0,
+                "usesPower": false,
+                "powerUse": 0,
+                "costs": 300,
+                "targets": []
+            },
+            {
                 "id": "Ability_Ranged_PrecisionShot1",
                 "abilityCategory": "AbilityCategory_Ranged",
                 "editorOnly": false,

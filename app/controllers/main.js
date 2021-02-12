@@ -2,7 +2,6 @@
 //  Description: Controller for template 'main'. Controls the the sidebars as well as the header toolbar.
 
 import Controller from '@ember/controller';
-import config from '../config/environment';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
@@ -55,5 +54,24 @@ export default class MainController extends Controller {
             }
         }
         that.set(id + "Expanded", !isExpanded);
+    }
+
+    @action callSignOutModal() {
+        let modalTitle = { "name": "title", "value": "Modal_SignOut_Title" };
+        let modalText = { "name": "text", "value": ["Modal_SignOut_Text01"] };
+        let yesLabel = { "name": "yesLabel", "value": "Misc_Yes" };
+        let noLabel = { "name": "noLabel", "value": "Misc_No" };
+        let yesListener = {
+            "event": "click", "id": "modal-button-footer-yes", "function": async function () {
+                that.manager.hideModal();
+                await that.session.invalidate("authenticator:jwt");
+            }
+        }
+        let noListener = {
+            "event": "click", "id": "modal-button-footer-no", "function": function () {
+                that.manager.hideModal();
+            }
+        }
+        this.manager.callModal("confirm", [undefined, modalTitle, modalText, yesLabel, noLabel], [yesListener, noListener]);
     }
 }

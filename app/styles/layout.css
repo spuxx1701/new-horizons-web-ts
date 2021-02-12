@@ -25,6 +25,11 @@
     margin-right: auto;
 }
 
+.margin-sides-tiny {
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
 .marginSidesSmall {
     margin-left: 5px;
     margin-right: 5px;
@@ -112,7 +117,6 @@
 
 .interactable-element {
     width: 100%;
-    max-width: 490px;
     display: inline-flex;
 }
 
@@ -138,4 +142,8 @@
 
 .display-none {
     display: none;
+}
+
+.min-height-small {
+    min-height: 75px;
 }

@@ -1,12 +1,9 @@
 import JSONAPIAdapter from '@ember-data/adapter/json-api';
-//import config from '../config/environment';
-//import environment from '../../config/environment';
+import ENV from 'new-horizons-web/config/environment';
+//import TokenAdapterMixin from 'ember-simple-auth-token/mixins/token-adapter';
 
 export default class ApplicationAdapter extends JSONAPIAdapter {
 
-    //host = config.environment.APP.apiUrl;
-    host = "http://laravel.newhorizons";
-    //namespace = config.environment.APP.apiNamespace;
-    namespace = "api/v1";
-
+    host = ENV.APP.apiUrl;
+    namespace = ENV.APP.apiNamespace;
 }

@@ -5,7 +5,7 @@
 //----------------------------------------------------------------------------//
 import Ember from 'ember';
 import Service from '@ember/service';
-import config from '../config/environment';
+import ENV from 'new-horizons-web/config/environment';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
@@ -19,7 +19,7 @@ export default class ManagerService extends Service {
     @service("stellarpediaService") stellarpedia;
     @service router;
     @service modalService;
-    @tracked config;
+    @service session;
 
     // Input patterns
     @tracked pattern = {
@@ -41,8 +41,7 @@ export default class ManagerService extends Service {
         // Initializer method.
         //----------------------------------------------------------------------------//
         super.init();
-        this.config = config;
-        if (config.environment === "development") this.devMode = true;
+        if (ENV.environment === "development") this.devMode = true;
         // subscribe to routeDidChange event
         let that = this;
         this.router.on("routeDidChange", (transition) => {
@@ -63,7 +62,7 @@ export default class ManagerService extends Service {
         // Description:
         // Method for testing purposes only.
         //----------------------------------------------------------------------------//
-        this.callModal("app-log");
+        console.log(this.session);
     }
 
     @action goToRoute(id) {
@@ -153,7 +152,7 @@ export default class ManagerService extends Service {
         return this.database.getIdentifiable(id);
     }
 
-    @action log(messageText, messageType = "info", showToUser = false) {
+    @action log(messageText, messageType = this.messageService.msgType.i, showToUser = false) {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2020-08-22
         // Description:
@@ -231,5 +230,28 @@ export default class ManagerService extends Service {
         //----------------------------------------------------------------------------//
         if (typeof input === 'undefined' || input == null) return true;
         return input.replace(/\s/g, '').length < 1;
+    }
+
+    @action getUrlParameters(url) {
+        let result = [];
+        let urlSplit = url.split("?");
+        if (urlSplit[1]) {
+            let parameterStrings = urlSplit[1].split("&");
+            for (let parameterString of parameterStrings) {
+                let parameterSplit = parameterString.split("=");
+                if (parameterSplit.length === 2) {
+                    result.push({ key: parameterSplit[0], value: parameterSplit[1] });
+                }
+            }
+        }
+        return result;
+    }
+
+    @action goToSignIn(type = "modal") {
+        if (type === "modal" && this.router.currentRouteName !== "main.sign-in") {
+            this.callModal("sign-in");
+        } else {
+            this.goToRoute("sign-in");
+        }
     }
 }

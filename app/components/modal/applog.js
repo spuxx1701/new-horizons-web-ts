@@ -1,7 +1,7 @@
 //----------------------------------------------------------------------------//
 // Leopold Hock / 2020-09-22
 // Description:
-// Modal::Bug-Report component.
+// Modal::App-Log component.
 //----------------------------------------------------------------------------//
 import ModalComponent from './modal';
 import { tracked } from '@glimmer/tracking';
@@ -9,11 +9,10 @@ import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { Changeset } from 'ember-changeset';
 
-export default class ModalAppLogComponent extends ModalComponent {
+export default class ModalApplogComponent extends ModalComponent {
     @service manager;
     @service store;
-    @tracked data = { error: "", description: "", reproduction: "", email: "", stack: "", includeLog: true };
-    @tracked changeset = Changeset(this.data);
+    @tracked applog = [];
 
     willRender() {
         //----------------------------------------------------------------------------//
@@ -23,6 +22,7 @@ export default class ModalAppLogComponent extends ModalComponent {
         // happening here. Calling super.willRender() is required.
         //----------------------------------------------------------------------------//
         super.willRender();
+        this.applog = this.store.peekAll("applog");
     }
 
     didRender() {

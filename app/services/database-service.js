@@ -21,7 +21,6 @@ export default class DatabaseService extends Service {
         // Initializer method.
         //----------------------------------------------------------------------------//
         super.init();
-        this.load();
     }
 
     async load() {

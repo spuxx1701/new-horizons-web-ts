@@ -1,5 +1,117 @@
 [
     {
+        "key": "Misc_SignOut",
+        "value": "Abmelden"
+    },
+    {
+        "key": "Modal_SignOut_Title",
+        "value": "Abmelden"
+    },
+    {
+        "key": "Modal_SignOut_Text01",
+        "value": "Möchtest Du wirklich schon gehen? :'("
+    },
+    {
+        "key": "Misc_Hello",
+        "value": "Hallo"
+    },
+    {
+        "key": "Modal_WrongCredentials_Text02",
+        "value": "Passwort vergessen?"
+    },
+    {
+        "key": "Modal_WrongCredentials_Text01",
+        "value": "Du hast entweder Deine Email oder Dein Passwort falsch eingegeben."
+    },
+    {
+        "key": "Modal_WrongCredentials_Title",
+        "value": "Falsche Anmeldedaten"
+    },
+    {
+        "key": "Modal_SignInError_Text01",
+        "value": "Bei Deiner Anmeldung ist etwas schiefgegangen. Bitte versuche es später nochmal!"
+    },
+    {
+        "key": "Misc_SignIn",
+        "value": "Anmelden"
+    },
+    {
+        "key": "Component_SignIn_NeedVerificationKey_Text01",
+        "value": "Verifizierungscode verloren?"
+    },
+    {
+        "key": "Component_SignIn_NeedVerificationKey_Text02",
+        "value": "Wir haben noch welche."
+    },
+    {
+        "key": "Component_SignIn_ForgotPassword_Text01",
+        "value": "Passwort vergessen?"
+    },
+    {
+        "key": "Component_SignIn_ForgotPassword_Text02",
+        "value": "Kein Problem."
+    },
+    {
+        "key": "Component_SignIn_NoAccountYet_Text01",
+        "value": "Noch keinen Account?"
+    },
+    {
+        "key": "Component_SignIn_NoAccountYet_Text02",
+        "value": "Hier geht's lang!"
+    },
+    {
+        "key": "Component_SignIn_EmailLabel",
+        "value": "Email"
+    },
+    {
+        "key": "Component_SignIn_EmailPlaceholder",
+        "value": "Gib Deine Email ein"
+    },
+    {
+        "key": "Component_SignIn_PasswordLabel",
+        "value": "Passwort"
+    },
+    {
+        "key": "Component_SignIn_PasswordPlaceholder",
+        "value": "Gib Dein Passwort ein"
+    },
+    {
+        "key": "Modal_EmailVerificationSuccess_Title",
+        "value": "Verifizierung erfolgreich"
+    },
+    {
+        "key": "Modal_EmailVerificationSuccess_Text01",
+        "value": "Wir haben Deine Email-Adresse verifiziert. Du kannst Dich jetzt anmelden. Herzlich Willkommen!"
+    },
+    {
+        "key": "Modal_EmailVerificationError_Title",
+        "value": "Verifizierung fehlgeschlagen"
+    },
+    {
+        "key": "Modal_EmailVerificationError_Text01",
+        "value": "Leider konnten wir Deine Email-Adresse nicht verifizieren. Vielleicht hast Du einen ungültigen Code oder Dein Account wurde bereits gelöscht, weil Du die Verifizierung nicht innerhalb von 24 Stunden durchgeführt hast."
+    },
+    {
+        "key": "Ability_Ranged_Focus",
+        "value": "Fokus"
+    },
+    {
+        "key": "Modal_Signup_Duplicate_Title",
+        "value": "Schon registriert?"
+    },
+    {
+        "key": "Modal_Signup_Duplicate_Text01",
+        "value": "Wir haben bereits ein Konto mit Deiner Email. Wenn Du Dein Passwort vergessen hast, kannst Du es jederzeit zurücksetzen."
+    },
+    {
+        "key": "Modal_Signup_Success_Title",
+        "value": "Fast geschafft!"
+    },
+    {
+        "key": "Modal_Signup_Success_Text01",
+        "value": "Wir haben Deine Registrierung erhalten und einen Code an die von Dir angegebene Email-Adresse geschickt, mit dem Du Deine Registrierung bestätigen kannst. Bitte erledige das in den nächsten 24 Stunden, um Deine Registrierung abzuschließen."
+    },
+    {
         "key": "Modal_Applog_Title",
         "value": "Application Log"
     },
@@ -89,11 +201,11 @@
     },
     {
         "key": "Modal_ReportBug_IncludeLog01",
-        "value": "Aktivitäten-Log senden"
+        "value": "Application Log senden"
     },
     {
         "key": "Modal_ReportBug_IncludeLog02",
-        "value": "Das Aktivitäten-Log hilft uns dabei, den Fehler zu finden. Es enthält Informationen darüber, was Du während dieser Sitzung auf der Webseite bereits gemacht hast (z.B. einen Charakter geladen, eine Fähigkeit erworben o.ä.)."
+        "value": "Das Application Log hilft uns dabei, den Fehler zu finden. Es enthält Informationen darüber, was Du während dieser Sitzung auf der Webseite bereits gemacht hast (z.B. einen Charakter geladen, eine Fähigkeit erworben o.ä.)."
     },
     {
         "key": "Modal_ReportBug_Email01",

@@ -70,6 +70,7 @@ p {
 a, a:link, a:visited, .stellarpedia-link {
     color: var(--colorTextLink);
     transition: 200ms;
+    text-decoration: none;
 }
 
 a:hover, a:active, .stellarpedia-link:hover, .stellarpedia-link:active {
@@ -128,4 +129,20 @@ a:hover, a:active, .stellarpedia-link:hover, .stellarpedia-link:active {
 
 .text-right * {
     text-align: right !important;
+}
+
+.text-area {
+    resize: none;
+}
+
+.text-area-height-small {
+    height: 68px;
+}
+
+.text-area-height-medium {
+    height: 112px;
+}
+
+.text-area-height-large {
+    height: 154px;
 }
