@@ -1,5 +1,45 @@
 [
     {
+        "key": "Modal_RequestVerificationCodeConfirm_Title",
+        "value": "Code gesendet"
+    },
+    {
+        "key": "Modal_RequestVerificationCodeConfirm_Text01",
+        "value": "Wir haben Dir Deinen Verifizierungscode zugeschickt. Solltest Du innerhalb der nächsten Minuten keine Email erhalten, kann es sein, dass Dein Konto schon wieder gelöscht wurde, weil Du es nicht rechtzeitig verifiziert hast. In diesem Fall kannst Du Dich einfach nochmal registrieren."
+    },
+    {
+        "key": "Modal_RequestVerificationCode_Title",
+        "value": "Konto verifizieren"
+    },
+    {
+        "key": "Modal_RequestVerificationCode_Text01",
+        "value": "Wenn Du den Verifizierungscode für Deine Registrierung nicht erhalten oder verloren hast, kannst Du ihn Dir erneut zusenden lassen."
+    },
+    {
+        "key": "Modal_RequestVerificationCode_YesLabel",
+        "value": "Code anfordern"
+    },
+    {
+        "key": "Modal_ForgotPasswordConfirm_Title",
+        "value": "Email gesendet"
+    },
+    {
+        "key": "Modal_ForgotPasswordConfirm_Text01",
+        "value": "Wir haben Dir eine Email zum Zurücksetzen deines Passworts geschickt. Bitte folge den Anweisungen in der Email, um ein neues Passwort zu vergeben."
+    },
+    {
+        "key": "Modal_ForgotPassword_Title",
+        "value": "Passwort vergessen?"
+    },
+    {
+        "key": "Modal_ForgotPassword_Text01",
+        "value": "Wenn Du Dein Passwort vergessen hast, kannst Du es hier zurücksetzen. Du erhältst dann eine Email und einen Link, mit dem Du ein neues Passwort vergeben hast."
+    },
+    {
+        "key": "Modal_ForgotPassword_YesLabel",
+        "value": "Passwort zurücksetzen"
+    },
+    {
         "key": "Misc_SignOut",
         "value": "Abmelden"
     },
@@ -109,7 +149,7 @@
     },
     {
         "key": "Modal_Signup_Success_Text01",
-        "value": "Wir haben Deine Registrierung erhalten und einen Code an die von Dir angegebene Email-Adresse geschickt, mit dem Du Deine Registrierung bestätigen kannst. Bitte erledige das in den nächsten 24 Stunden, um Deine Registrierung abzuschließen."
+        "value": "Wir haben Deine Registrierung erhalten und einen Code an die von Dir angegebene Email-Adresse geschickt, mit dem Du Deine Registrierung bestätigen kannst. Bitte erledige das in den nächsten 48 Stunden, um Deine Registrierung abzuschließen."
     },
     {
         "key": "Modal_Applog_Title",

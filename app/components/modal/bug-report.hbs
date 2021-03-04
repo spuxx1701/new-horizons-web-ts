@@ -1,9 +1,7 @@
 <div class="modal-inner modal-size-medium">
     <div class="modal-inner-header modal-header-default">
         <div class="modal-header-title-container">
-            {{#if this.icon}}
-            {{fa-icon this.icon class="modal-header-icon"}}
-            {{/if}}
+            {{fa-icon "bug" class="modal-header-icon"}}
             <h4 class="modal-header-title">{{localize "Modal_ReportBug_Title"}}</h4>
         </div>
         <button id="modal-button-close" type="button" class="modal-button-close" {{on "click" this.modalService.hide}}>

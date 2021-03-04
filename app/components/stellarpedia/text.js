@@ -21,7 +21,7 @@ export default class StellarpediaTextComponent extends Component {
         // buttons' onClick events if there are any in the currently displayed article.
         //----------------------------------------------------------------------------//
         let that = this;
-        let linkButtons = document.getElementsByClassName("stellarpedia-link");
+        let linkButtons = document.getElementsByClassName("button-link");
         for (let button of linkButtons) {
             button.addEventListener("click", function (event) {
                 try {

@@ -10,8 +10,6 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 import { Changeset } from 'ember-changeset';
-import fetch from 'fetch';
-import sha256 from 'js-sha256';
 
 export default class SignInController extends Controller {
 }

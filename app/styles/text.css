@@ -67,18 +67,18 @@ p {
     margin: 5px 0 5px 0;
 }
 
-a, a:link, a:visited, .stellarpedia-link {
+a, a:link, a:visited, .button-link {
     color: var(--colorTextLink);
     transition: 200ms;
     text-decoration: none;
 }
 
-a:hover, a:active, .stellarpedia-link:hover, .stellarpedia-link:active {
+a:hover, a:active, .button-link:hover, .button-link:active {
     color: var(--colorTextLinkHover);
     text-decoration: none;
 }
 
-.stellarpedia-link {
+.button-link {
     background: none;
     border: none;
     outline: none;

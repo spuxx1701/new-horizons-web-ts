@@ -6,5 +6,5 @@ export default class ConstantService extends Service {
     typeOfFunction = "function";
     databaseModelPrefix = "database/"
     characterPresetIdDefault = "character-preset/default"
-    sidebarIconSize = "1";
+    sidebarIconSize = "1x";
 }

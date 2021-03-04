@@ -12,8 +12,8 @@ import { inject as service } from '@ember/service';
 export default class NavbarStellarpediaController extends Controller {
     @service manager;
     @service session;
-    @tracked chapterIcon = "bookmark-o";
-    @tracked entryIcon = "file-text-o";
+    @tracked chapterIcon = "bookmark";
+    @tracked entryIcon = "file-alt";
 
     init() {
         //----------------------------------------------------------------------------//
@@ -79,7 +79,7 @@ export default class NavbarStellarpediaController extends Controller {
         let button = event.currentTarget;
         this.manager.showStellarpediaEntry(bookId, chapterId, entry.id);
         this.selectEntry(bookId, chapterId, button, true);
-        if (this.manager.isMobile) {
+        if (!this.manager.isDesktop) {
             this.manager.tryCloseSidebar("navSidebar");
         }
     }

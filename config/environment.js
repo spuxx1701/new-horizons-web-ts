@@ -25,33 +25,33 @@ module.exports = function (environment) {
       }
     },
 
+    APP: {
+      // Here you can pass flags/options to your application instance
+      // when it is created
+      apiUrl: "https://api.new-horizons-game.com",
+      apiNamespace: "api/v1",
+      apiSuffix: "",
+      stellarpediaUrl: "/assets/stellarpedia/",
+    },
+
     ['ember-simple-auth-token']: {
-      serverTokenEndpoint: '/auth/login/', // Server endpoint to send authenticate request
+      serverTokenEndpoint: '/auth/login', // Server endpoint to send authenticate request
       tokenPropertyName: 'access_token', // Key in server response that contains the access token
       headers: {}, // Headers to add to the request
       refreshAccessTokens: false, // Enables access token refreshing
       tokenExpirationInvalidateSession: true, // Enables session invalidation on token expiration
-      serverTokenRefreshEndpoint: '/auth/refresh/', // Server endpoint to send refresh request
+      serverTokenRefreshEndpoint: '/auth/refresh', // Server endpoint to send refresh request
       refreshTokenPropertyName: 'refresh_token', // Key in server response that contains the refresh token
       tokenExpireName: 'exp', // Field containing token expiration
       refreshLeeway: 0 // Amount of time to send refresh request before token expiration
-    },
-
-    APP: {
-      // Here you can pass flags/options to your application instance
-      // when it is created
-      apiUrl: "localhost",
-      apiNamespace: "/api/v1/",
-      apiSuffix: "",
-      stellarpediaUrl: "/assets/stellarpedia/",
     }
   };
 
   if (environment === 'development') {
     ENV['ember-simple-auth-token'].serverTokenEndpoint = "http://laravel.newhorizons/auth/login";
     //ENV['ember-simple-auth-token'].serverTokenRefreshEndpoint = "http://laravel.newhorizons/auth/refresh";
-    ENV.APP.apiUrl = "http://laravel.newhorizons/";
-    ENV.APP.apiNamespace = "api/v1/";
+    ENV.APP.apiUrl = "http://laravel.newhorizons";
+    ENV.APP.apiNamespace = "api/v1";
     ENV.APP.usingCors = true;
     ENV.APP.corsWithCreds = true;
     // ENV.APP.apiSuffix = ".php";
@@ -75,6 +75,14 @@ module.exports = function (environment) {
   }
 
   if (environment === 'production') {
+    ENV.APP.apiUrl = "https://api.new-horizons-game.com";
+    ENV.APP.apiNamespace = "api/v1";
+    ENV.APP.usingCors = true;
+    ENV.APP.corsWithCreds = true;
+    ENV['ember-simple-auth-token'].serverTokenEndpoint = "https://api.new-horizons-game.com/auth/login";
+    //ENV['ember-simple-auth-token'].serverTokenRefreshEndpoint = "http://laravel.newhorizons/auth/refresh";
+    ENV.APP.usingCors = true;
+    ENV.APP.corsWithCreds = true;
     ENV.contentSecurityPolicy = {
       'default-src': "'self'",
       'script-src': "'self'",

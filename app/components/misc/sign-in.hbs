@@ -12,10 +12,14 @@
         <p id="password-requirements-text" class="text-center interactable-subtitle">
             {{localize "Component_SignIn_NoAccountYet_Text01"}} <a href="/sign-up">{{localize
                 "Component_SignIn_NoAccountYet_Text02"}}</a>
-            <br />{{localize "Component_SignIn_ForgotPassword_Text01"}} <a href="">{{localize
-                "Component_SignIn_ForgotPassword_Text02"}}</a>
-            <br />{{localize "Component_SignIn_NeedVerificationKey_Text01"}} <a href="">{{localize
-                "Component_SignIn_NeedVerificationKey_Text02"}}</a>
+            <br />{{localize "Component_SignIn_ForgotPassword_Text01"}}
+            <button type="button" class="button-link margin-sides-tiny" {{on "click"
+                this.callForgotPasswordModal}}>{{localize
+                "Component_SignIn_ForgotPassword_Text02"}}</button>
+            <br />{{localize "Component_SignIn_NeedVerificationKey_Text01"}}
+            <button type="button" class="button-link margin-sides-tiny" {{on "click"
+                this.callRequestVerificationCodeModal}}>{{localize
+                "Component_SignIn_NeedVerificationKey_Text02"}}</button>
         </p>
     </div>
     <Interactable::button @id="signin-submit" @type="submit" @busy={{this.submitIsBusy}} @label={{localize "Misc_SignIn"

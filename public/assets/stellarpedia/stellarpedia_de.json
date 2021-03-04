@@ -19,7 +19,7 @@
                         "id": "WhatIsNewHorizons",
                         "elements": [
                             "[hdr]Was ist New Horizons?",
-                            "[txt]<link=\"https://www.new-horizons-game.de\">New Horizons</link> ist ein <hl>Pen-&-Paper-Rollenspiel</hl>, das heißt, die Spieler*Innen verkörpern am Spieltisch fiktive Charaktere und betreten dadurch eine fantastische Welt. Erzählt wird diese Welt durch die <link=\"BasicRules;HowToBeAGameMaster;WhatIsAGameMaster\">Spielleiterin oder den Spielleiter</link>, der selbst keinen eigenen Charakter verkörpert, stattdessen aber die gesamte belebte und unbelebte Umwelt, der die Spieler*Innen während eines Spielabends begegnen. Die Charaktere zeichnen sich durch individuelle Eigenschaften, Fähigkeiten und Hintergrundgeschichten aus. Die Spieler*Innen reagieren auf die Erzählung der Spielleiterin oder des Spielleiters. Erfolg oder Misserfolg Ihrer Aktionen werden durch Würfelproben auf Eigenschafts- und Fähigkeitswerte bestimmt, die auf den Charakterbögen schriftlich festgehalten werden.  Die Spielwelt von New Horizons ist das besiedelte Sonnensystem des 24. Jahrhunderts. New Horizons verfolgt das Ziel, eine (aus naturwissenschaftlicher Perspektive) möglichst vorstellbare Zukunft zu beschreiben und erlebbar zu machen.\\nDiese Software soll Spieler*Innen ermöglichen, schnell und einfach Charaktere zu erstellen und zu verwalten. Daneben beinhaltet Sie mit der <hl>Stellarpedia</hl> ein vollständiges Nachschlagewerk für Spielregeln und Spielinhalte."
+                            "[txt]<link=\"https://www.new-horizons-game.de\">New Horizons</link> ist ein <hl>Pen-&-Paper-Rollenspiel</hl>, das heißt, die Spieler*Innen verkörpern am Spieltisch fiktive Charaktere und betreten dadurch eine fantastische Welt. Erzählt wird diese Welt durch die <link=\"BasicRules;HowToBeAGameMaster;WhatIsAGameMaster\">Spielleiterin oder den Spielleiter</link>, der selbst keinen eigenen Charakter verkörpert, stattdessen aber die gesamte belebte und unbelebte Umwelt, der die Spieler*Innen während eines Spielabends begegnen. Die Charaktere zeichnen sich durch individuelle Eigenschaften, Fähigkeiten und Hintergrundgeschichten aus. Die Spieler*Innen reagieren auf die Erzählung der Spielleiterin oder des Spielleiters. Erfolg oder Misserfolg Ihrer Aktionen werden durch Würfelproben auf Eigenschafts- und Fähigkeitswerte bestimmt, die auf den Charakterbögen schriftlich festgehalten werden.  Die Spielwelt von New Horizons ist das besiedelte Sonnensystem des 23. Jahrhunderts. New Horizons verfolgt das Ziel, eine (aus naturwissenschaftlicher Perspektive) möglichst vorstellbare Zukunft zu beschreiben und erlebbar zu machen.\\nDiese Software soll Spieler*Innen ermöglichen, schnell und einfach Charaktere zu erstellen und zu verwalten. Daneben beinhaltet Sie mit der <hl>Stellarpedia</hl> ein vollständiges Nachschlagewerk für Spielregeln und Spielinhalte."
                         ]
                     },
                     {
@@ -3095,7 +3095,7 @@
     },
     {
         "id": "Arsenal",
-        "faIcon": "fighter-jet",
+        "faIcon": "shield-alt",
         "chapters": [
             {
                 "id": "Introduction",

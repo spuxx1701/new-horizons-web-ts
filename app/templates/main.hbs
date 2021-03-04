@@ -6,16 +6,20 @@
 <div class="header-toolbar justify-content-between">
     <button id="navSidebarButton" class="header-sidebar-button" type="button" {{on 'click' (fn
         this.toggleSidebar "navSidebar" )}}>
-        {{fa-icon (if this.navSidebarExpanded "chevron-left" "bars") size="2"}}</button>
+        {{fa-icon (if this.navSidebarExpanded "chevron-left" "bars") size="2x"}}</button>
     <div class="h-boxItem justify-content-center">
         <h4 class="fg-teal-neon marginAuto">New Horizons</h4>
     </div>
     <button id="accountSidebarButton" class="header-sidebar-button" type="button" {{on 'click' (fn
         this.toggleSidebar "accountSidebar" )}}>
-        {{#if this.session.isAuthenticated}}
-        {{fa-icon (if this.accountSidebarExpanded "chevron-right" "user") size="2"}}
+        {{#if this.accountSidebarExpanded}}
+        {{fa-icon "chevron-right" size="2x"}}
         {{else}}
-        {{fa-icon (if this.accountSidebarExpanded "chevron-right" "user-o") size="2"}}
+        {{#if this.session.isAuthenticated}}
+        {{fa-icon "user" size="2x"}}
+        {{else}}
+        {{fa-icon "user" prefix="far" size="2x"}}
+        {{/if}}
         {{/if}}
     </button>
 </div>
@@ -34,7 +38,7 @@
             <h4 class="fg-white text-right">!</h4>
             <h4 class="fg-teal-neon text-right">
                 {{this.session.data.authenticated.username}} </h4>
-            <div class="marginSidesSmall" />
+            <div class="margin-sides-small" />
             <h4 class="fg-white text-right">,{{localize "Misc_Hello"}}</h4>
         </div>
         {{else}}
@@ -43,36 +47,36 @@
         <div class="sidebar-sep sidebar-item"></div>
         {{#if this.session.isAuthenticated}}
         <button class="sidebar-button-1" type="button" {{on 'click' (fn this.callSignOutModal )}}>
-            {{fa-icon "sign-out" size=this.sidebarIconSize class="marginSidesMedium fg-teal-neon"}}
+            {{fa-icon "sign-out-alt" size=this.sidebarIconSize class="margin-sides-medium fg-teal-neon"}}
             <p class="margin-vertical-auto">{{localize "Misc_SignOut"}}</p>
         </button>
         {{else}}
         <button class="sidebar-button-1" type="button" {{on 'click' (fn this.manager.goToSignIn "modal" )}}>
-            {{fa-icon "sign-in" size=this.sidebarIconSize class="marginSidesMedium fg-teal-neon"}}
+            {{fa-icon "sign-in-alt" size=this.sidebarIconSize class="margin-sides-medium fg-teal-neon"}}
             <p class="margin-vertical-auto">{{localize "Misc_SignIn"}}</p>
         </button>
         <div class="sidebar-sep" />
         <button class="sidebar-button-1" type="button" {{on 'click' (fn this.manager.goToRoute "sign-up" )}}>
-            {{fa-icon "user-plus" size=this.sidebarIconSize class="marginSidesMedium fg-teal-neon"}}
+            {{fa-icon "user-plus" size=this.sidebarIconSize class="margin-sides-medium fg-teal-neon"}}
             <p class="margin-vertical-auto">{{localize "Misc_SignUp"}}</p>
         </button>
         {{/if}}
         <div class="sidebar-sep" />
         {{#if this.manager.devMode}}
         <button class="sidebar-button-1" type="button" {{on 'click' (fn this.manager.test)}}>
-            {{fa-icon "code" size=this.sidebarIconSize class="marginSidesMedium fg-teal-neon"}}
+            {{fa-icon "code" size=this.sidebarIconSize class="margin-sides-medium fg-teal-neon"}}
             <p class="margin-vertical-auto">Test</p>
         </button>
-        {{/if}}
         <div class="sidebar-sep" />
+        {{/if}}
         <button class="sidebar-button-1" type="button" {{on 'click' (fn this.manager.modalService.render "bug-report"
             )}}>
-            {{fa-icon "bug" size=this.sidebarIconSize class="marginSidesMedium fg-teal-neon"}}
+            {{fa-icon "bug" size=this.sidebarIconSize class="margin-sides-medium fg-teal-neon"}}
             <p class="margin-vertical-auto">Report Bug</p>
         </button>
         <div class="sidebar-sep" />
         <button class="sidebar-button-1" type="button" {{on 'click' this.manager.messageService.showApplog }}>
-            {{fa-icon "align-left" size=this.sidebarIconSize class="marginSidesMedium fg-teal-neon"}}
+            {{fa-icon "align-left" size=this.sidebarIconSize class="margin-sides-medium fg-teal-neon"}}
             <p class="margin-vertical-auto">Application Log</p>
         </button>
     </div>

@@ -78,7 +78,7 @@ Description: Contains style information for modals and their components.
 }
 
 .modal-header-icon {
-    font-size: larger;
+    font-size: x-large;
     margin: auto;
     color: white;
     padding-right: 5px;

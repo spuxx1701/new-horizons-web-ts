@@ -4,7 +4,6 @@ import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 import { Changeset } from 'ember-changeset';
 import ENV from 'new-horizons-web/config/environment';
-import fetch from 'fetch';
 
 export default class SignInComponent extends Component {
     @service manager;
@@ -17,7 +16,7 @@ export default class SignInComponent extends Component {
         event.preventDefault();
         let form = event.srcElement;
         if (form.checkValidity()) {
-            this.authenticate(this.changeset.get("email"), this.changeset.get("passwordRaw"));//sha256(this.changeset.get("passwordRaw"))
+            this.authenticate(this.changeset.get("email"), this.changeset.get("passwordRaw"));
         }
     }
 
@@ -64,5 +63,46 @@ export default class SignInComponent extends Component {
             this.manager.log("Signed in successfully with email '" + this.session.data.authenticated.email + "'.");
             this.manager.hideModal();
         }
+    }
+
+    @action callForgotPasswordModal() {
+        let that = this;
+        let modalTitle = { "name": "title", "value": "Modal_ForgotPassword_Title" };
+        let modalText = { "name": "text", "value": ["Modal_ForgotPassword_Text01"] };
+        let inputPlaceholder = { "name": "inputPlaceholder", "value": "Component_SignIn_EmailPlaceholder" };
+        let yesLabel = { "name": "yesLabel", "value": "Modal_ForgotPassword_YesLabel" };
+        let yesListener = {
+            "event": "click", "id": "modal-button-footer-yes", "function": function () {
+                let confirmModalTitle = { "name": "title", "value": "Modal_ForgotPasswordConfirm_Title" };
+                let confirmModalText = { "name": "text", "value": ["Modal_ForgotPasswordConfirm_Text01"] };
+                that.manager.callModal("confirm", [{ "name": "type", "value": "success" }, confirmModalTitle, confirmModalText])
+            }
+        }
+        this.manager.callModal("single-input", [modalTitle, modalText, yesLabel], [yesListener]);
+    }
+
+    @action callRequestVerificationCodeModal() {
+        let that = this;
+        let changeset = new Changeset({ "input": "" });
+        let params = [
+            { "name": "title", "value": "Modal_RequestVerificationCode_Title" },
+            { "name": "text", "value": ["Modal_RequestVerificationCode_Text01"] },
+            { "name": "changeset", "value": changeset },
+            { "name": "inputPlaceholder", "value": "Component_SignIn_EmailPlaceholder" },
+            { "name": "inputType", "value": "email" },
+            { "name": "inputPattern", "value": this.manager.pattern.emailAsString },
+            { "name": "yesLabel", "value": "Modal_RequestVerificationCode_YesLabel" }
+        ]
+        let submitListener = {
+            "event": "submit", "id": "modal-form", "function": function (event) {
+                event.preventDefault();
+                let email = changeset.get("input");
+                fetch(ENV.APP.apiUrl + "/actions/send-verification-code?email=" + email);
+                let confirmModalTitle = { "name": "title", "value": "Modal_RequestVerificationCodeConfirm_Title" };
+                let confirmModalText = { "name": "text", "value": ["Modal_RequestVerificationCodeConfirm_Text01"] };
+                that.manager.callModal("confirm", [{ "name": "type", "value": "success" }, confirmModalTitle, confirmModalText])
+            }
+        }
+        this.manager.callModal("single-input", params, [submitListener]);
     }
 }

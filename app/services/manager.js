@@ -23,15 +23,15 @@ export default class ManagerService extends Service {
 
     // Input patterns
     @tracked pattern = {
-        email: /(?!(^[.-].*|[^@]*[.-]@|.*\.{2,}.*)|^.{254}.)([a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@)(?!-.*|.*-\.)([a-zA-Z0-9-]{1,63}\.)+[a-zA-Z]{2,15}/,
-        emailasString: "(?!(^[.-].*|[^@]*[.-]@|.*\.{2,}.*)|^.{254}.)([a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@)(?!-.*|.*-\.)([a-zA-Z0-9-]{1,63}\.)+[a-zA-Z]{2,15}",
+        email: /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/,
+        emailAsString: "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$",
         password: /^[a-zA-Z0-9!@#$%&*()-+=^]{8,40}$/,
         passwordAsString: "^[a-zA-Z0-9!@#$%&*()-+=^]{8,40}$"
     }
 
     // System Variables
     @tracked devMode = false;
-    @tracked isMobile = false;
+    @tracked isDesktop = false;
     @tracked msgType;
 
     init() {
@@ -50,8 +50,8 @@ export default class ManagerService extends Service {
         this.renderNavbarMenu();
         this.log("Manager initialized.");
         this.msgType = this.messageService.msgType;
-        // listen to media query event to keep isMobile property updated
-        let mediaQuery = window.matchMedia("(max-width: 600px)");
+        // listen to media query event to keep isDesktop property updated
+        let mediaQuery = window.matchMedia("(min-width: 768px)");
         this.onMediaChange(mediaQuery);
         mediaQuery.addListener(this.onMediaChange);
     }
@@ -72,7 +72,7 @@ export default class ManagerService extends Service {
         // Calls router to transition to a specific subroute of main (default routing).
         //----------------------------------------------------------------------------//
         this.router.transitionTo("main." + id);
-        if (this.isMobile) {
+        if (this.isDesktop) {
             this.tryCloseSidebar("navSidebar");
             this.tryCloseSidebar("accountSidebar");
         }
@@ -184,9 +184,9 @@ export default class ManagerService extends Service {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2020-09-09
         // Description:
-        // Is being triggered on media screen width change. Sets isMobile property.
+        // Is being triggered on media screen width change. Sets isDesktop property.
         //----------------------------------------------------------------------------//
-        this.isMobile = mediaQuery.matches;
+        this.isDesktop = mediaQuery.matches;
     }
 
     @action tryCloseSidebar(id) {

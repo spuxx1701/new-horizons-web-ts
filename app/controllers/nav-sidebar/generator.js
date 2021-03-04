@@ -12,8 +12,8 @@ export default class NavbarGeneratorController extends Controller {
     @service session;
     tabs = [{ id: "preset", icon: "sliders" },
     { id: "origin", icon: "globe" },
-    { id: "personal", icon: "user-circle-o" },
-    { id: "traits", icon: "star-half-o" },
+    { id: "personal", icon: "user-circle" },
+    { id: "traits", icon: "star-half" },
     { id: "skills", icon: "bicycle" }];
 
     init() {

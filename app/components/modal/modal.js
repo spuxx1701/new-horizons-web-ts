@@ -29,7 +29,7 @@ export default class ModalComponent extends Component {
                 && typeof argument.value !== "undefined" && typeof argument.value !== "null") {
                 this.set(argument.name, argument.value);
             } else {
-                this.manager.log("Unable to process modal argument: " + JSON.stringify(argument), "xw");
+                this.manager.log("Unable to process modal argument: " + JSON.stringify(argument), "w");
             }
         }
     }
@@ -45,7 +45,7 @@ export default class ModalComponent extends Component {
             try {
                 document.getElementById(listener.id).addEventListener(listener.event, listener.function);
             } catch (exception) {
-                this.manager.log("Unable to process modal event listener: " + JSON.stringify(listener) + " (" + exception + ")", "xw");
+                this.manager.log("Unable to process modal event listener: " + JSON.stringify(listener) + " (" + exception + ")", "w");
             }
         }
     }

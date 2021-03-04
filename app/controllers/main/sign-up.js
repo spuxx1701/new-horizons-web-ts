@@ -45,7 +45,7 @@ export default class SignUpController extends Controller {
         // send the sign-up request
         let that = this;
         this.submitIsBusy = true;
-        fetch(ENV.APP.apiUrl + ENV.APP.apiNamespace + "users", {
+        fetch(ENV.APP.apiUrl + "/" + ENV.APP.apiNamespace + "/users", {
             method: 'POST',
             headers: { "Content-Type": "application/vnd.api+json", "Accept": "application/vnd.api+json" },
             body: JSON.stringify({ "data": data })
@@ -98,12 +98,13 @@ export default class SignUpController extends Controller {
         let complexity = 0;
         let length = password.length;
         let variety = 0;
-        if (password.match(/[a-zA-Z]/)) variety++; // does the password have letters?
+        if (password.match(/[a-z]/)) variety++; // does the password have lowercase letters?
+        if (password.match(/[A-Z]/)) variety++; // does the password have uppercase letters?
         if (password.match(/\d/)) variety++; // does the password have digits?
         if (password.match(/[!@#$%&*()-+=^]/)) variety++; // does the password have special characters?
-        if (length >= 26 && variety > 2) complexity = 4;
-        else if (length <= 25 && length >= 19 && variety > 2) complexity = 3;
-        else if ((length >= 13) && variety === 2) complexity = 2;
+        if (length >= 21 && variety > 2) complexity = 4;
+        else if (length >= 11 && length <= 20 && variety > 2) complexity = 3;
+        else if ((length >= 10) && variety === 2) complexity = 2;
         else complexity = 1;
         switch (complexity) {
             case 0: // no or invalid password

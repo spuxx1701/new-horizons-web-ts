@@ -35,7 +35,7 @@ export default class MainController extends Controller {
             let expandedWidth = "300px";
             let reduceBy = "300px";
             document.getElementById(id).style.width = expandedWidth;
-            if (!this.manager.isMobile) {
+            if (this.manager.isDesktop) {
                 if (id == "navSidebar") {
                     document.getElementById("pageOutlet").style.marginLeft = reduceBy;
                 }

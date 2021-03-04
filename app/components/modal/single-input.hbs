@@ -16,9 +16,15 @@
         {{#each this.text as |text|}}
         <p>{{localize text true}}</p>
         {{/each}}
+        <form id="modal-form" {{on "submit" this.onSubmit}}>
+            <Interactable::inputfield class="paddingTopBottom10px" @id="modal-input-single" @label={{this.inputLabel}}
+                @required={{this.inputRequired}} @placeholder={{this.inputPlaceholder}} @changeset={{this.changeset}}
+                @key="input" @type={{this.inputType}} @pattern={{@this.inputPattern}} @maxLength={{this.inputMaxLength}}
+                @eventListeners={{this.inputEventListeners}} />
+        </form>
     </div>
     <div class="modal-inner-footer">
-        <button id="modal-button-footer-yes" type="button" class="button" {{on "click" this.onYesClick}}>
+        <button id="modal-button-footer-yes" type="submit" form="modal-form" class="button">
             {{localize this.yesLabel}}
         </button>
         {{#if this.noLabel}}

@@ -1,5 +1,5 @@
 <button class="sidebar-button-1" type="button" {{on 'click' this.returnToMenu}}>
-    {{fa-icon "chevron-left" size=this.sidebarIconSize class="marginSidesMedium fg-teal-neon"}}
+    {{fa-icon "chevron-left" size=this.sidebarIconSize class="margin-sides-medium fg-teal-neon"}}
     <p class="margin-vertical-auto">{{localize "Misc_ReturnToMenu"}}</p>
 </button>
 <div class="sidebar-sep"></div>
@@ -9,7 +9,7 @@
     {{#each this.tabs as |tab|}}
     <button id="sidebar-button-{{tab.id}}" type="button" class="sidebar-button-2" {{on 'click' (fn this.goToTab
         tab.id)}}>
-        {{fa-icon tab.icon size=this.manager.constants.sidebarIconSize class="marginSidesMedium fg-teal-neon"}}
+        {{fa-icon tab.icon size=this.manager.constants.sidebarIconSize class="margin-sides-medium fg-teal-neon"}}
         <p class="margin-vertical-auto">{{localize (concat "Misc_" tab.id)}}</p>
     </button>
     <div class="sidebar-sep"></div>

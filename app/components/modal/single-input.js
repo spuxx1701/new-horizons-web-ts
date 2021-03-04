@@ -6,12 +6,23 @@
 import ModalComponent from './modal';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { Changeset } from 'ember-changeset';
 import { inject as service } from '@ember/service';
 
-export default class ModalConfirmComponent extends ModalComponent {
+export default class ModalSingleInputComponent extends ModalComponent {
+    @service manager;
+
     @tracked type = "default"; // "warning", "error", "success"
     @tracked title = ""; // any string 
     @tracked text = []; // any array of strings (localization may fail)
+    @tracked inputLabel = "";
+    @tracked inputRequired = true;
+    @tracked inputPlaceholder = "";
+    @tracked inputType = "text";
+    @tracked inputPattern = "";
+    @tracked inputSubtitle = "";
+    @tracked data = {};
+    @tracked changeset = Changeset(this.data);
     @tracked icon = undefined; // any string, unused if undefined
     @tracked yesLabel = "Misc_Ok"; // any string
     @tracked noLabel = undefined; // any string, no-button hidden if undefined
@@ -56,12 +67,13 @@ export default class ModalConfirmComponent extends ModalComponent {
         super.didRender();
     }
 
-    @action onYesClick() {
+    @action onSubmit(event) {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2020-09-22
         // Description:
-        // Triggers when yes-button is clicked. Can be overwritten.
+        // Triggers when the form is submitted. Can be overwritten.
         //----------------------------------------------------------------------------//
+        event.preventDefault();
         this.manager.hideModal();
     }
 
@@ -73,4 +85,8 @@ export default class ModalConfirmComponent extends ModalComponent {
         //----------------------------------------------------------------------------//
         this.manager.hideModal();
     }
+
+    // @action validate() {
+    //     let input = this.inputChangeset.get("input");
+    // }
 }

@@ -98,6 +98,7 @@ Description: Contains style information for the sidebars and their child control
     background-color: transparent;
     color: var(--colorGreyBright);
     text-align: left;
+    transition: 200ms;
 }
 
 .sidebar-button-1:hover, .sidebar-button-1:active {
@@ -113,6 +114,7 @@ Description: Contains style information for the sidebars and their child control
     background-color: transparent;
     color: var(--colorGreyBright);
     text-align: left;
+    transition: 200ms;
 }
 
 .sidebar-button-2 p {

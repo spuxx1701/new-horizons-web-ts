@@ -13,15 +13,18 @@ export default class NavbarMainController extends Controller {
     init() {
         super.init();
     }
-    @action
-    goToTab(id, showAsSelected) {
+    @action goToTab(id, showAsSelected) {
         this.manager.goToRoute(id);
-        if (this.manager.isMobile) {
+        if (!this.manager.isDesktop) {
             this.manager.tryCloseSidebar("navSidebar");
         }
     }
 
-    updateTabGroup(buttonGroupID, selectedID, classNameSelected) {
+    @action goToDiscord() {
+        window.open("https://discord.gg/anSjdatqby");
+    }
+
+    @action updateTabGroup(buttonGroupID, selectedID, classNameSelected) {
         let buttonGroup = document.getElementById(buttonGroupID);
         if (!buttonGroup) {
             this.manager.log("Unable to find control '" + buttonGroupID + "'.", this.manager.msgType.x);

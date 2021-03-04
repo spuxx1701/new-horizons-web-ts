@@ -4,16 +4,22 @@
 <div class="v-box" id="main-tabs">
     <button id="sidebar-button-home" class="sidebar-button-1" type="button" {{on 'click' (fn this.goToTab "home"
         true)}}>
-        {{fa-icon "home" size=this.manager.constants.sidebarIconSize class="marginSidesMedium fg-teal-neon"}} <p
+        {{fa-icon "home" size=this.manager.constants.sidebarIconSize class="margin-sides-medium fg-teal-neon"}} <p
             class="margin-vertical-auto">
             {{localize "Misc_Home"}}</p>
     </button>
     <div class="sidebar-sep"></div>
     <button id="sidebar-button-imprint" class="sidebar-button-1" type="button" {{on 'click' (fn this.goToTab "imprint"
         true)}}>
-        {{fa-icon "info-circle" size=this.manager.constants.sidebarIconSize class="marginSidesMedium fg-teal-neon"}} <p
-            class="margin-vertical-auto">
+        {{fa-icon "info-circle" size=this.manager.constants.sidebarIconSize class="margin-sides-medium fg-teal-neon"}}
+        <p class="margin-vertical-auto">
             {{localize "Misc_Imprint"}}</p>
+    </button>
+    <div class="sidebar-sep"></div>
+    <button id="sidebar-button-discord" class="sidebar-button-1" type="button" {{on 'click' this.goToDiscord}}>
+        {{fa-icon "discord" prefix="fab" size=this.manager.constants.sidebarIconSize class="margin-sides-medium
+        fg-teal-neon"}} <p class="margin-vertical-auto">
+            Discord</p>
     </button>
 </div>
 {{!--COMMUNITY SECTION--}}
@@ -21,7 +27,7 @@
 <div class="text-def-small fg-white text-center margin-medium sidebar-item">
     {{localize "Misc_JoinTheCommunity"}}</div>
 <div class="h-box">
-    <a href="https://discord.gg/8m2VrHH">{{fa-icon "comments-o"}}</a>
+    <a href="https://discord.gg/8m2VrHH">{{fa-icon "comments" prefix="far"}}</a>
 </div>--}}
 {{!--EDITOR SECTION--}}
 <div class="sidebar-sep"></div>
@@ -29,32 +35,32 @@
 <div class="sidebar-sep"></div>
 <button class="sidebar-button-1" type="button" {{on 'click' (fn
     this.manager.showStellarpediaEntry "basic-rules" "introduction" "welcome" )}}>
-    {{fa-icon "wikipedia-w " size=this.manager.constants.sidebarIconSize class="marginSidesMedium fg-teal-neon"}} <p
+    {{fa-icon "sun" size=this.manager.constants.sidebarIconSize class="margin-sides-medium fg-teal-neon"}} <p
         class="margin-vertical-auto">
         {{localize "Misc_Stellarpedia"}}</p>
 </button>
 <div class="sidebar-sep"></div>
 <button class="sidebar-button-1" type="button" {{on 'click' (fn this.goToTab "generator.preset" )}}>
-    {{fa-icon "user-plus" size=this.manager.constants.sidebarIconSize class="marginSidesMedium fg-teal-neon"}} <p
+    {{fa-icon "user-plus" size=this.manager.constants.sidebarIconSize class="margin-sides-medium fg-teal-neon"}} <p
         class="margin-vertical-auto">
         {{localize "Misc_NewCharacter"}}</p>
 </button>
-<div class="sidebar-sep"></div>
+<!--<div class="sidebar-sep"></div>
 {{#if this.session.isAuthenticated}}
 <button class="sidebar-button-1" type="button">
-    {{fa-icon "user" size=this.manager.constants.sidebarIconSize class="marginSidesMedium fg-teal-neon"}} <p
+    {{fa-icon "user" size=this.manager.constants.sidebarIconSize class="margin-sides-medium fg-teal-neon"}} <p
         class="margin-vertical-auto">
         {{localize "Misc_LoadCharacter"}}</p>
 </button>
 <div class="sidebar-sep"></div>
 <button class="sidebar-button-1" type="button">
-    {{fa-icon "user-plus" size=this.manager.constants.sidebarIconSize class="marginSidesMedium fg-teal-neon"}} <p
+    {{fa-icon "user-plus" size=this.manager.constants.sidebarIconSize class="margin-sides-medium fg-teal-neon"}} <p
         class="margin-vertical-auto">
         {{localize "Misc_NewJournal"}}</p>
 </button>
 <div class="sidebar-sep"></div>
 <button class="sidebar-button-1" type="button">
-    {{fa-icon "user-plus" size=this.manager.constants.sidebarIconSize class="marginSidesMedium fg-teal-neon"}} <p
+    {{fa-icon "user-plus" size=this.manager.constants.sidebarIconSize class="margin-sides-medium fg-teal-neon"}} <p
         class="margin-vertical-auto">
         {{localize "Misc_LoadJournal"}}</p>
 </button>
@@ -62,4 +68,4 @@
 {{else}}
 <div class="text-def-small fg-white text-center margin-medium sidebar-item">
     {{localize "Misc_SignInForMoreFunctions"}}</div>
-{{/if}}
+{{/if}}-->

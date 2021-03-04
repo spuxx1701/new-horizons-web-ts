@@ -23,7 +23,7 @@ export default class VerifyRoute extends Route {
         }
         // do a fetch using the code
         let that = this;
-        fetch(ENV.APP.apiUrl + ENV.APP.apiNamespace + "email-verifications/" + verificationCode.value, {
+        fetch(ENV.APP.apiUrl + "/" + ENV.APP.apiNamespace + "/email-verifications/" + verificationCode.value, {
             method: 'GET',
             headers: { "Content-Type": "application/vnd.api+json", "Accept": "application/vnd.api+json" },
         }).then(function (response) {

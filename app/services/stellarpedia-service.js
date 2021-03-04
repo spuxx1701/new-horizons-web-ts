@@ -314,7 +314,7 @@ export default class StellarpediaService extends Service {
             else {
                 let entryUrl = this.manager.prepareId(linkPath);
                 entryUrl = entryUrl.replaceAll(/\"/g, "");
-                result = result.replace(linkMatch[0], "<button type'button' class='stellarpedia-link' data-target='" + entryUrl + "'>" + linkText + "</button>");
+                result = result.replace(linkMatch[0], "<button type='button' class='button-link stellarpedia-link' data-target='" + entryUrl + "'>" + linkText + "</button>");
             }
         }
         return result;

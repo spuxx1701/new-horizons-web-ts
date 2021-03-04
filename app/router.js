@@ -8,20 +8,26 @@ export default class Router extends EmberRouter {
 
 Router.map(function () {
   this.route('main', { path: '' }, function () {
+    // Flat routes on the main level for general functionality
     this.route('home', { path: '' });
     this.route('news');
     this.route('support');
     this.route('imprint');
     this.route('sign-up');
-    this.route('verify');
-    //this.route('verify', { path: 'verify*' });
+    this.route('sign-in');
     this.route('settings');
+    // The 'request' route holds any routes that are served only to send small requests to the backend
+    this.route('request', function () {
+      this.route('verify');
+    });
+    // The Stellarpedia
+    this.route('stellarpedia', { path: '/stellarpedia/:fullEntryAdress' });
+    // The charakter generator
     this.route('generator', function () {
       this.route('preset');
     });
+    // The character editor
     this.route('editor');
-    this.route('stellarpedia', { path: '/stellarpedia/:fullEntryAdress' });
     this.route('page-not-found', { path: '/*' });
-    this.route('sign-in');
   });
 });
