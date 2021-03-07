@@ -19,6 +19,7 @@ Router.map(function () {
     // The 'request' route holds any routes that are served only to send small requests to the backend
     this.route('request', function () {
       this.route('verify');
+      this.route('reset-password');
     });
     // The Stellarpedia
     this.route('stellarpedia', { path: '/stellarpedia/:fullEntryAdress' });

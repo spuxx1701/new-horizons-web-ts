@@ -1,5 +1,37 @@
 [
     {
+        "key": "Modal_ResetPasswordError_Title",
+        "value": "Passwort nicht geändert"
+    },
+    {
+        "key": "Modal_ResetPasswordError_Text01",
+        "value": "Dein Passwort konnte aufgrund eines Fehlers nicht geändert werden. Bitte versuche es später noch einmal."
+    },
+    {
+        "key": "Modal_ResetPasswordSuccess_Title",
+        "value": "Passwort geändert"
+    },
+    {
+        "key": "Modal_ResetPasswordSuccess_Text01",
+        "value": "Dein Passwort wurde geändert. Du kannst Dich jetzt mit Deinem neuen Passwort anmelden."
+    },
+    {
+        "key": "Route_ResetPassword_Title",
+        "value": "Passwort ändern"
+    },
+    {
+        "key": "Route_ResetPassword_NewPasswordLabel",
+        "value": "Neues Passwort"
+    },
+    {
+        "key": "Route_ResetPassword_NewPasswordPlaceholder",
+        "value": "Gib ein neues Passwort ein"
+    },
+    {
+        "key": "Route_ResetPassword_Submit",
+        "value": "Neues Passwort speichern"
+    },
+    {
         "key": "Modal_RequestVerificationCodeConfirm_Title",
         "value": "Code gesendet"
     },

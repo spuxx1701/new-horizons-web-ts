@@ -8,6 +8,6 @@ import Route from '@ember/routing/route';
 
 export default class RequestRoute extends Route {
     redirect() {
-        this.transitionTo('main.home');
+        //this.transitionTo('main.home');
     }
 }

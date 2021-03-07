@@ -1,9 +1,3 @@
-//----------------------------------------------------------------------------//
-// Leopold Hock / 2021-01-20
-// Description:
-// Controller for route Sign-Up. This is where users sign up new accounts.
-//----------------------------------------------------------------------------//
-
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
@@ -12,81 +6,56 @@ import { Changeset } from 'ember-changeset';
 import fetch from 'fetch';
 import ENV from 'new-horizons-web/config/environment';
 
-export default class SignUpController extends Controller {
+export default class RequestResetPasswordController extends Controller {
     @service manager;
-    @tracked data = {};
-    @tracked changeset = Changeset(this.data);
+    @tracked changeset = Changeset({ passwordRaw: "" });
     @tracked passwordEventListeners = [{ event: "input", function: this.onPasswordChange }, { event: "invalid", function: this.onPasswordInvalid }];
     @tracked submitIsBusy = false;
-
-    @tracked title = "";
 
     @action onSubmit(event) {
         event.preventDefault();
         let form = event.srcElement;
         if (form.checkValidity()) {
+            // send a request to update the password
+            let that = this;
             let data = {
-                "type": "users",
+                "type": "password-resets",
+                "id": this.model.resetPasswordCode.value,
                 "attributes": {
-                    email: this.changeset.get("email"),
-                    username: this.changeset.get("username"),
-                    password: this.changeset.get("passwordRaw")
+                    new_password: this.changeset.get("passwordRaw")
                 }
             }
-            this.signUp(data);
-        }
-    }
-
-    @action signUp(data) {
-        // send the sign-up request
-        let that = this;
-        this.submitIsBusy = true;
-        fetch(ENV.APP.apiUrl + "/" + ENV.APP.apiNamespace + "/users", {
-            method: 'POST',
-            headers: { "Content-Type": "application/vnd.api+json", "Accept": "application/vnd.api+json" },
-            body: JSON.stringify({ "data": data })
-        }).then(function (response) {
-            that.submitIsBusy = false;
-            // by default, prepare an error message and ask the user to try again later
-            let modalType = { "name": "type", "value": "error" };
-            let modalTitle = { "name": "title", "value": "Misc_Sorry" };
-            let modalText = { "name": "text", "value": ["Modal_SignUpError_Text01"] };
-            let yesLabel = { "name": "yesLabel", "value": "Misc_Ok" };
-            let yesListener = {
-                "event": "click", "id": "modal-button-footer-yes", "function": function () {
-                    that.manager.hideModal();
-                }
-            }
-            if (response.status === 201) {
-                // on success, notify the user and ask them to confirm their email
-                modalType = { "name": "type", "value": "success" };
-                modalTitle = { "name": "title", "value": "Modal_Signup_Success_Title" };
-                modalText = { "name": "text", "value": ["Modal_Signup_Success_Text01"] };
-                yesListener = {
-                    "event": "click", "id": "modal-button-footer-yes", "function": function () {
-                        that.manager.goToRoute("home");
-                        that.manager.hideModal();
+            this.submitIsBusy = true;
+            fetch(ENV.APP.apiUrl + "/" + ENV.APP.apiNamespace + "/password-resets/" + this.model.resetPasswordCode.value, {
+                method: 'PATCH',
+                headers: { "Content-Type": "application/vnd.api+json", "Accept": "application/vnd.api+json" },
+                body: JSON.stringify({ "data": data })
+            }).then(
+                function (response) {
+                    that.submitIsBusy = false;
+                    if (response.status === 200) {
+                        // if the request succeeded, show success modal and redirect to sign in
+                        that.manager.goToRoute("sign-in");
+                        let params = [
+                            { "name": "type", "value": "success" },
+                            { "name": "title", "value": "Modal_ResetPasswordSuccess_Title" },
+                            { "name": "text", "value": ["Modal_ResetPasswordSuccess_Text01"] },
+                            { "name": "yesLabel", "value": "Misc_Ok" }
+                        ];
+                        that.manager.callModal("confirm", params);
+                    } else {
+                        // if the request failed, show error modal
+                        let params = [
+                            { "name": "type", "value": "error" },
+                            { "name": "title", "value": "Modal_ResetPasswordError_Title" },
+                            { "name": "text", "value": ["Modal_ResetPasswordError_Text01"] },
+                            { "name": "yesLabel", "value": "Misc_Ok" }
+                        ];
+                        that.manager.callModal("confirm", params);
                     }
                 }
-            } else if (response.status === 422) {
-                modalTitle = { "name": "title", "value": "Modal_Signup_Duplicate_Title" };
-                modalText = { "name": "text", "value": ["Modal_Signup_Duplicate_Text01"] };
-            }
-            that.manager.callModal("confirm", [modalType, modalTitle, modalText, yesLabel], [yesListener]);
-        }).catch(function (error) {
-            that.submitIsBusy = false;
-            // if the request fails without receiving a response, ask the user to try again later
-            let modalType = { "name": "type", "value": "error" };
-            let modalTitle = { "name": "title", "value": "Misc_Sorry" };
-            let modalText = { "name": "text", "value": ["Modal_SignUpError_Text01"] };
-            let yesLabel = { "name": "yesLabel", "value": "Misc_Ok" };
-            let yesListener = {
-                "event": "click", "id": "modal-button-footer-yes", "function": function () {
-                    that.manager.hideModal();
-                }
-            }
-            that.manager.callModal("confirm", [modalType, modalTitle, modalText, yesLabel], [yesListener]);
-        });
+            );
+        }
     }
 
     @action onPasswordChange(event) {

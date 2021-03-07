@@ -67,18 +67,27 @@ export default class SignInComponent extends Component {
 
     @action callForgotPasswordModal() {
         let that = this;
-        let modalTitle = { "name": "title", "value": "Modal_ForgotPassword_Title" };
-        let modalText = { "name": "text", "value": ["Modal_ForgotPassword_Text01"] };
-        let inputPlaceholder = { "name": "inputPlaceholder", "value": "Component_SignIn_EmailPlaceholder" };
-        let yesLabel = { "name": "yesLabel", "value": "Modal_ForgotPassword_YesLabel" };
-        let yesListener = {
-            "event": "click", "id": "modal-button-footer-yes", "function": function () {
+        let changeset = new Changeset({ "input": "" });
+        let params = [
+            { "name": "title", "value": "Modal_ForgotPassword_Title" },
+            { "name": "text", "value": ["Modal_ForgotPassword_Text01"] },
+            { "name": "changeset", "value": changeset },
+            { "name": "inputPlaceholder", "value": "Component_SignIn_EmailPlaceholder" },
+            { "name": "inputType", "value": "email" },
+            { "name": "inputPattern", "value": this.manager.pattern.emailAsString },
+            { "name": "yesLabel", "value": "Modal_ForgotPassword_YesLabel" }
+        ];
+        let submitListener = {
+            "event": "submit", "id": "modal-form", "function": function (event) {
+                event.preventDefault();
+                let email = changeset.get("input");
+                fetch(ENV.APP.apiUrl + "/actions/send-password-reset-code?email=" + email);
                 let confirmModalTitle = { "name": "title", "value": "Modal_ForgotPasswordConfirm_Title" };
                 let confirmModalText = { "name": "text", "value": ["Modal_ForgotPasswordConfirm_Text01"] };
                 that.manager.callModal("confirm", [{ "name": "type", "value": "success" }, confirmModalTitle, confirmModalText])
             }
         }
-        this.manager.callModal("single-input", [modalTitle, modalText, yesLabel], [yesListener]);
+        this.manager.callModal("single-input", params, [submitListener]);
     }
 
     @action callRequestVerificationCodeModal() {
@@ -92,7 +101,7 @@ export default class SignInComponent extends Component {
             { "name": "inputType", "value": "email" },
             { "name": "inputPattern", "value": this.manager.pattern.emailAsString },
             { "name": "yesLabel", "value": "Modal_RequestVerificationCode_YesLabel" }
-        ]
+        ];
         let submitListener = {
             "event": "submit", "id": "modal-form", "function": function (event) {
                 event.preventDefault();
