@@ -12,6 +12,8 @@ import { inject as service } from '@ember/service';
 export default class NavbarStellarpediaController extends Controller {
     @service manager;
     @service session;
+    @service stellarpediaService;
+
     @tracked chapterIcon = "bookmark";
     @tracked entryIcon = "file-alt";
 
@@ -70,13 +72,17 @@ export default class NavbarStellarpediaController extends Controller {
     }
 
     @action
-    onEntryClick(entry, bookId, chapterId, event) {
+    async onEntryClick(entry, bookId, chapterId, event) {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2020-08-21
         // Description:
         // Is being triggered when an entry is being clicked.
         //----------------------------------------------------------------------------//
         let button = event.currentTarget;
+        // make sure to load the required database collections for the entry to show because the model hook
+        // doesn't run properly when transitioning within the 'stellarpedia' route
+        await this.stellarpediaService.loadRequiredDatabaseCollections(bookId, chapterId, entry.id)
+        // show the entry and mark it as selected in the sidebar
         this.manager.showStellarpediaEntry(bookId, chapterId, entry.id);
         this.selectEntry(bookId, chapterId, button, true);
         if (!this.manager.isDesktop) {

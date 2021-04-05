@@ -1,0 +1,28 @@
+<div class="panel panel-large h-box paddingTopBottomNone justify-content-between">
+    <div class="h-boxItem">
+        <p class="stellarpedia-status-text">{{this.stellarpediaService.currentPosition}}</p>
+    </div>
+    <div class="h-boxItem justify-content-end">
+        <button type="button" class="button-icon-1">{{fa-icon "share"}}</button>
+        <button type="button" class="button-icon-1">{{fa-icon "search"}}</button>
+    </div>
+</div>
+
+<div class="panel panel-large">
+    {{#each this.stellarpediaService.selectedEntry.elements as |element|}}
+    {{#if (eq (stellarpedia/sp-get-element-type element) "hdr")}}
+    <h2>{{stellarpedia/sp-prepare element true}}</h2>
+    <div class="separator" />
+    {{else if (eq (stellarpedia/sp-get-element-type element) "spt")}}
+    <div class="separator" />
+    {{else if (eq (stellarpedia/sp-get-element-type element) "spc")}}
+    <div class="spacer" />
+    {{else if (eq (stellarpedia/sp-get-element-type element) "txt")}}
+    <Stellarpedia::Text @text={{stellarpedia/sp-prepare element}} />
+    {{else if (eq (stellarpedia/sp-get-element-type element) "img")}}
+    <Stellarpedia::Image @input={{element}} />
+    {{else if (eq (stellarpedia/sp-get-element-type element) "row")}}
+    <Stellarpedia::Row @input={{element}} />
+    {{/if}}
+    {{/each}}
+</div>

@@ -57,6 +57,12 @@ Description: Contains style information for the sidebars and their child control
     overflow-y: auto;
 }
 
+/* @media only screen and (min-width: 768px) {
+    .sidebar {
+        position: relative;
+    }
+} */
+
 .sidebar-item {
     margin-right: 5px;
     margin-left: 5px;

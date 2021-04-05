@@ -1,20 +1,23 @@
 import Ember from 'ember';
 import JSONSerializer from '@ember-data/serializer/json';
+import { inject as service } from '@ember/service';
 
 export default class StellarpediaSerializer extends JSONSerializer {
-    // dasherize book ids
+    @service databaseService;
+
+    // transform book ids
     extractId(modelClass, resourceHash) {
         let id = super.extractId(modelClass, resourceHash);
-        id = Ember.String.dasherize(id);
+        id = this.databaseService.transformId(id);
         return id;
     }
 
-    // also dasherize chapter and entry ids
+    // also transform chapter and entry ids
     normalize(typeClass, hash) {
         for (let chapter of hash.chapters) {
-            chapter.id = Ember.String.dasherize(chapter.id);
+            chapter.id = this.databaseService.transformId(chapter.id);
             for (let entry of chapter.entries) {
-                entry.id = Ember.String.dasherize(entry.id);
+                entry.id = this.databaseService.transformId(entry.id);
             }
         }
         return super.normalize(typeClass, hash);

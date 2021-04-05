@@ -1,0 +1,496 @@
+[
+    {
+        "id": "App_MIDHacking_Expose",
+        "appCategory": "Ability_General_MIDHacking",
+        "factor": 5,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "requirements": [
+            {
+                "id": "Ability_General_MIDHacking",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Skill_Knowledge_Informatics",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "App_MIDHacking_Freeze",
+        "appCategory": "Ability_General_MIDHacking",
+        "factor": 4,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "requirements": [
+            {
+                "id": "Ability_General_MIDHacking",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Skill_Knowledge_Informatics",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "App_MIDHacking_FuckYouSesame",
+        "appCategory": "Ability_General_MIDHacking",
+        "factor": 3,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "requirements": [
+            {
+                "id": "Ability_General_MIDHacking",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Skill_Knowledge_Informatics",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "App_MIDHacking_IFFOverride",
+        "appCategory": "Ability_General_MIDHacking",
+        "factor": 6,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "requirements": [
+            {
+                "id": "Ability_General_MIDHacking",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Skill_Knowledge_Informatics",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "App_MIDHacking_InstantSC",
+        "appCategory": "Ability_General_MIDHacking",
+        "factor": 4,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "requirements": [
+            {
+                "id": "Ability_General_MIDHacking",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Skill_Knowledge_Informatics",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "App_MIDHacking_NadeSafe",
+        "appCategory": "Ability_General_MIDHacking",
+        "factor": 3,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "requirements": [
+            {
+                "id": "Ability_General_MIDHacking",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Skill_Knowledge_Informatics",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "App_MIDHacking_Overheat",
+        "appCategory": "Ability_General_MIDHacking",
+        "factor": 5,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "requirements": [
+            {
+                "id": "Ability_General_MIDHacking",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Skill_Knowledge_Informatics",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "App_MIDHacking_Slow",
+        "appCategory": "Ability_General_MIDHacking",
+        "factor": 3,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "requirements": [
+            {
+                "id": "Ability_General_MIDHacking",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Skill_Knowledge_Informatics",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "App_MIDHacking_TakeOver",
+        "appCategory": "Ability_General_MIDHacking",
+        "factor": 3,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "requirements": [
+            {
+                "id": "Ability_General_MIDHacking",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Skill_Knowledge_Informatics",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "App_MIDHacking_Taunt",
+        "appCategory": "Ability_General_MIDHacking",
+        "factor": 4,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "requirements": [
+            {
+                "id": "Ability_General_MIDHacking",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Skill_Knowledge_Informatics",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "App_VTICommanding_OrderMove",
+        "appCategory": "Ability_General_VTICommanding",
+        "factor": 3,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "requirements": [
+            {
+                "id": "Ability_General_VTICommanding",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Skill_Knowledge_TacticsAndStrategy",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "App_VTICommanding_OrderOpenFire",
+        "appCategory": "Ability_General_VTICommanding",
+        "factor": 6,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "requirements": [
+            {
+                "id": "Ability_General_VTICommanding",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Skill_Knowledge_TacticsAndStrategy",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "App_VTICommanding_OrderTakeAim",
+        "appCategory": "Ability_General_VTICommanding",
+        "factor": 5,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "requirements": [
+            {
+                "id": "Ability_General_VTICommanding",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Skill_Knowledge_TacticsAndStrategy",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "App_VTICommanding_OrderTakeCover",
+        "appCategory": "Ability_General_VTICommanding",
+        "factor": 4,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "requirements": [
+            {
+                "id": "Ability_General_VTICommanding",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Skill_Knowledge_TacticsAndStrategy",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "App_VTICommanding_ReconCover",
+        "appCategory": "Ability_General_VTICommanding",
+        "factor": 3,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "requirements": [
+            {
+                "id": "Ability_General_VTICommanding",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Skill_Knowledge_TacticsAndStrategy",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "App_VTICommanding_ReconEquipment",
+        "appCategory": "Ability_General_VTICommanding",
+        "factor": 3,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "requirements": [
+            {
+                "id": "Ability_General_VTICommanding",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Skill_Knowledge_TacticsAndStrategy",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "App_VTICommanding_ReconLifeSigns",
+        "appCategory": "Ability_General_VTICommanding",
+        "factor": 5,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "requirements": [
+            {
+                "id": "Ability_General_VTICommanding",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Skill_Knowledge_TacticsAndStrategy",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "App_VTICommanding_ReconTrajectories",
+        "appCategory": "Ability_General_VTICommanding",
+        "factor": 6,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "requirements": [
+            {
+                "id": "Ability_General_VTICommanding",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Skill_Knowledge_TacticsAndStrategy",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "App_VTICommanding_ReconWeakSpot",
+        "appCategory": "Ability_General_VTICommanding",
+        "factor": 6,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "requirements": [
+            {
+                "id": "Ability_General_VTICommanding",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Skill_Knowledge_TacticsAndStrategy",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    }
+]

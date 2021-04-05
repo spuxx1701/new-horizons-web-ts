@@ -19,14 +19,16 @@ export default class ModalService extends Service {
         //----------------------------------------------------------------------------//
         let that = this;
         let modalContainer = document.getElementById("modal-container");
-        this.componentName = "modal/" + type;
-        if (!Array.isArray(args)) args = [];
-        this.args = args;
-        if (!Array.isArray(listeners)) listeners = [];
-        this.listeners = listeners;
-        // show modal container and update state
-        modalContainer.style.display = "flex";
-        that.isActive = true;
+        if (modalContainer) {
+            this.componentName = "modal/" + type;
+            if (!Array.isArray(args)) args = [];
+            this.args = args;
+            if (!Array.isArray(listeners)) listeners = [];
+            this.listeners = listeners;
+            // show modal container and update state
+            modalContainer.style.display = "flex";
+            that.isActive = true;
+        }
     }
 
     @action hide() {

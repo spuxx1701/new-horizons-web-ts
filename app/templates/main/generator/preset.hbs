@@ -1,16 +1,125 @@
-<div class="panelLarge">
+<div>
     <h2 class="fg-white text-center">Generator-Voreinstellungen</h2>
-    <Layout::Panel>
+    <Layout::Panel @size="small" @alignment="center">
         <p class="text-center">{{localize "Misc_CharacterPresetDisclaimer"}}</p>
-        <Interactable::Dropdown @label="Misc_Preset" @size="2x" @items={{this.model.characterPresets}}
-            @onChange={{this.onChangePreset}} @info="basic-rules/chapter/entry" />
-        <Interactable::Inputfield @label="Misc_GPBonus" @size="1x" @value={{this.selectedPreset.gpBonus}} />
-        <Interactable::Inputfield @label="Misc_AvailableAP" @size="1x" @value={{this.selectedPreset.apAvailable}} />
-        <Interactable::Inputfield @label="Misc_MaxTraits" @size="1x" @value={{this.selectedPreset.traitsMax}} />
-        <Interactable::Inputfield @label="Misc_MaxAbilities" @size="1x" @value={{this.selectedPreset.abilitiesMax}} />
-        <Interactable::Inputfield @label="Misc_AvailableIP" @size="1x" @value={{this.selectedPreset.ipAvailable}} />
-        <Interactable::Inputfield @label="Misc_StartEP" @size="1x" @value={{this.selectedPreset.epStart}} />
-        <Interactable::Inputfield @label="Misc_StartMoney" @size="1x" @value={{this.selectedPreset.crStart}} />
-        <Interactable::Inputfield @label="Misc_StartFP" @size="1x" @value={{this.selectedPreset.fpStart}} />
+        <div class="spacer" />
+        <form class="align-items-center" {{on "submit" this.onSubmit}}>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <Interactable::Label @label="Misc_Preset" />
+                        </td>
+                        <td>
+                            <Interactable::Dropdown @id="preset-dropdown" @size="large"
+                                @items={{@model.characterPresets}} @onChange={{this.onChangePreset}}
+                                @info="basic-rules/the-first-character/generator-presets" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <Interactable::Label @label="Misc_Custom" />
+                        </td>
+                        <td>
+                            <Interactable::Toggle @id="preset-custom-toggle" @changeset={{this.changeset}}
+                                @key="isCustom" @onChangeListener={{this.onCustomToggle}} />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <Interactable::Label @label="Misc_GPBonus" @required={{true}} />
+                        </td>
+                        <td>
+                            <Interactable::Inputfield @id="preset-input-gpbonus" @size="small" @textPosition="right"
+                                @required={{true}} @disabled={{unless this.changeset.isCustom true}}
+                                @changeset={{this.changeset}} @key="gpBonus" @pattern={{this.manager.pattern.numeric}}
+                                @maxLength="2" />
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <Interactable::Label @label="Misc_AvailableAP" @required={{true}} />
+                        </td>
+                        <td>
+                            <Interactable::Inputfield @id="preset-input-ap" @size="small" @textPosition="right"
+                                @required={{true}} @disabled={{unless this.changeset.isCustom true}}
+                                @changeset={{this.changeset}} @key="apAvailable"
+                                @pattern={{this.manager.pattern.numeric}} @maxLength="2" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <Interactable::Label @label="Misc_MaxTraits" @required={{true}} />
+                        </td>
+                        <td>
+                            <Interactable::Inputfield @id="preset-input-maxtraits" @size="small" @textPosition="right"
+                                @required={{true}} @disabled={{unless this.changeset.isCustom true}}
+                                @changeset={{this.changeset}} @key="traitsMax" @pattern={{this.manager.pattern.numeric}}
+                                @maxLength="2" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <Interactable::Label @label="Misc_MaxAbilities" @required={{true}} />
+                        </td>
+                        <td>
+                            <Interactable::Inputfield @id="preset-input-maxabilities" @size="small"
+                                @textPosition="right" @required={{true}} @disabled={{unless this.changeset.isCustom
+                                true}} @changeset={{this.changeset}} @key="abilitiesMax"
+                                @pattern={{this.manager.pattern.numeric}} @maxLength="2" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <Interactable::Label @label="Misc_AvailableIP" @required={{true}} />
+                        </td>
+                        <td>
+                            <Interactable::Inputfield @id="preset-input-ip" @size="small" @textPosition="right"
+                                @required={{true}} @disabled={{unless this.changeset.isCustom true}}
+                                @changeset={{this.changeset}} @key="ipAvailable"
+                                @pattern={{this.manager.pattern.numeric}} @maxLength="3" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <Interactable::Label @label="Misc_StartEP" @required={{true}} />
+                        </td>
+                        <td>
+                            <Interactable::Inputfield @id="preset-input-startep" @size="medium" @textPosition="right"
+                                @required={{true}} @disabled={{unless this.changeset.isCustom true}}
+                                @changeset={{this.changeset}} @key="epStart" @pattern={{this.manager.pattern.numeric}}
+                                @maxLength="5" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <Interactable::Label @label="Misc_StartMoney" @required={{true}} />
+                        </td>
+                        <td>
+                            <Interactable::Inputfield @id="preset-input-startmoney" @size="medium" @textPosition="right"
+                                @required={{true}} @disabled={{unless this.changeset.isCustom true}}
+                                @changeset={{this.changeset}} @key="crStart" @pattern={{this.manager.pattern.numeric}}
+                                @maxLength="9" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <Interactable::Label @label="Misc_StartFP" @required={{true}} />
+                        </td>
+                        <td>
+                            <Interactable::Inputfield @id="preset-input-startfp" @size="small" @textPosition="right"
+                                @required={{true}} @disabled={{unless this.changeset.isCustom true}}
+                                @changeset={{this.changeset}} @key="fpStart" @pattern={{this.manager.pattern.numeric}}
+                                @maxLength="1" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="spacer" />
+            <Interactable::button @id="preset-submit" @type="submit"
+                @label={{localize "Route_Generator_CharacterPreset_Start" }} @style="width: 300px;" />
+        </form>
     </Layout::Panel>
 </div>

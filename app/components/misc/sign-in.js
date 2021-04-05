@@ -29,7 +29,7 @@ export default class SignInComponent extends Component {
         } catch (error) {
             let modalType = { "name": "type", "value": "error" };
             if (error.status === 401) {
-                // if the request fails without receiving a response, ask the user to try again later
+                // if the request fails due to wrong credentials, notify the user
                 let modalTitle = { "name": "title", "value": "Modal_WrongCredentials_Title" };
                 let modalText = { "name": "text", "value": ["Modal_WrongCredentials_Text01"] };
                 let yesLabel = { "name": "noLabel", "value": "Misc_OK" };
@@ -61,7 +61,13 @@ export default class SignInComponent extends Component {
         this.submitIsBusy = false;
         if (this.session.isAuthenticated) {
             this.manager.log("Signed in successfully with email '" + this.session.data.authenticated.email + "'.");
-            this.manager.hideModal();
+            if (this.manager.router.currentRouteName === "main.sign-in") {
+                // if the user is on the sign-in route, redirect to home
+                this.manager.goToRoute("home");
+            } else {
+                // else close the modal
+                this.manager.hideModal();
+            }
         }
     }
 
@@ -74,7 +80,7 @@ export default class SignInComponent extends Component {
             { "name": "changeset", "value": changeset },
             { "name": "inputPlaceholder", "value": "Component_SignIn_EmailPlaceholder" },
             { "name": "inputType", "value": "email" },
-            { "name": "inputPattern", "value": this.manager.pattern.emailAsString },
+            { "name": "inputPattern", "value": this.manager.pattern.email },
             { "name": "yesLabel", "value": "Modal_ForgotPassword_YesLabel" }
         ];
         let submitListener = {
@@ -99,7 +105,7 @@ export default class SignInComponent extends Component {
             { "name": "changeset", "value": changeset },
             { "name": "inputPlaceholder", "value": "Component_SignIn_EmailPlaceholder" },
             { "name": "inputType", "value": "email" },
-            { "name": "inputPattern", "value": this.manager.pattern.emailAsString },
+            { "name": "inputPattern", "value": this.manager.pattern.email },
             { "name": "yesLabel", "value": "Modal_RequestVerificationCode_YesLabel" }
         ];
         let submitListener = {

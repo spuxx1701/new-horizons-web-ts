@@ -1,5 +1,17 @@
 [
     {
+        "key": "Route_Generator_CharacterPreset_Start",
+        "value": "Erschaffung beginnen"
+    },
+    {
+        "key": "CharacterPreset_Hero",
+        "value": "Held*In"
+    },
+    {
+        "key": "CharacterPreset_Default",
+        "value": "Standard"
+    },
+    {
         "key": "Modal_ResetPasswordError_Title",
         "value": "Passwort nicht geändert"
     },
@@ -317,15 +329,11 @@
     },
     {
         "key": "Misc_CharacterPresetDisclaimer",
-        "value": "Bevor Du loslegst, kannst Du aus einer Reihe von Voreinstellungen für die Charaktererstellung wählen oder alle Parameter selbst anpassen. Wenn Du nicht weißt, was Du hier einstellen sollst und Dir Deine Spielleiterin oder Dein Spielleiter nichts dazu gesagt hat, klicke einfach direkt auf \"Heldenerschaffung beginnen\"!"
+        "value": "Bevor Du loslegst, kannst Du aus einer Reihe von Voreinstellungen für die Charaktererstellung wählen oder alle Parameter selbst anpassen. Wenn Du nicht weißt, was Du hier einstellen sollst und Dir Deine Spielleiterin oder Dein Spielleiter nichts dazu gesagt hat, klicke einfach direkt auf \"Erschaffung beginnen\"!"
     },
     {
         "key": "Misc_NoData",
         "value": "Keine Einträge."
-    },
-    {
-        "key": "CharacterPreset_Hero",
-        "value": "Heldin/Held"
     },
     {
         "key": "Misc_NotSignedIn",

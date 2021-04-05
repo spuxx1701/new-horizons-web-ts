@@ -4,6 +4,7 @@ import { action } from '@ember/object';
 
 export default class StellarpediaRoute extends Route {
     @service manager;
+    @service router;
     @service stellarpediaService;
     @service databaseService;
 
@@ -16,13 +17,25 @@ export default class StellarpediaRoute extends Route {
         }
         // load model
         if (!this.stellarpediaService.data) await this.stellarpediaService.load();
-        if (!this.databaseService.data) await this.databaseService.load();
-        let fullEntryAdress = params.fullEntryAdress;
-        let split = fullEntryAdress.split("+");
-        if (split.length === 3) {
-            this.stellarpediaService.setSelectedEntry(split[0], split[1], split[2]);
-        } else {
-            this.manager.log("Address of Stellarpedia entry has a wrong format.", this.manager.msgType.x)
-        }
+        // // load the required entry
+        // let fullEntryAdress = params.fullEntryAdress;
+        // let split = fullEntryAdress.split("+");
+        // if (split.length === 3) {
+        //     if (this.stellarpediaService.get(split[0], split[1], split[2])) {
+        //         this.stellarpediaService.setSelectedEntry(split[0], split[1], split[2]);
+        //         // get and load the required database collections
+        //         await this.stellarpediaService.loadRequiredDatabaseCollections(split[0], split[1], split[2]);
+        //     } else {
+        //         throw "entry-not-found";
+        //     }
+        // } else {
+        //     this.manager.log("Address of Stellarpedia entry has a wrong format.", this.manager.msgType.x)
+        // }
     }
+
+    // @action error(error, transition) {
+    //     if (error === "entry-not-found") {
+    //         this.intermediateTransitionTo("/page-not-found");
+    //     }
+    // }
 }

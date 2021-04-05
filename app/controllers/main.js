@@ -26,21 +26,24 @@ export default class MainController extends Controller {
         if (isExpanded) {
             document.getElementById(id).style.width = null;
             if (id == "navSidebar") {
-                document.getElementById("pageOutlet").style.marginLeft = "0px";
+                document.getElementById("pageOutletContainer").style.marginLeft = "0px";
             }
             else if (id == "accountSidebar") {
-                document.getElementById("pageOutlet").style.marginRight = "0px";
+                document.getElementById("pageOutletContainer").style.marginRight = "0px";
             }
         } else {
             let expandedWidth = "300px";
+            // let viewportWidth = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+            // let pageOutletViewportDiff = viewportWidth - document.getElementById("pageOutletContainer").offsetWidth;
+            // let reduceBy = (300 - (pageOutletViewportDiff / 2)) + "px";
             let reduceBy = "300px";
             document.getElementById(id).style.width = expandedWidth;
             if (this.manager.isDesktop) {
                 if (id == "navSidebar") {
-                    document.getElementById("pageOutlet").style.marginLeft = reduceBy;
+                    document.getElementById("pageOutletContainer").style.marginLeft = reduceBy;
                 }
                 else if (id == "accountSidebar") {
-                    document.getElementById("pageOutlet").style.marginRight = reduceBy;
+                    document.getElementById("pageOutletContainer").style.marginRight = reduceBy;
                 }
             } else {
                 if (this.accountSidebarExpanded) {

@@ -1,10 +1,11 @@
 export default function () {
+  this.setDefault({ duration: 200 });
   this.transition(
-    this.use('toLeft'),
-    this.reverse('toRight'),
+    this.use('fade'),
+    this.reverse('fade')
   );
   this.transition(
-    this.outletName("navSidebarOutlet"),
+    this.withinRoute("main.stellarpedia"),
     this.use('fade'),
     this.reverse('fade')
   );

@@ -12,7 +12,7 @@ export default class DatabaseService extends Service {
     @service manager;
     @service store;
 
-    @tracked data;
+    //@tracked data;
 
     init() {
         //----------------------------------------------------------------------------//
@@ -23,20 +23,27 @@ export default class DatabaseService extends Service {
         super.init();
     }
 
-    async load() {
+    async loadCollection(collectionName) {
         //----------------------------------------------------------------------------//
-        // Leopold Hock / 2020-08-22
+        // Leopold Hock / 2021-04-05
         // Description:
-        // Loads and returns the database.
+        // Loads a collectioon.
         //----------------------------------------------------------------------------//
-        if (this.data) {
-            return this.data;
-        } else {
-            let result = await this.store.findAll("database");
-            this.data = result;
-            this.manager.log("Database initialized.");
-            return result;
-        }
+        let transformedCollectionName = this.transformId(collectionName);
+        let result = await this.store.findAll("database/" + transformedCollectionName);
+        console.log("Loaded collection " + collectionName);
+        return result;
+    }
+
+    getCollection(collectionName) {
+        //----------------------------------------------------------------------------//
+        // Leopold Hock / 2021-03-08
+        // Description:
+        // Finds a collection in the database.
+        //----------------------------------------------------------------------------//
+        let transformedCollectionName = this.transformId(collectionName);
+        let result = this.store.peekAll("database/" + transformedCollectionName);
+        return result;
     }
 
     getIdentifiable(id) {
@@ -46,21 +53,19 @@ export default class DatabaseService extends Service {
         // Finds any identifiable in the database.
         //----------------------------------------------------------------------------//
         // process id to extract model name
-        // decamelize for extracting the model name
-        let dasherizedId = Ember.String.dasherize(id);
-        let splitDasherizedId = dasherizedId.split('/');
-        if (splitDasherizedId.length > 1) {
-            let modelName = this.manager.constants.databaseModelPrefix + splitDasherizedId[0];
-            if (this.store.peekAll(modelName).length == 0) return undefined;
-            let result = this.store.peekRecord(modelName, id);
-            if (result) {
+        // make dasherized and separated by slash
+        let transformedId = this.transformId(id);
+        let splitTransformedId = transformedId.split('/');
+        if (splitTransformedId.length > 1) {
+            let collectionId = splitTransformedId[0];
+            let result;
+            if (result = this.store.peekRecord("database/" + collectionId, transformedId)) {
                 return result;
-            } else {
-                this.manager.log(`Unable to find object with ID '${id}' in database model '${modelName}'.`, this.manager.msgType.x)
-                return undefined;
             }
+            this.manager.log(`Unable to find object with ID '${transformedId}' in collection '${collectionId}'.`, this.manager.msgType.x)
+            return undefined;
         } else {
-            this.manager.log(`ID '${id}' has an invalid format and cannot be retrieved from any database model.`, this.manager.msgType.x);
+            this.manager.log(`ID '${transformedId}' has an invalid format and cannot be retrieved from any collection.`, this.manager.msgType.x);
             return undefined;
         }
     }
@@ -73,33 +78,21 @@ export default class DatabaseService extends Service {
         // Stellarpedia.
         //----------------------------------------------------------------------------//
         let pathSplit = path.split(";");
-        let databaseId = this.manager.prepareId(pathSplit[0]);
-        let database = this.store.peekRecord("database", databaseId);
-        // try to find correct database array
-        if (database) {
-            let entryId = this.manager.prepareId(pathSplit[1]);
-            // try to find entry
-            for (let entry of database.entries) {
-                if (entry.id === entryId) {
-                    // if this is a constant, return value
-                    if (entryId.startsWith("constant")) {
-                        return entry.value;
-                    }
-                    // else, try to find property
-                    else {
-                        if (entry.hasOwnProperty(pathSplit[2])) {
-                            return entry[pathSplit[2]];
-                        }
-                    }
-                }
-            }
+        let object;
+        if (object = this.getIdentifiable(pathSplit[1])) {
+            // use the property name if specified or 'value' by defualt
+            let propertyName = pathSplit[2];
+            if (!propertyName) propertyName = "value";
+            let result = object[propertyName];
+            if (result) return result;
         }
-        // throw error
-        this.manager.log("Unable to find data by path: " + path, this.manager.msgType.x);
         return undefined;
     }
 
-    getDataFromId(id) {
-
+    transformId(id) {
+        // Transforms an id by repalcing underscores by slashes and dasherizes it
+        let result = id.charAt(0).toLowerCase() + id.slice(1);
+        result = Ember.String.dasherize(result.replaceAll("_", "/"));
+        return result;
     }
 }

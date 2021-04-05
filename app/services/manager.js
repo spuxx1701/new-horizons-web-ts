@@ -23,16 +23,16 @@ export default class ManagerService extends Service {
 
     // Input patterns
     @tracked pattern = {
-        email: /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/,
-        emailAsString: "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$",
-        password: /^[a-zA-Z0-9!@#$%&*()-+=^]{8,40}$/,
-        passwordAsString: "^[a-zA-Z0-9!@#$%&*()-+=^]{8,40}$"
+        email: "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$",
+        password: "^[a-zA-Z0-9!@#$%&*()-+=^]{8,40}$",
+        numeric: "^\\d{1,}$"
     }
 
     // System Variables
     @tracked devMode = false;
     @tracked isDesktop = false;
     @tracked msgType;
+    @tracked appVersion = "0.98";
 
     init() {
         //----------------------------------------------------------------------------//
@@ -72,10 +72,6 @@ export default class ManagerService extends Service {
         // Calls router to transition to a specific subroute of main (default routing).
         //----------------------------------------------------------------------------//
         this.router.transitionTo("main." + id);
-        if (this.isDesktop) {
-            this.tryCloseSidebar("navSidebar");
-            this.tryCloseSidebar("accountSidebar");
-        }
     }
 
     @action onTransition(transition) {
@@ -161,23 +157,13 @@ export default class ManagerService extends Service {
         this.messageService.logMessage(messageText, messageType);
     }
 
-    @action prepareId(id) {
-        //----------------------------------------------------------------------------//
-        // Leopold Hock / 2020-08-22
-        // Description:
-        // Adjusts an identifier to match the serialized identifier schema.
-        //----------------------------------------------------------------------------//
-        id = Ember.String.dasherize(id);
-        return id;
-    }
-
     @action showStellarpediaEntry(bookId, chapterId, entryId) {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2020-08-22
         // Description:
         // Calls stellarpediaService to show a specific Stellarpedia article.
         //----------------------------------------------------------------------------//
-        this.router.transitionTo("main.stellarpedia", this.prepareId(bookId) + "+" + this.prepareId(chapterId) + "+" + this.prepareId(entryId));
+        this.router.transitionTo("main.stellarpedia.article", this.database.transformId(bookId) + "+" + this.database.transformId(chapterId) + "+" + this.database.transformId(entryId));
     }
 
     @action onMediaChange(mediaQuery) {

@@ -1,15 +1,13 @@
-<div class="panel panel-large h-box paddingTopBottomNone justify-content-between">
+<LiquidOutlet />
+{{!-- <div class="panel panel-large h-box paddingTopBottomNone justify-content-between">
     <div class="h-boxItem">
         <p class="stellarpedia-status-text">{{this.stellarpediaService.currentPosition}}</p>
     </div>
     <div class="h-boxItem justify-content-end">
         <button type="button" class="button-icon-1">{{fa-icon "share"}}</button>
         <button type="button" class="button-icon-1">{{fa-icon "search"}}</button>
-        {{!--<input class="inputfield interactable-size-2" value="" placeholder="{{localize "
-            Misc_EnterSearchTermHere..."}}" />--}}
     </div>
 </div>
-
 <div class="panel panel-large">
     {{#each this.stellarpediaService.selectedEntry.elements as |element|}}
     {{#if (eq (stellarpedia/sp-get-element-type element) "hdr")}}
@@ -27,4 +25,4 @@
     <Stellarpedia::Row @input={{element}} />
     {{/if}}
     {{/each}}
-</div>
+</div> --}}

@@ -22,7 +22,10 @@ Router.map(function () {
       this.route('reset-password');
     });
     // The Stellarpedia
-    this.route('stellarpedia', { path: '/stellarpedia/:fullEntryAdress' });
+    this.route('stellarpedia', function () {
+      this.route("article", { path: '/:fullEntryAdress' })
+    });
+    // this.route('stellarpedia', { path: '/stellarpedia/:fullEntryAdress' });
     // The charakter generator
     this.route('generator', function () {
       this.route('preset');

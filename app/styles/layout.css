@@ -123,11 +123,6 @@
     height: 25px;
 }
 
-.interactable-element {
-    width: 100%;
-    display: inline-flex;
-}
-
 .interactable-size-1 {
     max-width: 120px !important;
 }

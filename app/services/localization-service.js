@@ -12,6 +12,8 @@ var that;
 export default class LocalizationService extends Service {
     @service manager;
     @service store;
+    @service databaseService;
+
     @tracked supportedLanguages = ["en", "de"];
     @tracked currentLocalization = "de";
 
@@ -22,7 +24,7 @@ export default class LocalizationService extends Service {
 
     getValue(key, allowUndefined = false) {
         if (key.string) key = key.string;
-        key = Ember.String.dasherize(key);
+        key = this.databaseService.transformId(key);;
         if (that.store.peekAll("localization").length == 0) return "";
         let result = that.store.peekRecord("localization", key);
         if (result) {

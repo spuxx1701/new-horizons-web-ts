@@ -32,9 +32,9 @@
                     Spielinhalte.</p>
                 <div class="h-box justify-content-center">
                     {{fa-icon "angle-double-right" class="margin-sides-small"}}
-                    <a
-                        href="https:/www.new-horizons-game.com/stellarpedia/basic-rules+introduction+ashort-story-of-the-solar-system">
-                        Eine kurze Geschichte des Sonnensystems</a>
+                    <LinkTo @route="main.stellarpedia.article"
+                        @model="basic-rules+introduction+a-short-story-of-the-solar-system">
+                        Eine kurze Geschichte des Sonnensystems</LinkTo>
                 </div>
             </div>
         </div>
@@ -42,8 +42,7 @@
     <div class="responsive-column-group">
         <div class="responsive-column panel width20">
             <div class="align-items-center v-box">
-                <a href="https://www.leopoldhock.de/files/NewHorizonsEditor.7z">
-                    {{fa-icon "download" size="3x" class="fg-grey-medium"}}</a>
+                {{fa-icon "download" size="3x" class="fg-grey-medium"}}
                 <p class="text-center">Lade Dir den alten <a
                         href="https://www.leopoldhock.de/files/NewHorizonsEditor.7z">Editor
                         für Windows</a> herunter und starte direkt in Dein Abenteuer!
@@ -52,21 +51,21 @@
         </div>
         <div class="responsive-column panel width20">
             <div class="align-items-center v-box">
-                <a href="https:/www.new-horizons-game.com/sign-up">{{fa-icon "user-plus" size="3x"
-                    class="fg-grey-medium"}}</a>
-                <p class="text-center"><a href="https:/www.new-horizons-game.com/sign-up">Registriere Dich</a>, um in
+                {{fa-icon "user-plus" size="3x"
+                class="fg-grey-medium"}}
+                <p class="text-center">
+                    <LinkTo @route="main.sign-up">
+                        Registriere Dich</LinkTo>, um in
                     Zukunft Zugriff auf coole Features wie z.B. die Cloud oder Sessions zu erhalten.
                 </p>
             </div>
         </div>
         <div class="responsive-column panel width20">
             <div class="align-items-center v-box">
-                <a href="https://www.new-horizons-game.com/stellarpedia/basic-rules+introduction+welcome">{{fa-icon
-                    "sun"
-                    size="3x"
-                    class="fg-grey-medium"}}</a>
-                <p class="text-center">Stöbere in der <a
-                        href="https://www.new-horizons-game.com/stellarpedia/basic-rules+introduction+welcome">Stellarpedia</a>,
+                {{fa-icon "sun" size="3x" class="fg-grey-medium"}}
+                <p class="text-center">Stöbere in der <LinkTo @route="main.stellarpedia.article"
+                        @model="basic-rules+introduction+welcome">
+                        Stellarpedia</LinkTo>,
                     dem vollständigen Regelwerk von New Horizons. Du findest dort alle Spielregeln sowie viele
                     Informationen
                     zur Geschichte und zur Spielwelt.
@@ -75,8 +74,8 @@
         </div>
         <div class="responsive-column panel width20">
             <div class="align-items-center v-box">
-                <a href="https://discord.gg/anSjdatqby">{{fa-icon "discord" prefix="fab" size="3x"
-                    class="fg-grey-medium"}}</a>
+                {{fa-icon "discord" prefix="fab" size="3x"
+                class="fg-grey-medium"}}
                 <p class="text-center">Besuche unseren <a href="https://discord.gg/anSjdatqby">Discord</a> und
                     werde Teil der Community von New Horizons.
                 </p>
@@ -84,8 +83,8 @@
         </div>
         <div class="responsive-column panel width20">
             <div class="align-items-center v-box">
-                <a href="https://trello.com/b/VMqZjDPH/new-horizons-roadmap">{{fa-icon "trello" prefix="fab" size="3x"
-                    class="fg-grey-medium"}}</a>
+                {{fa-icon "trello" prefix="fab" size="3x"
+                class="fg-grey-medium"}}
                 <p class="text-center">Du möchtest wissen, woran wir gerade arbeiten und wie es weiter geht? Wirf einen
                     Blick auf die <a href="https://trello.com/b/VMqZjDPH/new-horizons-roadmap">Roadmap</a>.
                 </p>

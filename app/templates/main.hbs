@@ -23,6 +23,7 @@
         {{/if}}
     </button>
 </div>
+
 {{!--NAV SIDEBAR--}}
 <div id="navSidebar" class="sidebar nav-sidebar">
     <div id="navSidebarContent" class="nav-sidebar-content">
@@ -83,8 +84,10 @@
 </div>
 
 {{!--PAGE CONTENT--}}
-<div id="pageOutlet" class="page-outlet">
-    {{liquid-outlet}}
+<div id="pageOutletContainer">
+    <div id="pageOutlet">
+        <LiquidOutlet />
+    </div>
 </div>
 
 {{!--MODALS--}}

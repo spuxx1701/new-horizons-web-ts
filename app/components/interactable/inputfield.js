@@ -6,6 +6,8 @@ import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 
 export default class InputfieldComponent extends InteractableComponent {
+    @tracked labelPosition = "top";
+    @tracked textPosition = "left";
     @tracked value;
     @tracked valueSuffix; // Shown before the value when inputfield is not currently being focused
     @tracked valueCombined; // Shown after the value when inputfield is not currently being focused
@@ -22,6 +24,9 @@ export default class InputfieldComponent extends InteractableComponent {
 
     @action onChange(event) {
         this.changeset.set(this.key, event.srcElement.value);
+        if (this.onChangeListener) {
+            this.onChangeListener(event);
+        }
     }
 
     @action onInvalid(event) {

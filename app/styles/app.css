@@ -5,6 +5,7 @@
 
 :root {
     vertical-align: middle;
+    --desktopMinMidth: 768px;
     --colorDeepSpace: #0e1015;
     --colorGreyBright: #c1c1c1;
     --colorGreyMedium: #5F5F5F;
@@ -36,6 +37,7 @@
     --colorTextSubtitle: #c1c1c1;
     --brandingBarHeight: 2px;
     --headerToolbarHeight: 40px;
+    --colorDisabled: #1818189f;
 }
 
 body {
@@ -60,17 +62,25 @@ body {
     z-index: 3;
 }
 
-.page-outer {
-    width: 100%;
+#outerPageContainer {
+    display: flex;
 }
 
-.page-outlet {
-    /*position: absolute;*/
-    z-index: 0;
-    transition: 500ms;
+#pageOutletContainer {
     height: calc(100% - (var(--headerToolbarHeight) + var(--brandingBarHeight)));
     overflow-y: auto;
+    margin-left: 0;
+    margin-right: 0;
+    transition: 500ms;
+}
+
+#pageOutlet {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1440px;
+    z-index: 0;
     padding: 10px 20px 20px 20px;
+    overflow: hidden;
 }
 
 .screen-blocker {

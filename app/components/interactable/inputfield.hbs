@@ -1,4 +1,4 @@
-<div class="interactable-container" style={{@style}}>
+<div class="interactable-container label-position-{{@labelPosition}}" style={{@style}}>
     {{#if @label}}
     <label class="label h6" for="input">{{localize @label}}
         {{#if @required}}
@@ -6,9 +6,9 @@
         {{/if}}
     </label>
     {{/if}}
-    <div class="interactable-element">
+    <div class="interactable-element interactable-size-{{@size}}">
         <input id="{{@id}}-input"
-            class="inputfield inputfield-{{this.type}} interactable-size-medium interactable inputfield-hide-invalidity"
+            class="inputfield inputfield-{{this.type}} text-{{@textPosition}} interactable inputfield-hide-invalidity"
             type={{@type}} pattern={{@pattern}} minLength={{@minLength}} maxLength={{@maxLength}} disabled={{@disabled}}
             required={{@required}} autofocus={{@autofocus}} value={{changeset-get @changeset @key}}
             placeholder={{localize @placeholder}} {{on "change" this.onChange}} {{on "invalid" this.onInvalid}} />

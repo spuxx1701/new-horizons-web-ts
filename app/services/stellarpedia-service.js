@@ -11,6 +11,7 @@ import { inject as service } from '@ember/service';
 
 export default class StellarpediaService extends Service {
     @service manager;
+    @service databaseService
     @service store;
     @service localizationService;
 
@@ -49,17 +50,20 @@ export default class StellarpediaService extends Service {
         }
     }
 
+    loadEntry(bookId, chapterId = undefined, entryId = undefined) {
+
+    }
+
     get(bookId, chapterId = undefined, entryId = undefined) {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2020-08-22
         // Description:
         // Returns a book and/or chapter and/or entry (chapterId and entryId are optional).
         //----------------------------------------------------------------------------//
-        let that = this;
-        bookId = this.manager.prepareId(bookId);
+        bookId = this.databaseService.transformId(bookId);
         // convert ids if needed
-        if (chapterId) chapterId = this.manager.prepareId(chapterId);
-        if (entryId) entryId = this.manager.prepareId(entryId);
+        if (chapterId) chapterId = this.databaseService.transformId(chapterId);
+        if (entryId) entryId = this.databaseService.transformId(entryId);
         var book = this.store.peekRecord("stellarpedia", bookId);
         if (!book) {
             this.manager.log("Stellarpedia book " + bookId + " does not exist.", this.manager.msgType.e);
@@ -254,6 +258,7 @@ export default class StellarpediaService extends Service {
         // This method processes a raw Stellarpedia text and turns Stellarpedia tags
         // into HTML tags.
         //----------------------------------------------------------------------------//
+        console.log("processing text...");
         let result = text;
         // process constructor if it is supplied
         if (constructor) {
@@ -286,7 +291,7 @@ export default class StellarpediaService extends Service {
         let dataMatches = [...result.matchAll(dataRegex)];
         for (let dataMatch of dataMatches) {
             let dataPath = dataMatch[1];
-            let dataResult = this.manager.database.getDataFromPath(dataPath);
+            let dataResult = this.databaseService.getDataFromPath(dataPath);
             if (dataResult) {
                 result = result.replace(dataMatch[0], dataResult);
             } else {
@@ -303,18 +308,18 @@ export default class StellarpediaService extends Service {
         let linkRegex = /<link=(.*?)<\/link>/g;
         let linkMatches = [...result.matchAll(linkRegex)];
         for (let linkMatch of linkMatches) {
-            let linkPath = linkMatch[1].split("\">")[0];
-            let linkText = linkMatch[1].split("\">")[1];
+            let linkPath = linkMatch[1].replaceAll("\"", "").split(">")[0];
+            let linkText = linkMatch[1].replaceAll("\"", "").split(">")[1];
             if (!linkText) linkText = "";
             // if link contains an actual URL, replace with <a href=url>
             if (linkPath.startsWith("http") || linkPath.startsWith("mailto")) {
                 result = result.replace(linkMatch[0], "<a href='" + linkPath + "'>" + linkText + "</a>");
             }
-            // if not, extract article information and replace with <button>
+            // if not, extract article information and replace with <LinkTo>
             else {
-                let entryUrl = this.manager.prepareId(linkPath);
+                let entryUrl = this.databaseService.transformId(linkPath);
                 entryUrl = entryUrl.replaceAll(/\"/g, "");
-                result = result.replace(linkMatch[0], "<button type='button' class='button-link stellarpedia-link' data-target='" + entryUrl + "'>" + linkText + "</button>");
+                result = result.replace(linkMatch[0], `<button type='button' class='button-link stellarpedia-link' data-target='${entryUrl}'>${linkText}</button>`);
             }
         }
         return result;
@@ -410,7 +415,6 @@ export default class StellarpediaService extends Service {
         // Description:
         // This image processes an image element and returns the image's url.
         //----------------------------------------------------------------------------//
-        let result = element;
         let split = element.split("]");
         if (split.length > 1) {
             let url = ENV.APP.stellarpediaUrl + split[1].slice(13, split[1].length) + ".png";
@@ -448,6 +452,32 @@ export default class StellarpediaService extends Service {
         } else {
             this.manager.log("Syntax error in Stellarpedia element: " + element, this.manager.msgType.x);
             return undefined;
+        }
+    }
+
+    async loadRequiredDatabaseCollections(bookId, chapterId, entryId) {
+        //----------------------------------------------------------------------------//
+        // Leopold Hock / 2021-03-10
+        // Description:
+        // Stellarpedia articles may require certain database collections to be loaded.
+        // This returns any collections required for the specified entry.
+        //----------------------------------------------------------------------------//
+        let entry = this.get(bookId, chapterId, entryId);
+        if (entry) {
+            for (let element of entry.elements) {
+                let type = this.getElementType(element);
+                if (type === "hdr" || type === "txt" || type == "row") {
+                    // find <dt> tags
+                    let dataRegex = /<dt>(.*?)<\/dt>/g;
+                    let dataMatches = [...element.matchAll(dataRegex)];
+                    for (let dataMatch of dataMatches) {
+                        let dataPath = dataMatch[1];
+                        // get the name of the collection
+                        let collectionName = dataPath.split(";")[1].split("_")[0];
+                        await this.databaseService.loadCollection(collectionName);
+                    }
+                }
+            }
         }
     }
 }
