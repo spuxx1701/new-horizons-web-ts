@@ -20,6 +20,7 @@ export default class ManagerService extends Service {
     @service router;
     @service modalService;
     @service session;
+    @service generatorService;
 
     // Input patterns
     @tracked pattern = {
@@ -62,7 +63,6 @@ export default class ManagerService extends Service {
         // Description:
         // Method for testing purposes only.
         //----------------------------------------------------------------------------//
-        console.log(this.session);
     }
 
     @action goToRoute(id) {
@@ -71,7 +71,11 @@ export default class ManagerService extends Service {
         // Description:
         // Calls router to transition to a specific subroute of main (default routing).
         //----------------------------------------------------------------------------//
-        this.router.transitionTo("main." + id);
+        let targetRoute = id;
+        if (!id.startsWith("main.")) {
+            targetRoute = targetRoute = "main." + id;
+        }
+        this.router.transitionTo(targetRoute);
     }
 
     @action onTransition(transition) {
@@ -239,5 +243,33 @@ export default class ManagerService extends Service {
         } else {
             this.goToRoute("sign-in");
         }
+    }
+
+    @action
+    clone(object) {
+        //----------------------------------------------------------------------------//
+        // Leopold Hock / 2021-04-06
+        // Description:
+        // Clones a JavaScript object by using JSON.parse(JSON.stringify). Used for
+        // cloning database records e.g. during character initialization, when a skill
+        // is being added or similar processes. Prevents pass-by-reference.
+        //----------------------------------------------------------------------------//
+        let result;
+        if (object) {
+            result = JSON.parse(JSON.stringify(object));
+        }
+        return result;
+    }
+
+    @action updatePageUnloadWarning() {
+        let unsavedChangesDetected = false;
+        if (unsavedChangesDetected) {
+            return this.localize("Misc_PageUnloadWarning");
+        } else {
+            window.onbeforeunload = function () {
+                return;
+            };
+        }
+
     }
 }

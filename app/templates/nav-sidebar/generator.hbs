@@ -7,7 +7,7 @@
 <div class="sidebar-sep"></div>
 <div class="v-box" id="generator-tabs">
     {{#each this.tabs as |tab|}}
-    <button id="sidebar-button-{{tab.id}}" type="button" class="sidebar-button-2" {{on 'click' (fn this.goToTab
+    <button id="sidebar-button-{{tab.id}}" type="button" class="sidebar-button-1" {{on 'click' (fn this.goToTab
         tab.id)}}>
         {{fa-icon tab.icon size=this.manager.constants.sidebarIconSize class="margin-sides-medium fg-teal-neon"}}
         <p class="margin-vertical-auto">{{localize (concat "Misc_" tab.id)}}</p>

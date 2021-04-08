@@ -8,6 +8,7 @@ import Service from '@ember/service';
 import ENV from 'new-horizons-web/config/environment';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
+import { action } from '@ember/object';
 
 export default class StellarpediaService extends Service {
     @service manager;
@@ -24,6 +25,7 @@ export default class StellarpediaService extends Service {
     @tracked selectedEntry = {};
     @tracked currentPosition;
     @tracked returnRoute = "home";
+    @tracked updateNavBarOnRender = false;
 
     init() {
         //----------------------------------------------------------------------------//
@@ -48,10 +50,6 @@ export default class StellarpediaService extends Service {
             this.manager.log("Stellarpedia initialized.");
             return result;
         }
-    }
-
-    loadEntry(bookId, chapterId = undefined, entryId = undefined) {
-
     }
 
     get(bookId, chapterId = undefined, entryId = undefined) {
@@ -258,7 +256,6 @@ export default class StellarpediaService extends Service {
         // This method processes a raw Stellarpedia text and turns Stellarpedia tags
         // into HTML tags.
         //----------------------------------------------------------------------------//
-        console.log("processing text...");
         let result = text;
         // process constructor if it is supplied
         if (constructor) {
@@ -315,7 +312,7 @@ export default class StellarpediaService extends Service {
             if (linkPath.startsWith("http") || linkPath.startsWith("mailto")) {
                 result = result.replace(linkMatch[0], "<a href='" + linkPath + "'>" + linkText + "</a>");
             }
-            // if not, extract article information and replace with <LinkTo>
+            // if not, extract article information and replace with <button>
             else {
                 let entryUrl = this.databaseService.transformId(linkPath);
                 entryUrl = entryUrl.replaceAll(/\"/g, "");
@@ -479,5 +476,19 @@ export default class StellarpediaService extends Service {
                 }
             }
         }
+    }
+
+    @action onLinkClick(event) {
+        //----------------------------------------------------------------------------//
+        // Leopold Hock / 2021-04-06
+        // Description:
+        // Listener function that handles stellarpedia text link clicks.
+        //----------------------------------------------------------------------------//
+        let target = event.originalTarget.getAttribute("data-target");
+        let split = target.split(";");
+        let entryAddress = { bookId: split[0], chapterId: split[1], entryId: split[2] };
+        this.manager.showStellarpediaEntry(entryAddress.bookId, entryAddress.chapterId, entryAddress.entryId);
+        // tell the route to update the nav bar after the article has been rendered
+        this.updateNavBarOnRender = true;
     }
 }

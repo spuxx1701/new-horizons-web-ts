@@ -1,6 +1,26 @@
 [
     {
-        "key": "Route_Generator_CharacterPreset_Start",
+        "key": "Misc_PageUnloadWarning",
+        "value": "Du hast ungespeicherte Änderungen (z.B. eine begonnene Charaktererstellung oder einen Charakter, den Du gerade bearbeitest). Wenn Du die Seite verlässt, gehen diese Änderungen verloren."
+    },
+    {
+        "key": "Modal_RestartGeneration_Title",
+        "value": "Laufende Charaktererstellung"
+    },
+    {
+        "key": "Modal_RestartGeneration_Text",
+        "value": "Derzeit läuft bereits eine Charaktererstellung. Wenn Du fortfährst, wird die laufende Charaktererstellung abgebrochen und die Charaktererstellung neugestartet. Dein Fortschritt geht dann verloren."
+    },
+    {
+        "key": "Route_Generator_Origin_Title",
+        "value": "Wähle Deine Herkunft"
+    },
+    {
+        "key": "Route_Generator_Preset_Title",
+        "value": "Generator-Voreinstellungen"
+    },
+    {
+        "key": "Route_Generator_Preset_Start",
         "value": "Erschaffung beginnen"
     },
     {
@@ -328,7 +348,7 @@
         "value": "Standard"
     },
     {
-        "key": "Misc_CharacterPresetDisclaimer",
+        "key": "Route_Generator_Preset_Text01",
         "value": "Bevor Du loslegst, kannst Du aus einer Reihe von Voreinstellungen für die Charaktererstellung wählen oder alle Parameter selbst anpassen. Wenn Du nicht weißt, was Du hier einstellen sollst und Dir Deine Spielleiterin oder Dein Spielleiter nichts dazu gesagt hat, klicke einfach direkt auf \"Erschaffung beginnen\"!"
     },
     {

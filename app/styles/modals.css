@@ -3,7 +3,7 @@ Leopold Hock | 319.09.220
 Description: Contains style information for modals and their components.
 */
 
-.modal-container {
+#modal-container {
     display: none;
     flex-direction: column;
     position: absolute;
@@ -14,7 +14,7 @@ Description: Contains style information for modals and their components.
     background-color: var(--colorScreenBlocker);
 }
 
-.modal-container .ember-view {
+#modal-container .ember-view {
     height: 100%;
     display: flex;
     flex-direction: column;

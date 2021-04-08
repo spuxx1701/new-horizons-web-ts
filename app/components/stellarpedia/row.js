@@ -11,6 +11,7 @@ import { htmlSafe } from '@ember/template';
 
 export default class StellarpediaRowComponent extends Component {
     @service manager;
+    @service stellarpediaService;
     @tracked rowData = {
         type: "default",
         cells: [],
@@ -79,16 +80,8 @@ export default class StellarpediaRowComponent extends Component {
         let that = this;
         let linkButtons = document.getElementsByClassName("stellarpedia-link");
         for (let button of linkButtons) {
-            button.addEventListener("click", function (event) {
-                try {
-                    let target = event.originalTarget.getAttribute("data-target");
-                    let split = target.split(";");
-                    let entryAddress = { bookId: split[0], chapterId: split[1], entryId: split[2] };
-                    that.manager.showStellarpediaEntry(entryAddress.bookId, entryAddress.chapterId, entryAddress.entryId);
-                } catch (exception) {
-                    that.manager.log("Unable to subscribe stellarpedia button link event (" + exception + ").", that.manager.msgType.x);
-                }
-            });
+            button.removeEventListener("click", this.stellarpediaService.onLinkClick);
+            button.addEventListener("click", this.stellarpediaService.onLinkClick, false);
         }
     }
 }

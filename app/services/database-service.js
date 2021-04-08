@@ -31,7 +31,6 @@ export default class DatabaseService extends Service {
         //----------------------------------------------------------------------------//
         let transformedCollectionName = this.transformId(collectionName);
         let result = await this.store.findAll("database/" + transformedCollectionName);
-        console.log("Loaded collection " + collectionName);
         return result;
     }
 
@@ -62,7 +61,7 @@ export default class DatabaseService extends Service {
             if (result = this.store.peekRecord("database/" + collectionId, transformedId)) {
                 return result;
             }
-            this.manager.log(`Unable to find object with ID '${transformedId}' in collection '${collectionId}'.`, this.manager.msgType.x)
+            this.manager.log(`Unable to find object with ID '${transformedId}' in collection '${collectionId}'.`, this.manager.msgType.e)
             return undefined;
         } else {
             this.manager.log(`ID '${transformedId}' has an invalid format and cannot be retrieved from any collection.`, this.manager.msgType.x);
@@ -94,5 +93,15 @@ export default class DatabaseService extends Service {
         let result = id.charAt(0).toLowerCase() + id.slice(1);
         result = Ember.String.dasherize(result.replaceAll("_", "/"));
         return result;
+    }
+
+    cloneRecord(record) {
+        //----------------------------------------------------------------------------//
+        // Leopold Hock / 2021-04-06
+        // Description:
+        // Clones a database record by extracting the data from the model record
+        // and returning a copy of it.
+        //----------------------------------------------------------------------------//
+        return this.manager.clone(record.getRecord().data);
     }
 }

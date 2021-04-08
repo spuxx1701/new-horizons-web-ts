@@ -8,9 +8,9 @@ import Service from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
-import Character from '../classes/CharacterV1';
+import Character from '../classes/character-v1';
 
-export default class GeneratorServiceV1 extends Service {
+export default class GeneratorService extends Service {
     @service manager;
 
     @tracked character;
@@ -25,9 +25,13 @@ export default class GeneratorServiceV1 extends Service {
         // Description:
         // This method is used to initialize character generation.
         //----------------------------------------------------------------------------//
-        // let character = new Character({ characterPresetId: characterPreset.id, version: this.manager.appVersion });
-        let character = new Character(characterPreset.id, this.manager.appVersion);
-        // let character = Ember.getOwner(this).lookup("object: character-v1");
+        let character = new Character(characterPreset.id, this.manager.appVersion, this.manager);
         this.set("character", character);
+        this.manager.goToRoute("generator.origin");
+        this.manager.updatePageUnloadWarning(true);
+    }
+
+    getCharacter() {
+        return this.get("character");
     }
 }

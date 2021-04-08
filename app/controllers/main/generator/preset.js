@@ -11,7 +11,7 @@ import EmberResolver from 'ember-resolver';
 export default class GeneratorPresetController extends Controller {
     @service manager;
     @service databaseService;
-    @service("generator-v1") generator;
+    @service("generator-service") generator;
 
     @tracked changeset = Changeset({});
     @tracked allDisabled = true;
@@ -37,7 +37,40 @@ export default class GeneratorPresetController extends Controller {
 
     @action onSubmit(event) {
         event.preventDefault();
-        this.changeset.save();
-        this.generator.initializeGeneration(this.changeset.data);
+        let that = this;
+        // Check whether character generation is currently already running to prevent data loss
+        if (this.generator.getCharacter()) {
+            // If there is, ask the user whether he wants to restart generation and lose all progress
+            let modalParams = {
+                type: "warning",
+                title: "Modal_RestartGeneration_Title",
+                text: ["Modal_RestartGeneration_Text"],
+                yesLabel: "Misc_Ok",
+                noLabel: "Misc_Cancel"
+            };
+            let yesListener = {
+                "event": "click", "id": "modal-button-footer-yes", "function": function () {
+                    that.manager.hideModal();
+                    that.changeset.save();
+                    that.generator.initializeGeneration(that.changeset.data);
+                }
+            };
+            that.manager.callModal("confirm", modalParams, [yesListener]);
+
+        } else {
+            // If there isn't, proceed with initializing the generation
+            this.changeset.save();
+            this.generator.initializeGeneration(this.changeset.data);
+        }
+
+        let modalType = { "name": "type", "value": "error" };
+        let modalTitle = { "name": "title", "value": "Misc_Sorry" };
+        let modalText = { "name": "text", "value": ["Modal_SignUpError_Text01"] };
+        let yesLabel = { "name": "yesLabel", "value": "Misc_Ok" };
+        let yesListener = {
+            "event": "click", "id": "modal-button-footer-yes", "function": function () {
+                that.manager.hideModal();
+            }
+        }
     }
 }

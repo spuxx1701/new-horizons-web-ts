@@ -9,13 +9,15 @@ export default class MainGeneratorPresetRoute extends Route {
     model() {
         return RSVP.hash({
             characterPresets: this.databaseService.loadCollection("character-preset"),
-            constants: this.databaseService.loadCollection("constant")
+            constants: this.databaseService.loadCollection("constant"),
+            primaryAttributes: this.databaseService.loadCollection("pri-a"),
+            secondaryAttributes: this.databaseService.loadCollection("sec-a"),
+            skillCategories: this.databaseService.loadCollection("skill-category")
         });
     }
 
     @action
     didTransition() {
-        //this.controller.onChangePreset(this.characterPresetIdDefault);
         return true;
     }
 }

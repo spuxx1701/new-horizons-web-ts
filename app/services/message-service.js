@@ -49,9 +49,9 @@ export default class ManagerService extends Service {
         //----------------------------------------------------------------------------//
         this.store.createRecord("applog", { createdAt: this.getCurrentUTCTime(), type: messageType, text: messageText })
         if (ENV.environment === "development") {
-            if (messageType === this.msgType.x || messageType === this.msgType.xw || messageType === this.msgType.xi) {
+            if (messageType === this.msgType.x || messageType === this.msgType.e) {
                 console.error(messageText);
-            } else if (messageType === this.msgType.w || messageType === this.msgType.e) {
+            } else if (messageType === this.msgType.w) {
                 console.warn(messageText);
             } else {
                 console.log(messageText);

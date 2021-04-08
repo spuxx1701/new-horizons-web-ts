@@ -10,8 +10,10 @@ import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 
 export default class CharacterV1 {
-    @service manager;
-    @service databaseService;
+    manager;
+
+    // @service manager;
+    // @service databaseService;
 
     @tracked data = {
         //----------------------------------------------------------------------------//
@@ -57,15 +59,26 @@ export default class CharacterV1 {
         credits: 0
     }
 
-    constructor(characterPresetId, version) {
+    constructor(characterPresetId, version, manager) {
         // super(...arguments);
         // Set the character preset and game version
         this.data.characterPreset = characterPresetId;
         this.data.gameVersion = version;
+        this.manager = manager;
 
         // Initialize primary attributes
-        for (let priA of this.databaseService.peekAll("pri-a")) {
-            console.log(priA.toJSON());
+        for (let priA of this.manager.database.getCollection("pri-a").content) {
+            this.data.primaryAttributes.push(this.manager.database.cloneRecord(priA));
         }
+        // Initialize secondary attributes
+        for (let secA of this.manager.database.getCollection("sec-a").content) {
+            this.data.secondaryAttributes.push(this.manager.database.cloneRecord(secA));
+        }
+        // Initialize skill categories
+        for (let skillCategory of this.manager.database.getCollection("skill-category").content) {
+            this.data.skillCategories.push(this.manager.database.cloneRecord(skillCategory));
+        }
+        // Log initialization
+        this.manager.log(`Character initialization complete (character preset: ${characterPresetId}, game version: ${version}).`);
     }
 }

@@ -2,8 +2,6 @@
     <button id="{{@id}}-button" type={{@type}} class="button full-width" disabled={{this.isDisabled}}>
         {{#if @busy}}
         <FaIcon @icon="cog" @spin={{true}} @size="2x" class="position-absolute" />
-        {{!-- {{fa-icon "spinner" spin={{true}}size="2x" class="position-absolute"}} --}}
-        {{!-- <i class="fa fa-spinner fa-pulse fa-2x fa-fw position-absolute"></i> --}}
         <span class="sr-only">Loading...</span>
         {{else}}
         {{@label}}

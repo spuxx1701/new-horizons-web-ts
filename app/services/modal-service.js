@@ -21,8 +21,16 @@ export default class ModalService extends Service {
         let modalContainer = document.getElementById("modal-container");
         if (modalContainer) {
             this.componentName = "modal/" + type;
-            if (!Array.isArray(args)) args = [];
-            this.args = args;
+            // Read arguments (can be object or array) or default to an empty array
+            this.args = [];
+            if (typeof args === 'object') {
+                let propertyNames = Object.getOwnPropertyNames(args);
+                for (let propertyName of propertyNames) {
+                    this.args.push({ "name": propertyName, "value": args[propertyName] });
+                }
+            } else if (Array.isArray(args)) {
+                this.args = args;
+            }
             if (!Array.isArray(listeners)) listeners = [];
             this.listeners = listeners;
             // show modal container and update state

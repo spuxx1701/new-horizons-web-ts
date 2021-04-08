@@ -4,4 +4,13 @@ import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 
 export default class GeneratorRoute extends Route {
+    @service manager;
+    @service("generator-service") generator;
+
+    beforeModel(transition) {
+        // Redirect to the character preset route if the character hasn't been initialized yet
+        // Redirection is disabled in devMode
+        if (transition.targetName !== "main.generator.preset" && !this.generator.getCharacter() && !this.manager.devMode)
+            this.transitionTo("main.generator.preset");
+    }
 }

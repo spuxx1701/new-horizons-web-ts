@@ -29,6 +29,15 @@ Router.map(function () {
     // The charakter generator
     this.route('generator', function () {
       this.route('preset');
+      this.route('origin');
+      this.route('personal');
+      this.route('attributes');
+      this.route('traits');
+      this.route('skills');
+      this.route('abilities');
+      this.route('apps');
+      this.route('inventory');
+      this.route('finish');
     });
     // The character editor
     this.route('editor');

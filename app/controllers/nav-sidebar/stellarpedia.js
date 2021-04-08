@@ -133,8 +133,7 @@ export default class NavbarStellarpediaController extends Controller {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2020-08-21
         // Description:
-        // Is being called by did-render modifier to update selection in hierarchy
-        // to match selected*-properties of stellarpedia service.
+        // Update selection in hierarchy to match selected*-properties of stellarpedia service.
         //----------------------------------------------------------------------------//
         let buttonId = "sidebar-button-" + this.manager.stellarpedia.selectedBookId + "." + this.manager.stellarpedia.selectedChapterId + "." + this.manager.stellarpedia.selectedEntry.id;
         let button = document.getElementById(buttonId);
