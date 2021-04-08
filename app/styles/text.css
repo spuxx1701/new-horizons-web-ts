@@ -1,72 +1,148 @@
 /*  Leopold Hock | 30.04.2020
 Description: Contains style information for all text elements.  */
 
-.text-def-small {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-weight: 500;
-    font-size: 14px;
-    display: flex;
+/*For Mobile Display only*/
+
+@media (max-width: 600px) {
+    h1, .h1 {
+        font-size: 30px;
+    }
+    h2, .h2 {
+        font-size: 25px;
+    }
+    h3, .h3 {
+        font-size: 20px;
+    }
+    h4, .h4 {
+        font-size: 16px;
+    }
+    h5, .h5 {
+        font-size: 14px;
+    }
+    h6, .h6, p {
+        font-size: 14px;
+    }
+    .inputfield {
+        font-size: 14px;
+    }
 }
 
-.text-def-medium {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-weight: 500;
-    font-size: 25px;
-    display: flex;
+/*For Desktop Display only*/
+
+@media (min-width: 601px) {
+    h1, .h1 {
+        font-size: 45px;
+    }
+    h2, .h2 {
+        font-size: 30px;
+    }
+    h3, .h3 {
+        font-size: 25px;
+    }
+    h4, .h4 {
+        font-size: 20px;
+    }
+    h5, .h5 {
+        font-size: 16px;
+    }
+    h6, .h6, p, .inputfield {
+        font-size: 14px;
+    }
 }
 
-.text-def-large {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-weight: 500;
-    font-size: 30px;
-    display: flex;
-}
-
-h1, h2, h3, h4, h5, h6 {
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
     margin-bottom: 0;
     margin-top: 0;
+    color: var(--colorTextHighlight);
+    font-family: ARJulian;
 }
 
-h1 {
-    font-family: ARJulian;
-    font-size: 3.5rem;
-}
-
-h2 {
-    font-family: ARJulian;
-    font-size: 3rem;
-}
-
-h3 {
-    font-family: ARJulian;
-    font-size: 2.5rem;
-}
-
-h4 {
-    font-family: ARJulian;
-    font-size: 2rem;
-}
-
-h5 {
-    font-family: ARJulian;
-    font-size: 1.5rem;
-}
-
-h6 {
-    font-family: ARJulian;
-    font-size: 1.1rem;
+h6, .h6 {
+    font-family: Raleway;
 }
 
 p {
     font-family: Raleway;
-    font-size: 1rem;
-    color: var(--colorGreyBright);
+    color: var(--colorTextDefault);
+    margin: 5px 0 5px 0;
 }
 
-a {
-    color: var(--colorTealNeon);
+a, a:link, a:visited, .button-link {
+    color: var(--colorTextLink);
+    transition: 200ms;
+    text-decoration: none;
 }
 
-a:hover {
-    color: var(--colorTealBright);
+a:hover, a:active, .button-link:hover, .button-link:active {
+    color: var(--colorTextLinkHover);
+    text-decoration: none;
+}
+
+.button-link {
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0;
+}
+
+.separator {
+    height: 1px;
+    width: 100%;
+    margin: 5px auto 5px auto;
+    background-color: var(--colorTealNeon);
+}
+
+.highlighted {
+    color: var(--colorTextHighlight);
+}
+
+.stellarpedia-status-text {
+    margin-left: 10px;
+    font-size: 12px;
+    color: var(--colorTealDark);
+    font-style: italic;
+}
+
+.stellarpedia-image-subtitle {
+    color: var(--colorTextSubtitle);
+    font-style: italic;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.interactable-subtitle {
+    color: var(--colorTextSubtitle);
+    font-style: italic;
+    text-align: left;
+    font-size: 12px;
+    margin: 0;
+}
+
+.text-left * {
+    text-align: left !important;
+}
+
+.text-center * {
+    text-align: center !important;
+}
+
+.text-right * {
+    text-align: right !important;
+}
+
+.text-area {
+    resize: none;
+}
+
+.text-area-height-small {
+    height: 68px;
+}
+
+.text-area-height-medium {
+    height: 112px;
+}
+
+.text-area-height-large {
+    height: 154px;
 }

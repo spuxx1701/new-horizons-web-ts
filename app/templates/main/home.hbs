@@ -1,8 +1,94 @@
-<div class="vBox justify-content-center">
-    <h1 class="fgTealNeon text-center"> New Horizons</h1>
-    <div class="panelLarge">
-        <h3>
-            <h3 class="fgWhite text-center">The PenPaper Game</h3>
-        </h3>
+<div class="v-box justify-content-center">
+    <h1 class="fg-teal-neon text-center"> New Horizons</h1>
+    <h3 class="fg-white text-center">The Pen&Paper Game</h3>
+    <div class="responsive-column-group">
+        <div class="responsive-column panel">
+            <div class="align-items-center v-box">
+                <img src="/assets/logo/Logo100x100.png" alt="New Horizons" />
+                <h4>Willkommen in der Welt von New Horizons!</h4>
+                <p> New Horizons ist ein Pen-&-Paper-Rollenspiel, das heißt, die Spieler*Innen verkörpern am Spieltisch
+                    fiktive
+                    Charaktere
+                    und betreten dadurch eine fantastische Welt. Erzählt wird diese Welt durch die , der selbst keinen
+                    eigenen
+                    Charakter verkörpert, stattdessen aber die gesamte belebte und unbelebte Umwelt, der die
+                    Spieler*Innen
+                    während eines Spielabends begegnen. Die Charaktere zeichnen sich durch individuelle Eigenschaften,
+                    Fähigkeiten und Hintergrundgeschichten aus. Die Spieler*Innen reagieren auf die Erzählung der
+                    Spielleiterin
+                    oder des Spielleiters. Erfolg oder Misserfolg Ihrer Aktionen werden durch Würfelproben auf
+                    Eigenschafts-
+                    und
+                    Fähigkeitswerte bestimmt, die auf den Charakterbögen schriftlich festgehalten werden. Die Spielwelt
+                    von
+                    New
+                    Horizons ist das besiedelte Sonnensystem des 23. Jahrhunderts. New Horizons verfolgt das Ziel, eine
+                    (aus
+                    naturwissenschaftlicher Perspektive) möglichst vorstellbare Zukunft zu beschreiben und erlebbar zu
+                    machen.
+                    Diese Software soll Spieler*Innen ermöglichen, schnell und einfach Charaktere zu erstellen und zu
+                    verwalten.
+                    Daneben beinhaltet Sie mit der Stellarpedia ein vollständiges Nachschlagewerk für Spielregeln und
+                    Spielinhalte.</p>
+                <div class="h-box justify-content-center">
+                    {{fa-icon "angle-double-right" class="margin-sides-small"}}
+                    <LinkTo @route="main.stellarpedia.article"
+                        @model="basic-rules+introduction+a-short-story-of-the-solar-system">
+                        Eine kurze Geschichte des Sonnensystems</LinkTo>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="responsive-column-group">
+        <div class="responsive-column panel width20">
+            <div class="align-items-center v-box">
+                {{fa-icon "download" size="3x" class="fg-grey-medium"}}
+                <p class="text-center">Lade Dir den alten <a
+                        href="https://www.leopoldhock.de/files/NewHorizonsEditor.7z">Editor
+                        für Windows</a> herunter und starte direkt in Dein Abenteuer!
+                </p>
+            </div>
+        </div>
+        <div class="responsive-column panel width20">
+            <div class="align-items-center v-box">
+                {{fa-icon "user-plus" size="3x"
+                class="fg-grey-medium"}}
+                <p class="text-center">
+                    <LinkTo @route="main.sign-up">
+                        Registriere Dich</LinkTo>, um in
+                    Zukunft Zugriff auf coole Features wie z.B. die Cloud oder Sessions zu erhalten.
+                </p>
+            </div>
+        </div>
+        <div class="responsive-column panel width20">
+            <div class="align-items-center v-box">
+                {{fa-icon "sun" size="3x" class="fg-grey-medium"}}
+                <p class="text-center">Stöbere in der <LinkTo @route="main.stellarpedia.article"
+                        @model="basic-rules+introduction+welcome">
+                        Stellarpedia</LinkTo>,
+                    dem vollständigen Regelwerk von New Horizons. Du findest dort alle Spielregeln sowie viele
+                    Informationen
+                    zur Geschichte und zur Spielwelt.
+                </p>
+            </div>
+        </div>
+        <div class="responsive-column panel width20">
+            <div class="align-items-center v-box">
+                {{fa-icon "discord" prefix="fab" size="3x"
+                class="fg-grey-medium"}}
+                <p class="text-center">Besuche unseren <a href="https://discord.gg/anSjdatqby">Discord</a> und
+                    werde Teil der Community von New Horizons.
+                </p>
+            </div>
+        </div>
+        <div class="responsive-column panel width20">
+            <div class="align-items-center v-box">
+                {{fa-icon "trello" prefix="fab" size="3x"
+                class="fg-grey-medium"}}
+                <p class="text-center">Du möchtest wissen, woran wir gerade arbeiten und wie es weiter geht? Wirf einen
+                    Blick auf die <a href="https://trello.com/b/VMqZjDPH/new-horizons-roadmap">Roadmap</a>.
+                </p>
+            </div>
+        </div>
     </div>
 </div>

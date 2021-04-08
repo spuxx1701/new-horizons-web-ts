@@ -1,0 +1,31 @@
++ Interactable Components mit möglichem Info-Button ausstatten
++ Input Field mit möglichem Zusatz versehen, der beim Bearbeiten ausgeblendet und nach dem Bearbeiten wieder eingeblendet wird
+
+ToDo when converting character files:
+
++ Replace "PriA_" with "PrimaryAttribute_" (?)
++ Replace "SecA_" with "SecondaryAttribute_" (?)
++ Replace "abilityClass" with "abilityCategory"
++ Replace enum values
+    - Skill.skillCategory (db done)
+    - Skill.primaryAttributes (db done)
+    - Ability.abilityClass (db done)
+    - App.appCategory (db done)
++ App.AppCategory neu auslesen und ersetzen
+
+
+++++++++++++ REGULAR EXPRESSIONS FOR DATABASE EDITING ++++++++++++ 
+Skill.primaryAttributes[0]: (?<="primaryAttributes":\s\[\n\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s)0*?(?=,)
+Skill.primaryAttributes[1]: (?<="primaryAttributes":\s\[\n\s{20}\d,\n\s{20}).*?(?=)
+Skill.primaryAttributes[2]: (?<="primaryAttributes":\s\[\n\s{20}\d,\n\s{20}\d,\n\s{20}).*?(?=)
+
+
+    - Item.ItemCategory (db done)
+    - Item.ItemType (db done)
+    - Item.WeaponRangedType (db done)
+    - Item.Caliber (db done)
+    - Item.LoadType (db done)
+    - Item.BodySlot (db done)
+    - Item.AmmoType (db done)
+    - Item.WeaponModType (db done)
+    - Item.WeaponModSlot (db done)

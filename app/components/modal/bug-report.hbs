@@ -1,0 +1,30 @@
+<div class="modal-inner modal-size-medium">
+    <div class="modal-inner-header modal-header-default">
+        <div class="modal-header-title-container">
+            {{fa-icon "bug" class="modal-header-icon"}}
+            <h4 class="modal-header-title">{{localize "Modal_ReportBug_Title"}}</h4>
+        </div>
+        <button id="modal-button-close" type="button" class="modal-button-close" {{on "click" this.modalService.hide}}>
+            {{fa-icon "times"}}
+        </button>
+    </div>
+    <div class="modal-inner-content">
+        <form id="modal-form" {{on "submit" this.onSubmit}} target="frame">
+            <Interactable::text-area @id="modal-input-description" @label="Modal_ReportBug_Description01"
+                @subtitle="Modal_ReportBug_Description02" @focus={{true}} @required={{true}}
+                @changeset={{this.changeset}} @key="description" />
+            <Interactable::text-area @id="modal-input-reproduction" @label="Modal_ReportBug_Reproduction01"
+                @required={{true}} @subtitle="Modal_ReportBug_Reproduction02" @changeset={{this.changeset}}
+                @key="reproduction" />
+            <Interactable::inputfield @id="modal-input-email" @label="Modal_ReportBug_Email01"
+                @changeset={{this.changeset}} @key="email" @subtitle="Modal_ReportBug_Email02" @type="email" />
+            <Interactable::toggle @id="modal-toggle-includeLog" @label="Modal_ReportBug_IncludeLog01"
+                @changeset={{this.changeset}} @key="includeLog" @subtitle="Modal_ReportBug_IncludeLog02" />
+        </form>
+    </div>
+    <div class="modal-inner-footer">
+        <button id="modal-button-footer-yes" type="submit" class="button" {{on "click" this.onSubmit}}>
+            {{localize "Modal_ReportBug_Send"}}
+        </button>
+    </div>
+</div>

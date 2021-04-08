@@ -1,4 +1,6 @@
-import DatabaseSerializer from './database';
+import Ember from 'ember';
+import CollectionSerializer from './collection';
+import { inject as service } from '@ember/service';
 
-export default class AbilitySerializer extends DatabaseSerializer {
+export default class DatabaseAbilitySerializer extends CollectionSerializer {
 }

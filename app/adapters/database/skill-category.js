@@ -1,5 +1,4 @@
-import DatabaseAdapter from './database';
+import CollectionAdapter from './collection';
 
-export default class SkillCategoryAdapter extends DatabaseAdapter {
-    databaseName = "skill-categories";
+export default class DatabaseSkillCategoryAdapter extends CollectionAdapter {
 }

@@ -1,19 +1,359 @@
 [
     {
+        "key": "Misc_PageUnloadWarning",
+        "value": "Du hast ungespeicherte Änderungen (z.B. eine begonnene Charaktererstellung oder einen Charakter, den Du gerade bearbeitest). Wenn Du die Seite verlässt, gehen diese Änderungen verloren."
+    },
+    {
+        "key": "Modal_RestartGeneration_Title",
+        "value": "Laufende Charaktererstellung"
+    },
+    {
+        "key": "Modal_RestartGeneration_Text",
+        "value": "Derzeit läuft bereits eine Charaktererstellung. Wenn Du fortfährst, wird die laufende Charaktererstellung abgebrochen und die Charaktererstellung neugestartet. Dein Fortschritt geht dann verloren."
+    },
+    {
+        "key": "Route_Generator_Origin_Title",
+        "value": "Wähle Deine Herkunft"
+    },
+    {
+        "key": "Route_Generator_Preset_Title",
+        "value": "Generator-Voreinstellungen"
+    },
+    {
+        "key": "Route_Generator_Preset_Start",
+        "value": "Erschaffung beginnen"
+    },
+    {
+        "key": "CharacterPreset_Hero",
+        "value": "Held*In"
+    },
+    {
         "key": "CharacterPreset_Default",
         "value": "Standard"
     },
     {
-        "key": "Misc_CharacterPresetDisclaimer",
-        "value": "Bevor Du loslegst, kannst Du aus einer Reihe von Voreinstellungen für die Charaktererstellung wählen oder alle Parameter selbst anpassen. Wenn Du nicht weißt, was Du hier einstellen sollst und Dir Deine Spielleiterin oder Dein Spielleiter nichts dazu gesagt hat, klicke einfach direkt auf \"Heldenerschaffung beginnen\"!"
+        "key": "Modal_ResetPasswordError_Title",
+        "value": "Passwort nicht geändert"
+    },
+    {
+        "key": "Modal_ResetPasswordError_Text01",
+        "value": "Dein Passwort konnte aufgrund eines Fehlers nicht geändert werden. Bitte versuche es später noch einmal."
+    },
+    {
+        "key": "Modal_ResetPasswordSuccess_Title",
+        "value": "Passwort geändert"
+    },
+    {
+        "key": "Modal_ResetPasswordSuccess_Text01",
+        "value": "Dein Passwort wurde geändert. Du kannst Dich jetzt mit Deinem neuen Passwort anmelden."
+    },
+    {
+        "key": "Route_ResetPassword_Title",
+        "value": "Passwort ändern"
+    },
+    {
+        "key": "Route_ResetPassword_NewPasswordLabel",
+        "value": "Neues Passwort"
+    },
+    {
+        "key": "Route_ResetPassword_NewPasswordPlaceholder",
+        "value": "Gib ein neues Passwort ein"
+    },
+    {
+        "key": "Route_ResetPassword_Submit",
+        "value": "Neues Passwort speichern"
+    },
+    {
+        "key": "Modal_RequestVerificationCodeConfirm_Title",
+        "value": "Code gesendet"
+    },
+    {
+        "key": "Modal_RequestVerificationCodeConfirm_Text01",
+        "value": "Wir haben Dir Deinen Verifizierungscode zugeschickt. Solltest Du innerhalb der nächsten Minuten keine Email erhalten, kann es sein, dass Dein Konto schon wieder gelöscht wurde, weil Du es nicht rechtzeitig verifiziert hast. In diesem Fall kannst Du Dich einfach nochmal registrieren."
+    },
+    {
+        "key": "Modal_RequestVerificationCode_Title",
+        "value": "Konto verifizieren"
+    },
+    {
+        "key": "Modal_RequestVerificationCode_Text01",
+        "value": "Wenn Du den Verifizierungscode für Deine Registrierung nicht erhalten oder verloren hast, kannst Du ihn Dir erneut zusenden lassen."
+    },
+    {
+        "key": "Modal_RequestVerificationCode_YesLabel",
+        "value": "Code anfordern"
+    },
+    {
+        "key": "Modal_ForgotPasswordConfirm_Title",
+        "value": "Email gesendet"
+    },
+    {
+        "key": "Modal_ForgotPasswordConfirm_Text01",
+        "value": "Wir haben Dir eine Email zum Zurücksetzen deines Passworts geschickt. Bitte folge den Anweisungen in der Email, um ein neues Passwort zu vergeben."
+    },
+    {
+        "key": "Modal_ForgotPassword_Title",
+        "value": "Passwort vergessen?"
+    },
+    {
+        "key": "Modal_ForgotPassword_Text01",
+        "value": "Wenn Du Dein Passwort vergessen hast, kannst Du es hier zurücksetzen. Du erhältst dann eine Email und einen Link, mit dem Du ein neues Passwort vergeben hast."
+    },
+    {
+        "key": "Modal_ForgotPassword_YesLabel",
+        "value": "Passwort zurücksetzen"
+    },
+    {
+        "key": "Misc_SignOut",
+        "value": "Abmelden"
+    },
+    {
+        "key": "Modal_SignOut_Title",
+        "value": "Abmelden"
+    },
+    {
+        "key": "Modal_SignOut_Text01",
+        "value": "Möchtest Du wirklich schon gehen? :'("
+    },
+    {
+        "key": "Misc_Hello",
+        "value": "Hallo"
+    },
+    {
+        "key": "Modal_WrongCredentials_Text02",
+        "value": "Passwort vergessen?"
+    },
+    {
+        "key": "Modal_WrongCredentials_Text01",
+        "value": "Du hast entweder Deine Email oder Dein Passwort falsch eingegeben."
+    },
+    {
+        "key": "Modal_WrongCredentials_Title",
+        "value": "Falsche Anmeldedaten"
+    },
+    {
+        "key": "Modal_SignInError_Text01",
+        "value": "Bei Deiner Anmeldung ist etwas schiefgegangen. Bitte versuche es später nochmal!"
+    },
+    {
+        "key": "Misc_SignIn",
+        "value": "Anmelden"
+    },
+    {
+        "key": "Component_SignIn_NeedVerificationKey_Text01",
+        "value": "Verifizierungscode verloren?"
+    },
+    {
+        "key": "Component_SignIn_NeedVerificationKey_Text02",
+        "value": "Wir haben noch welche."
+    },
+    {
+        "key": "Component_SignIn_ForgotPassword_Text01",
+        "value": "Passwort vergessen?"
+    },
+    {
+        "key": "Component_SignIn_ForgotPassword_Text02",
+        "value": "Kein Problem."
+    },
+    {
+        "key": "Component_SignIn_NoAccountYet_Text01",
+        "value": "Noch keinen Account?"
+    },
+    {
+        "key": "Component_SignIn_NoAccountYet_Text02",
+        "value": "Hier geht's lang!"
+    },
+    {
+        "key": "Component_SignIn_EmailLabel",
+        "value": "Email"
+    },
+    {
+        "key": "Component_SignIn_EmailPlaceholder",
+        "value": "Gib Deine Email ein"
+    },
+    {
+        "key": "Component_SignIn_PasswordLabel",
+        "value": "Passwort"
+    },
+    {
+        "key": "Component_SignIn_PasswordPlaceholder",
+        "value": "Gib Dein Passwort ein"
+    },
+    {
+        "key": "Modal_EmailVerificationSuccess_Title",
+        "value": "Verifizierung erfolgreich"
+    },
+    {
+        "key": "Modal_EmailVerificationSuccess_Text01",
+        "value": "Wir haben Deine Email-Adresse verifiziert. Du kannst Dich jetzt anmelden. Herzlich Willkommen!"
+    },
+    {
+        "key": "Modal_EmailVerificationError_Title",
+        "value": "Verifizierung fehlgeschlagen"
+    },
+    {
+        "key": "Modal_EmailVerificationError_Text01",
+        "value": "Leider konnten wir Deine Email-Adresse nicht verifizieren. Vielleicht hast Du einen ungültigen Code oder Dein Account wurde bereits gelöscht, weil Du die Verifizierung nicht innerhalb von 24 Stunden durchgeführt hast."
+    },
+    {
+        "key": "Ability_Ranged_Focus",
+        "value": "Fokus"
+    },
+    {
+        "key": "Modal_Signup_Duplicate_Title",
+        "value": "Schon registriert?"
+    },
+    {
+        "key": "Modal_Signup_Duplicate_Text01",
+        "value": "Wir haben bereits ein Konto mit Deiner Email. Wenn Du Dein Passwort vergessen hast, kannst Du es jederzeit zurücksetzen."
+    },
+    {
+        "key": "Modal_Signup_Success_Title",
+        "value": "Fast geschafft!"
+    },
+    {
+        "key": "Modal_Signup_Success_Text01",
+        "value": "Wir haben Deine Registrierung erhalten und einen Code an die von Dir angegebene Email-Adresse geschickt, mit dem Du Deine Registrierung bestätigen kannst. Bitte erledige das in den nächsten 48 Stunden, um Deine Registrierung abzuschließen."
+    },
+    {
+        "key": "Modal_Applog_Title",
+        "value": "Application Log"
+    },
+    {
+        "key": "Modal_SignUpError_Text01",
+        "value": "Bei Deiner Registrierung ist etwas schiefgegangen. Bitte versuche es später nochmal!"
+    },
+    {
+        "key": "Route_SignUp_PasswordReq_Text01",
+        "value": "Achte darauf, dass das Passwort..."
+    },
+    {
+        "key": "Route_SignUp_PasswordReq_Text02",
+        "value": "... zwischen 8 und 40 Zeichen lang ist"
+    },
+    {
+        "key": "Route_SignUp_PasswordReq_Text03",
+        "value": "... nur Buchstaben, Zahlen und die Sonderzeichen !@#$%&*()-+=^ enthält"
+    },
+    {
+        "key": "Route_SignUp_Title",
+        "value": "Neues Konto registrieren"
+    },
+    {
+        "key": "Route_SignUp_SignUp",
+        "value": "Registrieren"
+    },
+    {
+        "key": "Route_SignUp_EmailLabel",
+        "value": "Email"
+    },
+    {
+        "key": "Route_SignUp_EmailPlaceholder",
+        "value": "Gib Deine Email ein"
+    },
+    {
+        "key": "Route_SignUp_UsernameLabel",
+        "value": "Benutzername"
+    },
+    {
+        "key": "Route_SignUp_UsernamePlaceholder",
+        "value": "Gib einen Benutzernamen ein"
+    },
+    {
+        "key": "Route_SignUp_PasswordLabel",
+        "value": "Passwort"
+    },
+    {
+        "key": "Route_SignUp_PasswordPlaceholder",
+        "value": "Erstelle ein Passwort"
+    },
+    {
+        "key": "Route_SignUp_SubmitConfirmText",
+        "value": "Mit Deiner Registrierung bestätigst Du, dass Du die Nutzungsbedingungen von New Horizons akzeptierst und die Datenschutzrichtlinien anerkennst."
+    },
+    {
+        "key": "Modal_ReportBugSuccess_Title",
+        "value": "Bug gemeldet!"
+    },
+    {
+        "key": "Modal_ReportBugSuccess_Text01",
+        "value": "Vielen Dank! Das hilft uns sehr, um New Horizons noch besser zu machen."
+    },
+    {
+        "key": "Modal_ReportBugSuccess_YesLabel",
+        "value": "Gern geschehen!"
+    },
+    {
+        "key": "Modal_ReportBug_Title",
+        "value": "Bug melden"
+    },
+    {
+        "key": "Modal_ReportBug_Description01",
+        "value": "Beschreibung"
+    },
+    {
+        "key": "Modal_ReportBug_Description02",
+        "value": "Bitte beschreibe den Bug so genau wie möglich. Was wolltest Du tun? Was ist passiert?"
+    },
+    {
+        "key": "Modal_ReportBug_Reproduction01",
+        "value": "Reproduktion"
+    },
+    {
+        "key": "Modal_ReportBug_Reproduction02",
+        "value": "Bitte beschreibe, wie man den Bug reproduzieren kann. Welche (Unter-)Seiten hast Du besucht und welche Funktionen hast Du genutzt, bevor das Problem aufgetaucht ist?"
+    },
+    {
+        "key": "Modal_ReportBug_IncludeLog01",
+        "value": "Application Log senden"
+    },
+    {
+        "key": "Modal_ReportBug_IncludeLog02",
+        "value": "Das Application Log hilft uns dabei, den Fehler zu finden. Es enthält Informationen darüber, was Du während dieser Sitzung auf der Webseite bereits gemacht hast (z.B. einen Charakter geladen, eine Fähigkeit erworben o.ä.)."
+    },
+    {
+        "key": "Modal_ReportBug_Email01",
+        "value": "Email"
+    },
+    {
+        "key": "Modal_ReportBug_Email02",
+        "value": "Wenn Du eine Email-Adresse angibst, können wir Dich bei Rückfragen erreichen."
+    },
+    {
+        "key": "Modal_ReportBug_Send",
+        "value": "Absenden"
+    },
+    {
+        "key": "Misc_Sorry",
+        "value": "Entschuldigung!"
+    },
+    {
+        "key": "Modal_ReportException_Text01",
+        "value": "Das hätte nicht passieren sollen. Es ist folgender Fehler aufgetreten:"
+    },
+    {
+        "key": "Modal_ReportException_Text02",
+        "value": "Es wäre eine große Hilfe, wenn Du den Fehler melden würdest. Möchtest Du das jetzt tun?"
+    },
+    {
+        "key": "Misc_CharacterTrait",
+        "value": "Charakterzug"
+    },
+    {
+        "key": "Misc_Ok",
+        "value": "OK"
+    },
+    {
+        "key": "CharacterPreset_Default",
+        "value": "Standard"
+    },
+    {
+        "key": "Route_Generator_Preset_Text01",
+        "value": "Bevor Du loslegst, kannst Du aus einer Reihe von Voreinstellungen für die Charaktererstellung wählen oder alle Parameter selbst anpassen. Wenn Du nicht weißt, was Du hier einstellen sollst und Dir Deine Spielleiterin oder Dein Spielleiter nichts dazu gesagt hat, klicke einfach direkt auf \"Erschaffung beginnen\"!"
     },
     {
         "key": "Misc_NoData",
         "value": "Keine Einträge."
-    },
-    {
-        "key": "CharacterPreset_Hero",
-        "value": "Heldin/Held"
     },
     {
         "key": "Misc_NotSignedIn",

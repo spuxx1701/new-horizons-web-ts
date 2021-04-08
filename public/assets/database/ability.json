@@ -1,0 +1,2015 @@
+[
+    {
+        "id": "Ability_General_Acclimatization",
+        "abilityCategory": "AbilityCategory_General",
+        "editorOnly": true,
+        "requirements": [
+            {
+                "id": "PriA_CN",
+                "type": "",
+                "input": "",
+                "level": 12,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": false,
+        "castTime": 0,
+        "staminaUse": 0,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 200,
+        "targets": []
+    },
+    {
+        "id": "Ability_General_ArmorHabituation1",
+        "abilityCategory": "AbilityCategory_General",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_CN",
+                "type": "",
+                "input": "",
+                "level": 12,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": false,
+        "castTime": 0,
+        "staminaUse": 0,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 100,
+        "targets": []
+    },
+    {
+        "id": "Ability_General_ArmorHabituation2",
+        "abilityCategory": "AbilityCategory_General",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_CN",
+                "type": "",
+                "input": "",
+                "level": 14,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "PriA_ST",
+                "type": "",
+                "input": "",
+                "level": 12,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Ability_General_ArmorHabituation1",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": false,
+        "castTime": 0,
+        "staminaUse": 0,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 200,
+        "targets": []
+    },
+    {
+        "id": "Ability_General_ArmorHabituation3",
+        "abilityCategory": "AbilityCategory_General",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_CN",
+                "type": "",
+                "input": "",
+                "level": 15,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "PriA_ST",
+                "type": "",
+                "input": "",
+                "level": 14,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Ability_General_ArmorHabituation2",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": false,
+        "castTime": 0,
+        "staminaUse": 0,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 300,
+        "targets": []
+    },
+    {
+        "id": "Ability_General_CombatExperience",
+        "abilityCategory": "AbilityCategory_General",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "SecA_DE",
+                "type": "",
+                "input": "",
+                "level": 8,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": false,
+        "castTime": 0,
+        "staminaUse": 0,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 400,
+        "targets": []
+    },
+    {
+        "id": "Ability_General_ImplantHabituation1",
+        "abilityCategory": "AbilityCategory_General",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_CN",
+                "type": "",
+                "input": "",
+                "level": 12,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": false,
+        "castTime": 0,
+        "staminaUse": 0,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 100,
+        "targets": []
+    },
+    {
+        "id": "Ability_General_ImplantHabituation2",
+        "abilityCategory": "AbilityCategory_General",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_IN",
+                "type": "",
+                "input": "",
+                "level": 12,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "PriA_CN",
+                "type": "",
+                "input": "",
+                "level": 14,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Ability_General_ImplantHabituation1",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": false,
+        "castTime": 0,
+        "staminaUse": 0,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 200,
+        "targets": []
+    },
+    {
+        "id": "Ability_General_Language",
+        "abilityCategory": "AbilityCategory_General",
+        "editorOnly": false,
+        "requirements": [],
+        "needsInput": true,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": false,
+        "castTime": 0,
+        "staminaUse": 0,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 100,
+        "targets": []
+    },
+    {
+        "id": "Ability_General_LocalKnowledge",
+        "abilityCategory": "AbilityCategory_General",
+        "editorOnly": false,
+        "requirements": [],
+        "needsInput": true,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": false,
+        "castTime": 0,
+        "staminaUse": 0,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 100,
+        "targets": []
+    },
+    {
+        "id": "Ability_General_MasterOfImprovisation",
+        "abilityCategory": "AbilityCategory_General",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_IN",
+                "type": "",
+                "input": "",
+                "level": 12,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "PriA_DX",
+                "type": "",
+                "input": "",
+                "level": 12,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": false,
+        "castTime": 0,
+        "staminaUse": 0,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 200,
+        "targets": []
+    },
+    {
+        "id": "Ability_General_MIDHacking",
+        "abilityCategory": "AbilityCategory_General",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "Skill_Knowledge_Informatics",
+                "type": "",
+                "input": "",
+                "level": 7,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Skill_Crafting_Programming",
+                "type": "",
+                "input": "",
+                "level": 3,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": false,
+        "castTime": 0,
+        "staminaUse": 0,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 300,
+        "targets": []
+    },
+    {
+        "id": "Ability_General_QuickDrawing",
+        "abilityCategory": "AbilityCategory_General",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_AG",
+                "type": "",
+                "input": "",
+                "level": 12,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "PriA_DX",
+                "type": "",
+                "input": "",
+                "level": 10,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": false,
+        "castTime": 0,
+        "staminaUse": 0,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 200,
+        "targets": []
+    },
+    {
+        "id": "Ability_General_Reflexes1",
+        "abilityCategory": "AbilityCategory_General",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_IN",
+                "type": "",
+                "input": "",
+                "level": 12,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "SecA_RE",
+                "type": "",
+                "input": "",
+                "level": 10,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": false,
+        "castTime": 0,
+        "staminaUse": 0,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 300,
+        "targets": [
+            {
+                "id": "SecA_RE",
+                "type": "bonus",
+                "input": "",
+                "level": 4,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Ability_General_Reflexes2",
+        "abilityCategory": "AbilityCategory_General",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_IN",
+                "type": "",
+                "input": "",
+                "level": 15,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Skill_Knowledge_TacticsAndStrategy",
+                "type": "",
+                "input": "",
+                "level": 3,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Ability_General_Reflexes1",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": false,
+        "castTime": 0,
+        "staminaUse": 0,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 200,
+        "targets": [
+            {
+                "id": "SecA_RE",
+                "type": "bonus",
+                "input": "",
+                "level": 2,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
+    },
+    {
+        "id": "Ability_General_Specialisation",
+        "abilityCategory": "AbilityCategory_General",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "Skill",
+                "type": "",
+                "input": "",
+                "level": 7,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": true,
+        "options": [
+            "Specialisation_Skill_Combat_OnboardWeapons_BallisticCannons",
+            "Specialisation_Skill_Combat_OnboardWeapons_BallisticTurrets_GaussCannons",
+            "Specialisation_Skill_Combat_OnboardWeapons_TorpedoLaunchers",
+            "Specialisation_Skill_Combat_Rifles_AutomaticRifles",
+            "Specialisation_Skill_Combat_Rifles_SemiAutomaticRifles",
+            "Specialisation_Skill_Combat_Rifles_Shotguns",
+            "Specialisation_Skill_Crafting_AnimalTraining_AnyKindOfFamily",
+            "Specialisation_Skill_Crafting_Cooking_DrinkPreparation",
+            "Specialisation_Skill_Crafting_Cooking_FoodPreparation",
+            "Specialisation_Skill_Crafting_Drawing_Calligraphy",
+            "Specialisation_Skill_Crafting_Drawing_Painting",
+            "Specialisation_Skill_Crafting_Drawing_TechnicalDrawing",
+            "Specialisation_Skill_Crafting_ElectricalEngineering_ComputerEngineering",
+            "Specialisation_Skill_Crafting_ElectricalEngineering_ControlEngineering",
+            "Specialisation_Skill_Crafting_ElectricalEngineering_Cybernetics",
+            "Specialisation_Skill_Crafting_ElectricalEngineering_Mechatronics",
+            "Specialisation_Skill_Crafting_ElectricalEngineering_PowerEngineering",
+            "Specialisation_Skill_Crafting_Explosives_Ammunition",
+            "Specialisation_Skill_Crafting_Explosives_Disarming",
+            "Specialisation_Skill_Crafting_Explosives_ExplosivesProduction",
+            "Specialisation_Skill_Crafting_Explosives_Fuels",
+            "Specialisation_Skill_Crafting_MakingMusic_AnyKindOfInsrument",
+            "Specialisation_Skill_Crafting_MaterialProcessing_MetalProcessing",
+            "Specialisation_Skill_Crafting_MaterialProcessing_PlasticsProcessing",
+            "Specialisation_Skill_Crafting_MaterialProcessing_StoneCutting",
+            "Specialisation_Skill_Crafting_MaterialProcessing_Tailoring",
+            "Specialisation_Skill_Crafting_MaterialProcessing_Woodworking",
+            "Specialisation_Skill_Crafting_MechanicalEngineering_MachineryConstruction",
+            "Specialisation_Skill_Crafting_MechanicalEngineering_StruturalEngineering",
+            "Specialisation_Skill_Crafting_MechanicalEngineering_VehicleConstruction",
+            "Specialisation_Skill_Crafting_MechanicalEngineering_WeaponSmithing",
+            "Specialisation_Skill_Crafting_MedicalCare_InternalMedicine",
+            "Specialisation_Skill_Crafting_MedicalCare_Neurology",
+            "Specialisation_Skill_Crafting_MedicalCare_Psychology",
+            "Specialisation_Skill_Crafting_MedicalCare_VeterinaryMedicine",
+            "Specialisation_Skill_Crafting_Pharmaceutics_Pharmacology",
+            "Specialisation_Skill_Crafting_Pharmaceutics_Toxicology",
+            "Specialisation_Skill_Crafting_PlayingGames_Gambling",
+            "Specialisation_Skill_Crafting_PlayingGames_VideoGaming",
+            "Specialisation_Skill_Crafting_Programming_Hacking",
+            "Specialisation_Skill_Crafting_Programming_SoftwareEngineering",
+            "Specialisation_Skill_Crafting_Writing_FictionalWriting",
+            "Specialisation_Skill_Crafting_Writing_JournalisticWriting",
+            "Specialisation_Skill_Crafting_Writing_ScientificWriting"
+        ],
+        "isActive": false,
+        "castTime": 0,
+        "staminaUse": 0,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 0,
+        "targets": []
+    },
+    {
+        "id": "Ability_General_Steady",
+        "abilityCategory": "AbilityCategory_General",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_AG",
+                "type": "",
+                "input": "",
+                "level": 12,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": false,
+        "castTime": 0,
+        "staminaUse": 0,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 100,
+        "targets": []
+    },
+    {
+        "id": "Ability_General_StrongNerves",
+        "abilityCategory": "AbilityCategory_General",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_CR",
+                "type": "",
+                "input": "",
+                "level": 12,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": false,
+        "castTime": 0,
+        "staminaUse": 0,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 200,
+        "targets": []
+    },
+    {
+        "id": "Ability_General_VTICommanding",
+        "abilityCategory": "AbilityCategory_General",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "Skill_Knowledge_TacticsAndStrategy",
+                "type": "",
+                "input": "",
+                "level": 7,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": false,
+        "castTime": 0,
+        "staminaUse": 0,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 300,
+        "targets": []
+    },
+    {
+        "id": "Ability_General_WealthOfKnowledge",
+        "abilityCategory": "AbilityCategory_General",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_CL",
+                "type": "",
+                "input": "",
+                "level": 12,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "PriA_IN",
+                "type": "",
+                "input": "",
+                "level": 12,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": false,
+        "castTime": 0,
+        "staminaUse": 0,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 200,
+        "targets": []
+    },
+    {
+        "id": "Ability_Melee_AimedStrike",
+        "abilityCategory": "AbilityCategory_Melee",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_AG",
+                "type": "",
+                "input": "",
+                "level": 12,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "SecA_AT",
+                "type": "",
+                "input": "",
+                "level": 8,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": true,
+        "castTime": 1,
+        "staminaUse": 1,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 100,
+        "targets": []
+    },
+    {
+        "id": "Ability_Melee_Breakaway",
+        "abilityCategory": "AbilityCategory_Melee",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_CR",
+                "type": "",
+                "input": "",
+                "level": 12,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "PriA_ST",
+                "type": "",
+                "input": "",
+                "level": 15,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Ability_Melee_PowerAttack",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": true,
+        "castTime": 1,
+        "staminaUse": 3,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 100,
+        "targets": []
+    },
+    {
+        "id": "Ability_Melee_Disarming",
+        "abilityCategory": "AbilityCategory_Melee",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_ST",
+                "type": "",
+                "input": "",
+                "level": 13,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Ability_Melee_ImprovedParrying",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": true,
+        "castTime": 1,
+        "staminaUse": 2,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 200,
+        "targets": []
+    },
+    {
+        "id": "Ability_Melee_Evasion1",
+        "abilityCategory": "AbilityCategory_Melee",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_AG",
+                "type": "",
+                "input": "",
+                "level": 10,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": false,
+        "castTime": 0,
+        "staminaUse": 0,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 300,
+        "targets": []
+    },
+    {
+        "id": "Ability_Melee_Evasion2",
+        "abilityCategory": "AbilityCategory_Melee",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_AG",
+                "type": "",
+                "input": "",
+                "level": 12,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Ability_Melee_Evasion1",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": false,
+        "castTime": 0,
+        "staminaUse": 0,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 200,
+        "targets": []
+    },
+    {
+        "id": "Ability_Melee_Evasion3",
+        "abilityCategory": "AbilityCategory_Melee",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_AG",
+                "type": "",
+                "input": "",
+                "level": 15,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Ability_Melee_Evasion2",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": false,
+        "castTime": 0,
+        "staminaUse": 0,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 200,
+        "targets": []
+    },
+    {
+        "id": "Ability_Melee_Feint",
+        "abilityCategory": "AbilityCategory_Melee",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "Ability_Melee_AimedStrike",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": true,
+        "castTime": 1,
+        "staminaUse": 1,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 200,
+        "targets": []
+    },
+    {
+        "id": "Ability_Melee_FullAttack",
+        "abilityCategory": "AbilityCategory_Melee",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_CN",
+                "type": "",
+                "input": "",
+                "level": 12,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Ability_Melee_PowerAttack",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": true,
+        "castTime": 2,
+        "staminaUse": 4,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 200,
+        "targets": []
+    },
+    {
+        "id": "Ability_Melee_ImprovedParrying",
+        "abilityCategory": "AbilityCategory_Melee",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_ST",
+                "type": "",
+                "input": "",
+                "level": 12,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "SecA_DE",
+                "type": "",
+                "input": "",
+                "level": 8,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": true,
+        "castTime": 1,
+        "staminaUse": 2,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 100,
+        "targets": []
+    },
+    {
+        "id": "Ability_Melee_KnockingDown",
+        "abilityCategory": "AbilityCategory_Melee",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_ST",
+                "type": "",
+                "input": "",
+                "level": 14,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Ability_Melee_PowerAttack",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": true,
+        "castTime": 1,
+        "staminaUse": 2,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 100,
+        "targets": []
+    },
+    {
+        "id": "Ability_Melee_PowerAttack",
+        "abilityCategory": "AbilityCategory_Melee",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_ST",
+                "type": "",
+                "input": "",
+                "level": 12,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "SecA_AT",
+                "type": "",
+                "input": "",
+                "level": 8,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": true,
+        "castTime": 1,
+        "staminaUse": 2,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 100,
+        "targets": []
+    },
+    {
+        "id": "Ability_Melee_Resisting",
+        "abilityCategory": "AbilityCategory_Melee",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_CR",
+                "type": "",
+                "input": "",
+                "level": 15,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "PriA_AG",
+                "type": "",
+                "input": "",
+                "level": 12,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Ability_Melee_ImprovedParrying",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": true,
+        "castTime": 1,
+        "staminaUse": 2,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 200,
+        "targets": []
+    },
+    {
+        "id": "Ability_Melee_StunningStrike",
+        "abilityCategory": "AbilityCategory_Melee",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_AG",
+                "type": "",
+                "input": "",
+                "level": 12,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Ability_Melee_PowerAttack",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": true,
+        "castTime": 1,
+        "staminaUse": 2,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 100,
+        "targets": []
+    },
+    {
+        "id": "Ability_Melee_TwohandedMelee",
+        "abilityCategory": "AbilityCategory_Melee",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_AG",
+                "type": "",
+                "input": "",
+                "level": 15,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "PriA_ST",
+                "type": "",
+                "input": "",
+                "level": 12,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Ability_Melee_AimedStrike",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": false,
+        "castTime": 0,
+        "staminaUse": 0,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 400,
+        "targets": []
+    },
+    {
+        "id": "Ability_Ranged_Accurate",
+        "abilityCategory": "AbilityCategory_Ranged",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "Ability_Ranged_PrecisionShot1",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": false,
+        "castTime": 0,
+        "staminaUse": 0,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 200,
+        "targets": []
+    },
+    {
+        "id": "Ability_Ranged_BarrageFire",
+        "abilityCategory": "AbilityCategory_Ranged",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_CN",
+                "type": "",
+                "input": "",
+                "level": 12,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "PriA_ST",
+                "type": "",
+                "input": "",
+                "level": 12,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Ability_Ranged_PrecisionShot1",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": true,
+        "castTime": 2,
+        "staminaUse": 4,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 200,
+        "targets": []
+    },
+    {
+        "id": "Ability_Ranged_ExperiencedHeavyWeaponsUser",
+        "abilityCategory": "AbilityCategory_Ranged",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_CN",
+                "type": "",
+                "input": "",
+                "level": 13,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "PriA_ST",
+                "type": "",
+                "input": "",
+                "level": 13,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": false,
+        "castTime": 0,
+        "staminaUse": 0,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 100,
+        "targets": []
+    },
+    {
+        "id": "Ability_Ranged_Focus",
+        "abilityCategory": "AbilityCategory_Ranged",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_IN",
+                "type": "",
+                "input": "",
+                "level": 13,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "PriA_AG",
+                "type": "",
+                "input": "",
+                "level": 13,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Ability_Ranged_PrecisionShot1",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": false,
+        "castTime": 0,
+        "staminaUse": 0,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 300,
+        "targets": []
+    },
+    {
+        "id": "Ability_Ranged_PrecisionShot1",
+        "abilityCategory": "AbilityCategory_Ranged",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_DX",
+                "type": "",
+                "input": "",
+                "level": 12,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "SecA_AT",
+                "type": "",
+                "input": "",
+                "level": 8,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": true,
+        "castTime": 1,
+        "staminaUse": 1,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 100,
+        "targets": []
+    },
+    {
+        "id": "Ability_Ranged_PrecisionShot2",
+        "abilityCategory": "AbilityCategory_Ranged",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "Ability_Ranged_PrecisionShot1",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": true,
+        "castTime": 2,
+        "staminaUse": 2,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 200,
+        "targets": []
+    },
+    {
+        "id": "Ability_Ranged_PrecisionShot3",
+        "abilityCategory": "AbilityCategory_Ranged",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_DX",
+                "type": "",
+                "input": "",
+                "level": 15,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Ability_Ranged_PrecisionShot2",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": true,
+        "castTime": 3,
+        "staminaUse": 3,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 400,
+        "targets": []
+    },
+    {
+        "id": "Ability_Ranged_PrepareAttack",
+        "abilityCategory": "AbilityCategory_Ranged",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_CR",
+                "type": "",
+                "input": "",
+                "level": 13,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "PriA_AG",
+                "type": "",
+                "input": "",
+                "level": 13,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Ability_General_Reflexes1",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": true,
+        "castTime": 0,
+        "staminaUse": 1,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 200,
+        "targets": []
+    },
+    {
+        "id": "Ability_Ranged_TwohandedRanged",
+        "abilityCategory": "AbilityCategory_Ranged",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_AG",
+                "type": "",
+                "input": "",
+                "level": 15,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "PriA_DX",
+                "type": "",
+                "input": "",
+                "level": 12,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Ability_General_Reflexes1",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": false,
+        "castTime": 0,
+        "staminaUse": 0,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 500,
+        "targets": []
+    },
+    {
+        "id": "Ability_Vehicles_BarrelRoll",
+        "abilityCategory": "AbilityCategory_Vehicles",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_CR",
+                "type": "",
+                "input": "",
+                "level": 12,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "PriA_CN",
+                "type": "",
+                "input": "",
+                "level": 12,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Skill_Vehicles_ExtraplanetaryFlying",
+                "type": "",
+                "input": "",
+                "level": 5,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Skill_Vehicles_IntraplanetaryFlying",
+                "type": "",
+                "input": "",
+                "level": 3,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": true,
+        "castTime": 0,
+        "staminaUse": 0,
+        "usesPower": true,
+        "powerUse": 1,
+        "costs": 200,
+        "targets": []
+    },
+    {
+        "id": "Ability_Vehicles_Broadside",
+        "abilityCategory": "AbilityCategory_Vehicles",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_IN",
+                "type": "",
+                "input": "",
+                "level": 12,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Skill_Vehicles_ExtraplanetaryFlying",
+                "type": "",
+                "input": "",
+                "level": 5,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Skill_Vehicles_IntraplanetaryFlying",
+                "type": "",
+                "input": "",
+                "level": 3,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": true,
+        "castTime": 0,
+        "staminaUse": 0,
+        "usesPower": true,
+        "powerUse": 1,
+        "costs": 200,
+        "targets": []
+    },
+    {
+        "id": "Ability_Vehicles_DiveAttack",
+        "abilityCategory": "AbilityCategory_Vehicles",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_CR",
+                "type": "",
+                "input": "",
+                "level": 13,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "PriA_IN",
+                "type": "",
+                "input": "",
+                "level": 12,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Skill_Vehicles_ExtraplanetaryFlying",
+                "type": "",
+                "input": "",
+                "level": 5,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Skill_Vehicles_IntraplanetaryFlying",
+                "type": "",
+                "input": "",
+                "level": 3,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": true,
+        "castTime": 0,
+        "staminaUse": 0,
+        "usesPower": true,
+        "powerUse": 2,
+        "costs": 200,
+        "targets": []
+    },
+    {
+        "id": "Ability_Vehicles_FlyingAce",
+        "abilityCategory": "AbilityCategory_Vehicles",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_IN",
+                "type": "",
+                "input": "",
+                "level": 13,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "PriA_CN",
+                "type": "",
+                "input": "",
+                "level": 15,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Skill_Vehicles_ExtraplanetaryFlying",
+                "type": "",
+                "input": "",
+                "level": 10,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Skill_Vehicles_IntraplanetaryFlying",
+                "type": "",
+                "input": "",
+                "level": 5,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": false,
+        "castTime": 0,
+        "staminaUse": 0,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 500,
+        "targets": []
+    },
+    {
+        "id": "Ability_Vehicles_LowLevelFlight",
+        "abilityCategory": "AbilityCategory_Vehicles",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_CR",
+                "type": "",
+                "input": "",
+                "level": 14,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Ability_Vehicles_Outmaneuvering1",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": true,
+        "castTime": 0,
+        "staminaUse": 0,
+        "usesPower": true,
+        "powerUse": 2,
+        "costs": 300,
+        "targets": []
+    },
+    {
+        "id": "Ability_Vehicles_LuringFlight",
+        "abilityCategory": "AbilityCategory_Vehicles",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_CR",
+                "type": "",
+                "input": "",
+                "level": 14,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Ability_Vehicles_BarrelRoll",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": true,
+        "castTime": 1,
+        "staminaUse": 0,
+        "usesPower": true,
+        "powerUse": 2,
+        "costs": 200,
+        "targets": []
+    },
+    {
+        "id": "Ability_Vehicles_OnboardMarksman1",
+        "abilityCategory": "AbilityCategory_Ranged",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "Skill_Combat_OnboardWeapons",
+                "type": "",
+                "input": "",
+                "level": 5,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": true,
+        "castTime": 1,
+        "staminaUse": 0,
+        "usesPower": true,
+        "powerUse": 1,
+        "costs": 100,
+        "targets": []
+    },
+    {
+        "id": "Ability_Vehicles_OnboardMarksman2",
+        "abilityCategory": "AbilityCategory_Ranged",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "Skill_Combat_OnboardWeapons",
+                "type": "",
+                "input": "",
+                "level": 7,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Ability_Vehicles_OnboardMarksman1",
+                "type": "",
+                "input": "",
+                "level": 7,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": true,
+        "castTime": 2,
+        "staminaUse": 0,
+        "usesPower": true,
+        "powerUse": 2,
+        "costs": 200,
+        "targets": []
+    },
+    {
+        "id": "Ability_Vehicles_OnboardMarksman3",
+        "abilityCategory": "AbilityCategory_Ranged",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "Skill_Combat_OnboardWeapons",
+                "type": "",
+                "input": "",
+                "level": 10,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Ability_Vehicles_OnboardMarksman2",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": true,
+        "castTime": 3,
+        "staminaUse": 0,
+        "usesPower": true,
+        "powerUse": 3,
+        "costs": 400,
+        "targets": []
+    },
+    {
+        "id": "Ability_Vehicles_Outmaneuvering1",
+        "abilityCategory": "AbilityCategory_Vehicles",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_CR",
+                "type": "",
+                "input": "",
+                "level": 12,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "PriA_IN",
+                "type": "",
+                "input": "",
+                "level": 12,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Skill_Vehicles_ExtraplanetaryFlying",
+                "type": "",
+                "input": "",
+                "level": 7,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Skill_Vehicles_IntraplanetaryFlying",
+                "type": "",
+                "input": "",
+                "level": 5,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": true,
+        "castTime": 0,
+        "staminaUse": 0,
+        "usesPower": true,
+        "powerUse": 2,
+        "costs": 200,
+        "targets": []
+    },
+    {
+        "id": "Ability_Vehicles_Outmaneuvering2",
+        "abilityCategory": "AbilityCategory_Vehicles",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_IN",
+                "type": "",
+                "input": "",
+                "level": 15,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "PriA_CN",
+                "type": "",
+                "input": "",
+                "level": 12,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Ability_Vehicles_Outmaneuvering1",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": true,
+        "castTime": 0,
+        "staminaUse": 0,
+        "usesPower": true,
+        "powerUse": 3,
+        "costs": 200,
+        "targets": []
+    },
+    {
+        "id": "Ability_Vehicles_RapidTurnaround",
+        "abilityCategory": "AbilityCategory_Vehicles",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_CR",
+                "type": "",
+                "input": "",
+                "level": 15,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Ability_Vehicles_BarrelRoll",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": true,
+        "castTime": 2,
+        "staminaUse": 0,
+        "usesPower": true,
+        "powerUse": 3,
+        "costs": 300,
+        "targets": []
+    },
+    {
+        "id": "Ability_Vehicles_SaveDrivingLandVehicles",
+        "abilityCategory": "AbilityCategory_Vehicles",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_CR",
+                "type": "",
+                "input": "",
+                "level": 12,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "PriA_IN",
+                "type": "",
+                "input": "",
+                "level": 12,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Skill_Vehicles_LandVehicles",
+                "type": "",
+                "input": "",
+                "level": 7,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": false,
+        "castTime": 0,
+        "staminaUse": 0,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 100,
+        "targets": []
+    },
+    {
+        "id": "Ability_Vehicles_SaveDrivingWaterVehicles",
+        "abilityCategory": "AbilityCategory_Vehicles",
+        "editorOnly": false,
+        "requirements": [
+            {
+                "id": "PriA_CR",
+                "type": "",
+                "input": "",
+                "level": 12,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "PriA_IN",
+                "type": "",
+                "input": "",
+                "level": 12,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Skill_Vehicles_WaterVehicles",
+                "type": "",
+                "input": "",
+                "level": 7,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "needsInput": false,
+        "input": "",
+        "isSpecialisation": false,
+        "options": [],
+        "isActive": false,
+        "castTime": 0,
+        "staminaUse": 0,
+        "usesPower": false,
+        "powerUse": 0,
+        "costs": 100,
+        "targets": []
+    }
+]

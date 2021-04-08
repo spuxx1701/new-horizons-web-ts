@@ -10,10 +10,10 @@ var that = that;
 export default class NavbarGeneratorController extends Controller {
     @service manager;
     @service session;
-    tabs = [{ id: "preset", icon: "sliders" },
+    tabs = [{ id: "preset", icon: "sliders-h" },
     { id: "origin", icon: "globe" },
-    { id: "personal", icon: "user-circle-o" },
-    { id: "traits", icon: "star-half-o" },
+    { id: "personal", icon: "user-circle" },
+    { id: "traits", icon: "star-half" },
     { id: "skills", icon: "bicycle" }];
 
     init() {

@@ -6,27 +6,31 @@ import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 
 export default class InputfieldComponent extends InteractableComponent {
-    @service manager;
+    @tracked labelPosition = "top";
+    @tracked textPosition = "left";
     @tracked value;
-    @tracked valueSuffix;
-    @tracked valueCombined;
+    @tracked valueSuffix; // Shown before the value when inputfield is not currently being focused
+    @tracked valueCombined; // Shown after the value when inputfield is not currently being focused
 
-    init() {
-        super.init()
+    @action didRender(event) {
+        // add event listeners
+        if (this.eventListeners) {
+            for (let listener of this.eventListeners) {
+                document.getElementById(this.id + "-input").addEventListener(listener.event, listener.function);
+            }
+        }
+        // override
     }
 
-    // internal event that handles value change
-    @action onValueChange(item) {
-
-        // try to call onChange(itemID, index)
-        try {
-            this.onChange(this.get("selectedId"), this.get("selectedIndex"));
-        } catch (e) {
-            this.manager.log("error", "Calling onChange(itemID, index) from input-field component has failed because method has not been subscribed in parent template.");
+    @action onChange(event) {
+        this.changeset.set(this.key, event.srcElement.value);
+        if (this.onChangeListener) {
+            this.onChangeListener(event);
         }
     }
 
-    // update inputfield state internally
-    @action update() {
+    @action onInvalid(event) {
+        // expose invalidity to user
+        event.srcElement.classList.remove("inputfield-hide-invalidity");
     }
 }

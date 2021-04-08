@@ -1,5 +1,4 @@
-import DatabaseAdapter from './database';
+import CollectionAdapter from './collection';
 
-export default class TraitAdapter extends DatabaseAdapter {
-    databaseName = "traits";
+export default class TraitAdapter extends CollectionAdapter {
 }

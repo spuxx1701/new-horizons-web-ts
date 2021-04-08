@@ -1,15 +1,15 @@
 <button class="sidebar-button-1" type="button" {{on 'click' this.returnToMenu}}>
-    {{fa-icon "chevron-left" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}}
+    {{fa-icon "chevron-left" size=this.sidebarIconSize class="margin-sides-medium fg-teal-neon"}}
     <p class="margin-vertical-auto">{{localize "Misc_ReturnToMenu"}}</p>
 </button>
 <div class="sidebar-sep"></div>
-<h5 class="fgWhite margin-vertical-medium sidebar-header">{{localize "Misc_Generator"}}</h5>
+<h4 class="fg-white margin-vertical-medium sidebar-header">{{localize "Misc_Generator"}}</h4>
 <div class="sidebar-sep"></div>
-<div class="vBox" id="generator-tabs">
+<div class="v-box" id="generator-tabs">
     {{#each this.tabs as |tab|}}
-    <button id="sidebar-button-{{tab.id}}" type="button" class="sidebar-button-2"
-        {{on 'click' (fn this.goToTab tab.id)}}>
-        {{fa-icon tab.icon size=this.manager.constants.sidebarIconSize class="marginSidesMedium fgTealNeon"}}
+    <button id="sidebar-button-{{tab.id}}" type="button" class="sidebar-button-1" {{on 'click' (fn this.goToTab
+        tab.id)}}>
+        {{fa-icon tab.icon size=this.manager.constants.sidebarIconSize class="margin-sides-medium fg-teal-neon"}}
         <p class="margin-vertical-auto">{{localize (concat "Misc_" tab.id)}}</p>
     </button>
     <div class="sidebar-sep"></div>

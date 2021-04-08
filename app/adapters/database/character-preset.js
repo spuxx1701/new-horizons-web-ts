@@ -1,5 +1,4 @@
-import DatabaseAdapter from './database';
+import CollectionAdapter from './collection';
 
-export default class CharacterPresetAdapter extends DatabaseAdapter {
-    databaseName = "character-presets";
+export default class DatabaseCharacterPresetAdapter extends CollectionAdapter {
 }

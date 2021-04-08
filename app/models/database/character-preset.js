@@ -1,14 +1,12 @@
-import Model, { attr, hasMany, belongsTo } from '@ember-data/model';
-import DatabaseModel from './database';
+import Model, { attr } from '@ember-data/model';
 
-export default class CharacterPresetModel extends DatabaseModel {
-    @attr("number") gpBonus;
-    @attr("number") gpAvailable;
-    @attr("number") apAvailable;
-    @attr("number") traitsMax;
-    @attr("number") abilitiesMax;
-    @attr("number") ipAvailable;
-    @attr("number") epStart;
-    @attr("number") crStart;
-    @attr("number") fpStart;
+export default class DatabaseCharacterPresetModel extends Model {
+    @attr() gpBonus;
+    @attr() apAvailable;
+    @attr() traitsMax;
+    @attr() abilitiesMax;
+    @attr() ipAvailable;
+    @attr() epStart;
+    @attr() crStart;
+    @attr() fpStart;
 }

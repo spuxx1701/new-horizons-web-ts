@@ -1,0 +1,90 @@
+[
+    {
+        "id": "Constant_PriAFactor",
+        "value": 25
+    },
+    {
+        "id": "Constant_PriAMaxMultiplier",
+        "value": 1.5
+    },
+    {
+        "id": "Constant_InterestsIPStep",
+        "value": 5
+    },
+    {
+        "id": "Constant_SkillsBuyMultiplier",
+        "value": 10
+    },
+    {
+        "id": "Constant_SkillsPriAMaxDiff",
+        "value": 3
+    },
+    {
+        "id": "Constant_SkillsMaxLevelPerIPMultiplier",
+        "value": 0.2
+    },
+    {
+        "id": "Constant_SkillsMaxLevelPerIPMinimum",
+        "value": 3
+    },
+    {
+        "id": "Constant_SkillsDefaultFactorCombat",
+        "value": 6
+    },
+    {
+        "id": "Constant_SkillsDefaultFactorPhysical",
+        "value": 5
+    },
+    {
+        "id": "Constant_SkillsDefaultFactorCrafting",
+        "value": 3
+    },
+    {
+        "id": "Constant_SkillsDefaultFactorVehicles",
+        "value": 6
+    },
+    {
+        "id": "Constant_SkillsDefaultFactorSocial",
+        "value": 4
+    },
+    {
+        "id": "Constant_SkillsDefaultFactorKnowledge",
+        "value": 3
+    },
+    {
+        "id": "Constant_SpecialisationsBuyStep",
+        "value": 7
+    },
+    {
+        "id": "Constant_SpecialisationsSkillBonus",
+        "value": 5
+    },
+    {
+        "id": "Constant_SpecialisationsBuyMultiplier",
+        "value": 100
+    },
+    {
+        "id": "Constant_TraitsInabilityBonusMultiplier",
+        "value": 3.0
+    },
+    {
+        "id": "Constant_TraitsCostIncrease",
+        "value": 1
+    },
+    {
+        "id": "Constant_AppsBuyMultiplier",
+        "value": 10
+    },
+    {
+        "id": "Constant_CreditsSoMultiplier",
+        "value": 100
+    },
+    {
+        "id": "Constant_CreditsJumpStartMultiplier",
+        "value": 200
+    },
+    {
+        "id": "Constant_FaithPointsMax",
+        "value": 5
+    }
+]

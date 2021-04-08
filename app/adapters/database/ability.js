@@ -1,5 +1,4 @@
-import DatabaseAdapter from './database';
+import CollectionAdapter from './collection';
 
-export default class AbilityAdapter extends DatabaseAdapter {
-    databaseName = "abilities";
+export default class DatabaseAbilityAdapter extends CollectionAdapter {
 }

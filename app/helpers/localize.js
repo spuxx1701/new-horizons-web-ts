@@ -6,7 +6,13 @@ import { inject as service } from '@ember/service';
 
 export default class LocalizeHelper extends Helper {
   @service localizationService;
-  compute([key, ...rest]) {
-    return this.localizationService.getValue(key);
+  compute([key, returnKeyOnFailure = false]) {
+    if (key) {
+      let result = this.localizationService.getValue(key, returnKeyOnFailure);
+      if (!result && returnKeyOnFailure) {
+        result = key;
+      }
+      return result;
+    }
   }
 }

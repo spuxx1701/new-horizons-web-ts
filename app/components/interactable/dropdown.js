@@ -8,21 +8,30 @@ import { inject as service } from '@ember/service';
 export default class DropdownComponent extends InteractableComponent {
     @service manager;
     @tracked caption;
-    @tracked selectedIndex = 0;
-    @tracked selectedId = "";
+    @tracked selectedItem;
+    @tracked firstItem;
+    @tracked lastItem;
+    hasRendered = false;
 
     init() {
         super.init()
     }
 
     willRender() {
-        let items = this.get("items");
-        if (!items || items.content.length < 0) {
-            this.set("caption", this.manager.localize("Misc_NoData"));
-            this.set("disabled", true);
-        } else {
-            this.set("disabled", this.get("forceDisable"));
-            this.update();
+        if (!this.hasRendered) {
+            let items = this.get("items");
+            // check whether the dropdown actually contains data
+            if (!items || items.content.length === 0) {
+                this.set("caption", this.manager.localize("Misc_NoData"));
+                this.set("disabled", true);
+            } else {
+                this.set("firstItem", items.content[0]);
+                this.set("selectedItem", items.content[0]);
+                this.set("lastItem", items.content[items.content.length - 1]);
+                this.set("disabled", this.get("forceDisable"));
+                this.onItemClicked(items.content[0]);
+            }
+            this.hasRendered = true;
         }
     }
 
@@ -30,29 +39,23 @@ export default class DropdownComponent extends InteractableComponent {
     @action onItemClicked(item) {
         // do dropdown specific stuff
         if (this.get("disabled")) return;
-        let items = this.get("items");
-        let index = items.indexOf(item);
-        this.set("selectedIndex", index);
-        this.update();
+        this.set("selectedItem", item);
         // try to call onChange(itemID, index)
         if (typeof this.onChange === this.manager.constants.typeOfFunction) {
-            this.onChange(this.get("selectedId"), this.get("selectedIndex"));
+            this.onChange(item.id);
         } else {
-            this.manager.log("error", "Calling onChange(itemID, index) from dropdown component has failed because method has not been subscribed in parent template.");
+            this.manager.log("Calling onChange(itemID, index) from dropdown component has failed because method has not been subscribed in parent template.", this.manager.msgType.x);
         }
+        this.update();
     }
 
     // update dropdown state internally
     @action update() {
-        let items = this.get("items");
+        // let items = this.get("items");
+        // let selectedItemIndex = items.indexOf(this.get("selectedItem"));
         // visualize and, if required, adjust the current selected item
-        if (this.get("selectedIndex") >= items.content.length)
-            this.set("selectedIndex", items.content.length - 1);
-        for (let i = 0; i < items.content.length; i++) {
-            if (i == this.get("selectedIndex")) {
-                this.set("caption", this.manager.localize(items.content[i].id));
-                this.set("selectedId", items.content[i].id);
-            }
-        }
+        // if (this.get("selectedIndex") >= items.content.length)
+        //     this.set("selectedIndex", items.content.length - 1);
+        this.set("caption", this.manager.localize(this.get("selectedItem").id));
     }
 }

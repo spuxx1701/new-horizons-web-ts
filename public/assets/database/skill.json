@@ -1,0 +1,1388 @@
+[
+    {
+        "id": "Skill_Combat_EnergyWeapons",
+        "skillCategory": "SkillCategory_Combat",
+        "factor": 6,
+        "constraint": 1,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CR",
+            "PriA_DX",
+            "PriA_ST"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": false,
+        "baseValue": 1,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Combat_HeavyWeapons",
+        "skillCategory": "SkillCategory_Combat",
+        "factor": 6,
+        "constraint": 1,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CR",
+            "PriA_DX",
+            "PriA_ST"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": false,
+        "baseValue": 1,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Combat_MeleeHands",
+        "skillCategory": "SkillCategory_Combat",
+        "factor": 4,
+        "constraint": 2,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CR",
+            "PriA_DX",
+            "PriA_ST"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": true,
+        "baseValue": 1,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Combat_MeleeWeapons",
+        "skillCategory": "SkillCategory_Combat",
+        "factor": 4,
+        "constraint": 2,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CR",
+            "PriA_DX",
+            "PriA_ST"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": true,
+        "baseValue": 1,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Combat_OnboardWeapons",
+        "skillCategory": "SkillCategory_Combat",
+        "factor": 6,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CR",
+            "PriA_DX",
+            "PriA_ST"
+        ],
+        "hasSpecialisations": true,
+        "isBasic": false,
+        "baseValue": 1,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Combat_Pistols",
+        "skillCategory": "SkillCategory_Combat",
+        "factor": 5,
+        "constraint": 1,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CR",
+            "PriA_DX",
+            "PriA_ST"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": true,
+        "baseValue": 1,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Combat_Rifles",
+        "skillCategory": "SkillCategory_Combat",
+        "factor": 6,
+        "constraint": 1,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CR",
+            "PriA_DX",
+            "PriA_ST"
+        ],
+        "hasSpecialisations": true,
+        "isBasic": false,
+        "baseValue": 1,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Combat_Throwing",
+        "skillCategory": "SkillCategory_Combat",
+        "factor": 4,
+        "constraint": 2,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CR",
+            "PriA_DX",
+            "PriA_ST"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": true,
+        "baseValue": 1,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Crafting_AnimalTraining",
+        "skillCategory": "SkillCategory_Crafting",
+        "factor": 3,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CR",
+            "PriA_IN",
+            "PriA_CH"
+        ],
+        "hasSpecialisations": true,
+        "isBasic": false,
+        "baseValue": 2,
+        "requirements": [
+            {
+                "id": "Skill_Knowledge_BiologyAndMedicine",
+                "type": "",
+                "input": "",
+                "level": 3,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Crafting_Computers",
+        "skillCategory": "SkillCategory_Crafting",
+        "factor": 3,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CL",
+            "PriA_IN",
+            "PriA_DX"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": true,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Crafting_Cooking",
+        "skillCategory": "SkillCategory_Crafting",
+        "factor": 3,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CL",
+            "PriA_IN",
+            "PriA_DX"
+        ],
+        "hasSpecialisations": true,
+        "isBasic": true,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Crafting_Disguising",
+        "skillCategory": "SkillCategory_Crafting",
+        "factor": 3,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CR",
+            "PriA_IN",
+            "PriA_DX"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": false,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Crafting_Drawing",
+        "skillCategory": "SkillCategory_Crafting",
+        "factor": 3,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_IN",
+            "PriA_DX",
+            "PriA_DX"
+        ],
+        "hasSpecialisations": true,
+        "isBasic": true,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Crafting_ElectricalEngineering",
+        "skillCategory": "SkillCategory_Crafting",
+        "factor": 3,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CL",
+            "PriA_DX",
+            "PriA_DX"
+        ],
+        "hasSpecialisations": true,
+        "isBasic": false,
+        "baseValue": 0,
+        "requirements": [
+            {
+                "id": "Skill_Knowledge_Electronics",
+                "type": "",
+                "input": "",
+                "level": 3,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Skill_Knowledge_Informatics",
+                "type": "",
+                "input": "",
+                "level": 3,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Crafting_Explosives",
+        "skillCategory": "SkillCategory_Crafting",
+        "factor": 3,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CR",
+            "PriA_IN",
+            "PriA_DX"
+        ],
+        "hasSpecialisations": true,
+        "isBasic": false,
+        "baseValue": 0,
+        "requirements": [
+            {
+                "id": "Skill_Knowledge_Chemistry",
+                "type": "",
+                "input": "",
+                "level": 3,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Skill_Knowledge_Electronics",
+                "type": "",
+                "input": "",
+                "level": 3,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Crafting_MakingMusic",
+        "skillCategory": "SkillCategory_Crafting",
+        "factor": 3,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_IN",
+            "PriA_DX",
+            "PriA_DX"
+        ],
+        "hasSpecialisations": true,
+        "isBasic": false,
+        "baseValue": 0,
+        "requirements": [
+            {
+                "id": "Skill_Knowledge_Music",
+                "type": "",
+                "input": "",
+                "level": 3,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Crafting_MaterialProcessing",
+        "skillCategory": "SkillCategory_Crafting",
+        "factor": 3,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_IN",
+            "PriA_DX",
+            "PriA_ST"
+        ],
+        "hasSpecialisations": true,
+        "isBasic": true,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Crafting_MechanicalEngineering",
+        "skillCategory": "SkillCategory_Crafting",
+        "factor": 3,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CL",
+            "PriA_DX",
+            "PriA_ST"
+        ],
+        "hasSpecialisations": true,
+        "isBasic": false,
+        "baseValue": 0,
+        "requirements": [
+            {
+                "id": "Skill_Knowledge_Electronics",
+                "type": "",
+                "input": "",
+                "level": 3,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Skill_Knowledge_PhysicsAndMechanics",
+                "type": "",
+                "input": "",
+                "level": 3,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Crafting_MedicalCare",
+        "skillCategory": "SkillCategory_Crafting",
+        "factor": 3,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CR",
+            "PriA_CL",
+            "PriA_DX"
+        ],
+        "hasSpecialisations": true,
+        "isBasic": false,
+        "baseValue": 0,
+        "requirements": [
+            {
+                "id": "Skill_Knowledge_BiologyAndMedicine",
+                "type": "",
+                "input": "",
+                "level": 3,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Crafting_Pharmaceutics",
+        "skillCategory": "SkillCategory_Crafting",
+        "factor": 3,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CR",
+            "PriA_CL",
+            "PriA_DX"
+        ],
+        "hasSpecialisations": true,
+        "isBasic": false,
+        "baseValue": 0,
+        "requirements": [
+            {
+                "id": "Skill_Knowledge_BiologyAndMedicine",
+                "type": "",
+                "input": "",
+                "level": 3,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Skill_Knowledge_Chemistry",
+                "type": "",
+                "input": "",
+                "level": 3,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Crafting_PlayingGames",
+        "skillCategory": "SkillCategory_Crafting",
+        "factor": 3,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CR",
+            "PriA_IN",
+            "PriA_DX"
+        ],
+        "hasSpecialisations": true,
+        "isBasic": false,
+        "baseValue": 0,
+        "requirements": [
+            {
+                "id": "Skill_Knowledge_Gaming",
+                "type": "",
+                "input": "",
+                "level": 3,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Crafting_Programming",
+        "skillCategory": "SkillCategory_Crafting",
+        "factor": 3,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CL",
+            "PriA_IN",
+            "PriA_DX"
+        ],
+        "hasSpecialisations": true,
+        "isBasic": false,
+        "baseValue": 0,
+        "requirements": [
+            {
+                "id": "Skill_Knowledge_Informatics",
+                "type": "",
+                "input": "",
+                "level": 5,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Crafting_Writing",
+        "skillCategory": "SkillCategory_Crafting",
+        "factor": 3,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CL",
+            "PriA_IN",
+            "PriA_CH"
+        ],
+        "hasSpecialisations": true,
+        "isBasic": true,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Knowledge_Art",
+        "skillCategory": "SkillCategory_Knowledge",
+        "factor": 3,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CL",
+            "PriA_CL",
+            "PriA_IN"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": false,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Knowledge_Astronomy",
+        "skillCategory": "SkillCategory_Knowledge",
+        "factor": 3,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CL",
+            "PriA_CL",
+            "PriA_IN"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": false,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Knowledge_BiologyAndMedicine",
+        "skillCategory": "SkillCategory_Knowledge",
+        "factor": 3,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CL",
+            "PriA_CL",
+            "PriA_IN"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": false,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Knowledge_Chemistry",
+        "skillCategory": "SkillCategory_Knowledge",
+        "factor": 3,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CL",
+            "PriA_CL",
+            "PriA_IN"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": false,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Knowledge_Electronics",
+        "skillCategory": "SkillCategory_Knowledge",
+        "factor": 3,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CL",
+            "PriA_CL",
+            "PriA_IN"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": false,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Knowledge_Gaming",
+        "skillCategory": "SkillCategory_Knowledge",
+        "factor": 3,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CL",
+            "PriA_CL",
+            "PriA_IN"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": false,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Knowledge_GeneralKnowledge",
+        "skillCategory": "SkillCategory_Knowledge",
+        "factor": 3,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CL",
+            "PriA_CL",
+            "PriA_IN"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": true,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Knowledge_Geology",
+        "skillCategory": "SkillCategory_Knowledge",
+        "factor": 3,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CL",
+            "PriA_CL",
+            "PriA_IN"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": false,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Knowledge_History",
+        "skillCategory": "SkillCategory_Knowledge",
+        "factor": 3,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CL",
+            "PriA_CL",
+            "PriA_IN"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": false,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Knowledge_Informatics",
+        "skillCategory": "SkillCategory_Knowledge",
+        "factor": 3,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CL",
+            "PriA_CL",
+            "PriA_IN"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": false,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Knowledge_Law",
+        "skillCategory": "SkillCategory_Knowledge",
+        "factor": 3,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CL",
+            "PriA_CL",
+            "PriA_IN"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": false,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Knowledge_MathematicsAndEconomy",
+        "skillCategory": "SkillCategory_Knowledge",
+        "factor": 3,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CL",
+            "PriA_CL",
+            "PriA_IN"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": false,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Knowledge_Music",
+        "skillCategory": "SkillCategory_Knowledge",
+        "factor": 3,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CL",
+            "PriA_CL",
+            "PriA_IN"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": false,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Knowledge_Orientation",
+        "skillCategory": "SkillCategory_Knowledge",
+        "factor": 3,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CL",
+            "PriA_CL",
+            "PriA_IN"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": true,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Knowledge_PhysicsAndMechanics",
+        "skillCategory": "SkillCategory_Knowledge",
+        "factor": 3,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CL",
+            "PriA_CL",
+            "PriA_IN"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": false,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Knowledge_Spaceflight",
+        "skillCategory": "SkillCategory_Knowledge",
+        "factor": 3,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CL",
+            "PriA_CL",
+            "PriA_IN"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": false,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Knowledge_Survival",
+        "skillCategory": "SkillCategory_Knowledge",
+        "factor": 3,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CR",
+            "PriA_CL",
+            "PriA_IN"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": false,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Knowledge_TacticsAndStrategy",
+        "skillCategory": "SkillCategory_Knowledge",
+        "factor": 3,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CR",
+            "PriA_CL",
+            "PriA_IN"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": false,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Physical_BodyControl",
+        "skillCategory": "SkillCategory_Physical",
+        "factor": 5,
+        "constraint": 2,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_AG",
+            "PriA_CN",
+            "PriA_ST"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": true,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Physical_Climbing",
+        "skillCategory": "SkillCategory_Physical",
+        "factor": 5,
+        "constraint": 2,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CR",
+            "PriA_AG",
+            "PriA_ST"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": true,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Physical_Dancing",
+        "skillCategory": "SkillCategory_Physical",
+        "factor": 5,
+        "constraint": 2,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_IN",
+            "PriA_CH",
+            "PriA_AG"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": true,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Physical_Diving",
+        "skillCategory": "SkillCategory_Physical",
+        "factor": 5,
+        "constraint": 2,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CR",
+            "PriA_AG",
+            "PriA_CN"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": false,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Physical_ImitatingVoices",
+        "skillCategory": "SkillCategory_Physical",
+        "factor": 5,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CR",
+            "PriA_IN",
+            "PriA_CH"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": false,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Physical_Inebriating",
+        "skillCategory": "SkillCategory_Physical",
+        "factor": 5,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CR",
+            "PriA_CN",
+            "PriA_ST"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": true,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Physical_Perception",
+        "skillCategory": "SkillCategory_Physical",
+        "factor": 5,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CL",
+            "PriA_IN",
+            "PriA_IN"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": true,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Physical_Running",
+        "skillCategory": "SkillCategory_Physical",
+        "factor": 5,
+        "constraint": 2,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_AG",
+            "PriA_AG",
+            "PriA_CN"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": true,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Physical_Singing",
+        "skillCategory": "SkillCategory_Physical",
+        "factor": 5,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_IN",
+            "PriA_CH",
+            "PriA_CN"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": true,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Physical_SneakingHiding",
+        "skillCategory": "SkillCategory_Physical",
+        "factor": 5,
+        "constraint": 1,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CR",
+            "PriA_IN",
+            "PriA_AG"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": true,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Physical_Stealing",
+        "skillCategory": "SkillCategory_Physical",
+        "factor": 5,
+        "constraint": 1,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CR",
+            "PriA_IN",
+            "PriA_DX"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": false,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Physical_Swimming",
+        "skillCategory": "SkillCategory_Physical",
+        "factor": 5,
+        "constraint": 2,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_AG",
+            "PriA_CN",
+            "PriA_ST"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": false,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Social_Acting",
+        "skillCategory": "SkillCategory_Social",
+        "factor": 4,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CR",
+            "PriA_IN",
+            "PriA_CH"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": false,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Social_Flirting",
+        "skillCategory": "SkillCategory_Social",
+        "factor": 4,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CR",
+            "PriA_CH",
+            "PriA_CH"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": true,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Social_Inspiring",
+        "skillCategory": "SkillCategory_Social",
+        "factor": 4,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CR",
+            "PriA_IN",
+            "PriA_CH"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": false,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Social_Intimidating",
+        "skillCategory": "SkillCategory_Social",
+        "factor": 4,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CR",
+            "PriA_CR",
+            "PriA_ST"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": false,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Social_Judgement",
+        "skillCategory": "SkillCategory_Social",
+        "factor": 4,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_IN",
+            "PriA_IN",
+            "PriA_CH"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": true,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Social_Reasoning",
+        "skillCategory": "SkillCategory_Social",
+        "factor": 4,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CL",
+            "PriA_CH",
+            "PriA_CH"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": true,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Social_SelfControl",
+        "skillCategory": "SkillCategory_Social",
+        "factor": 4,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CL",
+            "PriA_IN",
+            "PriA_CH"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": true,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Social_SoftSkills",
+        "skillCategory": "SkillCategory_Social",
+        "factor": 4,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_IN",
+            "PriA_CH",
+            "PriA_CH"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": true,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Social_Teaching",
+        "skillCategory": "SkillCategory_Social",
+        "factor": 4,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CL",
+            "PriA_IN",
+            "PriA_CH"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": true,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Social_Trading",
+        "skillCategory": "SkillCategory_Social",
+        "factor": 4,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CL",
+            "PriA_IN",
+            "PriA_CH"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": true,
+        "baseValue": 0,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Vehicles_ExtraplanetaryFlying",
+        "skillCategory": "SkillCategory_Vehicles",
+        "factor": 6,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CR",
+            "PriA_IN",
+            "PriA_CN"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": false,
+        "baseValue": 2,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Vehicles_IntraplanetaryFlying",
+        "skillCategory": "SkillCategory_Vehicles",
+        "factor": 6,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CR",
+            "PriA_IN",
+            "PriA_CN"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": false,
+        "baseValue": 2,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Vehicles_LandVehicles",
+        "skillCategory": "SkillCategory_Vehicles",
+        "factor": 6,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CR",
+            "PriA_IN",
+            "PriA_CN"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": false,
+        "baseValue": 2,
+        "requirements": [],
+        "specialExperience": 0
+    },
+    {
+        "id": "Skill_Vehicles_WaterVehicles",
+        "skillCategory": "SkillCategory_Vehicles",
+        "factor": 6,
+        "constraint": 0,
+        "current": 0,
+        "min": 0,
+        "max": 0,
+        "primaryAttributes": [
+            "PriA_CR",
+            "PriA_IN",
+            "PriA_CN"
+        ],
+        "hasSpecialisations": false,
+        "isBasic": false,
+        "baseValue": 2,
+        "requirements": [],
+        "specialExperience": 0
+    }
+]

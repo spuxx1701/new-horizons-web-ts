@@ -1,5 +1,4 @@
-import DatabaseAdapter from './database';
+import CollectionAdapter from './collection';
 
-export default class AppCategoryAdapter extends DatabaseAdapter {
-    databaseName = "app-categories";
+export default class DatabaseAppCategoryAdapter extends CollectionAdapter {
 }

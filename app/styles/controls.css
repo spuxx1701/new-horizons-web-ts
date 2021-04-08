@@ -1,5 +1,7 @@
 .interactable-container {
     width: 100%;
+    max-width: 100%;
+    min-height: 30px;
     margin-top: 2px;
     margin-bottom: 2px;
     justify-content: space-between;
@@ -9,91 +11,113 @@
 
 .interactable-element {
     width: 100%;
-    max-width: 490px;
     display: inline-flex;
+    align-items: center;
 }
 
-.interactable-size-1 {
-    max-width: 120px !important;
+.interactable-size-small {
+    width: 50px !important;
 }
 
-.interactable-size-2 {
-    max-width: 245px !important;
+.interactable-size-medium {
+    width: 100px !important;
 }
 
-.interactable-size-3 {
-    max-width: 490px !important;
-}
-
-.interactable-size-4 {
-    max-width: 735px !important;
-}
-
-.interactable-size-5 {
-    max-width: 980px !important;
+.interactable-size-large {
+    width: 150px !important;
 }
 
 .label {
-    min-width: 345px;
     text-align: start;
     margin-top: auto;
     margin-bottom: auto;
     margin-left: 0;
-    font-family: ARJULIAN;
+    font-family: Raleway;
     color: white;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+}
+
+.label-position-left {
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+.label-position-left .label {
+    min-width: 0px;
+    margin-right: 25px;
 }
 
 .inputfield, .dropdown-toggle, .button, .btn-secondary {
-    min-height: 36px;
+    min-height: 30px;
     background-color: var(--colorDeepSpace);
     border: none;
     border-radius: 5px;
     box-shadow: none !important;
     color: white;
-    font-family: ARJULIAN;
-    font-size: 1.1rem;
+    font-family: Raleway;
     padding-left: 10px;
     padding-right: 10px;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 .btn, .button {
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: Raleway;
+    font-size: 14px;
+    color: var(--colorTextDefault);
 }
 
-.btn:disabled, .button-square:disabled, .dropdown-toggle:disabled, .inputfield:disabled {
-    background-color: var(--colorGreyTrans);
+.btn:disabled, .button:disabled, .button-square:disabled, .dropdown-toggle:disabled, .inputfield:disabled {
+    background-color: var(--colorDisabled);
     cursor: default;
-}
-
-.btn:not(:disabled):not(.disabled):active:focus, .btn-secondary:not(:disabled):not(.disabled).active:focus, .inputfield:not(:disabled):hover, .show>.inputfield:focus {
-    background-color: var(--colorTealDark);
 }
 
 .btn:hover:not(:disabled), .button:hover:not(:disabled) {
     background-color: var(--colorTealDark);
 }
 
+.btn:active:not(:disabled), .button:active:not(:disabled) {
+    background-color: var(--colorTealBright);
+}
+
 .button-icon-1 {
-    margin: 2px;
+    height: 40px;
+    width: 40px;
     border: none;
     background-color: transparent;
-    color: var(--colorTealBright);
+    color: var(--colorTealDark);
 }
 
-.button-icon-1:hover {
+.button-icon-1:hover, .button-icon-1:active {
     color: var(--colorTealNeon);
-}
-
-.button-icon-1:active {
-    color: white;
 }
 
 .button-icon-1:disabled {
     color: var(--colorGreyTrans);
+}
+
+.button-icon-2 {
+    height: 40px;
+    border: 1px solid var(--colorTealDark);
+    color: var(--colorTealDark);
+    margin-left: 1px;
+    margin-right: 1px;
+    border-radius: 2px;
+    background: none;
+}
+
+.button-icon-2:hover, .button-icon-2:active {
+    color: var(--colorTealNeon);
+    border-color: var(--colorTealNeon);
+}
+
+.button-icon-2:disabled {
+    color: var(--colorGreyTrans);
+    border-color: var(--colorGreyTrans);
 }
 
 /*  DROPDOWN */
@@ -129,6 +153,8 @@
     background-color: var(--colorGreyDark);
     box-shadow: 0px 8px 16px 0px var(--colorDeepSpace);
     padding: 0;
+    /* border: 1px solid var(--colorPanelBorder); */
+    border-radius: 5px;
 }
 
 .dropdown-divider {
@@ -139,6 +165,17 @@
 .dropdown-item {
     padding: 5px 10px 5px 10px;
     margin: 0 0 0 0;
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-item-first {
+    border-radius: 5px 5px 0px 0px;
+}
+
+.dropdown-item-last {
+    border-radius: 0px 0px 5px 5px;
 }
 
 .dropdown-item:hover {
@@ -155,22 +192,85 @@
     color: var(--colorGreyBright);
 }
 
-/* INPUT FIELD */
-
 .inputfield {
+    border: 1px solid var(--colorGreyMedium);
+    height: 40px;
     width: 100%;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
-.inputfield:focus, .inputfield:not(:disabled):not(.disabled):active:focus, .inputfield:focus:hover {
+.inputfield:not(:disabled):focus {
     border: 2px solid var(--colorTealBright);
-    background-color: var(--colorDeepSpace);
 }
 
-/* BUTTON SQUARE */
+.inputfield:invalid:not(:focus) {
+    border: 2px solid var(--colorModalHeaderError);
+}
+
+.inputfield-hide-invalidity:not(:focus) {
+    border: 1px solid var(--colorGreyMedium) !important;
+}
+
+.inputfield-single-line {
+    overflow-x: auto;
+}
+
+.toggle {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+    border-radius: 15px;
+}
+
+.toggle input {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.toggle-slider {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: var(--colorDeepSpace);
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 15px;
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 19px;
+    width: 19px;
+    left: 3px;
+    bottom: 3px;
+    background-color: var(--colorGreyBright);
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 15px;
+}
+
+input:checked+.toggle-slider {
+    background-color: var(--colorTealDark);
+}
+
+input:checked+.toggle-slider:before {
+    -webkit-transform: translateX(25px);
+    -ms-transform: translateX(25px);
+    transform: translateX(25px);
+}
 
 .button-square {
-    height: 36px;
-    width: 36px;
+    height: 40px;
+    width: 46px;
     margin-left: 2px;
     margin-right: 2px;
 }
@@ -189,4 +289,39 @@
 
 .panel-info-button:hover {
     background-color: var(--colorTealBright);
+}
+
+.stellarpedia-image {
+    max-width: 100%;
+    /*border: solid 1px var(--colorGreyMedium);
+    border-radius: 20px;*/
+}
+
+.stellarpedia-row {
+    color: var(--colorTextDefault);
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--colorGreyBright);
+}
+
+.stellarpedia-row-header {
+    color: var(--colorTealNeon);
+    border-top: 1px solid var(--colorGreyBright);
+}
+
+.stellarpedia-row-default, .stellarpedia-row-last {
+    border-bottom: 1px solid var(--colorGreyBright);
+}
+
+.stellarpedia-cell {
+    border-right: 1px solid var(--colorGreyBright);
+    border-left: 1px solid var(--colorGreyBright);
+    padding-left: 5px;
+    padding-right: 5px;
+    overflow: hidden;
+    font-size: 2.75vmin;
+}
+
+.stellarpedia-cell:active, .stellarpedia-cell:hover {
+    overflow: visible;
 }

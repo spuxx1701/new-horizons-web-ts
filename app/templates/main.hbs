@@ -1,63 +1,98 @@
+{{!--INVISIBILE FORM IFRAME--}}
+<iframe name="frame" class="invisible" title="frame"></iframe>
+
 {{!--HEADER TOOLBAR--}}
+<div class="branding-bar"></div>
 <div class="header-toolbar justify-content-between">
-    <button id="navSidebarButton" class="button-icon-1" type="button"
-        {{on 'click' (fn this.openSidebar "navSidebar")}}>{{fa-icon "bars" size="2"}}</button>
-    <div class="hBoxItem justify-content-center">
-        <h4 class="fgTealNeon marginAuto">New Horizons</h4>
+    <button id="navSidebarButton" class="header-sidebar-button" type="button" {{on 'click' (fn
+        this.toggleSidebar "navSidebar" )}}>
+        {{fa-icon (if this.navSidebarExpanded "chevron-left" "bars") size="2x"}}</button>
+    <div class="h-boxItem justify-content-center">
+        <h4 class="fg-teal-neon marginAuto">New Horizons</h4>
     </div>
-    <button id="accountSidebarButton" class="button-icon-1" type="button"
-        {{on 'click' (fn this.openSidebar "accountSidebar")}}>
-        {{#if this.session.isAuthenticated}}
-        {{fa-icon "user" size="2"}}
+    <button id="accountSidebarButton" class="header-sidebar-button" type="button" {{on 'click' (fn
+        this.toggleSidebar "accountSidebar" )}}>
+        {{#if this.accountSidebarExpanded}}
+        {{fa-icon "chevron-right" size="2x"}}
         {{else}}
-        {{fa-icon "user-o" size="2"}}
+        {{#if this.session.isAuthenticated}}
+        {{fa-icon "user" size="2x"}}
+        {{else}}
+        {{fa-icon "user" prefix="far" size="2x"}}
+        {{/if}}
         {{/if}}
     </button>
 </div>
 
 {{!--NAV SIDEBAR--}}
 <div id="navSidebar" class="sidebar nav-sidebar">
-    <button class="button-icon-1 sidebar-item" type="button"
-        {{on 'click' (fn this.closeSidebar "navSidebar")}}>{{fa-icon "times" size="2"}}</button>
-    <div class="nav-sidebar-content">
+    <div id="navSidebarContent" class="nav-sidebar-content">
         {{liquid-outlet "navSidebarOutlet"}}
     </div>
 </div>
 
 {{!--ACCOUNT SIDEBAR--}}
 <div id="accountSidebar" class="sidebar account-sidebar">
-    <button class="button-icon-1 sidebar-item" type="button"
-        {{on 'click' (fn this.closeSidebar "accountSidebar")}}>{{fa-icon "times" size="2"}}</button>
-    <div class="account-sidebar-content">
-        <h5 class="fgWhite margin-vertical-medium text-right sidebar-header-r">{{localize "Misc_Account"}}</h5>
+    <div id="accountSidebarContent" class="account-sidebar-content">
+        {{#if this.session.isAuthenticated}}
+        <div class="h-box margin-vertical-medium overflow-hidden sidebar-header-r">
+            <h4 class="fg-white text-right">!</h4>
+            <h4 class="fg-teal-neon text-right">
+                {{this.session.data.authenticated.username}} </h4>
+            <div class="margin-sides-small" />
+            <h4 class="fg-white text-right">,{{localize "Misc_Hello"}}</h4>
+        </div>
+        {{else}}
+        <h4 class="fg-white margin-vertical-medium text-right sidebar-header-r">{{localize "Misc_Account"}}</h4>
+        {{/if}}
         <div class="sidebar-sep sidebar-item"></div>
         {{#if this.session.isAuthenticated}}
+        <button class="sidebar-button-1" type="button" {{on 'click' (fn this.callSignOutModal )}}>
+            {{fa-icon "sign-out-alt" size=this.sidebarIconSize class="margin-sides-medium fg-teal-neon"}}
+            <p class="margin-vertical-auto">{{localize "Misc_SignOut"}}</p>
+        </button>
         {{else}}
-        <button class="sidebar-button-1" type="button">
-            {{fa-icon "sign-in" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}}
+        <button class="sidebar-button-1" type="button" {{on 'click' (fn this.manager.goToSignIn "modal" )}}>
+            {{fa-icon "sign-in-alt" size=this.sidebarIconSize class="margin-sides-medium fg-teal-neon"}}
             <p class="margin-vertical-auto">{{localize "Misc_SignIn"}}</p>
         </button>
-        <div class="sidebar-sep"></div>
-        <button class="sidebar-button-1" type="button">
-            {{fa-icon "user-plus" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}}
+        <div class="sidebar-sep" />
+        <button class="sidebar-button-1" type="button" {{on 'click' (fn this.manager.goToRoute "sign-up" )}}>
+            {{fa-icon "user-plus" size=this.sidebarIconSize class="margin-sides-medium fg-teal-neon"}}
             <p class="margin-vertical-auto">{{localize "Misc_SignUp"}}</p>
         </button>
         {{/if}}
-        <div class="sidebar-sep"></div>
+        <div class="sidebar-sep" />
         {{#if this.manager.devMode}}
         <button class="sidebar-button-1" type="button" {{on 'click' (fn this.manager.test)}}>
-            {{fa-icon "code" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}}
+            {{fa-icon "code" size=this.sidebarIconSize class="margin-sides-medium fg-teal-neon"}}
             <p class="margin-vertical-auto">Test</p>
         </button>
-        <button class="sidebar-button-1" type="button">
-            {{fa-icon "align-left" size=this.sidebarIconSize class="marginSidesMedium fgTealNeon"}}
-            <p class="margin-vertical-auto">Show Log </p>
-        </button>
+        <div class="sidebar-sep" />
         {{/if}}
+        <button class="sidebar-button-1" type="button" {{on 'click' (fn this.manager.modalService.render "bug-report"
+            )}}>
+            {{fa-icon "bug" size=this.sidebarIconSize class="margin-sides-medium fg-teal-neon"}}
+            <p class="margin-vertical-auto">Report Bug</p>
+        </button>
+        <div class="sidebar-sep" />
+        <button class="sidebar-button-1" type="button" {{on 'click' this.manager.messageService.showApplog }}>
+            {{fa-icon "align-left" size=this.sidebarIconSize class="margin-sides-medium fg-teal-neon"}}
+            <p class="margin-vertical-auto">Application Log</p>
+        </button>
     </div>
 </div>
 
 {{!--PAGE CONTENT--}}
-<div id="pageOutlet" class="page-outlet">
-    {{liquid-outlet}}
+<div id="pageOutletContainer">
+    <div id="pageOutlet">
+        <LiquidOutlet />
+    </div>
+</div>
+
+{{!--MODALS--}}
+<div id="modal-container">
+    {{#if this.modalService.isActive}}
+    {{component this.modalService.componentName}}
+    {{/if}}
 </div>

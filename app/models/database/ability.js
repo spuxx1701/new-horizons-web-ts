@@ -1,19 +1,18 @@
-import Model, { attr, hasMany, belongsTo } from '@ember-data/model';
-import DatabaseModel from './database';
+import Model, { attr } from '@ember-data/model';
 
-export default class AbilityModel extends DatabaseModel {
-    @belongsTo("ability-category") category;
-    @attr("boolean") isEditorOnly;
-    @hasMany("value-reference") requirements;
-    @attr("boolean") needsInput;
-    @attr("string") input;
-    @attr("boolean") isSpecialisation;
-    @hasMany("value-reference") options;
-    @attr("boolean") isActive;
-    @attr("number") castTime;
-    @attr("number") staminaUse;
-    @attr("boolean") usesPower;
-    @attr("number") powerUse;
-    @attr("number") costs;
-    @attr("value-reference") targets;
+export default class DatabaseAbilityModel extends Model {
+    @attr() abilityCategory;
+    @attr() editorOnly;
+    @attr() requirements;
+    @attr() needsInput;
+    @attr() input;
+    @attr() isSpecialisation;
+    @attr() options;
+    @attr() isActive;
+    @attr() castTime;
+    @attr() staminaUse;
+    @attr() usesPower;
+    @attr() powerUse;
+    @attr() costs;
+    @attr() targets;
 }

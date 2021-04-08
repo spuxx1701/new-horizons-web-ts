@@ -5,8 +5,6 @@
 
 import Ember from 'ember';
 import Service from '@ember/service';
-import config from '../config/environment';
-import fetch from 'fetch';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 var that;
@@ -14,28 +12,26 @@ var that;
 export default class LocalizationService extends Service {
     @service manager;
     @service store;
+    @service databaseService;
+
     @tracked supportedLanguages = ["en", "de"];
     @tracked currentLocalization = "de";
-    //@tracked localizationData;
 
     init() {
         super.init();
         that = this;
-        //this.currentLocalization = this.getUserLanguage();
     }
 
-    getValue(key) {
-        /*if (!this.currentLocalization) {
-            this.currentLocalization = this.getUserLanguage();
-        }*/
-        key = key.replace("_", "/");
-        key = Ember.String.dasherize(key);
+    getValue(key, allowUndefined = false) {
+        if (key.string) key = key.string;
+        key = this.databaseService.transformId(key);;
         if (that.store.peekAll("localization").length == 0) return "";
         let result = that.store.peekRecord("localization", key);
         if (result) {
             return result.value;
         } else {
-            return ("loc_miss::" + key);
+            if (allowUndefined) return undefined;
+            else return ("loc-miss::" + key);
         }
     }
 

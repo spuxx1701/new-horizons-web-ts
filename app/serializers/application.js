@@ -1,5 +1,4 @@
-import Ember from 'ember';
-import JSONSerializer from '@ember-data/serializer/json';
+import JSONAPISerializer from '@ember-data/serializer/json-api';
 
-export default class ApplicationSerializer extends JSONSerializer {
+export default class ApplicationSerializer extends JSONAPISerializer {
 }
