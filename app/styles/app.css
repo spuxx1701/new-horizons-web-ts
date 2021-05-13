@@ -10,7 +10,7 @@
     --colorGreyBright: #c1c1c1;
     --colorGreyMedium: #5F5F5F;
     --colorGreyDark: #2c2c2c;
-    --colorGreyTrans: rgba(200, 200, 200, 0.5);
+    --colorGreyTrans: rgba(100, 100, 100, 0.5);
     --colorTealNeon: #00FFFF;
     --colorTealBright: #64C8C8;
     --colorTealDark: #498082;
@@ -37,14 +37,13 @@
     --colorTextSubtitle: #c1c1c1;
     --brandingBarHeight: 2px;
     --headerToolbarHeight: 40px;
-    --colorDisabled: #1818189f;
+    --backgroundColor1: #0e1015;
+    --backgroundColor2: #0e2525;
+    --backgroundColor3: #133333;
 }
 
-body {
-    color: var(--colorTextDefault);
-    background-color: var(--colorDeepSpace);
-    scrollbar-color: var(--colorScrollbarHandle) var(--colorScrollbarBackground);
-    scrollbar-arrow-color: var(--colorTealNeon);
+html {
+    height: 100%
 }
 
 .ember-application {
@@ -52,6 +51,14 @@ body {
     height: 100%;
     width: 100%;
     overflow: hidden;
+    color: var(--colorTextDefault);
+    background: linear-gradient(var(--backgroundColor1), var(--backgroundColor2), var(--backgroundColor3));
+    scrollbar-color: var(--colorScrollbarHandle) var(--colorScrollbarBackground);
+    scrollbar-arrow-color: var(--colorTealNeon);
+}
+
+.ember-view {
+    max-width: 100%;
 }
 
 .branding-bar {

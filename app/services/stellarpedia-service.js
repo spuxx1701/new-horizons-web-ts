@@ -18,7 +18,6 @@ export default class StellarpediaService extends Service {
 
     namespace = "/assets/stellarpedia/stellarpedia_";
     defaultEntry = { bookId: "basic-rules", chapterId: "introduction", entryId: "welcome" };
-    @tracked data;
     @tracked header;
     @tracked selectedBookId;
     @tracked selectedChapterId;
@@ -26,6 +25,7 @@ export default class StellarpediaService extends Service {
     @tracked currentPosition;
     @tracked returnRoute = "home";
     @tracked updateNavBarOnRender = false;
+    @tracked data;
 
     init() {
         //----------------------------------------------------------------------------//
@@ -42,12 +42,12 @@ export default class StellarpediaService extends Service {
         // Description:
         // Load and returns the Stellarpedia.
         //----------------------------------------------------------------------------//
-        if (this.data) {
-            return this.data;
+        let result = this.store.peekAll("stellarpedia");
+        if (result.content.length > 0) {
+            return result;
         } else {
             let result = await this.store.findAll("stellarpedia");
-            this.data = result;
-            this.manager.log("Stellarpedia initialized.");
+            this.set("data", result);
             return result;
         }
     }

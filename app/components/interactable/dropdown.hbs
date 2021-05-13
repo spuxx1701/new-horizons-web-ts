@@ -1,34 +1,48 @@
-<div class="interactable-container" style={{@style}}>
-    <label class="label h5" for="dropdown">{{localize @label}}</label>
-    <div class="interactable-element interactable-size-{{@size}}">
-        <BsDropdown id={{@id}} class="dropdown" @tagName="span" as |dropdown|>
-            <dropdown.button disabled={{this.disabled}}>
-                <h6 class="dropdown-caption">{{this.caption}}</h6>
-                <span class="caret"></span>
-            </dropdown.button>
-            <dropdown.menu as |menu|>
-                {{#each @items as |item|}}
-                <menu.item>
-                    <a class="dropdown-item {{if (eq item.id this.firstItem.id) 'dropdown-item-first'}}  {{if (eq item.id this.lastItem.id) 'dropdown-item-last'}}"
-                        href="#" {{on "click" (fn this.onItemClicked item)}}>
-                        <h6 class="dropdown-item-label"> {{localize item.id}}</h6>
-                    </a>
-                </menu.item>
-                {{#if (not-eq item.id this.lastItem.id)}}
-                <menu.divider />
+<div class="interactable-container container" style={{this.escapedStyle}}>
+    <div class="row full-width justify-content-{{@alignment}}">
+        <Interactable::Label @label={{@label}} @labelSize={{@labelSize}} />
+        <div class="interactable-element interactable-size-{{@size}}">
+            {{#if @cycle}}
+            <button type="button" class="button button-square" {{on "click" this.onPreviousClick}}
+                disabled={{this.isDisabled}}>
+                <FaIcon @icon="chevron-left" />
+            </button>
+            {{/if}}
+            <BsDropdown id={{@id}} class="dropdown dropdown-cycle-{{@cycle}}" @tagName="span" as |dropdown|>
+                {{#if this.isDisabled}}
+                <dropdown.button disabled>
+                    <h6 class="dropdown-caption">{{this.caption}}</h6>
+                    <span class="caret"></span>
+                </dropdown.button>
+                {{else}}
+                <dropdown.button>
+                    <h6 class="dropdown-caption">{{this.caption}}</h6>
+                    <span class="caret"></span>
+                </dropdown.button>
                 {{/if}}
-                {{/each}}
-            </dropdown.menu>
-        </BsDropdown>
-        {{#if @info}}
-        <Interactable::ButtonInfo @article={{@info}} />
-        {{/if}}
-        {{!-- <select id={{@id}} class="dropdown interactable-size-{{@size}}">
-            {{#each @items as |item|}}
-            <option value={{item.id}}>
-                <p>{{localize item.id}}</p>
-            </option>
-            {{/each}}
-        </select> --}}
+                <dropdown.menu as |menu|>
+                    {{#each @items as |item|}}
+                    <menu.item>
+                        <a class="dropdown-item {{if (eq item.id this.firstItem.id) 'dropdown-item-first'}}  {{if (eq item.id this.lastItem.id) 'dropdown-item-last'}}"
+                            href="#" {{on "click" (fn this.onItemClicked item)}}>
+                            <h6 class="dropdown-item-label"> {{localize item.id}}</h6>
+                        </a>
+                    </menu.item>
+                    {{#if (not-eq item.id this.lastItem.id)}}
+                    <menu.divider />
+                    {{/if}}
+                    {{/each}}
+                </dropdown.menu>
+            </BsDropdown>
+            {{#if @cycle}}
+            <button type="button" class="button button-square" {{on "click" this.onNextClick}}
+                disabled={{this.isDisabled}}>
+                <FaIcon @icon="chevron-right" />
+            </button>
+            {{/if}}
+            {{#if @info}}
+            <Interactable::ButtonInfo @article={{@info}} />
+            {{/if}}
+        </div>
     </div>
 </div>

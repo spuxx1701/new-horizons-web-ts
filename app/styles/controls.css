@@ -15,23 +15,9 @@
     align-items: center;
 }
 
-.interactable-size-small {
-    width: 50px !important;
-}
-
-.interactable-size-medium {
-    width: 100px !important;
-}
-
-.interactable-size-large {
-    width: 150px !important;
-}
-
 .label {
     text-align: start;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 0;
+    margin: auto 10px auto 0;
     font-family: Raleway;
     color: white;
     display: flex;
@@ -48,7 +34,15 @@
     margin-right: 25px;
 }
 
-.inputfield, .dropdown-toggle, .button, .btn-secondary {
+.label-position-top {
+    flex-direction: column;
+}
+
+.label-position-top .label {
+    margin-bottom: 10px;
+}
+
+.inputfield, .dropdown-toggle, .button, .btn-secondary, .value-control-field {
     min-height: 30px;
     background-color: var(--colorDeepSpace);
     border: none;
@@ -61,7 +55,7 @@
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.btn, .button {
+.btn, .button, .value-control-field {
     height: 40px;
     display: flex;
     align-items: center;
@@ -71,8 +65,12 @@
     color: var(--colorTextDefault);
 }
 
+.value-control-field {
+    font-size: 16px;
+}
+
 .btn:disabled, .button:disabled, .button-square:disabled, .dropdown-toggle:disabled, .inputfield:disabled {
-    background-color: var(--colorDisabled);
+    background-color: var(--colorGreyTrans);
     cursor: default;
 }
 
@@ -123,11 +121,16 @@
 /*  DROPDOWN */
 
 .dropdown {
-    width: 100% !important;
+    width: 1000px;
+}
+
+.dropdown-cycle-true {
+    max-width: calc(100% - 88px);
 }
 
 .dropdown-toggle {
     justify-content: space-between;
+    width: 100%;
 }
 
 .dropdown-toggle:active:not(:disabled) {
@@ -144,6 +147,8 @@
     margin-top: auto;
     margin-bottom: auto;
     color: white;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
 }
 
 .dropdown-menu {
@@ -153,7 +158,7 @@
     background-color: var(--colorGreyDark);
     box-shadow: 0px 8px 16px 0px var(--colorDeepSpace);
     padding: 0;
-    /* border: 1px solid var(--colorPanelBorder); */
+    border: none;
     border-radius: 5px;
 }
 
@@ -168,6 +173,11 @@
     height: 30px;
     display: flex;
     align-items: center;
+}
+
+.dropdown-item * {
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .dropdown-item-first {
@@ -270,7 +280,7 @@ input:checked+.toggle-slider:before {
 
 .button-square {
     height: 40px;
-    width: 46px;
+    width: 40px;
     margin-left: 2px;
     margin-right: 2px;
 }
@@ -283,7 +293,7 @@ input:checked+.toggle-slider:before {
     background-color: var(--colorTealDark);
     border: none;
     border-radius: 20px;
-    box-shadow: 0px 0px 5px 5px var(--colorDeepSpace);
+    box-shadow: 4px 4px 2px 2px var(--colorDeepSpace);
     color: white
 }
 
@@ -293,8 +303,8 @@ input:checked+.toggle-slider:before {
 
 .stellarpedia-image {
     max-width: 100%;
-    /*border: solid 1px var(--colorGreyMedium);
-    border-radius: 20px;*/
+    border: solid 1px var(--colorGreyMedium);
+    border-radius: 10px;
 }
 
 .stellarpedia-row {
@@ -324,4 +334,86 @@ input:checked+.toggle-slider:before {
 
 .stellarpedia-cell:active, .stellarpedia-cell:hover {
     overflow: visible;
+}
+
+/* Customize the label (the container) */
+
+.radio-group {
+    overflow: hidden;
+}
+
+.radio-container {
+    position: relative;
+    margin: auto;
+    padding-left: 35px;
+    min-height: 30px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.radio-label {
+    text-align: start;
+    margin: auto 10px auto 0;
+    font-family: Raleway;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+/* Hide the browser's default radio button */
+
+.radio-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom radio button */
+
+.radio-checkmark {
+    position: absolute;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    transition: 200ms;
+    background-color: var(--colorDeepSpace);
+    border-color: var(--colorGreyMedium);
+    border-radius: 50%;
+}
+
+/* When the radio button is checked, add a blue background */
+
+.radio-container input:checked~.radio-checkmark {
+    background-color: var(--colorTealDark);
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+
+.radio-checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    transition: 200ms;
+}
+
+/* Show the indicator (dot/circle) when checked */
+
+.radio-container input:checked~.radio-checkmark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+
+.radio-container .radio-checkmark:after {
+    top: 4px;
+    left: 4px;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    background: var(--colorGreyBright);
 }

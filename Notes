@@ -1,10 +1,7 @@
-+ Interactable Components mit möglichem Info-Button ausstatten
-+ Input Field mit möglichem Zusatz versehen, der beim Bearbeiten ausgeblendet und nach dem Bearbeiten wieder eingeblendet wird
-
 ToDo when converting character files:
 
-+ Replace "PriA_" with "PrimaryAttribute_" (?)
-+ Replace "SecA_" with "SecondaryAttribute_" (?)
++ Replace PriA_AG by pri-a/ag
++ Replace SecA_LP by sec-a/lp
 + Replace "abilityClass" with "abilityCategory"
 + Replace enum values
     - Skill.skillCategory (db done)

@@ -8,6 +8,7 @@ import Component from '@ember/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
+import { computed, set } from '@ember/object';
 
 export default class InteractableComponent extends Component {
     @service manager;
@@ -35,10 +36,19 @@ export default class InteractableComponent extends Component {
         if (!this.initialRender) return;
         this.initialRender = false;
         let component = document.getElementById(this.id);
-        let interactables = component.getElementsByClassName("interactable");
-        if (interactables.length < 1) return;
-        if (this.focus) {
-            interactables[0].focus();
+        if (component) {
+            let interactables = component.getElementsByClassName("interactable");
+            if (interactables.length < 1) return;
+            if (this.focus) {
+                interactables[0].focus();
+            }
+        }
+    }
+
+    @computed("style")
+    get escapedStyle() {
+        if (this.get("style")) {
+            return Ember.String.htmlSafe(this.get("style"));
         }
     }
 }

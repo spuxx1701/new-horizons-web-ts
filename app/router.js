@@ -25,11 +25,10 @@ Router.map(function () {
     this.route('stellarpedia', function () {
       this.route("article", { path: '/:fullEntryAdress' })
     });
-    // this.route('stellarpedia', { path: '/stellarpedia/:fullEntryAdress' });
-    // The charakter generator
     this.route('generator', function () {
       this.route('preset');
       this.route('origin');
+      this.route('origin-select', { path: 'origin/:reducedOriginId' });
       this.route('personal');
       this.route('attributes');
       this.route('traits');

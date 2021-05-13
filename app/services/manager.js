@@ -26,7 +26,8 @@ export default class ManagerService extends Service {
     @tracked pattern = {
         email: "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$",
         password: "^[a-zA-Z0-9!@#$%&*()-+=^]{8,40}$",
-        numeric: "^\\d{1,}$"
+        numeric: "^\\d{1,}$",
+        any: "(.|\\s)*\\S(.|\\s)*"
     }
 
     // System Variables
@@ -55,6 +56,8 @@ export default class ManagerService extends Service {
         let mediaQuery = window.matchMedia("(min-width: 768px)");
         this.onMediaChange(mediaQuery);
         mediaQuery.addListener(this.onMediaChange);
+        // listen to the beforeUnload event to check whether the user risks any data loss
+        window.addEventListener("beforeunload", this.onWindowBeforeUnload.bind(this));
     }
 
     @action test() {
@@ -117,6 +120,7 @@ export default class ManagerService extends Service {
         }
     }
 
+    // --- DEPRECATED ---
     @action updateTabGroup(buttonGroupID, selectedID, classNameSelected) {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2020-08-22
@@ -141,15 +145,6 @@ export default class ManagerService extends Service {
         // Sends the input to the localizationService and returns its value.
         //----------------------------------------------------------------------------//
         return (this.localizationService.getValue(key, allowUndefined));
-    }
-
-    @action getIdentifiable(id) {
-        //----------------------------------------------------------------------------//
-        // Leopold Hock / 2020-08-22
-        // Description:
-        // Looks up the identifier with the databaseService and returns the result.
-        //----------------------------------------------------------------------------//
-        return this.database.getIdentifiable(id);
     }
 
     @action log(messageText, messageType = this.messageService.msgType.i, showToUser = false) {
@@ -246,7 +241,7 @@ export default class ManagerService extends Service {
     }
 
     @action
-    clone(object) {
+    clone(object, id = undefined) {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2021-04-06
         // Description:
@@ -257,19 +252,25 @@ export default class ManagerService extends Service {
         let result;
         if (object) {
             result = JSON.parse(JSON.stringify(object));
+            if (id && result.id === undefined) {
+                result = { "id": id, ...result };
+            }
         }
         return result;
     }
 
-    @action updatePageUnloadWarning() {
-        let unsavedChangesDetected = false;
-        if (unsavedChangesDetected) {
-            return this.localize("Misc_PageUnloadWarning");
-        } else {
-            window.onbeforeunload = function () {
-                return;
-            };
+    onWindowBeforeUnload(event) {
+        if (this.devMode) {
+            // disable unload warning in dev mode to allow liverelead
+            return undefined;
         }
-
+        let isDirty = (this.generatorService.get("generationInProcess"));
+        if (isDirty) {
+            let confirmationMessage = this.localize("Misc_BeforeUnloadConfirmMessage");
+            (event || window.event).returnValue = confirmationMessage; //Gecko + IE
+            return confirmationMessage;
+        } else {
+            return undefined;
+        }
     }
 }

@@ -1,17 +1,19 @@
-<div class="interactable-container">
-    <div class="interactable-element">
+<div class="interactable-container container">
+    <div class="row full-width justify-content-{{@alignment}}">
         {{#if @label}}
-        <label class="label label-inline h6">{{localize @label}}</label>
+        <Interactable::Label @label={{@label}} @required={{@required}} @labelSize={{@labelSize}} />
         {{/if}}
-        <div class="toggle">
-            <input type="checkbox" checked={{changeset-get @changeset @key}} {{on "change" this.onChange}} />
-            <span class="toggle-slider"></span>
+        <div class="interactable-element width-auto">
+            <div class="toggle">
+                <input type="checkbox" checked={{changeset-get @changeset @key}} {{on "change" this.onChange}} />
+                <span class="toggle-slider"></span>
+            </div>
+            {{#if @info}}
+            <Interactable::ButtonInfo @article={{@info}} />
+            {{/if}}
         </div>
-        {{#if @info}}
-        <Interactable::ButtonInfo @article={{@info}} />
+        {{#if @subtitle}}
+        <p class="interactable-subtitle">{{@subtitle}}</p>
         {{/if}}
     </div>
-    {{#if @subtitle}}
-    <p class="interactable-subtitle">{{localize @subtitle}}</p>
-    {{/if}}
 </div>

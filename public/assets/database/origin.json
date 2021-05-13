@@ -2,7 +2,7 @@
     {
         "id": "Origin_EarthUrban",
         "convenientTraits": [],
-        "specialPA": 3,
+        "specialPA": "pri-a/ch",
         "skillsFixed": [
             {
                 "id": "Skill_Combat_Pistols",
@@ -92,7 +92,7 @@
     {
         "id": "Origin_EarthRural",
         "convenientTraits": [],
-        "specialPA": 4,
+        "specialPA": "pri-a/ag",
         "skillsFixed": [
             {
                 "id": "Skill_Combat_Pistols",
@@ -159,7 +159,7 @@
     {
         "id": "Origin_Mars",
         "convenientTraits": [],
-        "specialPA": 0,
+        "specialPA": "pri-a/cr",
         "skillsFixed": [
             {
                 "id": "Skill_Combat_Pistols",
@@ -226,7 +226,7 @@
     {
         "id": "Origin_Venus",
         "convenientTraits": [],
-        "specialPA": 5,
+        "specialPA": "pri-a/dx",
         "skillsFixed": [
             {
                 "id": "Skill_Combat_MeleeHands",
@@ -303,7 +303,7 @@
     {
         "id": "Origin_Ceres",
         "convenientTraits": [],
-        "specialPA": 2,
+        "specialPA": "pri-a/in",
         "skillsFixed": [
             {
                 "id": "Skill_Combat_MeleeHands",
@@ -373,7 +373,7 @@
     {
         "id": "Origin_Europa",
         "convenientTraits": [],
-        "specialPA": 1,
+        "specialPA": "pri-a/cl",
         "skillsFixed": [
             {
                 "id": "Skill_Crafting_Computers",
@@ -442,7 +442,7 @@
     {
         "id": "Origin_Ganymed",
         "convenientTraits": [],
-        "specialPA": 6,
+        "specialPA": "pri-a/cn",
         "skillsFixed": [
             {
                 "id": "Skill_Combat_Pistols",
@@ -507,7 +507,7 @@
     {
         "id": "Origin_Titan",
         "convenientTraits": [],
-        "specialPA": 7,
+        "specialPA": "pri-a/st",
         "skillsFixed": [
             {
                 "id": "Skill_Combat_MeleeHands",
@@ -578,7 +578,7 @@
     {
         "id": "Origin_Miranda",
         "convenientTraits": [],
-        "specialPA": 0,
+        "specialPA": "pri-a/cr",
         "skillsFixed": [
             {
                 "id": "Skill_Combat_Pistols",
@@ -642,7 +642,7 @@
     {
         "id": "Origin_CodexTriton",
         "convenientTraits": [],
-        "specialPA": 2,
+        "specialPA": "pri-a/in",
         "skillsFixed": [
             {
                 "id": "Skill_Combat_Pistols",
@@ -719,7 +719,7 @@
     {
         "id": "Origin_CodexMoons",
         "convenientTraits": [],
-        "specialPA": 7,
+        "specialPA": "pri-a/st",
         "skillsFixed": [
             {
                 "id": "Skill_Combat_MeleeHands",

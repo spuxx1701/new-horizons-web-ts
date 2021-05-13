@@ -5,29 +5,31 @@
             <div class="v-box h-boxItem">
                 <h4 class="v-boxItem">{{localize "Misc_Contact"}}</h4>
                 <div class="v-boxItem justify-content-start h-box margin-vertical-auto margin-horizontal-auto">
-                    {{fa-icon "user" size=this.sidebarIconSize class="margin-sides-medium fg-teal-neon"}}
+                    <FaIcon @icon="user" @size={{this.sidebarIconSize}} class="margin-sides-medium fg-teal-neon" />
                     <p class="margin-vertical-auto">Leopold Hock</p>
                 </div>
                 <div class="v-boxItem justify-content-start h-box margin-vertical-auto margin-horizontal-auto">
-                    {{fa-icon "map-marker" size=this.sidebarIconSize class="margin-sides-medium fg-teal-neon"}}
+                    <FaIcon @icon="map-marker" @size={{this.sidebarIconSize}}
+                        class="margin-sides-medium fg-teal-neon" />
                     <p class="margin-vertical-auto">Würzburg, Deutschland</p>
                 </div>
                 <div class="v-boxItem justify-content-start h-box margin-vertical-auto margin-horizontal-auto">
-                    {{fa-icon "home" size=this.sidebarIconSize class="margin-sides-medium fg-teal-neon"}}
+                    <FaIcon @icon="home" @size={{this.sidebarIconSize}} class="margin-sides-medium fg-teal-neon" />
                     <p class="margin-vertical-auto">Website: <a class="margin-vertical-auto"
                             href="https://www.leopoldhock.de">leopoldhock.de</a></p>
                 </div>
                 {{!--<div class="v-boxItem justify-content-start h-box margin-vertical-auto margin-horizontal-auto">
-                    {{fa-icon "phone" size=this.sidebarIconSize class="margin-sides-medium fg-teal-neon"}}
+                    <FaIcon @icon="phone" @size={{this.sidebarIconSize}} class="margin-sides-medium fg-teal-neon" />
                     <p class="margin-vertical-auto">{{localize "Misc_Phone"}}: +49 160 966 844 36</p>
                 </div>--}}
                 <div class="v-boxItem justify-content-start h-box margin-vertical-auto margin-horizontal-auto">
-                    {{fa-icon "envelope" size=this.sidebarIconSize class="margin-sides-medium fg-teal-neon"}}
+                    <FaIcon @icon="envelope" @size={{this.sidebarIconSize}} class="margin-sides-medium fg-teal-neon" />
                     <p class="margin-vertical-auto">{{localize "Misc_Email"}}: <a class="margin-vertical-auto"
                             href="mailto:kontakt@leopoldhock.de">kontakt@leopoldhock.de</a></p>
                 </div>
                 <div class="v-boxItem justify-content-start h-box margin-vertical-auto margin-horizontal-auto">
-                    {{fa-icon "commenting" size=this.sidebarIconSize class="margin-sides-medium fg-teal-neon"}}
+                    <FaIcon @icon="commenting" @size={{this.sidebarIconSize}}
+                        class="margin-sides-medium fg-teal-neon" />
                     <p class="margin-vertical-auto">{{localize "Misc_Feedback"}}: <a class="margin-vertical-auto"
                             href="https://discord.gg/anSjdatqby">Discord</a></p>
                 </div>
@@ -35,7 +37,7 @@
             {{!--<div class="v-box h-boxItem width50">
                 <h5 class="v-boxItem">{{localize "Misc_SocialMedia"}}</h5>
                 <div class="v-boxItem justify-content-start h-box margin-vertical-auto margin-horizontal-auto">
-                    {{fa-icon "twitter" size=this.sidebarIconSize class="margin-sides-medium fg-teal-neon"}}
+                    <FaIcon @icon="twitter" @size={{this.sidebarIconSize}} class="margin-sides-medium fg-teal-neon" />
                     <p class="margin-vertical-auto">{{localize "Misc_Twitter"}}</p>
                 </div>
             </div>--}}

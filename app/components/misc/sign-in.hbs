@@ -1,14 +1,14 @@
 <form id="sign-in-form" class="align-items-center" {{on "submit" this.onSubmit}}>
-    <Interactable::inputfield class="paddingTopBottom10px" @id="signin-input-email" @label="Component_SignIn_EmailLabel"
-        @required={{true}} @placeholder="Component_SignIn_EmailPlaceholder" @maxLength="255"
-        @pattern={{this.manager.pattern.email}} @changeset={{this.changeset}} @key="email" @type="email"
-        @style="width: 300px;" />
+    <Interactable::inputfield class="paddingTopBottom10px" @id="signin-input-email"
+        @label={{localize "Component_SignIn_EmailLabel" }} @required={{true}}
+        @placeholder="Component_SignIn_EmailPlaceholder" @maxLength="255" @pattern={{this.manager.pattern.email}}
+        @changeset={{this.changeset}} @key="email" @type="email" @style="width: 300px;" />
     <div class="panel-spacer" />
     <Interactable::inputfield class="paddingTopBottom10px" @id="signin-input-password"
-        @label="Component_SignIn_PasswordLabel" @required={{true}} @placeholder="Component_SignIn_PasswordPlaceholder"
-        @changeset={{this.changeset}} @key="passwordRaw" @type="password" @maxLength="40" @style="width: 300px;"
-        @eventListeners={{this.passwordEventListeners}} />
-    <div class="min-height-small">
+        @label={{localize "Component_SignIn_PasswordLabel" }} @required={{true}}
+        @placeholder="Component_SignIn_PasswordPlaceholder" @changeset={{this.changeset}} @key="passwordRaw"
+        @type="password" @maxLength="40" @style="width: 300px;" @eventListeners={{this.passwordEventListeners}} />
+    <div class="min-height-small full-width">
         <p id="password-requirements-text" class="text-center interactable-subtitle">
             {{localize "Component_SignIn_NoAccountYet_Text01"}} <a href="/sign-up">{{localize
                 "Component_SignIn_NoAccountYet_Text02"}}</a>

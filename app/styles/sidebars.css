@@ -107,7 +107,21 @@ Description: Contains style information for the sidebars and their child control
     transition: 200ms;
 }
 
-.sidebar-button-1:hover, .sidebar-button-1:active {
+.sidebar-button-1 svg {
+    min-width: 20px;
+}
+
+.sidebar-button-1-highlighted {
+    background-color: var(--colorTealDark) !important;
+    color: white;
+    text-shadow: 0 0 10px #fff;
+}
+
+.sidebar-button-1:disabled p, .sidebar-button-1:disabled svg {
+    color: var(--colorGreyMedium);
+}
+
+.sidebar-button-1:hover:not(:disabled), .sidebar-button-1:active:not(:disabled) {
     background-color: var(--colorGreyMedium);
 }
 

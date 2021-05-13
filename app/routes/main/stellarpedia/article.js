@@ -37,13 +37,6 @@ export default class MainStellarpediaArticleRoute extends Route {
     }
 
     @action loading(transition) {
-        console.log("loading stellarpedia page...");
-        // transition.promise.finally(function () {
-        //     debugger;
-        //     console.log("stellarpedia page loaded!");
-        // });
-        transition.promise.finally(() => {
-            console.log("loaded!");
-        });
+        return true;
     }
 }

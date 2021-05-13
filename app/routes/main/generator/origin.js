@@ -14,17 +14,15 @@ export default class MainGeneratorOriginRoute extends Route {
         await this.stellarpediaService.load();
         await this.databaseService.loadCollection("origin");
         let originId = "origin/earth-urban";
-        let disableUi = false;
-        if (this.generator.getCharacter() && this.generator.getCharacter().origin) {
-            // If the character's origin has already been chosen, show that origin and disable all interactables
-            originId = generator.getCharacter().origin;
-            disableUi = true;
+        if (this.generator.getCharacter() && this.generator.getCharacter().data.origin) {
+            // If the character'rigin has already been chosen, show that origin and disable all interactables
+            originId = this.generator.getCharacter().data.origin;
         }
         return RSVP.hash({
             origins: this.databaseService.loadCollection("origin"),
             selectedOrigin: this.databaseService.getIdentifiable(originId),
             selectedStellarpediaEntry: this.stellarpediaService.get("basic-rules", "supplement-origins", originId),
-            disabled: disableUi
+            skills: this.databaseService.loadCollection("skill")
         });
     }
 }

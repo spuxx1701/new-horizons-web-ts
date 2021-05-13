@@ -3,19 +3,19 @@
     <div class="panel panel-small">
         <form class="align-items-center" {{on "submit" this.onSubmit}}>
             <Interactable::inputfield class="paddingTopBottom10px" @id="signup-input-email"
-                @label="Route_SignUp_EmailLabel" @required={{true}} @placeholder="Route_SignUp_EmailPlaceholder"
-                @maxLength="255" @pattern={{this.manager.pattern.email}} @changeset={{this.changeset}} @key="email"
-                @type="email" @style="width: 300px;" />
+                @label={{localize "Route_SignUp_EmailLabel" }} @required={{true}}
+                @placeholder="Route_SignUp_EmailPlaceholder" @maxLength="255" @pattern={{this.manager.pattern.email}}
+                @changeset={{this.changeset}} @key="email" @type="email" @style="width: 300px;" />
             <div class="panel-spacer" />
             <Interactable::inputfield class="paddingTopBottom10px" @id="signup-input-username"
-                @label="Route_SignUp_UsernameLabel" @required={{true}} @placeholder="Route_SignUp_UsernamePlaceholder"
-                @minLength="4" @maxLength="255" @changeset={{this.changeset}} @key="username" @type="text"
-                @style="width: 300px;" />
+                @label={{localize "Route_SignUp_UsernameLabel" }} @required={{true}}
+                @placeholder="Route_SignUp_UsernamePlaceholder" @minLength="4" @maxLength="255"
+                @changeset={{this.changeset}} @key="username" @type="text" @style="width: 300px;" />
             <Interactable::inputfield class="paddingTopBottom10px" @id="signup-input-password"
-                @label="Route_SignUp_PasswordLabel" @required={{true}} @placeholder="Route_SignUp_PasswordPlaceholder"
-                @changeset={{this.changeset}} @key="passwordRaw" @type="password" @minLength="8" @maxLength="40"
-                @pattern={{this.manager.pattern.password}} @style="width: 300px;"
-                @eventListeners={{this.passwordEventListeners}} />
+                @label={{localize "Route_SignUp_PasswordLabel" }} @required={{true}}
+                @placeholder="Route_SignUp_PasswordPlaceholder" @changeset={{this.changeset}} @key="passwordRaw"
+                @type="password" @minLength="8" @maxLength="40" @pattern={{this.manager.pattern.password}}
+                @style="width: 300px;" @eventListeners={{this.passwordEventListeners}} />
             <div class="h-box justify-content-center paddingTopBottom10px">
                 <div id="password-sec-bar-1" class="h-box-item password-sec-level-bar" />
                 <div id="password-sec-bar-2" class="h-box-item password-sec-level-bar" />

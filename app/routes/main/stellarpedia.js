@@ -16,6 +16,6 @@ export default class StellarpediaRoute extends Route {
             }
         }
         // load json
-        await this.stellarpediaService.load();
+        return await this.stellarpediaService.load();
     }
 }

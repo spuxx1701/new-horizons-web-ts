@@ -5,7 +5,6 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
-var that;
 
 export default class MainController extends Controller {
     @service manager;
@@ -17,12 +16,11 @@ export default class MainController extends Controller {
 
     init() {
         super.init();
-        that = this;
     }
 
     @action
     toggleSidebar(id) {
-        let isExpanded = that.get(id + "Expanded");
+        let isExpanded = this.get(id + "Expanded");
         if (isExpanded) {
             document.getElementById(id).style.width = null;
             if (id == "navSidebar") {
@@ -56,7 +54,7 @@ export default class MainController extends Controller {
                 }
             }
         }
-        that.set(id + "Expanded", !isExpanded);
+        this.set(id + "Expanded", !isExpanded);
     }
 
     @action callSignOutModal() {
@@ -64,6 +62,7 @@ export default class MainController extends Controller {
         let modalText = { "name": "text", "value": ["Modal_SignOut_Text01"] };
         let yesLabel = { "name": "yesLabel", "value": "Misc_Yes" };
         let noLabel = { "name": "noLabel", "value": "Misc_No" };
+        let that = this;
         let yesListener = {
             "event": "click", "id": "modal-button-footer-yes", "function": async function () {
                 that.manager.hideModal();

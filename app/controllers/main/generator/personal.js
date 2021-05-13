@@ -10,9 +10,10 @@ export default class MainGeneratorPersonalController extends Controller {
     @service databaseService;
     @service("generator-service") generator;
 
-    @tracked changeset = Changeset({});
+    @tracked changeset = Changeset(this.model);
 
-    init() {
-        super.init();
+    @action onChange(event, data) {
+        data.changeset.save();
+        this.generator.getCharacter().setGeneralProperty(data.key, data.changeset.get(data.key), { override: true });
     }
 }

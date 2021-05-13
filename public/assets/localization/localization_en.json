@@ -1200,43 +1200,43 @@
         "value": "Kolonie Venus"
     },
     {
-        "key": "PriA_AG",
+        "key": "pri-a/ag",
         "value": "BE"
     },
     {
-        "key": "PriA_AG_Long",
+        "key": "pri-a/ag_Long",
         "value": "Beweglichkeit"
     },
     {
-        "key": "PriA_CH",
+        "key": "pri-a/ch",
         "value": "CH"
     },
     {
-        "key": "PriA_CH_Long",
+        "key": "pri-a/ch_Long",
         "value": "Charisma"
     },
     {
-        "key": "PriA_CL",
+        "key": "pri-a/cl",
         "value": "KL"
     },
     {
-        "key": "PriA_CL_Long",
+        "key": "pri-a/cl_Long",
         "value": "Klugheit"
     },
     {
-        "key": "PriA_CN",
+        "key": "pri-a/cn",
         "value": "KO"
     },
     {
-        "key": "PriA_CN_Long",
+        "key": "pri-a/cn_Long",
         "value": "Konstitution"
     },
     {
-        "key": "PriA_CR",
+        "key": "pri-a/cr",
         "value": "MU"
     },
     {
-        "key": "PriA_CR_Long",
+        "key": "pri-a/cr_Long",
         "value": "Mut"
     },
     {
@@ -1244,75 +1244,75 @@
         "value": "Aktuell"
     },
     {
-        "key": "PriA_DX",
+        "key": "pri-a/dx",
         "value": "FF"
     },
     {
-        "key": "PriA_DX_Long",
+        "key": "pri-a/dx_Long",
         "value": "Fingerfertigkeit"
     },
     {
-        "key": "PriA_IN",
+        "key": "pri-a/in",
         "value": "IN"
     },
     {
-        "key": "PriA_IN_Long",
+        "key": "pri-a/in_Long",
         "value": "Intuition"
     },
     {
-        "key": "PriA_ST",
+        "key": "pri-a/st",
         "value": "ST"
     },
     {
-        "key": "PriA_ST_Long",
+        "key": "pri-a/st_Long",
         "value": "Stärke"
     },
     {
-        "key": "SecA_AT",
+        "key": "sec-a/at",
         "value": "AT"
     },
     {
-        "key": "SecA_AT_Long",
+        "key": "sec-a/at_Long",
         "value": "Attacke"
     },
     {
-        "key": "SecA_DE",
+        "key": "sec-a/de",
         "value": "VE"
     },
     {
-        "key": "SecA_DE_Long",
+        "key": "sec-a/de_Long",
         "value": "Verteidigung"
     },
     {
-        "key": "SecA_LP",
+        "key": "sec-a/lp",
         "value": "LP"
     },
     {
-        "key": "SecA_LP_Long",
+        "key": "sec-a/lp_Long",
         "value": "Lebenspunkte"
     },
     {
-        "key": "SecA_PI",
+        "key": "sec-a/pi",
         "value": "PI"
     },
     {
-        "key": "SecA_PI_Long",
+        "key": "sec-a/pi_Long",
         "value": "Pilotieren"
     },
     {
-        "key": "SecA_RE",
+        "key": "sec-a/re",
         "value": "RE"
     },
     {
-        "key": "SecA_RE_Long",
+        "key": "sec-a/re_Long",
         "value": "Reaktion"
     },
     {
-        "key": "SecA_SP",
+        "key": "sec-a/sp",
         "value": "AP"
     },
     {
-        "key": "SecA_SP_Long",
+        "key": "sec-a/sp_Long",
         "value": "Ausdauerpunkte"
     },
     {

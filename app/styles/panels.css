@@ -12,6 +12,7 @@
 .panel, form {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .panel {
@@ -33,20 +34,27 @@
     border: 1px solid var(--colorPanelBorder);
 }
 
-.panel *, form * {
+.panel-max {
+    width: 100%;
     max-width: 100%;
 }
 
 .panel-large {
-    width: 100%;
+    width: 800px;
+    max-width: 100%;
 }
 
 .panel-medium {
-    width: 1000px;
+    width: 650px;
     max-width: 100%;
 }
 
 .panel-small {
+    width: 500px;
+    max-width: 100%;
+}
+
+.panel-tiny {
     width: 500px;
     max-width: 100%;
 }

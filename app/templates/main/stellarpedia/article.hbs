@@ -3,10 +3,14 @@
         <p class="stellarpedia-status-text">{{this.stellarpediaService.currentPosition}}</p>
     </div>
     <div class="h-boxItem justify-content-end">
-        <button type="button" class="button-icon-1">{{fa-icon "share"}}</button>
-        <button type="button" class="button-icon-1">{{fa-icon "search"}}</button>
+        <button type="button" class="button-icon-1">
+            <FaIcon @icon="share" />
+        </button>
+        <button type="button" class="button-icon-1">
+            <FaIcon @icon="search" />
+        </button>
     </div>
 </div>
-<div class="panel panel-large">
+<div class="panel">
     <Stellarpedia::article @entry={{this.stellarpediaService.selectedEntry}} />
 </div>

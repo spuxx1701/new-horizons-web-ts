@@ -1,55 +1,55 @@
 [
     {
-        "id": "PriA_CR",
+        "id": "pri-a/cr",
         "current": 8,
         "start": 8,
         "min": 8,
         "max": 14
     },
     {
-        "id": "PriA_CL",
+        "id": "pri-a/cl",
         "current": 8,
         "start": 8,
         "min": 8,
         "max": 14
     },
     {
-        "id": "PriA_IN",
+        "id": "pri-a/in",
         "current": 8,
         "start": 8,
         "min": 8,
         "max": 14
     },
     {
-        "id": "PriA_CH",
+        "id": "pri-a/ch",
         "current": 8,
         "start": 8,
         "min": 8,
         "max": 14
     },
     {
-        "id": "PriA_AG",
+        "id": "pri-a/ag",
         "current": 8,
         "start": 8,
         "min": 8,
         "max": 14
     },
     {
-        "id": "PriA_DX",
+        "id": "pri-a/dx",
         "current": 8,
         "start": 8,
         "min": 8,
         "max": 14
     },
     {
-        "id": "PriA_CN",
+        "id": "pri-a/cn",
         "current": 8,
         "start": 8,
         "min": 8,
         "max": 14
     },
     {
-        "id": "PriA_ST",
+        "id": "pri-a/st",
         "current": 8,
         "start": 8,
         "min": 8,

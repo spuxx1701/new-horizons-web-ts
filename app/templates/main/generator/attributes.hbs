@@ -1,0 +1,32 @@
+<Title @titleStyle="h2" @textPosition="center" @text={{localize "Route_Generator_Personal_Title" }} />
+<Layout::Panel @size="medium">
+    <form class="container">
+        <Title @titleStyle="h3" @text={{localize "Misc_PrimaryAttributes" }} />
+        <div class="row full-width justify-content-center align-items-start">
+            {{#each @model.primaryAttributes as |primaryAttribute|}}
+            <div class="col-md">
+                <Interactable::ValueControl @changeset={{primaryAttribute.changeset}} @key="start" @label={{localize
+                    (concat primaryAttribute.id '/long' ) }} @labelSize="medium" @alignment="space-between"
+                    @onChangeListener={{this.onChange}} @min={{primaryAttribute.min}} @max={{primaryAttribute.max}}
+                    @info="basic-rules/supplement-primary-attributes/{{primaryAttribute.id}}" />
+            </div>
+            {{/each}}
+        </div>
+        <Misc::Spacer />
+        <Title @titleStyle="h3" @text={{localize "Misc_SecondaryAttributes" }} />
+        <div class="row full-width justify-content-center align-items-start">
+            {{#each @model.secondaryAttributes as |secondaryAttribute|}}
+            <div class="col-md">
+                {{!--
+                <Interactable::Inputfield @label={{localize (concat secondaryAttribute.id "/long" ) }}
+                    @changeset={{this.changeset}} @key="{{secondaryAttribute.id}}.start" disabled={{true}}
+                    @info="basic-rules/supplement-secondary-attributes/{{secondaryAttribute.id}}" /> --}}
+                <Interactable::ValueControl @changeset={{secondaryAttribute.changeset}} @key="current" @label={{localize
+                    (concat secondaryAttribute.id "/long" ) }} @labelSize="medium" @alignment="start"
+                    @info="basic-rules/supplement-secondary-attributes/{{secondaryAttribute.id}}"
+                    @showButtons={{false}} />
+            </div>
+            {{/each}}
+        </div>
+    </form>
+</Layout::Panel>

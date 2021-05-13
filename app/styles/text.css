@@ -112,11 +112,12 @@ a:hover, a:active, .button-link:hover, .button-link:active {
 }
 
 .interactable-subtitle {
+    width: 0;
+    min-width: 100%;
     color: var(--colorTextSubtitle);
     font-style: italic;
     text-align: left;
     font-size: 12px;
-    margin: 0;
 }
 
 .text-left * {
@@ -129,10 +130,6 @@ a:hover, a:active, .button-link:hover, .button-link:active {
 
 .text-right * {
     text-align: right !important;
-}
-
-.text-area {
-    resize: none;
 }
 
 .text-area-height-small {

@@ -12,7 +12,8 @@ export default class MainGeneratorPresetRoute extends Route {
             constants: this.databaseService.loadCollection("constant"),
             primaryAttributes: this.databaseService.loadCollection("pri-a"),
             secondaryAttributes: this.databaseService.loadCollection("sec-a"),
-            skillCategories: this.databaseService.loadCollection("skill-category")
+            skillCategories: this.databaseService.loadCollection("skill-category"),
+            skills: this.databaseService.loadCollection("skill")
         });
     }
 

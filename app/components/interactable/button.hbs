@@ -1,10 +1,12 @@
-<div class="interactable-element" style={{@style}}>
-    <button id="{{@id}}-button" type={{@type}} class="button full-width" disabled={{this.isDisabled}}>
-        {{#if @busy}}
-        <FaIcon @icon="cog" @spin={{true}} @size="2x" class="position-absolute" />
-        <span class="sr-only">Loading...</span>
-        {{else}}
-        {{@label}}
-        {{/if}}
-    </button>
+<div class="interactable-container" style={{this.escapedStyle}}>
+    <div class="interactable-element interactable-size-{{@size}}">
+        <button id="{{@id}}-button" type={{@type}} class="button full-width" disabled={{this.isDisabled}}>
+            {{#if @busy}}
+            <FaIcon @icon="cog" @spin={{true}} @size="2x" class="position-absolute" />
+            <span class="sr-only">Loading...</span>
+            {{else}}
+            {{@label}}
+            {{/if}}
+        </button>
+    </div>
 </div>

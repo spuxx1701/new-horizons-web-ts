@@ -20,7 +20,7 @@ export default class ToggleComponent extends InteractableComponent {
         //----------------------------------------------------------------------------//
         this.changeset.set(this.key, event.srcElement.checked);
         if (this.onChangeListener) {
-            this.onChangeListener(event);
+            this.onChangeListener(event, { key: this.key, changeset: this.changeset });
         }
     }
 }

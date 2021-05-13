@@ -12,8 +12,6 @@ export default class DatabaseService extends Service {
     @service manager;
     @service store;
 
-    //@tracked data;
-
     init() {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2020-08-22
@@ -30,8 +28,13 @@ export default class DatabaseService extends Service {
         // Loads a collectioon.
         //----------------------------------------------------------------------------//
         let transformedCollectionName = this.transformId(collectionName);
-        let result = await this.store.findAll("database/" + transformedCollectionName);
-        return result;
+        let result = this.store.peekAll("database/" + transformedCollectionName);
+        if (result.content.length > 0) {
+            return result;
+        } else {
+            result = await this.store.findAll("database/" + transformedCollectionName);
+            return result;
+        }
     }
 
     getCollection(collectionName) {
@@ -45,21 +48,25 @@ export default class DatabaseService extends Service {
         return result;
     }
 
-    getIdentifiable(id) {
+    getIdentifiable(id, { clone = false, serialize = false } = {}) {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2020-08-22
         // Description:
         // Finds any identifiable in the database.
         //----------------------------------------------------------------------------//
-        // process id to extract model name
-        // make dasherized and separated by slash
         let transformedId = this.transformId(id);
         let splitTransformedId = transformedId.split('/');
         if (splitTransformedId.length > 1) {
             let collectionId = splitTransformedId[0];
             let result;
             if (result = this.store.peekRecord("database/" + collectionId, transformedId)) {
-                return result;
+                if (clone) {
+                    return this.cloneRecord(result);
+                } else if (serialize) {
+                    return result.serialize();
+                } else {
+                    return result;
+                }
             }
             this.manager.log(`Unable to find object with ID '${transformedId}' in collection '${collectionId}'.`, this.manager.msgType.e)
             return undefined;
@@ -89,9 +96,20 @@ export default class DatabaseService extends Service {
     }
 
     transformId(id) {
-        // Transforms an id by repalcing underscores by slashes and dasherizes it
-        let result = id.charAt(0).toLowerCase() + id.slice(1);
-        result = Ember.String.dasherize(result.replaceAll("_", "/"));
+        // Transforms an id by replacing underscores by slashes and dasherizes it
+        let result = id.replaceAll("_", "/");
+        let split = result.split("/");
+        for (let i = 0; i < split.length; i++) {
+            let part = split[i];
+            part = part.charAt(0).toLowerCase() + part.slice(1);
+            let regex = /[A-Z]+(?![a-z,\d])|[A-Z]?[a-z,\d]+|\d\+/g;
+            if (part.match(regex)) {
+                part = part.match(regex).join('-');
+            }
+            part = part.toLowerCase();
+            split[i] = part;
+        }
+        result = split.join("/");
         return result;
     }
 
@@ -102,6 +120,7 @@ export default class DatabaseService extends Service {
         // Clones a database record by extracting the data from the model record
         // and returning a copy of it.
         //----------------------------------------------------------------------------//
-        return this.manager.clone(record.getRecord().data);
+        if (typeof record.getRecord === "function") record = record.getRecord();
+        return this.manager.clone(record.serialize(), record.id)
     }
 }

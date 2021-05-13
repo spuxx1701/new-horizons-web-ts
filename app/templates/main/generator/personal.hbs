@@ -1,0 +1,35 @@
+<Title @titleStyle="h2" @textPosition="center" @text={{localize "Route_Generator_Personal_Title" }} />
+<Layout::Panel @size="medium">
+    <form>
+        <Interactable::Inputfield @changeset={{this.changeset}} @label={{localize "Route_Generator_Personal_Name" }}
+            @labelSize="medium" @key="name" @size="larger" @required={{true}} @maxLength="100" @alignment="start"
+            @onChangeListener={{this.onChange}} />
+        <Interactable::Inputfield @changeset={{this.changeset}} @label={{localize "Route_Generator_Personal_Sex" }}
+            @labelSize="medium" @key="sex" @size="medium" @required={{true}} @maxLength="40" @alignment="start"
+            @onChangeListener={{this.onChange}} />
+        <Interactable::Inputfield @changeset={{this.changeset}} @label={{localize "Route_Generator_Personal_Age" }}
+            @labelSize="medium" @key="age" @size="medium" @required={{true}} @maxLength="3"
+            @pattern={{this.manager.patter.numeric}} @alignment="start" @onChangeListener={{this.onChange}} />
+        <Interactable::Inputfield @changeset={{this.changeset}} @label={{localize "Route_Generator_Personal_Birthday" }}
+            @labelSize="medium" @key="birthday" @size="medium" @required={{true}} @maxLength="10" @alignment="start"
+            @onChangeListener={{this.onChange}} />
+        <Interactable::Inputfield @changeset={{this.changeset}} @label={{localize "Route_Generator_Personal_Height" }}
+            @labelSize="medium" @key="height" @size="medium" @required={{true}} @maxLength="3" @alignment="start"
+            @onChangeListener={{this.onChange}} />
+        <Interactable::Inputfield @changeset={{this.changeset}} @label={{localize "Route_Generator_Personal_Weight" }}
+            @labelSize="medium" @key="weight" @size="medium" @required={{true}} @maxLength="3" @alignment="start"
+            @onChangeListener={{this.onChange}} />
+        <Misc::Spacer />
+        <Interactable::ValueControl @changeset={{this.changeset}} @key="socialStatus"
+            @label={{localize "Route_Generator_Personal_SocialStatus" }} @labelSize="medium" @alignment="start"
+            @onChangeListener={{this.onChange}} @min={{this.model.socialStatusMin}} @max={{this.model.socialStatusMax}}
+            @info="basic-rules/the-first-character/who-are-you" />
+        <Misc::Spacer />
+        <Interactable::TextArea @changeset={{this.changeset}} @label={{localize "Route_Generator_Personal_Appearance" }}
+            @placeholder={{localize "Route_Generator_Personal_AppearancePlaceholder" }} @key="appearance"
+            @maxLength="255" @onChangeListener={{this.onChange}} />
+        <Interactable::TextArea @changeset={{this.changeset}} @label={{localize "Route_Generator_Personal_Family" }}
+            @placeholder={{localize "Route_Generator_Personal_FamilyPlaceholder" }} @key="family" @maxLength="255"
+            @onChangeListener={{this.onChange}} />
+    </form>
+</Layout::Panel>

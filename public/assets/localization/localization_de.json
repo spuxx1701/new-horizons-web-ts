@@ -1,5 +1,77 @@
 [
     {
+        "key": "Misc_BeforeUnloadConfirmMessage",
+        "value": "Es sieht so aus, als hättest Du noch ungespeicherte Änderungen in einem Deiner Charaktere oder eine laufende Charaktererstellung. Wenn Du die Seite verlässt, gehen alle ungespeicherten Änderungen verloren."
+    },
+    {
+        "key": "Route_Generator_Personal_FamilyPlaceholder",
+        "value": "Beschreibe knapp die Herkunft Deines Charakters. Wie und wo ist er aufgewachsen? Wie heißen seine engsten Familienmitglieder, Verwandte oder Freunde?"
+    },
+    {
+        "key": "Route_Generator_Personal_AppearancePlaceholder",
+        "value": "Beschreibe die äußere Erscheinung Deines Charakters. Wie wirkt er auf andere? Welche markanten Merkmale zeichnen ihn aus?"
+    },
+    {
+        "key": "Route_Generator_Personal_SocialStatus",
+        "value": "Sozialstatus"
+    },
+    {
+        "key": "Route_Generator_Personal_Family",
+        "value": "Familäre Herkunft o.ä."
+    },
+    {
+        "key": "Route_Generator_Personal_Appearance",
+        "value": "Äußere Erscheinung"
+    },
+    {
+        "key": "Route_Generator_Personal_Weight",
+        "value": "Gewicht (kg)"
+    },
+    {
+        "key": "Route_Generator_Personal_Height",
+        "value": "Größe (cm)"
+    },
+    {
+        "key": "Route_Generator_Personal_Birthday",
+        "value": "Geburtstag"
+    },
+    {
+        "key": "Route_Generator_Personal_Age",
+        "value": "Alter"
+    },
+    {
+        "key": "Route_Generator_Personal_Sex",
+        "value": "Geschlecht"
+    },
+    {
+        "key": "Route_Generator_Personal_Name",
+        "value": "Name"
+    },
+    {
+        "key": "Route_Generator_Personal_Title",
+        "value": "Persönliches"
+    },
+    {
+        "key": "Route_Generator_OriginSelect_Submit",
+        "value": "Wahl bestätigen"
+    },
+    {
+        "key": "Route_Generator_OriginSelect_ChooseSkill",
+        "value": "Wähle eine Fähigkeit..."
+    },
+    {
+        "key": "Route_Generator_OriginSelect_MotherTongue",
+        "value": "Wähle eine Muttersprache"
+    },
+    {
+        "key": "Route_Generator_OriginSelect_MotherTongueSubtitle",
+        "value": "Du kannst eine beliebige moderne Sprache wählen. Bedenke aber, dass nicht alle Sprachen im Sonnensystem gleichermaßen häufig sind. Die im Sonnensystem am meisten verbreitete Sprache ist Solaire, eine Art Englisch mit verschiedensten Einflüssen anderer, meist europäischer Sprachen. Solaire ist fast überall Amtssprache."
+    },
+    {
+        "key": "Route_Generator_Origin_Submit",
+        "value": "Herkunft wählen"
+    },
+    {
         "key": "Misc_PageUnloadWarning",
         "value": "Du hast ungespeicherte Änderungen (z.B. eine begonnene Charaktererstellung oder einen Charakter, den Du gerade bearbeitest). Wenn Du die Seite verlässt, gehen diese Änderungen verloren."
     },
@@ -2524,43 +2596,43 @@
         "value": "Kolonie Venus"
     },
     {
-        "key": "PriA_AG",
+        "key": "pri-a/ag",
         "value": "BE"
     },
     {
-        "key": "PriA_AG_Long",
+        "key": "pri-a/ag_Long",
         "value": "Beweglichkeit"
     },
     {
-        "key": "PriA_CH",
+        "key": "pri-a/ch",
         "value": "CH"
     },
     {
-        "key": "PriA_CH_Long",
+        "key": "pri-a/ch_Long",
         "value": "Charisma"
     },
     {
-        "key": "PriA_CL",
+        "key": "pri-a/cl",
         "value": "KL"
     },
     {
-        "key": "PriA_CL_Long",
+        "key": "pri-a/cl_Long",
         "value": "Klugheit"
     },
     {
-        "key": "PriA_CN",
+        "key": "pri-a/cn",
         "value": "KO"
     },
     {
-        "key": "PriA_CN_Long",
+        "key": "pri-a/cn_Long",
         "value": "Konstitution"
     },
     {
-        "key": "PriA_CR",
+        "key": "pri-a/cr",
         "value": "MU"
     },
     {
-        "key": "PriA_CR_Long",
+        "key": "pri-a/cr_Long",
         "value": "Mut"
     },
     {
@@ -2568,27 +2640,27 @@
         "value": "Aktuell"
     },
     {
-        "key": "PriA_DX",
+        "key": "pri-a/dx",
         "value": "FF"
     },
     {
-        "key": "PriA_DX_Long",
+        "key": "pri-a/dx_Long",
         "value": "Fingerfertigkeit"
     },
     {
-        "key": "PriA_IN",
+        "key": "pri-a/in",
         "value": "IN"
     },
     {
-        "key": "PriA_IN_Long",
+        "key": "pri-a/in_Long",
         "value": "Intuition"
     },
     {
-        "key": "PriA_ST",
+        "key": "pri-a/st",
         "value": "ST"
     },
     {
-        "key": "PriA_ST_Long",
+        "key": "pri-a/st_Long",
         "value": "Stärke"
     },
     {
@@ -2648,51 +2720,51 @@
         "value": "Farbsparmodus"
     },
     {
-        "key": "SecA_AT",
+        "key": "sec-a/at",
         "value": "AT"
     },
     {
-        "key": "SecA_AT_Long",
+        "key": "sec-a/at_Long",
         "value": "Attacke"
     },
     {
-        "key": "SecA_DE",
+        "key": "sec-a/de",
         "value": "VE"
     },
     {
-        "key": "SecA_DE_Long",
+        "key": "sec-a/de_Long",
         "value": "Verteidigung"
     },
     {
-        "key": "SecA_LP",
+        "key": "sec-a/lp",
         "value": "LP"
     },
     {
-        "key": "SecA_LP_Long",
+        "key": "sec-a/lp_Long",
         "value": "Lebenspunkte"
     },
     {
-        "key": "SecA_PI",
+        "key": "sec-a/pi",
         "value": "PI"
     },
     {
-        "key": "SecA_PI_Long",
+        "key": "sec-a/pi_Long",
         "value": "Pilotieren"
     },
     {
-        "key": "SecA_RE",
+        "key": "sec-a/re",
         "value": "RE"
     },
     {
-        "key": "SecA_RE_Long",
+        "key": "sec-a/re_Long",
         "value": "Reaktion"
     },
     {
-        "key": "SecA_SP",
+        "key": "sec-a/sp",
         "value": "AP"
     },
     {
-        "key": "SecA_SP_Long",
+        "key": "sec-a/sp_Long",
         "value": "Ausdauerpunkte"
     },
     {
@@ -2945,7 +3017,7 @@
     },
     {
         "key": "Skill_Social_Reasoning",
-        "value": "Argumentieren"
+        "value": "Rhetorik"
     },
     {
         "key": "Skill_Social_SelfControl",

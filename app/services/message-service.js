@@ -104,7 +104,7 @@ export default class ManagerService extends Service {
         let applog = this.store.peekAll("applog").content;
         for (let i = applog.length - 1; i >= 0; i--) {
             if (!applog[i] || (maxEntries && result.length >= maxEntries)) break;
-            result.push(applog[i].getRecord().toJSON());
+            result.push(applog[i].getRecord().serialize());
         }
         if (asJson) result = JSON.stringify(result);
         return result;

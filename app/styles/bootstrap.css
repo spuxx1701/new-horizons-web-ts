@@ -1,0 +1,11 @@
+.row {
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    max-width: calc(100% + 30px);
+    width: calc(100% + 30px);
+}
+
+.container {
+    align-items: center;
+}

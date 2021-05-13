@@ -2,13 +2,13 @@
     <div class="modal-inner-header modal-header-{{this.type}}">
         <div class="modal-header-title-container">
             {{#if this.icon}}
-            {{fa-icon this.icon class="modal-header-icon"}}
+            <FaIcon @icon={{this.icon}} class="modal-header-icon" />
             {{/if}}
             <h4 class="modal-header-title">{{localize this.title}}</h4>
         </div>
         {{#if this.isClosable}}
         <button id="modal-button-close" type="button" class="modal-button-close" {{on "click" this.modalService.hide}}>
-            {{fa-icon "times"}}
+            <FaIcon @icon="times" />
         </button>
         {{/if}}
     </div>

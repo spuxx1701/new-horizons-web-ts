@@ -8,6 +8,14 @@
         "value": 1.5
     },
     {
+        "id": "Constant_PriAGenerationMinimum",
+        "value": 8
+    },
+    {
+        "id": "Constant_PriAGenerationMaximum",
+        "value": 14
+    },
+    {
         "id": "Constant_InterestsIPStep",
         "value": 5
     },
@@ -86,5 +94,9 @@
     {
         "id": "Constant_FaithPointsMax",
         "value": 5
+    },
+    {
+        "id": "Constant_SocialStatusMax",
+        "value": 10
     }
 ]

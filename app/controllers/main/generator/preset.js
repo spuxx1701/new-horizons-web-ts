@@ -22,7 +22,7 @@ export default class GeneratorPresetController extends Controller {
     }
 
     @action onChangePreset(id) {
-        let item = this.manager.getIdentifiable(id);
+        let item = this.databaseService.getIdentifiable(id);
         item.set("isCustom", this.changeset.isCustom)
         this.set("changeset", Changeset(item));
         this.isModified = false;
@@ -61,16 +61,6 @@ export default class GeneratorPresetController extends Controller {
             // If there isn't, proceed with initializing the generation
             this.changeset.save();
             this.generator.initializeGeneration(this.changeset.data);
-        }
-
-        let modalType = { "name": "type", "value": "error" };
-        let modalTitle = { "name": "title", "value": "Misc_Sorry" };
-        let modalText = { "name": "text", "value": ["Modal_SignUpError_Text01"] };
-        let yesLabel = { "name": "yesLabel", "value": "Misc_Ok" };
-        let yesListener = {
-            "event": "click", "id": "modal-button-footer-yes", "function": function () {
-                that.manager.hideModal();
-            }
         }
     }
 }

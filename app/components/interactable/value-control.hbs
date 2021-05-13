@@ -1,0 +1,31 @@
+<div class="interactable-container container" style={{this.escapedStyle}}>
+    <div class="row full-width justify-content-{{@alignment}}">
+        {{#if @label}}
+        <Interactable::Label @label={{@label}} @required={{@required}} @labelSize={{@labelSize}} />
+        {{/if}}
+        <div class="interactable-element width-auto">
+            {{#if this.showButtons}}
+            <button type="button" class="button button-square" {{on "click" this.onDecreaseClick}}
+                disabled={{this.isDecreaseDisabled}}>
+                <FaIcon @icon="chevron-left" />
+            </button>
+            {{/if}}
+            <input id="{{@id}}-value-control-field"
+                class="value-control-field value-control-field-size-{{this.size}} text-{{this.textPosition}} interactable"
+                disabled={{true}} autofocus={{@autofocus}} value={{changeset-get @changeset @key}}
+                placeholder={{@placeholder}} />
+            {{#if this.showButtons}}
+            <button type="button" class="button button-square" {{on "click" this.onIncreaseClick}}
+                disabled={{this.isIncreaseDisabled}}>
+                <FaIcon @icon="chevron-right" />
+            </button>
+            {{/if}}
+            {{#if @info}}
+            <Interactable::ButtonInfo @article={{@info}} />
+            {{/if}}
+        </div>
+        {{#if @subtitle}}
+        <p class="interactable-subtitle">{{@subtitle}}</p>
+        {{/if}}
+    </div>
+</div>

@@ -1,21 +1,20 @@
-<div class="interactable-container">
-    {{#if @label}}
-    <label class="label h6" for="input">{{localize @label}}
-        {{#if @required}}
-        <p class="label h5 fg-teal-neon margin-sides-small">*</p>
+<div class="interactable-container container">
+    <div class="row full-width justify-content-{{@alignment}}">
+        {{#if @label}}
+        <Interactable::Label @label={{@label}} @required={{@required}} @labelSize={{@labelSize}} />
         {{/if}}
-    </label>
-    {{/if}}
-    <div class="interactable-element">
-        <textarea class="inputfield interactable text-area text-area-height-{{this.height}}" minLength={{@minLength}}
-            maxLength={{@maxLength}} disabled={{@disabled}} autofocus={{@autofocus}} required={{@required}}
-            value={{changeset-get @changeset @key}} {{on "change" this.onChange}} />{{!--changeset-get @changeset
-        @key--}}
-        {{#if @info}}
-        <Interactable::ButtonInfo @article={{@info}} />
+        <div class="interactable-element interactable-size-{{@size}}">
+            <textarea
+                class="inputfield inputfield-{{this.type}} text-area text-area-height-{{this.height}} text-{{@textPosition}} interactable inputfield-hide-invalidity"
+                pattern={{this.pattern}} minLength={{@minLength}} maxLength={{@maxLength}} disabled={{@disabled}}
+                autofocus={{@autofocus}} required={{@required}} value={{changeset-get @changeset @key}}
+                placeholder={{@placeholder}} {{on "change" this.onChange}} />
+            {{#if @info}}
+            <Interactable::ButtonInfo @article={{@info}} />
+            {{/if}}
+        </div>
+        {{#if @subtitle}}
+        <p class="interactable-subtitle">{{@subtitle}}</p>
         {{/if}}
     </div>
-    {{#if @subtitle}}
-    <p class="interactable-subtitle">{{localize @subtitle}}</p>
-    {{/if}}
 </div>

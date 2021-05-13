@@ -791,7 +791,7 @@
         "input": "",
         "targets": [
             {
-                "id": "SecA_SP",
+                "id": "sec-a/sp",
                 "type": "bonus",
                 "input": "",
                 "level": 1,
@@ -823,7 +823,7 @@
         "input": "",
         "targets": [
             {
-                "id": "SecA_LP",
+                "id": "sec-a/lp",
                 "type": "bonus",
                 "input": "",
                 "level": 1,
@@ -1219,14 +1219,14 @@
         "minLevel": 0,
         "maxLevel": 0,
         "options": [
-            "PriA_CR",
-            "PriA_CL",
-            "PriA_IN",
-            "PriA_CH",
-            "PriA_AG",
-            "PriA_DX",
-            "PriA_CN",
-            "PriA_ST"
+            "pri-a/cr",
+            "pri-a/cl",
+            "pri-a/in",
+            "pri-a/ch",
+            "pri-a/ag",
+            "pri-a/dx",
+            "pri-a/cn",
+            "pri-a/st"
         ],
         "needsInput": false,
         "input": "",
@@ -1286,7 +1286,7 @@
         "input": "",
         "targets": [
             {
-                "id": "SecA_RE",
+                "id": "sec-a/re",
                 "type": "bonus",
                 "input": "",
                 "level": 1,
@@ -1334,7 +1334,7 @@
         "input": "",
         "targets": [
             {
-                "id": "PriA_AG",
+                "id": "pri-a/ag",
                 "type": "max",
                 "input": "",
                 "level": -2,
@@ -1342,7 +1342,7 @@
                 "oldLevel": 0
             },
             {
-                "id": "PriA_DX",
+                "id": "pri-a/dx",
                 "type": "max",
                 "input": "",
                 "level": -2,
@@ -1350,7 +1350,7 @@
                 "oldLevel": 0
             },
             {
-                "id": "PriA_CN",
+                "id": "pri-a/cn",
                 "type": "max",
                 "input": "",
                 "level": -2,
@@ -1358,7 +1358,7 @@
                 "oldLevel": 0
             },
             {
-                "id": "SecA_RE",
+                "id": "sec-a/re",
                 "type": "bonus",
                 "input": "",
                 "level": -2,
@@ -1430,14 +1430,14 @@
         "minLevel": 0,
         "maxLevel": 0,
         "options": [
-            "PriA_CR",
-            "PriA_CL",
-            "PriA_IN",
-            "PriA_CH",
-            "PriA_AG",
-            "PriA_DX",
-            "PriA_CN",
-            "PriA_ST"
+            "pri-a/cr",
+            "pri-a/cl",
+            "pri-a/in",
+            "pri-a/ch",
+            "pri-a/ag",
+            "pri-a/dx",
+            "pri-a/cn",
+            "pri-a/st"
         ],
         "needsInput": false,
         "input": "",
@@ -1591,7 +1591,7 @@
         "input": "",
         "targets": [
             {
-                "id": "SecA_SP",
+                "id": "sec-a/sp",
                 "type": "bonus",
                 "input": "",
                 "level": -1,
@@ -1623,7 +1623,7 @@
         "input": "",
         "targets": [
             {
-                "id": "SecA_LP",
+                "id": "sec-a/lp",
                 "type": "bonus",
                 "input": "",
                 "level": -1,
@@ -1920,7 +1920,7 @@
         "input": "",
         "targets": [
             {
-                "id": "SecA_RE",
+                "id": "sec-a/re",
                 "type": "bonus",
                 "input": "",
                 "level": -1,
@@ -1960,7 +1960,7 @@
         "input": "",
         "targets": [
             {
-                "id": "PriA_ST",
+                "id": "pri-a/st",
                 "type": "max",
                 "input": "",
                 "level": -2,

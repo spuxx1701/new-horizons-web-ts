@@ -1,11 +1,11 @@
 <div class="modal-inner modal-size-medium">
     <div class="modal-inner-header modal-header-default">
         <div class="modal-header-title-container">
-            {{fa-icon "align-left" class="modal-header-icon"}}
+            <FaIcon @icon="align-left" class="modal-header-icon" />
             <h4 class="modal-header-title">{{localize "Modal_Applog_Title"}}</h4>
         </div>
         <button id="modal-button-close" type="button" class="modal-button-close" {{on "click" this.modalService.hide}}>
-            {{fa-icon "times"}}
+            <FaIcon @icon="times" />
         </button>
     </div>
     <div class="modal-inner-content">
@@ -14,19 +14,19 @@
             <div class="v-box">
                 <div class="h-box">
                     {{#if (eq entry.type this.manager.msgType.i)}}
-                    <i class="fa fa-info-circle fg-text-default"></i>
+                    <FaIcon @icon="info-circle" class="fg-text-default" />
                     {{/if}}
                     {{#if (eq entry.type this.manager.msgType.s)}}
-                    <i class="fa fa-check-circle fg-success"></i>
+                    <FaIcon @icon="check-circle" class="fg-success" />
                     {{/if}}
                     {{#if (eq entry.type this.manager.msgType.w)}}
-                    <i class="fa fa-exclamation-triangle fg-warning"></i>
+                    <FaIcon @icon="exclamation-triangle" class="fg-warning" />
                     {{/if}}
                     {{#if (eq entry.type this.manager.msgType.e)}}
-                    <i class="fa fa-exclamation-circle fg-error"></i>
+                    <FaIcon @icon="exclamation-circle" class="fg-error" />
                     {{/if}}
                     {{#if (eq entry.type this.manager.msgType.x)}}
-                    <i class="fa fa-bolt fg-error"></i>
+                    <FaIcon @icon="bolt" class="fg-error" />
                     {{/if}}
                     <div class="margin-sides-tiny" />
                     <h6 class="fg-grey-bright">{{entry.createdAt}} (UTC)</h6>

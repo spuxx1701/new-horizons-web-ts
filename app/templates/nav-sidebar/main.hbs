@@ -2,23 +2,28 @@
 <div class="sidebar-sep"></div>
 {{!--MAIN SECTION--}}
 <div class="v-box" id="main-tabs">
-    <button id="sidebar-button-home" class="sidebar-button-1" type="button" {{on 'click' (fn this.goToTab "home"
-        true)}}>
-        {{fa-icon "home" size=this.manager.constants.sidebarIconSize class="margin-sides-medium fg-teal-neon"}} <p
-            class="margin-vertical-auto">
+    <button id="sidebar-button-home"
+        class="sidebar-button-1 {{if (eq this.manager.router.currentRouteName 'main.home') 'sidebar-button-1-highlighted'}}"
+        type="button" {{on 'click' (fn this.goToTab "home" true)}}>
+        <FaIcon @icon="home" @size={{this.manager.constants.sidebarIconSize}}
+            class="margin-sides-medium fg-teal-neon" />
+        <p class="margin-vertical-auto">
             {{localize "Misc_Home"}}</p>
     </button>
     <div class="sidebar-sep"></div>
-    <button id="sidebar-button-imprint" class="sidebar-button-1" type="button" {{on 'click' (fn this.goToTab "imprint"
-        true)}}>
-        {{fa-icon "info-circle" size=this.manager.constants.sidebarIconSize class="margin-sides-medium fg-teal-neon"}}
+    <button id="sidebar-button-imprint"
+        class="sidebar-button-1 {{if (eq this.manager.router.currentRouteName 'main.imprint') 'sidebar-button-1-highlighted'}}"
+        type="button" {{on 'click' (fn this.goToTab "imprint" true)}}>
+        <FaIcon @icon="info-circle" @size={{this.manager.constants.sidebarIconSize}}
+            class="margin-sides-medium fg-teal-neon" />
         <p class="margin-vertical-auto">
             {{localize "Misc_Imprint"}}</p>
     </button>
     <div class="sidebar-sep"></div>
     <button id="sidebar-button-discord" class="sidebar-button-1" type="button" {{on 'click' this.goToDiscord}}>
-        {{fa-icon "discord" prefix="fab" size=this.manager.constants.sidebarIconSize class="margin-sides-medium
-        fg-teal-neon"}} <p class="margin-vertical-auto">
+        <FaIcon @icon="discord" @prefix="fab" @size={{this.manager.constants.sidebarIconSize}} class="margin-sides-medium
+        fg-teal-neon" />
+        <p class="margin-vertical-auto">
             Discord</p>
     </button>
 </div>
@@ -28,33 +33,38 @@
 <div class="sidebar-sep"></div>
 <button class="sidebar-button-1" type="button" {{on 'click' (fn
     this.manager.showStellarpediaEntry "basic-rules" "introduction" "welcome" )}}>
-    {{fa-icon "sun" size=this.manager.constants.sidebarIconSize class="margin-sides-medium fg-teal-neon"}} <p
-        class="margin-vertical-auto">
+    <FaIcon @icon="sun" @size={{this.manager.constants.sidebarIconSize}} class="margin-sides-medium fg-teal-neon" />
+    <p class="margin-vertical-auto">
         {{localize "Misc_Stellarpedia"}}</p>
 </button>
 <div class="sidebar-sep"></div>
 <button class="sidebar-button-1" type="button" {{on 'click' (fn this.goToTab "generator.preset" )}}>
-    {{fa-icon "user-plus" size=this.manager.constants.sidebarIconSize class="margin-sides-medium fg-teal-neon"}} <p
-        class="margin-vertical-auto">
+    <FaIcon @icon="user-plus" @size={{this.manager.constants.sidebarIconSize}}
+        class="margin-sides-medium fg-teal-neon" />
+    <p class="margin-vertical-auto">
         {{localize "Misc_NewCharacter"}}</p>
 </button>
 {{!-- <div class="sidebar-sep">
     {{#if this.session.isAuthenticated}}
     <button class="sidebar-button-1" type="button">
-        {{fa-icon "user" size=this.manager.constants.sidebarIconSize class="margin-sides-medium fg-teal-neon"}} <p
-            class="margin-vertical-auto">
+        <FaIcon @icon="user" @size={{this.manager.constants.sidebarIconSize}}
+            class="margin-sides-medium fg-teal-neon" />
+        </FaIcon>
+        <p class="margin-vertical-auto">
             {{localize "Misc_LoadCharacter"}}</p>
     </button>
     <div class="sidebar-sep"></div>
     <button class="sidebar-button-1" type="button">
-        {{fa-icon "user-plus" size=this.manager.constants.sidebarIconSize class="margin-sides-medium fg-teal-neon"}} <p
-            class="margin-vertical-auto">
+        <FaIcon @icon="user-plus" @size={{this.manager.constants.sidebarIconSize}}
+            class="margin-sides-medium fg-teal-neon" />
+        <p class="margin-vertical-auto">
             {{localize "Misc_NewJournal"}}</p>
     </button>
     <div class="sidebar-sep"></div>
     <button class="sidebar-button-1" type="button">
-        {{fa-icon "user-plus" size=this.manager.constants.sidebarIconSize class="margin-sides-medium fg-teal-neon"}} <p
-            class="margin-vertical-auto">
+        <FaIcon @icon="user-plus" @size={{this.manager.constants.sidebarIconSize}}
+            class="margin-sides-medium fg-teal-neon" />
+        <p class="margin-vertical-auto">
             {{localize "Misc_LoadJournal"}}</p>
     </button>
     <div class="sidebar-sep"></div>

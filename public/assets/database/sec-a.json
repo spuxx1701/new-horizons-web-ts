@@ -1,73 +1,73 @@
 [
     {
-        "id": "SecA_LP",
+        "id": "sec-a/lp",
         "current": 24,
         "remaining": 0,
         "bonus": 0,
         "primaryAttributes": [
-            "PriA_CN",
-            "PriA_CN"
+            "pri-a/cn",
+            "pri-a/cn"
         ],
         "div": 1.0
     },
     {
-        "id": "SecA_SP",
+        "id": "sec-a/sp",
         "current": 12,
         "remaining": 0,
         "bonus": 0,
         "primaryAttributes": [
-            "PriA_CN",
-            "PriA_CN",
-            "PriA_AG"
+            "pri-a/cn",
+            "pri-a/cn",
+            "pri-a/ag"
         ],
         "div": 2.0
     },
     {
-        "id": "SecA_RE",
+        "id": "sec-a/re",
         "current": 6,
         "remaining": 0,
         "bonus": 0,
         "primaryAttributes": [
-            "PriA_CR",
-            "PriA_CR",
-            "PriA_IN",
-            "PriA_AG"
+            "pri-a/cr",
+            "pri-a/cr",
+            "pri-a/in",
+            "pri-a/ag"
         ],
         "div": 5.0
     },
     {
-        "id": "SecA_AT",
+        "id": "sec-a/at",
         "current": 5,
         "remaining": 0,
         "bonus": 0,
         "primaryAttributes": [
-            "PriA_CR",
-            "PriA_DX",
-            "PriA_ST"
+            "pri-a/cr",
+            "pri-a/dx",
+            "pri-a/st"
         ],
         "div": 5.0
     },
     {
-        "id": "SecA_DE",
+        "id": "sec-a/de",
         "current": 5,
         "remaining": 0,
         "bonus": 0,
         "primaryAttributes": [
-            "PriA_IN",
-            "PriA_AG",
-            "PriA_AG"
+            "pri-a/in",
+            "pri-a/ag",
+            "pri-a/ag"
         ],
         "div": 5.0
     },
     {
-        "id": "SecA_PI",
+        "id": "sec-a/pi",
         "current": 5,
         "remaining": 0,
         "bonus": 0,
         "primaryAttributes": [
-            "PriA_CR",
-            "PriA_IN",
-            "PriA_CN"
+            "pri-a/cr",
+            "pri-a/in",
+            "pri-a/cn"
         ],
         "div": 5.0
     },
@@ -77,9 +77,9 @@
         "remaining": 0,
         "bonus": 0,
         "primaryAttributes": [
-            "PriA_AG",
-            "PriA_AG",
-            "PriA_CN"
+            "pri-a/ag",
+            "pri-a/ag",
+            "pri-a/cn"
         ],
         "div": 6.0
     },
@@ -89,7 +89,7 @@
         "remaining": 0,
         "bonus": 0,
         "primaryAttributes": [
-            "PriA_CN"
+            "pri-a/cn"
         ],
         "div": 2.0
     }
