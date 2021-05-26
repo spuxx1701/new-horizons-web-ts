@@ -5,9 +5,10 @@
         <div class="row full-width justify-content-center align-items-start">
             {{#each @model.primaryAttributes as |primaryAttribute|}}
             <div class="col-md">
-                <Interactable::ValueControl @changeset={{primaryAttribute.changeset}} @key="start" @label={{localize
-                    (concat primaryAttribute.id '/long' ) }} @labelSize="medium" @alignment="space-between"
-                    @onChangeListener={{this.onChange}} @min={{primaryAttribute.min}} @max={{primaryAttribute.max}}
+                <Interactable::ValueControl @object={{primaryAttribute}} @key="start" @value={{primaryAttribute.start}}
+                    @label={{localize (concat primaryAttribute.id '/long' ) }} @labelSize="medium"
+                    @alignment="space-between" @onChangeListener={{this.onChange}} @min={{primaryAttribute.min}}
+                    @max={{primaryAttribute.max}}
                     @info="basic-rules/supplement-primary-attributes/{{primaryAttribute.id}}" />
             </div>
             {{/each}}
@@ -17,12 +18,9 @@
         <div class="row full-width justify-content-center align-items-start">
             {{#each @model.secondaryAttributes as |secondaryAttribute|}}
             <div class="col-md">
-                {{!--
-                <Interactable::Inputfield @label={{localize (concat secondaryAttribute.id "/long" ) }}
-                    @changeset={{this.changeset}} @key="{{secondaryAttribute.id}}.start" disabled={{true}}
-                    @info="basic-rules/supplement-secondary-attributes/{{secondaryAttribute.id}}" /> --}}
-                <Interactable::ValueControl @changeset={{secondaryAttribute.changeset}} @key="current" @label={{localize
-                    (concat secondaryAttribute.id "/long" ) }} @labelSize="medium" @alignment="start"
+                <Interactable::ValueControl @object={{secondaryAttribute}} @key="current"
+                    @value={{secondaryAttribute.current}} @label={{localize (concat secondaryAttribute.id '/long' ) }}
+                    @labelSize="medium" @alignment="space-between" @onChangeListener={{this.onChange}}
                     @info="basic-rules/supplement-secondary-attributes/{{secondaryAttribute.id}}"
                     @showButtons={{false}} />
             </div>

@@ -12,8 +12,7 @@
             {{/if}}
             <input id="{{@id}}-value-control-field"
                 class="value-control-field value-control-field-size-{{this.size}} text-{{this.textPosition}} interactable"
-                disabled={{true}} autofocus={{@autofocus}} value={{changeset-get @changeset @key}}
-                placeholder={{@placeholder}} />
+                disabled={{true}} autofocus={{@autofocus}} value={{@value}} placeholder={{@placeholder}} />
             {{#if this.showButtons}}
             <button type="button" class="button button-square" {{on "click" this.onIncreaseClick}}
                 disabled={{this.isIncreaseDisabled}}>

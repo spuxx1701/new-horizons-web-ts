@@ -9,10 +9,5 @@ import { inject as service } from '@ember/service';
 export default class GeneratorController extends Controller {
     @service manager;
     @service databaseService;
-
-    @tracked title = "";
-
-    init() {
-        super.init();
-    }
+    @service("generator-service") generator;
 }

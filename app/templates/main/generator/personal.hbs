@@ -20,10 +20,10 @@
             @labelSize="medium" @key="weight" @size="medium" @required={{true}} @maxLength="3" @alignment="start"
             @onChangeListener={{this.onChange}} />
         <Misc::Spacer />
-        <Interactable::ValueControl @changeset={{this.changeset}} @key="socialStatus"
+        <Interactable::ValueControl @value={{this.changeset.socialStatus}}
             @label={{localize "Route_Generator_Personal_SocialStatus" }} @labelSize="medium" @alignment="start"
-            @onChangeListener={{this.onChange}} @min={{this.model.socialStatusMin}} @max={{this.model.socialStatusMax}}
-            @info="basic-rules/the-first-character/who-are-you" />
+            @onChangeListener={{this.onChangeSocialStatus}} @min={{this.model.socialStatusMin}}
+            @max={{this.model.socialStatusMax}} @info="basic-rules/the-first-character/who-are-you" @save={{true}} />
         <Misc::Spacer />
         <Interactable::TextArea @changeset={{this.changeset}} @label={{localize "Route_Generator_Personal_Appearance" }}
             @placeholder={{localize "Route_Generator_Personal_AppearancePlaceholder" }} @key="appearance"

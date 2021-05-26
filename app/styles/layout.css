@@ -2,6 +2,14 @@
 
 /*  Description: Contains style information for all layouting.  */
 
+.flex {
+    display: flex;
+}
+
+.margin-none {
+    margin: 0;
+}
+
 .marginAuto {
     margin: auto;
 }
@@ -121,12 +129,21 @@
     padding-bottom: 0;
 }
 
+.padding-none {
+    padding: 0;
+}
+
 .spacer {
     width: 100%;
     height: 25px;
 }
 
 .max-width-100 {
+    max-width: 100%;
+}
+
+.interactable-size-tiniest {
+    width: 25px;
     max-width: 100%;
 }
 
@@ -177,6 +194,10 @@
     width: 160px;
 }
 
+.label-size-larger {
+    width: 200px;
+}
+
 .display-none {
     display: none;
 }
@@ -211,6 +232,27 @@
     width: 120px;
 }
 
+.collapsible-content-size-small {
+    max-height: 200px;
+}
+
+.collapsible-content-size-medium {
+    max-height: 400px;
+}
+
+.collapsible-content-size-large {
+    max-height: 600px;
+}
+
+.icon-fixed-width {
+    width: 30px !important
+}
+
+.list-element {
+    margin: 5px;
+    max-width: calc(100% - 10px);
+}
+
 @media only screen and (min-width: 768px) {
     /* For desktop: */
     .responsive-column-group {
@@ -229,6 +271,16 @@
     .responsive-column-group>.responsive-column:last-child {
         margin-right: 0;
     }
+}
+
+.table th, .table td {
+    padding: 0.25rem;
+    /* border-top: 1px solid var(--colorGreyMedium); */
+    border: none;
+}
+
+.vertical-align-middle {
+    vertical-align: middle !important;
 }
 
 @media only screen and (max-width: 767px) {

@@ -1,5 +1,13 @@
 [
     {
+        "key": "Route_Generator_Traits_AvailableTraits",
+        "value": "Verfügbare Merkmale"
+    },
+    {
+        "key": "Route_Generator_Traits_Title",
+        "value": "Merkmale"
+    },
+    {
         "key": "Misc_BeforeUnloadConfirmMessage",
         "value": "Es sieht so aus, als hättest Du noch ungespeicherte Änderungen in einem Deiner Charaktere oder eine laufende Charaktererstellung. Wenn Du die Seite verlässt, gehen alle ungespeicherten Änderungen verloren."
     },
@@ -1616,11 +1624,15 @@
         "value": "Verfügbar"
     },
     {
-        "key": "Misc_AvailableAP",
+        "key": "Misc_AvailableGp",
+        "value": "Verfügbare Generierungspunktepunkte"
+    },
+    {
+        "key": "Misc_AvailableAp",
         "value": "Verfügbare Attributpunkte"
     },
     {
-        "key": "Misc_AvailableIP",
+        "key": "Misc_AvailableIp",
         "value": "Verfügbare Interessenspunkte"
     },
     {
@@ -1952,8 +1964,28 @@
         "value": "Generator-Voreinstellungen"
     },
     {
-        "key": "Misc_GP",
+        "key": "Misc_Gp_Long",
+        "value": "Generierungspunkte"
+    },
+    {
+        "key": "Misc_Ap_Long",
+        "value": "Attributpunkte"
+    },
+    {
+        "key": "Misc_Ip_Long",
+        "value": "Interessenspunkte"
+    },
+    {
+        "key": "Misc_Gp",
         "value": "GP"
+    },
+    {
+        "key": "Misc_Ap",
+        "value": "AP"
+    },
+    {
+        "key": "Misc_Ip",
+        "value": "IP"
     },
     {
         "key": "Misc_GPBonus",

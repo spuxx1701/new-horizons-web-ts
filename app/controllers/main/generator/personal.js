@@ -14,6 +14,14 @@ export default class MainGeneratorPersonalController extends Controller {
 
     @action onChange(event, data) {
         data.changeset.save();
-        this.generator.getCharacter().setGeneralProperty(data.key, data.changeset.get(data.key), { override: true });
+        this.generator.getCharacter().setGeneralProperty(data.key, data.changeset.get(data.key));
+    }
+
+    @action onChangeSocialStatus(event, { step } = {}) {
+        this.changeset.set("socialStatus", this.changeset.get("socialStatus") + step);
+        this.changeset.save();
+        if (this.generator.getCharacter().setGeneralProperty("socialStatus", this.changeset.get("socialStatus")) !== undefined) {
+            this.generator.setGp(-1 * step);
+        }
     }
 }

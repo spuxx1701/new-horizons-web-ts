@@ -42,7 +42,7 @@
     margin-bottom: 10px;
 }
 
-.inputfield, .dropdown-toggle, .button, .btn-secondary, .value-control-field {
+.inputfield, .dropdown-toggle, .button, .btn-secondary, .value-control-field, .collapsible {
     min-height: 30px;
     background-color: var(--colorDeepSpace);
     border: none;
@@ -55,7 +55,7 @@
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.btn, .button, .value-control-field {
+.btn, .button, .value-control-field, .collapsible {
     height: 40px;
     display: flex;
     align-items: center;
@@ -69,18 +69,49 @@
     font-size: 16px;
 }
 
-.btn:disabled, .button:disabled, .button-square:disabled, .dropdown-toggle:disabled, .inputfield:disabled {
+.btn:disabled, .button:disabled, .button-square:disabled, .dropdown-toggle:disabled, .inputfield:disabled, .collapsible:disabled {
     background-color: var(--colorGreyTrans);
     cursor: default;
 }
 
-.btn:hover:not(:disabled), .button:hover:not(:disabled) {
+.btn:hover:not(:disabled), .button:hover:not(:disabled), .collapsible:hover:not(:disabled) {
     background-color: var(--colorTealDark);
 }
 
-.btn:active:not(:disabled), .button:active:not(:disabled) {
-    background-color: var(--colorTealBright);
+.btn:active:not(:disabled), .button:active:not(:disabled), .collapsible:active:not(:disabled) {
+    background-color: var(--colorTealDarker);
 }
+
+/* .inputfield:active:not(:disabled), .interactable-color-pulse {
+    background: radial-gradient(farthest-side, black, transparent) center no-repeat;
+    background: transparent;
+    animation: pulse 200ms alternate 1;
+    transition: 200ms all ease-in-out;
+    transform: 0.2s cubic-bezier(0, 0, 0.7, 1);
+} */
+
+/* .inputfield:after {
+    animation: pulse 200ms alternate 1;
+} */
+
+/* 
+@keyframes pulse {
+    0% {
+        background: radial-gradient(circle, transparent, transparent) center no-repeat;
+    }
+    25% {
+        background: radial-gradient(circle, var(--colorGreyTrans), transparent, transparent) center no-repeat;
+    }
+    50% {
+        background: radial-gradient(circle, transparent, var(--colorGreyTrans), transparent) center no-repeat;
+    }
+    75% {
+        background: radial-gradient(circle, transparent, transparent, var(--colorGreyTrans)) center no-repeat;
+    }
+    100% {
+        background: radial-gradient(circle, transparent, transparent) center no-repeat;
+    }
+} */
 
 .button-icon-1 {
     height: 40px;
@@ -416,4 +447,20 @@ input:checked+.toggle-slider:before {
     height: 17px;
     border-radius: 50%;
     background: var(--colorGreyBright);
+}
+
+.collapsible {
+    border-radius: 5px 5px 5px 5px;
+}
+
+.collapsible-expanded {
+    background-color: var(--colorTealDark);
+    border-radius: 5px 5px 0px 0px;
+}
+
+.collapsible-content {
+    padding: 5px;
+    border-radius: 0px 0px 5px 5px;
+    border: 1px solid var(--colorGreyMedium);
+    overflow: auto;
 }

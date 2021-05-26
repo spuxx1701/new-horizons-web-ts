@@ -8,6 +8,7 @@ import Ember from 'ember';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
+import { set } from '@ember/object';
 
 export default class CharacterV1 {
     manager;
@@ -98,7 +99,7 @@ export default class CharacterV1 {
         }
     }
 
-    setGeneralProperty(property, value, { override = false, checkType = true, logSuccess = true, logOldValue = false } = {}) {
+    setGeneralProperty(property, value, { override = true, checkType = true, logSuccess = true, logOldValue = false } = {}) {
         if (this.data[property] !== undefined) {
             if (typeof this.data[property] !== typeof value && checkType) {
                 this.manager.log(`Unable to change property '${property}' for character '${this.getName()}': Types don't match (got '${typeof value}', expected '${typeof this.data[property]}').`, "x");
@@ -106,9 +107,10 @@ export default class CharacterV1 {
             }
             let oldValue = this.data[property];
             if (!override && typeof value === "number" && typeof this.data[property] === "number") {
-                this.data[property] += value;
+                let newValue = this.data[property] += value;
+                set(this, property, newValue);
             } else {
-                this.data[property] = value;
+                set(this.data, property, value);
             }
             if (logSuccess) {
                 if (logOldValue) {
@@ -122,6 +124,10 @@ export default class CharacterV1 {
             this.manager.log(`Unable to change property '${property}' for character '${this.getName()}': Property not found.`, "x");
             return undefined;
         }
+    }
+
+    getGeneralProperty(property) {
+        return this.data[property];
     }
 
     recalculate({ logSuccess = true, updateSkillMinima = true } = {}) {
@@ -138,7 +144,7 @@ export default class CharacterV1 {
     //----------------------------------------------------------------------------//
     // PRIMARY ATTRIBUTES
     //----------------------------------------------------------------------------//
-    setPrimaryAttributeLevel(id, value, { override = false, logSuccess = true, validate = true, updateDependencies = true } = {}) {
+    setPrimaryAttributeLevel(id, value, { override = false, logSuccess = true, validate = true, updateDependencies = true, setStart = false } = {}) {
         id = this.manager.database.transformId(id);
         let priA = this.getPrimaryAttribute(id);
         if (!priA) {
@@ -161,8 +167,11 @@ export default class CharacterV1 {
                 return undefined;
             }
         }
-        priA.current = newValue;
-        if (logSuccess) this.manager.log(`Level of primary attribute '${id}' for character '${this.getName()}' has been changed from ${oldValue} to ${priA.current}.`, "i");
+        set(priA, "current", newValue);
+        if (setStart) {
+            set(priA, "start", newValue);
+        }
+        if (logSuccess) this.manager.log(`Level of primary attribute '${id}' for character '${this.getName()}' has been changed from ${oldValue} to ${priA.current} (updating dependencies: ${updateDependencies}).`, "i");
         if (updateDependencies) {
             this.updatePrimaryAttributeDependencies(id);
         }
@@ -176,9 +185,9 @@ export default class CharacterV1 {
                 if (priA[property] !== undefined) {
                     let oldValue = priA[property];
                     if (override) {
-                        priA[property] = value;
+                        set(priA, property, value);
                     } else {
-                        priA[property] += value;
+                        set(priA, property, priA[property] + value);
                     }
                     if (logSuccess) this.manager.log(`Value '${property}' of primary attribute '${id}' for character '${this.getName()}' has changed from '${oldValue}' to '${priA[property]}'.`)
                     return priA;
@@ -212,7 +221,7 @@ export default class CharacterV1 {
         for (let secA of this.data.secondaryAttributes) {
             for (let priA of secA.primaryAttributes) {
                 if (this.manager.database.transformId(priA) === id) {
-                    this.updateSecondaryAttribute(secA.id, { logSuccess: logSuccess });
+                    this.updateSecondaryAttribute(secA.id, { logSuccess: false });
                     break;
                 }
             }
@@ -220,8 +229,8 @@ export default class CharacterV1 {
         // update skills
         for (let skill of this.data.skills) {
             for (let priAId of skill.primaryAttributes) {
-                if (pthis.manager.database.transformId(priA) === id) {
-                    this.updateSkill(skill.id, { logSuccess: logSuccess, updateMinimum: false });
+                if (this.manager.database.transformId(priAId) === id) {
+                    this.updateSkill(skill.id, { logSuccess: false, updateMinimum: false });
                     break;
                 }
             }
@@ -237,7 +246,6 @@ export default class CharacterV1 {
             this.manager.log(`Unable to update secondary attribute '${id}' for character '${this.getName()}': Secondary Attribute not found.`, "x");
             return undefined;
         }
-        let oldValue = secA.current;
         let sum = 0;
         for (let priAId of secA.primaryAttributes) {
             let priA = this.getPrimaryAttribute(priAId);
@@ -247,8 +255,10 @@ export default class CharacterV1 {
             }
             sum += priA.current;
         }
-        let newValue = sum / secA.dev;
-        this.setSecondaryAttributeProperty(id, "current", newValue, { logSuccess: logSuccess, override: true });
+        let newValue = Math.round(sum / secA.div);
+        if (newValue !== secA.current) {
+            this.setSecondaryAttributeProperty(id, "current", newValue, { logSuccess: logSuccess, override: true });
+        }
         return secA;
     }
 
@@ -264,11 +274,11 @@ export default class CharacterV1 {
         }
         let oldValue = secA.current;
         if (override) {
-            secA[property] = value;
+            set(secA, property, value);
         } else {
-            secA[property] += value;
+            set(secA, property, secA[property] + value);
         }
-        if (logSuccess) this.manager.log(`'${property}' of secondary attribute '${id}' for character '${this.getName()}' has been changed from ${oldValue} to ${newValue}.`, "i");
+        if (logSuccess) this.manager.log(`'${property}' of secondary attribute '${id}' for character '${this.getName()}' has been changed from ${oldValue} to ${secA[property]}.`, "i");
         return secA;
     }
 
@@ -372,7 +382,7 @@ export default class CharacterV1 {
                 this.manager.log(`Unable to change level of skill '${id}' for character '${this.getName()}': New value ${newValue} would subceed minimum value ${skill.min}.`, "w");
                 return undefined;
             } else {
-                skill.current = newValue;
+                set(skill, "current", newValue);
                 if (logSuccess) {
                     this.manager.log(`Level of skill '${id}' for character '${this.getName()}' has been changed from ${oldValue} to ${skill.current}.`, "i");
                 }
@@ -391,9 +401,9 @@ export default class CharacterV1 {
             if (skill[property] !== undefined) {
                 let oldValue = skill[property];
                 if (override) {
-                    skill[property] = value;
+                    set(skill, property, value);
                 } else {
-                    skill[property] += value;
+                    set(skill, property, skill[property] + value);
                 }
                 if (logSuccess) {
                     this.manager.log(`Value '${property}' of skill '${id}' for character '${this.getName()}' has been changed from ${oldValue} to ${skill[property]}.`, "i");
@@ -438,9 +448,9 @@ export default class CharacterV1 {
         }
         let maxAllowedDiff = this.manager.database.getIdentifiable("Constant_SkillsPriAMaxDiff").value;
         let newMax = highestPriA.current + maxAllowedDiff;
-        this.setSkillProperty(id, "max", newMax, { logSuccess: logSuccess });
+        this.setSkillProperty(id, "max", newMax, { override: true, logSuccess: logSuccess });
         if (updateMinimum) {
-            this.setSkillProperty(id, "min", skill.current, { logSuccess: logSuccess });
+            this.setSkillProperty(id, "min", skill.current, { override: true, logSuccess: logSuccess });
         }
         return skill;
     }

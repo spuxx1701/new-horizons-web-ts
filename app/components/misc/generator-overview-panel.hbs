@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <Title class="margin-sides-medium col-md" @titleStyle="h3" @text={{this.generator.character.data.name}} />
+        <div class="flex margin-sides-medium col-md">
+            <p class="text-left {{if (lt this.generator.gpAvailable 0) 'fg-error'}}">{{localize " Misc_Gp_Long" }}
+                ({{localize "Misc_Gp" }}):</p>
+            <p
+                class="interactable-size-tiniest text-right margin-sides-small {{if (lt this.generator.gpAvailable 0) 'fg-error'}}">
+                {{this.generator.gpAvailable}}</p>
+        </div>
+        <div class="flex margin-sides-medium col-md">
+            <p class="text-left {{if (lt this.generator.apAvailable 0) 'fg-error'}}">{{localize " Misc_Ap_Long" }}
+                ({{localize "Misc_Ap" }}):</p>
+            <p
+                class="interactable-size-tiniest text-right margin-sides-small {{if (lt this.generator.apAvailable 0) 'fg-error'}}">
+                {{this.generator.apAvailable}}</p>
+        </div>
+        <div class="flex margin-sides-medium col-md">
+            <p class="text-left {{if (lt this.generator.ipAvailable 0) 'fg-error'}}">{{localize " Misc_Ip_Long" }}
+                ({{localize "Misc_Ip" }}):</p>
+            <p
+                class="interactable-size-tiniest text-right margin-sides-small {{if (lt this.generator.ipAvailable 0) 'fg-error'}}">
+                {{this.generator.ipAvailable}}</p>
+        </div>
+    </div>
+</div>

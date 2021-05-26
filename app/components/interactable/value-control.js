@@ -1,3 +1,13 @@
+//----------------------------------------------------------------------------//
+// Leopold Hock / 2021-05-14
+// Description:
+// value-control is a component that is used for editing numeric properties of
+// characters. It does not implement ember-changeset because it is assumed that
+// those kind of values are always set through character object functions that
+// offer complex interfaces, their own validation, logging or determinations.
+// onChangeListener can be assigned a function that should be called after
+// each change.
+//----------------------------------------------------------------------------//
 import InteractableComponent from './interactable';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
@@ -8,14 +18,8 @@ export default class InputfieldComponent extends InteractableComponent {
     @service manager;
     @tracked labelPosition = "top";
     @tracked textPosition = "right";
-    @tracked value;
-    @tracked valueSuffix; // Shown before the value when inputfield is not currently being focused
-    @tracked valueCombined; // Shown after the value when inputfield is not currently being focused
     @tracked size = "small";
     step = 1;
-    @tracked changeset;
-    @tracked min;
-    @tracked max;
     @tracked showButtons = true;
 
 
@@ -23,37 +27,51 @@ export default class InputfieldComponent extends InteractableComponent {
         super.init()
     }
 
-    @computed("disabled", "changeset", "min")
+    @computed("disabled", "value", "min")
     get isDecreaseDisabled() {
-        return (this.get("disabled") || this.get("changeset").get(this.key) - this.get("step") < this.get("min"));
+        return (this.disabled || (this.getMin() !== undefined && this.value - this.step < this.getMin()));
     }
 
-    @computed("disabled", "changeset", "max")
+    @computed("disabled", "value", "max")
     get isIncreaseDisabled() {
-        return (this.get("disabled") || this.get("changeset").get(this.key) + this.get("step") > this.get("max"));
+        return (this.disabled || (this.getMax() !== undefined && this.value + this.step > this.getMax()));
+    }
+
+    getMin() {
+        if (this.get("min") !== undefined) {
+            return this.get("min");
+        } else {
+            return undefined;
+        }
+    }
+
+    getMax() {
+        if (this.get("max") !== undefined) {
+            return this.get("max");
+        } else {
+            return undefined;
+        }
     }
 
     @action onDecreaseClick(event) {
-        let oldValue = this.changeset.get(this.key);
+        let oldValue = this.value;
         let newValue = oldValue - this.step;
-        if (this.min && newValue < this.min) {
+        if (this.getMin() !== undefined && newValue < this.getMin()) {
             return;
         }
-        this.changeset.set(this.key, newValue);
         if (this.onChangeListener) {
-            this.onChangeListener(event, { key: this.get("key"), changeset: this.get("changeset") });
+            this.onChangeListener(event, { object: this.get("object"), key: this.get("key"), step: -1 * this.step });
         }
     }
 
     @action onIncreaseClick(event) {
-        let oldValue = this.changeset.get(this.key);
+        let oldValue = this.value;
         let newValue = oldValue + this.step;
-        if (this.max && newValue > this.max) {
+        if (this.getMax() !== undefined && newValue > this.getMax()) {
             return;
         }
-        this.changeset.set(this.key, newValue);
         if (this.onChangeListener) {
-            this.onChangeListener(event, { key: this.get("key"), changeset: this.get("changeset") });
+            this.onChangeListener(event, { object: this.get("object"), key: this.get("key"), step: this.step });
         }
     }
 }

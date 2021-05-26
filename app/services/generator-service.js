@@ -15,11 +15,19 @@ export default class GeneratorService extends Service {
     @service databaseService;
 
     @tracked character;
+    @tracked preset;
     @tracked generationInProcess = false;
     @tracked originChosen = false;
 
-    @action init() {
-        super.init();
+    @tracked apAvailable;
+    @tracked ipAvailable;
+    @tracked ipTotal;
+
+    @tracked gpAvailable;
+    @tracked gpBonus;
+
+    getCharacter() {
+        return this.get("character");
     }
 
     @action initializeGeneration(characterPreset) {
@@ -29,15 +37,15 @@ export default class GeneratorService extends Service {
         // This method is used to initialize character generation.
         //----------------------------------------------------------------------------//
         let character = new Character(characterPreset.id, this.manager.appVersion, this.manager);
-
+        this.set("preset", characterPreset);
         this.set("character", character);
         this.manager.goToRoute("generator.origin");
         this.set("generationInProcess", true);
         this.set("originChosen", false);
-    }
-
-    getCharacter() {
-        return this.get("character");
+        // initialize gp, ap and ip budgets
+        this.apAvailable = characterPreset.get("apAvailable");
+        this.gpAvailable = 0 + characterPreset.get("gpBonus");
+        this.ipAvailable = characterPreset.get("ipAvailable");
     }
 
     setOrigin(origin, motherTongue, skillChoices) {
@@ -65,10 +73,34 @@ export default class GeneratorService extends Service {
         this.manager.log(`Applied origin '${origin.id}' to character '${this.getCharacter().getName()}'.`);
         // update status
         this.set("originChosen", true);
-        console.log(this.getCharacter().data);
     }
 
     @action logStatus() {
         console.log(this.getCharacter().data);
+    }
+
+    @action setGp(value, { override = false } = {}) {
+        let oldValue = this.gpAvailable;
+        if (override) {
+            this.set("gpAvailable", value);
+        } else {
+            this.set("gpAvailable", oldValue + value);
+        }
+    }
+    @action setAp(value, { override = false } = {}) {
+        let oldValue = this.apAvailable;
+        if (override) {
+            this.set("apAvailable", value);
+        } else {
+            this.set("apAvailable", oldValue + value);
+        }
+    }
+    @action setIp(value, { override = false } = {}) {
+        let oldValue = this.ipAvailable;
+        if (override) {
+            this.set("ipAvailable", value);
+        } else {
+            this.set("ipAvailable", oldValue + value);
+        }
     }
 }

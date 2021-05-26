@@ -10,9 +10,11 @@ export default class MainGeneratorTraitsController extends Controller {
     @service databaseService;
     @service("generator-service") generator;
 
-    @tracked changeset = Changeset({});
-
     init() {
         super.init();
+    }
+
+    @action onAddClick(event) {
+
     }
 }

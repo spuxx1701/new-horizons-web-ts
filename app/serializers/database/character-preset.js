@@ -2,5 +2,5 @@ import Ember from 'ember';
 import CollectionSerializer from './collection';
 import { inject as service } from '@ember/service';
 
-export default class DatabaseCharacterPresetSerializer extends CollectionSerializer {
+export default class DatabaseAppSerializer extends CollectionSerializer {
 }

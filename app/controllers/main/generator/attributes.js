@@ -13,4 +13,10 @@ export default class MainGeneratorAttributesController extends Controller {
     init() {
         super.init();
     }
+
+    @action onChange(event, { object, step } = {}) {
+        if (this.generator.getCharacter().setPrimaryAttributeLevel(object.id, step, { setStart: true }) !== undefined) {
+            this.generator.setAp(-1 * step);
+        }
+    }
 }

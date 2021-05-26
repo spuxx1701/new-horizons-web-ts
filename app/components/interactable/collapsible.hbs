@@ -1,0 +1,11 @@
+<button type="button"
+    class="collapsible full-width justify-content-start {{if (eq this.collapsed false) 'collapsible-expanded'}}"
+    {{on "click" this.onClick}}>
+    <FaIcon @icon={{if (eq this.collapsed false) 'chevron-down' 'chevron-right' }} class="icon-fixed-width" />
+    <p>{{@title}}</p>
+</button>
+<BsCollapse @collapsed={{this.collapsed}}>
+    <div class="well collapsible-content collapsible-content-size-{{this.size}} {{if this.noPadding 'padding-none'}}">
+        {{yield}}
+    </div>
+</BsCollapse>
