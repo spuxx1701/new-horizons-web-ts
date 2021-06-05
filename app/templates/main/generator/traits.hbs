@@ -1,34 +1,18 @@
 <h2 class="fg-white text-center">{{localize "Route_Generator_Traits_Title"}}</h2>
 <Layout::Panel @size="large" @alignment="center">
     <Interactable::Collapsible class="full-width" @noPadding={{true}} @size="medium"
-        @title={{localize "Route_Generator_Traits_AvailableTraits" }}>
+        @title={{localize "Route_Generator_Traits_AvailableTraits" }} @collapsed={{false}}>
         <div class="responsive-table full-width">
-            <table class="table">
-                <tbody>
-                    {{#each @model.traitsAvailable as |trait|}}
-                    <tr>
-                        <td class="flex">
-                            <Interactable::ButtonInfo class="float-left"
-                                @article="basic-rules/supplement-traits/{{trait.data.id}}" />
-                            <Interactable::ButtonSquare class="float-left" @icon="plus" @onClick={{this.onAddClick}} />
-                        </td>
-                        <td class="vertical-align-middle">
-                            <Interactable::Label @label={{localize trait.data.id}} />
-                        </td>
-                        <td>
-                            {{#if trait.data.needsInput}}
-                            <Interactable::Inputfield @size="large" @changeset={{trait.changeset}} @key="input" />
-                            {{/if}}
-                        </td>
-                        <td>
-                            {{#if trait.data.hasLevel}}
-                            <Interactable::ValueControl @value="0" @disabled={{true}} />
-                            {{/if}}
-                        </td>
-                    </tr>
-                    {{/each}}
-                </tbody>
-            </table>
+            <List::Traits @rows={{@model.traitsAvailable}} @sortingKey="localizedLabel" @isGenerator={{true}}
+                @isOwned={{false}} />
+        </div>
+    </Interactable::Collapsible>
+    <Misc::Spacer />
+    <Interactable::Collapsible class="full-width" @noPadding={{true}} @size="medium"
+        @title={{localize "Route_Generator_Traits_OwnedTraits" }} @collapsed={{false}}>
+        <div class="responsive-table full-width">
+            <List::Traits @rows={{@model.traitsOwned}} @sortingKey="localizedLabel" @isGenerator={{true}}
+                @isOwned={{true}} />
         </div>
     </Interactable::Collapsible>
 </Layout::Panel>

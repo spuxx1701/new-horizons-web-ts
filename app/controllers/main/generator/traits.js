@@ -6,15 +6,4 @@ import { inject as service } from '@ember/service';
 import { Changeset } from 'ember-changeset';
 
 export default class MainGeneratorTraitsController extends Controller {
-    @service manager;
-    @service databaseService;
-    @service("generator-service") generator;
-
-    init() {
-        super.init();
-    }
-
-    @action onAddClick(event) {
-
-    }
 }

@@ -9,6 +9,9 @@ ToDo when converting character files:
     - Ability.abilityClass (db done)
     - App.appCategory (db done)
 + App.AppCategory neu auslesen und ersetzen
++ Trait.options -> neues Flag 'hasOptions'
++ Trait.options -> change von String zu Objekt
++ Trait.selectedOption -> neues Objekt 'selectedOption'
 
 
 ++++++++++++ REGULAR EXPRESSIONS FOR DATABASE EDITING ++++++++++++ 

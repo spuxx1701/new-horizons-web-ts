@@ -6,6 +6,8 @@ export default class DatabaseTraitModel extends Model {
     @attr() level;
     @attr() minLevel;
     @attr() maxLevel;
+    @attr() hasOptions;
+    @attr() selectedOption;
     @attr() options;
     @attr() needsInput;
     @attr() input;

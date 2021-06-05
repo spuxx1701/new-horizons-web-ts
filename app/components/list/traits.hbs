@@ -1,0 +1,51 @@
+<table class="table">
+    <thead>
+        <tr class="sticky-header">
+            <th />
+            <th>
+                <List::ColumnHeader @label={{localize "Misc_Trait" }} @sort={{this.sortByProperty}}
+                    @sortingKey="localizedLabel" />
+            </th>
+            <th>
+                <List::ColumnHeader @label={{localize "Misc_Details" }} />
+            </th>
+            <th>
+                <List::ColumnHeader @label={{localize "Misc_Level" }} />
+            </th>
+            <th>
+                <List::ColumnHeader @label={{localize "Misc_Gp" }} @sort={{this.sortByProperty}}
+                    @sortingKey="data.costs" />
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each this.rows as |trait| }}
+        <tr>
+            <td class="flex">
+                <Interactable::ButtonInfo class="float-left"
+                    @article="basic-rules/supplement-traits/{{trait.data.id}}" />
+                <Interactable::ButtonSquare class="float-left" @icon="plus" @onClick={{this.onAddClick}} />
+            </td>
+            <td class="vertical-align-middle">
+                {{localize trait.data.id}}
+            </td>
+            <td>
+                {{#if trait.data.needsInput}}
+                <Interactable::Inputfield @size="large" @changeset={{trait.changeset}} @key="input" />
+                {{/if}}
+                {{#if trait.data.hasOptions}}
+                <Interactable::Dropdown @size="large" @key="input" @items={{trait.data.options}} />
+                {{/if}}
+            </td>
+            <td>
+                {{#if trait.data.hasLevel}}
+                <Interactable::ValueControl @value="0" @disabled={{true}} />
+                {{/if}}
+            </td>
+            <td class="text-right margin-sides-small">
+                {{if (lt trait.data.costs 0) '+' }}{{mult -1 trait.data.costs}}
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

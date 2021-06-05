@@ -8,7 +8,6 @@ import { computed, set } from '@ember/object';
 
 export default class DropdownComponent extends InteractableComponent {
     @service manager;
-    //@tracked caption;
     @tracked selectedItem;
     @tracked firstItem;
     @tracked lastItem;
@@ -22,17 +21,17 @@ export default class DropdownComponent extends InteractableComponent {
 
     willRender() {
         if (!this.hasRendered) {
-            let items = this.get("items");
+            let items = this.get("items").content || this.get("items");
             let defaultItem;
             for (let i = 0; i < items.length; i++) {
-                if (this.default && items.content[i].id === this.default) {
-                    defaultItem = items.content[i];
+                if (this.default && items[i].id === this.default) {
+                    defaultItem = items[i];
                 }
             }
             if (defaultItem) {
                 this.onItemClicked(defaultItem);
             } else {
-                this.onItemClicked(items.content[0]);
+                this.onItemClicked(items[0]);
             }
             this.hasRendered = true;
         }
@@ -40,8 +39,8 @@ export default class DropdownComponent extends InteractableComponent {
 
     @computed("disabled", "items")
     get isDisabled() {
-        let items = this.get("items");
-        if (!items || items.content.length === 0) {
+        let items = this.get("items").content || this.get("items");
+        if (!items || items.length === 0) {
             return true;
         } else {
             return this.get("disabled");
@@ -50,16 +49,16 @@ export default class DropdownComponent extends InteractableComponent {
 
     @computed("selectedItem", "items")
     get caption() {
-        let items = this.get("items");
-        if (!items || items.content.length === 0) {
+        let items = this.get("items").conrent || this.get("items");
+        if (!items || items.length === 0) {
             return this.manager.localize("Misc_NoData");
         } else {
-            this.set("firstItem", items.content[0]);
-            this.set("lastItem", items.content[items.content.length - 1]);
+            this.set("firstItem", items[0]);
+            this.set("lastItem", items[items.length - 1]);
             if (this.get("selectedItem")) {
                 return this.manager.localize(this.get("selectedItem").id);
             } else {
-                return this.manager.localize(items.content[0].id);
+                return this.manager.localize(items[0].id);
             }
         }
     }
@@ -89,9 +88,9 @@ export default class DropdownComponent extends InteractableComponent {
 
     // Select next dropdown item
     @action selectNextItem(forward = true) {
-        let items = this.get("items");
+        let items = this.get("items").content || this.get("items");
         for (let i = 0; i < items.length; i++) {
-            if (items.content[i].id === this.get("selectedItem").id) {
+            if (items[i].id === this.get("selectedItem").id) {
                 let newIndex;
                 // Select next or previous item
                 if (forward) {
@@ -116,7 +115,7 @@ export default class DropdownComponent extends InteractableComponent {
                         }
                     }
                 }
-                this.onItemClicked(items.content[newIndex]);
+                this.onItemClicked(items[newIndex]);
                 break;
             }
         }

@@ -19,7 +19,7 @@ Description: Contains style information for all text elements.  */
     h5, .h5 {
         font-size: 14px;
     }
-    h6, .h6, p {
+    h6, .h6, p, .th, th, .td, td {
         font-size: 14px;
     }
     .inputfield {
@@ -42,26 +42,30 @@ Description: Contains style information for all text elements.  */
     h4, .h4 {
         font-size: 20px;
     }
-    h5, .h5 {
+    h5, .h5, {
         font-size: 16px;
     }
-    h6, .h6, p, .inputfield {
+    h6, .h6, p, th, .th, td, .td, .inputfield {
         font-size: 14px;
     }
 }
 
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, th, .th {
     margin-bottom: 0;
     margin-top: 0;
     color: var(--colorTextHighlight);
     font-family: ARJulian;
 }
 
-h6, .h6 {
+h5, .h5, h6, .h6, th, .th {
     font-family: Raleway;
 }
 
-p {
+th, th button {
+    font-weight: 600;
+}
+
+p, td, .td {
     font-family: Raleway;
     color: var(--colorTextDefault);
     margin: 5px 0 5px 0;

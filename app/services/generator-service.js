@@ -9,6 +9,7 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import Character from '../classes/character-v1';
+import { Changeset } from 'ember-changeset';
 
 export default class GeneratorService extends Service {
     @service manager;
@@ -102,5 +103,26 @@ export default class GeneratorService extends Service {
         } else {
             this.set("ipAvailable", oldValue + value);
         }
+    }
+
+    @action getCollectionAsList(collectionName, { sortByLocalizedLabel = false, skipValidate = true } = {}) {
+        let collection = this.getCharacter().data[collectionName];
+        if (!collection || !Array.isArray(!collection)) {
+            return undefined;
+        }
+        let result = [];
+        let that = this;
+        collection.forEach(function (element) {
+            let convertedElement = {
+                data: element,
+                changeset: new Changeset(element, { skipValidate: skipValidate }),
+                localizedLabel: that.manager.localize(element.id)
+            }
+            result.push(convertedElement);
+        });
+        if (sortByLocalizedLabel) {
+            this.manager.sortArray(result, "localizedLabel");
+        }
+        return result;
     }
 }

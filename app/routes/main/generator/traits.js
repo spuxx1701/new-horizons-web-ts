@@ -2,7 +2,6 @@ import Route from '@ember/routing/route';
 import RSVP from 'rsvp';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
-import { Changeset } from 'ember-changeset';
 
 export default class MainGeneratorTraitsRoute extends Route {
     @service manager;
@@ -10,16 +9,14 @@ export default class MainGeneratorTraitsRoute extends Route {
     @service databaseService;
 
     async model() {
-        let collection = await this.databaseService.loadCollection("trait");
-        let traitsAvailable = [];
-        collection.forEach(function (record) {
-            traitsAvailable.push({
-                data: record,
-                changeset: new Changeset(record)
-            })
-        });
+        let traitsAvailable = await this.databaseService.loadCollectionAsList("trait");
+        let traitsOwned = [];
+        if (this.generator.originChosen) {
+            traitsOwned = this.generator.getCollectionAsList("traits");
+        }
         return RSVP.hash({
-            traitsAvailable: traitsAvailable
+            traitsAvailable: traitsAvailable,
+            traitsOwned: traitsOwned
         });
     }
 }

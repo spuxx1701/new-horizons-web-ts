@@ -273,4 +273,69 @@ export default class ManagerService extends Service {
             return undefined;
         }
     }
+
+    tryParseInt(input) {
+        try {
+            if (typeof parseInt(input) === "number" && !isNaN(parseInt(input))) {
+                return true
+            } else {
+                return false;
+            }
+        } catch (error) {
+            return false;
+        }
+    }
+
+    sortArray(array, ...args) {
+        let props = args;
+        let that = this;
+        let dynamicSort = function dynamicSort(property, isNestedProperty) {
+            var sortOrder = 1;
+            if (property[0] === "-") {
+                sortOrder = -1;
+                property = property.substr(1);
+            }
+            return function (a, b) {
+                let propertyA = a[property];
+                let propertyB = b[property];
+                if (isNestedProperty) {
+                    propertyA = that.getNestedProperty(a, property);
+                    propertyB = that.getNestedProperty(b, property);
+                }
+                var result = (propertyA < propertyB) ? -1 : (propertyA > propertyB) ? 1 : 0;
+                return result * sortOrder;
+            }
+        };
+        array.sort(function (obj1, obj2) {
+            var i = 0, result = 0, numberOfProperties = props.length;
+            while (result === 0 && i < numberOfProperties) {
+                let isNestedProperty = props[i].includes(".");
+                result = dynamicSort(props[i], isNestedProperty)(obj1, obj2);
+                i++;
+            }
+            return result;
+        });
+        return array;
+    }
+
+    getNestedProperty(object, propertyPath) {
+        if (propertyPath.includes(".")) {
+            let properties = propertyPath.split(".");
+            let result = undefined;
+            for (let property of properties) {
+                let candidate = object[property];
+                if (Array.isArray(candidate)) {
+                    // not yet supported
+                } else if (typeof candidate === "object") {
+                    object = candidate;
+                } else {
+                    result = candidate;
+                    break;
+                }
+            }
+            return result;
+        } else {
+            return object[propertyPath];
+        }
+    }
 }

@@ -1,7 +1,23 @@
 [
     {
+        "key": "Misc_Trait",
+        "value": "Merkmal"
+    },
+    {
+        "key": "Misc_Level",
+        "value": "Stufe"
+    },
+    {
+        "key": "Misc_Details",
+        "value": "Details"
+    },
+    {
         "key": "Route_Generator_Traits_AvailableTraits",
         "value": "Verfügbare Merkmale"
+    },
+    {
+        "key": "Route_Generator_Traits_OwnedTraits",
+        "value": "Erworbene Merkmale"
     },
     {
         "key": "Route_Generator_Traits_Title",
