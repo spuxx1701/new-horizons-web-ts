@@ -1,57 +1,19 @@
-# new-horizons-web
+<p align="center"><a href="https://new-horizons-game.com" target="_blank"><img src="https://new-horizons-game.com/assets/logo/banner-teal-dark.png" width="600px"></a></p>
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+## About New Horizons
+<a href=https://www.new-horizons-game.com>New Horizons</a> is both a web application and a pen & paper tabletop game. It's aims to bring togeter the best of both the digtal and the analog world: Play classic tabletop with a paper character sheet, a pen, dice and - of course - good friends. Create and edit characters digitally without having to perform calculations manually and enjoy playing a game based on a complex and and carefully crafted ruleset without the need to know any of it in detail.
 
-## Prerequisites
+## About this repository
+This repository stores New Horizons' frontend code. The New Horizons backend system ist powered by <a href="https://emberjs.com/">ember.js</a>, an awesome JavaScript framework. Ember.js in an absolute blast to work with and I highly recommend checking it out. The community is also very welcoming and the developers are quite active on discord. To run the app locally, you need node.js and ember-cli. Please refer to the instructions on the ember website.
 
-You will need the following things properly installed on your computer.
+## Contributing
 
-* [Git](https://git-scm.com/)
-* [Node.js](https://nodejs.org/) (with npm)
-* [Ember CLI](https://ember-cli.com/)
-* [Google Chrome](https://google.com/chrome/)
+At this moment, I do not support contributions to the New Horizons source code.
 
-## Installation
+## Security Vulnerabilities
 
-* `git clone <repository-url>` this repository
-* `cd new-horizons-web`
-* `npm install`
+If you discover a security vulnerability within the New Horizons source code, please send me an e-amil via <a href="mailto:kontakt@leopoldhock.de">kontakt@leopoldhock.de</a>.
 
-## Running / Development
+## License
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-* Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
-
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
-
-### Running Tests
-
-* `ember test`
-* `ember test --server`
-
-### Linting
-
-* `npm run lint:hbs`
-* `npm run lint:js`
-* `npm run lint:js -- --fix`
-
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](https://emberjs.com/)
-* [ember-cli](https://ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+New Horizons is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
