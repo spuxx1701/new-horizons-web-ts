@@ -6,7 +6,7 @@ import StellarpediaService from '../../../services/stellarpedia-service';
 
 export default class MainGeneratorOriginSelectRoute extends Route {
     @service manager;
-    @service("generator-service") generator;
+    @service generator;
     @service databaseService;
     @service stellarpediaService;
 

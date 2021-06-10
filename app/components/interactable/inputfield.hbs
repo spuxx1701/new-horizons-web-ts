@@ -5,7 +5,7 @@
         {{/if}}
         <div class="interactable-element interactable-size-{{@size}}">
             <input id="{{@id}}-input"
-                class="inputfield inputfield-{{this.type}} text-{{@textPosition}} interactable inputfield-hide-invalidity"
+                class="inputfield inputfield-{{this.type}} text-{{@textPosition}} interactable inputfield-hide-invalidity-{{this.hideInvalidity}}"
                 type={{@type}} pattern={{this.pattern}} minLength={{@minLength}} maxLength={{@maxLength}}
                 disabled={{@disabled}} required={{@required}} autofocus={{@autofocus}} value={{changeset-get @changeset
                 @key}} placeholder={{@placeholder}} {{on "change" this.onChange}} {{on "invalid" this.onInvalid}} />

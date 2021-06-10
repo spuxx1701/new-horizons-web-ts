@@ -10,16 +10,16 @@ export default class MainGeneratorOriginController extends Controller {
     @service manager;
     @service databaseService;
     @service stellarpediaService;
-    @service("generator-service") generator;
+    @service generator;
     @tracked changeset = Changeset({});
 
     init() {
         super.init();
     }
 
-    @action onChangeOrigin(itemId, index) {
-        this.set("model.selectedOrigin", this.databaseService.getIdentifiable(itemId));
-        this.set("model.selectedStellarpediaEntry", this.stellarpediaService.get("basic-rules", "supplement-origins", itemId));
+    @action onChangeOrigin(selectedItem, index) {
+        this.set("model.selectedOrigin", this.databaseService.getIdentifiable(selectedItem.id));
+        this.set("model.selectedStellarpediaEntry", this.stellarpediaService.get("basic-rules", "supplement-origins", selectedItem.id));
     }
 
     @action onSubmit() {

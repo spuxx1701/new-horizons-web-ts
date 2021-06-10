@@ -151,4 +151,41 @@ export default class DatabaseService extends Service {
         if (typeof record.getRecord === "function") record = record.getRecord();
         return this.manager.clone(record.serialize(), record.id)
     }
+
+    parseMathFunction(functionString) {
+        //----------------------------------------------------------------------------//
+        // Leopold Hock / 2021-06-05
+        // Description:
+        // This function can process mathematical functions that are encoded within
+        // some database records by making use of JavaScript's eval().
+        // The function has to be encoded as below:
+        // <Skill_Combat_HeavyWeapons.factor>
+        //      would return nested property 'factor' of identifiable
+        //      'Skill_Combat_HeavyWeapons'
+        // "<Constant_SkillsDefaultFactorPhysical.value> * <Constant_TraitsInabilityBonusMultiplier.value>"
+        //      would return product of the identifiable's properties
+        //----------------------------------------------------------------------------//
+        let dataRefRegex = /<(.*?)>/g;
+        let matches = [...functionString.matchAll(dataRefRegex)];
+        let transcribedString = functionString;
+        for (let match of matches) {
+            let dataPath = match[1];
+            if (dataPath.includes(".")) {
+                let split = dataPath.split(".");
+                let identifiable = this.getIdentifiable(split[0]);
+                split.splice(0, 1);
+                let propertyPath = split.join(".");
+                let dataResult = this.manager.getNestedProperty(identifiable, propertyPath);
+                if (dataResult) {
+                    transcribedString = transcribedString.replace(match[0], dataResult);
+                }
+            }
+        }
+        let result = eval(transcribedString);
+        if (typeof result === "number") {
+            return result;
+        } else {
+            return undefined;
+        }
+    }
 }

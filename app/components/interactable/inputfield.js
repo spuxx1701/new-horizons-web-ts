@@ -4,6 +4,7 @@ import InteractableComponent from './interactable';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
+import { observer } from '@ember/object';
 
 export default class InputfieldComponent extends InteractableComponent {
     @service manager;
@@ -13,17 +14,19 @@ export default class InputfieldComponent extends InteractableComponent {
     @tracked valueSuffix; // Shown before the value when inputfield is not currently being focused
     @tracked valueCombined; // Shown after the value when inputfield is not currently being focused
     @tracked pattern;
-
+    @tracked invalid = false;
+    @tracked hideInvalidity = true;
 
     init() {
         super.init()
-        // if 'required' set to true, but no pattern specified, default to 'any' pattern
+        // if 'required' is true, but no pattern specified, default to 'any' pattern
         if (this.required && !this.pattern) {
             this.set("pattern", this.manager.pattern.any);
         }
+        this.addObserver("invalid", this, "invalidDidChange");
     }
 
-    @action didRender(event) {
+    @action didRender() {
         // add event listeners
         if (this.eventListeners) {
             for (let listener of this.eventListeners) {
@@ -39,8 +42,13 @@ export default class InputfieldComponent extends InteractableComponent {
         }
     }
 
-    @action onInvalid(event) {
+    @action onInvalid() {
         // expose invalidity to user
-        event.srcElement.classList.remove("inputfield-hide-invalidity");
+        this.set("hideInvalidity", false);
+    }
+
+    @action invalidDidChange() {
+        console.log(this.invalid);
+        this.set("hideInvalidity", !this.invalid);
     }
 }

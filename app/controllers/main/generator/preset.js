@@ -11,27 +11,33 @@ import EmberResolver from 'ember-resolver';
 export default class GeneratorPresetController extends Controller {
     @service manager;
     @service databaseService;
-    @service("generator-service") generator;
+    @service generator;
 
+    @tracked currentPreset;
     @tracked changeset = Changeset({});
     @tracked allDisabled = true;
     @tracked isModified = false;
+
+    @tracked generatorSettings = {
+        showTutorials: true
+    }
+    @tracked generatorSettingsChangeset = Changeset(this.generatorSettings);
 
     init() {
         super.init();
     }
 
-    @action onChangePreset(id) {
-        let item = this.databaseService.getIdentifiable(id);
-        item.set("isCustom", this.changeset.isCustom)
-        this.set("changeset", Changeset(item));
+    @action onChangePreset(selectedItem) {
+        this.currentPreset = this.databaseService.getIdentifiable(selectedItem.id);
+        this.currentPreset.set("isCustom", this.changeset.isCustom)
+        this.set("changeset", Changeset(this.currentPreset));
         this.isModified = false;
     }
 
     @action onCustomToggle(event) {
         if (!event.srcElement.checked) {
             // reset preset when 'custom' is being turned off
-            this.onChangePreset(this.changeset.get("id"));
+            this.onChangePreset(this.databaseService.getIdentifiable(this.changeset.get("id")));
         }
     }
 
@@ -52,7 +58,8 @@ export default class GeneratorPresetController extends Controller {
                 "event": "click", "id": "modal-button-footer-yes", "function": function () {
                     that.manager.hideModal();
                     that.changeset.save();
-                    that.generator.initializeGeneration(that.changeset.data);
+                    that.generatorSettingsChangeset.save();
+                    that.generator.initializeGeneration(that.changeset.data, { showTutorials: that.generatorSettings.showTutorials });
                 }
             };
             that.manager.callModal("confirm", modalParams, [yesListener]);

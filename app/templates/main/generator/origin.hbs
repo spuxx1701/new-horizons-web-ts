@@ -1,6 +1,6 @@
 <h2 class="fg-white text-center">{{localize "Route_Generator_Origin_Title"}}</h2>
 <Layout::Panel @size="max" @alignment="center">
-    <Interactable::Dropdown @size="huge" @items={{@model.origins}} @default={{@model.selectedOrigin}}
+    <Interactable::Dropdown @size="huge" @items={{@model.origins}} @defaultItem={{@model.selectedOrigin}}
         @onChangeListener={{this.onChangeOrigin}} @cycle={{true}} @disabled={{this.generator.originChosen}} />
     <Stellarpedia::article @entry={{this.model.selectedStellarpediaEntry}} @titleAlignment="center" />
     <Interactable::button @label={{localize "Route_Generator_Origin_Submit" }} @size="large" @click={{this.onSubmit}}

@@ -24,17 +24,25 @@
             <td class="flex">
                 <Interactable::ButtonInfo class="float-left"
                     @article="basic-rules/supplement-traits/{{trait.data.id}}" />
-                <Interactable::ButtonSquare class="float-left" @icon="plus" @onClick={{this.onAddClick}} />
+                {{#if @isOwned}}
+                <Interactable::ButtonSquare class="float-left" @icon="minus" @onClick={{fn this.onRemoveClick trait
+                    }} />
+                {{else}}
+                <Interactable::ButtonSquare class="float-left" @icon="plus" @onClick={{fn this.onAddClick trait}} />
+                {{/if}}
             </td>
             <td class="vertical-align-middle">
                 {{localize trait.data.id}}
             </td>
             <td>
+                {{trait.inputInvalid}}
                 {{#if trait.data.needsInput}}
-                <Interactable::Inputfield @size="large" @changeset={{trait.changeset}} @key="input" />
+                <Interactable::Inputfield @size="large" @changeset={{trait.changeset}} @key="input" @required={{true}}
+                    @invalid={{trait.invalid}} />
                 {{/if}}
                 {{#if trait.data.hasOptions}}
-                <Interactable::Dropdown @size="large" @key="input" @items={{trait.data.options}} />
+                <Interactable::Dropdown @size="large" @items={{trait.data.options}}
+                    @onChangeListener={{this.onOptionChange}} @context={{trait}} />
                 {{/if}}
             </td>
             <td>

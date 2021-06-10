@@ -27,11 +27,15 @@ export default class GeneratorService extends Service {
     @tracked gpAvailable;
     @tracked gpBonus;
 
+    @tracked settings = {
+        showTutorials: false
+    }
+
     getCharacter() {
         return this.get("character");
     }
 
-    @action initializeGeneration(characterPreset) {
+    @action initializeGeneration(characterPreset, { showTutorials = false } = {}) {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2021-03-13
         // Description:
@@ -47,6 +51,8 @@ export default class GeneratorService extends Service {
         this.apAvailable = characterPreset.get("apAvailable");
         this.gpAvailable = 0 + characterPreset.get("gpBonus");
         this.ipAvailable = characterPreset.get("ipAvailable");
+        // initialize settings
+        this.set("showTutorials", showTutorials);
     }
 
     setOrigin(origin, motherTongue, skillChoices) {
@@ -107,7 +113,7 @@ export default class GeneratorService extends Service {
 
     @action getCollectionAsList(collectionName, { sortByLocalizedLabel = false, skipValidate = true } = {}) {
         let collection = this.getCharacter().data[collectionName];
-        if (!collection || !Array.isArray(!collection)) {
+        if (!collection && !Array.isArray(!collection)) {
             return undefined;
         }
         let result = [];

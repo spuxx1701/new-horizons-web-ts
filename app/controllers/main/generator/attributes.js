@@ -8,7 +8,7 @@ import { Changeset } from 'ember-changeset';
 export default class MainGeneratorAttributesController extends Controller {
     @service manager;
     @service databaseService;
-    @service("generator-service") generator;
+    @service generator;
 
     init() {
         super.init();

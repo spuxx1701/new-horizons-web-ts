@@ -5,7 +5,7 @@ import { inject as service } from '@ember/service';
 
 export default class MainGeneratorSkillsRoute extends Route {
     @service manager;
-    @service("generator-service") generator;
+    @service generator;
     @service databaseService;
 
     model() {

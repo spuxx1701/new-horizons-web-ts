@@ -251,7 +251,7 @@
     border: 2px solid var(--colorModalHeaderError);
 }
 
-.inputfield-hide-invalidity:not(:focus) {
+.inputfield-hide-invalidity-true:not(:focus) {
     border: 1px solid var(--colorGreyMedium) !important;
 }
 

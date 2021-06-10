@@ -8,7 +8,7 @@ import { inject as service } from '@ember/service';
 
 export default class NavbarGeneratorController extends Controller {
     @service manager;
-    @service generatorService;
+    @service generator;
     @service session;
     tabs = [{ id: "personal", icon: "user-circle", routeName: "main.generator.personal" },
     { id: "attributes", icon: "running", routeName: "main.generator.attributes" },

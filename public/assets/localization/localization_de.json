@@ -1,5 +1,13 @@
 [
     {
+        "key": "Modal_CannotAddTrait_Title",
+        "value": "Merkmal kann nicht erworben werden"
+    },
+    {
+        "key": "Modal_CannotAddTrait_CharacterOwnsTrait",
+        "value": "Der Charakter verfügt bereits über dieses Merkmal. Falls das Merkmal über Optionen oder Eingabemöglichkeiten verügt, wurde dasselbe Merkmal mit genau derselben Option oder Eingabe gefunden."
+    },
+    {
         "key": "Misc_Trait",
         "value": "Merkmal"
     },
@@ -118,6 +126,10 @@
     {
         "key": "Route_Generator_Preset_Start",
         "value": "Erschaffung beginnen"
+    },
+    {
+        "key": "Route_Generator_Preset_ShowTutorials",
+        "value": "Tutorials anzeigen"
     },
     {
         "key": "CharacterPreset_Hero",
@@ -2082,6 +2094,10 @@
     {
         "key": "Misc_Maximum:",
         "value": "Maximum:"
+    },
+    {
+        "key": "Misc_MinTraits",
+        "value": "Minimum Merkmale"
     },
     {
         "key": "Misc_MaxTraits",

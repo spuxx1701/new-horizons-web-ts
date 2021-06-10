@@ -16,14 +16,19 @@ export default class ListComponent extends Component {
     @tracked sortingKey;
     @tracked ascending = true;
 
+    isInitialized = false;
+
     willRender() {
-        // Sort initially if sortingKey is provided
-        if (this.sortingKey) {
-            if (this.ascending) {
-                set(this, "rows", this.manager.sortArray(this.rows, this.sortingKey));
-            } else {
-                set(this, "rows", this.manager.sortArray(this.rows, "-" + this.sortingKey));
+        if (!this.isInitialized) {
+            // Sort initially if sortingKey is provided
+            if (this.sortingKey) {
+                if (this.ascending) {
+                    set(this, "rows", this.manager.sortArray(this.rows, this.sortingKey));
+                } else {
+                    set(this, "rows", this.manager.sortArray(this.rows, "-" + this.sortingKey));
+                }
             }
+            this.isInitialized = true;
         }
     }
 
@@ -36,7 +41,10 @@ export default class ListComponent extends Component {
             this.sortingKey = property;
             this.ascending = true;
         }
-        // Call rerender
-        this.rerender();
+        if (this.ascending) {
+            set(this, "rows", this.manager.sortArray(this.rows, this.sortingKey));
+        } else {
+            set(this, "rows", this.manager.sortArray(this.rows, "-" + this.sortingKey));
+        }
     }
 }

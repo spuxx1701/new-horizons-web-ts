@@ -11,6 +11,9 @@
         <Interactable::Inputfield @id="preset-input-gpbonus" @label={{localize "Misc_GPBonus" }} @size="small"
             @textPosition="right" @required={{true}} @disabled={{unless this.changeset.isCustom true}}
             @changeset={{this.changeset}} @key="gpBonus" @pattern={{this.manager.pattern.numeric}} @maxLength="2" />
+        <Interactable::Inputfield @label={{localize "Misc_MinTraits" }} @id="preset-input-mintraits" @size="small"
+            @textPosition="right" @required={{true}} @disabled={{unless this.changeset.isCustom true}}
+            @changeset={{this.changeset}} @key="traitsMin" @pattern={{this.manager.pattern.numeric}} @maxLength="2" />
         <Interactable::Inputfield @label={{localize "Misc_MaxTraits" }} @id="preset-input-maxtraits" @size="small"
             @textPosition="right" @required={{true}} @disabled={{unless this.changeset.isCustom true}}
             @changeset={{this.changeset}} @key="traitsMax" @pattern={{this.manager.pattern.numeric}} @maxLength="2" />
@@ -31,6 +34,8 @@
             @textPosition="right" @required={{true}} @disabled={{unless this.changeset.isCustom true}}
             @changeset={{this.changeset}} @key="fpStart" @pattern={{this.manager.pattern.numeric}} @maxLength="1" />
         <div class="spacer" />
+        <Interactable::Toggle @label={{localize "Route_Generator_Preset_ShowTutorials" }}
+            @changeset={{this.generatorSettingsChangeset}} @key="showTutorials" />
         <Interactable::button @id="preset-submit" @type="submit" @label={{localize "Route_Generator_Preset_Start" }}
             class="interactable-size-large margin-horizontal-auto" />
     </form>

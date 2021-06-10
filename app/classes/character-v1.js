@@ -307,7 +307,7 @@ export default class CharacterV1 {
     //----------------------------------------------------------------------------//
     // TRAITS
     //----------------------------------------------------------------------------//
-    addTrait(id, { input = undefined, ignoreDuplicates = true, logSuccess = true } = {}) {
+    addTrait(id, { input = undefined, selectedOption = undefined, ignoreDuplicates = true, logSuccess = true } = {}) {
         id = this.manager.database.transformId(id);
         let newTrait = this.manager.database.getIdentifiable(id, { clone: true });
         if (this.getTrait(id, { input: input })) {
@@ -320,16 +320,24 @@ export default class CharacterV1 {
         }
         if (input) {
             newTrait.input = input;
+        } else if (selectedOption) {
+            newTrait.selectedOption = this.manager.clone(selectedOption);
         }
         this.data.traits.push(newTrait);
         if (logSuccess) this.manager.log(`Trait '${newTrait.id}' with input '${newTrait.input}' has been added to character '${this.getName()}'.`, "i");
     }
 
-    getTrait(id, { input = undefined }) {
+    removeTrait(id, { input = undefined, selectedOptionId = undefined, logSuccess = true } = {}) {
+
+    }
+
+    getTrait(id, { input = undefined, selectedOptionId = undefined }) {
         id = this.manager.database.transformId(id);
         for (let trait of this.data.traits) {
             if (trait.id === id) {
                 if (input && trait.input !== input) {
+                    continue;
+                } else if (selectedOptionId && selectedOptionId !== trait.selectedOption.id) {
                     continue;
                 }
                 return trait;

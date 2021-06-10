@@ -20,7 +20,7 @@ export default class ManagerService extends Service {
     @service router;
     @service modalService;
     @service session;
-    @service generatorService;
+    @service generator;
 
     // Input patterns
     @tracked pattern = {
@@ -240,8 +240,7 @@ export default class ManagerService extends Service {
         }
     }
 
-    @action
-    clone(object, id = undefined) {
+    @action clone(object, id = undefined) {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2021-04-06
         // Description:
@@ -264,7 +263,7 @@ export default class ManagerService extends Service {
             // disable unload warning in dev mode to allow liverelead
             return undefined;
         }
-        let isDirty = (this.generatorService.get("generationInProcess"));
+        let isDirty = (this.generator.get("generationInProcess"));
         if (isDirty) {
             let confirmationMessage = this.localize("Misc_BeforeUnloadConfirmMessage");
             (event || window.event).returnValue = confirmationMessage; //Gecko + IE
@@ -277,7 +276,7 @@ export default class ManagerService extends Service {
     tryParseInt(input) {
         try {
             if (typeof parseInt(input) === "number" && !isNaN(parseInt(input))) {
-                return true
+                return parseInt(input);
             } else {
                 return false;
             }

@@ -11,29 +11,24 @@ export default class DropdownComponent extends InteractableComponent {
     @tracked selectedItem;
     @tracked firstItem;
     @tracked lastItem;
-    hasRendered = false;
+    isInitialized = false;
     loop = true;
     disabled = false;
+    localizeId = true;
 
     init() {
         super.init()
     }
 
     willRender() {
-        if (!this.hasRendered) {
+        if (!this.isInitialized) {
             let items = this.get("items").content || this.get("items");
-            let defaultItem;
-            for (let i = 0; i < items.length; i++) {
-                if (this.default && items[i].id === this.default) {
-                    defaultItem = items[i];
-                }
-            }
-            if (defaultItem) {
-                this.onItemClicked(defaultItem);
+            if (this.defaultItem) {
+                this.onItemClicked(this.defaultItem);
             } else {
                 this.onItemClicked(items[0]);
             }
-            this.hasRendered = true;
+            this.isInitialized = true;
         }
     }
 
@@ -49,16 +44,18 @@ export default class DropdownComponent extends InteractableComponent {
 
     @computed("selectedItem", "items")
     get caption() {
-        let items = this.get("items").conrent || this.get("items");
+        let items = this.get("items").content || this.get("items");
         if (!items || items.length === 0) {
             return this.manager.localize("Misc_NoData");
         } else {
             this.set("firstItem", items[0]);
             this.set("lastItem", items[items.length - 1]);
             if (this.get("selectedItem")) {
-                return this.manager.localize(this.get("selectedItem").id);
-            } else {
-                return this.manager.localize(items[0].id);
+                if (this.localizeId) {
+                    return this.manager.localize(this.get("selectedItem").id);
+                } else {
+                    return this.get("selectedItem").label;
+                }
             }
         }
     }
@@ -68,13 +65,9 @@ export default class DropdownComponent extends InteractableComponent {
         if (this.isDisabled) return;
         // do dropdown specific stuff
         this.set("selectedItem", item);
-        // try to set changeset value
-        if (this.get("changeset") && this.get("key")) {
-            this.get("changeset").set(this.get("key"), item.id);
-        }
         // try to call onChange(itemID)
         if (typeof this.onChangeListener === this.manager.constants.typeOfFunction) {
-            this.onChangeListener(item.id, { key: this.get("key"), changeset: this.get("changeset") });
+            this.onChangeListener(item, this);
         }
     }
 

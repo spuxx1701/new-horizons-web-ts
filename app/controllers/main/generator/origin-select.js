@@ -10,7 +10,7 @@ export default class MainGeneratorOriginSelectController extends Controller {
     @service manager;
     @service databaseService;
     @service stellarpediaService;
-    @service("generator-service") generator;
+    @service generator;
     @tracked changeset = Changeset(this.model.data);
 
     init() {
