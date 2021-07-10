@@ -18,6 +18,8 @@ export default class StellarpediaSerializer extends JSONSerializer {
             chapter.id = this.databaseService.transformId(chapter.id);
             for (let entry of chapter.entries) {
                 entry.id = this.databaseService.transformId(entry.id);
+                // add full path to entry
+                entry.path = `${this.databaseService.transformId(hash.id)}+${chapter.id}+${entry.id}`;
             }
         }
         return super.normalize(typeClass, hash);

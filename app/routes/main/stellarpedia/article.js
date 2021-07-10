@@ -7,8 +7,6 @@ export default class MainStellarpediaArticleRoute extends Route {
     @service stellarpediaService;
 
     async model(params, transition) {
-        let updateNavbar = this.stellarpediaService.updateNavBarOnRender;
-        this.stellarpediaService.updateNavBarOnRender = false;
         // get the full adress and split it
         let fullEntryAdress = params.fullEntryAdress;
         let split = fullEntryAdress.split("+");
@@ -17,11 +15,6 @@ export default class MainStellarpediaArticleRoute extends Route {
                 this.stellarpediaService.setSelectedEntry(split[0], split[1], split[2]);
                 // get and load the required database collections
                 await this.stellarpediaService.loadRequiredDatabaseCollections(split[0], split[1], split[2]);
-                // update navBar if requested
-                let navBarController = Ember.getOwner(this).lookup("controller:nav-sidebar.stellarpedia");
-                if (updateNavbar && navBarController) {
-                    navBarController.updateSelectedButton();
-                }
             } else {
                 throw "entry-not-found";
             }

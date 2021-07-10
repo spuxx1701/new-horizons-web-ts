@@ -181,6 +181,10 @@ Description: Contains style information for the sidebars and their child control
     transition: max-height 200ms ease-in-out;
 }
 
+.sidebar-collapsible-content-expanded {
+    max-height: max-content;
+}
+
 .sidebar-button-tiny {
     height: 25px;
     width: 25px;

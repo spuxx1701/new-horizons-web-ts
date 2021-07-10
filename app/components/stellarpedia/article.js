@@ -9,4 +9,14 @@ export default class StellarpediaRowComponent extends Component {
     @service stellarpediaService;
 
     @tracked titleAlignment = "left";
+
+    // @action didRender() {
+    //     // update sidebar ui states if required
+    //     if (this.stellarpediaService.updateScrollPositionAfterTransition) {
+    //         let sidebarController = Ember.getOwner(this).lookup("controller:nav-sidebar/stellarpedia");
+    //         if (sidebarController) {
+    //             sidebarController.checkFocus();
+    //         }
+    //     }
+    // }
 }

@@ -9,6 +9,8 @@ export default class StellarpediaRoute extends Route {
     @service databaseService;
 
     async model(params, transition) {
+        // make sure scroll position will be adjusted to focus the targeted entry
+        this.stellarpediaService.set("updateScrollPositionAfterTransition", true);
         // remember returnRoute
         if (transition.from) {
             if (transition.from.name !== transition.to.name) {

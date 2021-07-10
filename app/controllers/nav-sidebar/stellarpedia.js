@@ -6,16 +6,15 @@
 
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
-import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
+import { tracked } from '@glimmer/tracking';
 
 export default class NavbarStellarpediaController extends Controller {
     @service manager;
     @service session;
     @service stellarpediaService;
 
-    @tracked chapterIcon = "bookmark";
-    @tracked entryIcon = "file-alt";
+    @tracked data;
 
     init() {
         //----------------------------------------------------------------------------//
@@ -24,6 +23,7 @@ export default class NavbarStellarpediaController extends Controller {
         // Runs on initialization.
         //----------------------------------------------------------------------------//
         super.init();
+        this.data = this.stellarpediaService.sidebarData;
     }
 
     @action
@@ -36,109 +36,32 @@ export default class NavbarStellarpediaController extends Controller {
         this.manager.goToRoute(this.manager.stellarpedia.returnRoute);
     }
 
-    @action
-    onBookClick(event) {
+    @action checkFocus() {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2020-08-21
         // Description:
-        // Is being triggered when a book is being clicked.
+        // Checks whether stellarpedia service expects the currently selected entry
+        // to be focused in the navigation side bar. If so, adjusts the sidebar's
+        // scroll position to focus the currently selected entry.
         //----------------------------------------------------------------------------//
-        let coll = event.currentTarget;
-        let content = document.getElementById(coll.id + "-content");
-        if (content.style.maxHeight) {
-            content.style.maxHeight = null;
-        } else {
-            content.style.maxHeight = content.scrollHeight + "px";
-        }
-    }
-
-    @action
-    onChapterClick(bookId, event) {
-        //----------------------------------------------------------------------------//
-        // Leopold Hock / 2020-08-21
-        // Description:
-        // Is being triggered when a chapter is being clicked.
-        //----------------------------------------------------------------------------//
-        let coll = event.currentTarget;
-        let content = document.getElementById(coll.id + "-content");
-        if (content.style.maxHeight) {
-            content.style.maxHeight = null;
-        } else {
-            content.style.maxHeight = content.scrollHeight + "px";
-            // expand book content
-            let bookContent = document.getElementById("sidebar-button-" + bookId + "-content");
-            bookContent.style.maxHeight = (bookContent.scrollHeight + content.scrollHeight) + "px";
-        }
-    }
-
-    @action
-    async onEntryClick(entry, bookId, chapterId, event) {
-        //----------------------------------------------------------------------------//
-        // Leopold Hock / 2020-08-21
-        // Description:
-        // Is being triggered when an entry is being clicked.
-        //----------------------------------------------------------------------------//
-        let button = event.currentTarget;
-        // make sure to load the required database collections for the entry to show because the model hook
-        // doesn't run properly when transitioning within the 'stellarpedia' route
-        await this.stellarpediaService.loadRequiredDatabaseCollections(bookId, chapterId, entry.id)
-        // show the entry and mark it as selected in the sidebar
-        this.manager.showStellarpediaEntry(bookId, chapterId, entry.id);
-        this.selectEntry(bookId, chapterId, button, true);
-        if (!this.manager.isDesktop) {
-            this.manager.tryCloseSidebar("navSidebar");
-        }
-    }
-
-    selectEntry(bookId, chapterId, button, hasBeenClicked = false) {
-        //----------------------------------------------------------------------------//
-        // Leopold Hock / 2020-08-21
-        // Description:
-        // Selects a button and collapses the groups it belongs to.
-        //----------------------------------------------------------------------------//
-        let buttonList = document.getElementsByClassName("sidebar-collapsible");
-        for (let i = 0; i < buttonList.length; i++) {
-            buttonList[i].classList.remove("sidebar-collapsible-highlighted");
-        }
-        button.classList.add("sidebar-collapsible-highlighted");
-        // expand chapter & book contents if button has not been clicked manually
-        if (!hasBeenClicked) {
-            let bookContent = document.getElementById("sidebar-button-" + bookId + "-content");
-            let chapterContent = document.getElementById("sidebar-button-" + bookId + "." + chapterId + "-content");
-            // override transition
-            bookContent.style.transition = "0ms";
-            chapterContent.style.transition = "0ms";
-            // adjust height
-            chapterContent.style.maxHeight = chapterContent.scrollHeight + "px";
-            bookContent.style.maxHeight = bookContent.scrollHeight + "px";
-            // adjust scroll position
+        // update sidebar ui states if required
+        if (this.stellarpediaService.updateScrollPositionAfterTransition) {
+            this.stellarpediaService.set("updateScrollPositionAfterTransition", false);
+            let buttonId = `sidebar-button-${this.stellarpediaService.selectedEntry.path}`;
+            let button = document.getElementById(buttonId);
             let navSidebarContent = document.getElementById("navSidebarContent");
-            let offset = button.offsetTop - (navSidebarContent.clientHeight / 2);
-            if (offset <= navSidebarContent.scrollHeight) {
-                if (offset >= 0) {
-                    navSidebarContent.scrollTo(0, offset);
+            if (button && navSidebarContent) {
+                let offset = button.offsetTop - (navSidebarContent.clientHeight / 2);
+                if (offset <= navSidebarContent.scrollHeight) {
+                    if (offset >= 0) {
+                        navSidebarContent.scrollTo(0, offset);
+                    } else {
+                        navSidebarContent.scrollTo(0, 0);
+                    }
                 } else {
-                    navSidebarContent.scrollTo(0, 0);
+                    navSidebarContent.scrollTo(0, navSidebarContent.scrollHeight);
                 }
-            } else {
-                navSidebarContent.scrollTo(0, navSidebarContent.scrollHeight);
             }
-            bookContent.style.transition = null;
-            chapterContent.style.transition = null;
-        }
-    }
-
-    @action
-    updateSelectedButton() {
-        //----------------------------------------------------------------------------//
-        // Leopold Hock / 2020-08-21
-        // Description:
-        // Update selection in hierarchy to match selected*-properties of stellarpedia service.
-        //----------------------------------------------------------------------------//
-        let buttonId = "sidebar-button-" + this.manager.stellarpedia.selectedBookId + "." + this.manager.stellarpedia.selectedChapterId + "." + this.manager.stellarpedia.selectedEntry.id;
-        let button = document.getElementById(buttonId);
-        if (button) {
-            this.selectEntry(this.manager.stellarpedia.selectedBookId, this.manager.stellarpedia.selectedChapterId, button);
         }
     }
 

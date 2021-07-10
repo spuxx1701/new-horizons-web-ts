@@ -156,13 +156,19 @@ export default class ManagerService extends Service {
         this.messageService.logMessage(messageText, messageType);
     }
 
-    @action showStellarpediaEntry(bookId, chapterId, entryId) {
+    @action showStellarpediaEntry(bookId, chapterId, entryId, { updateScrollPosition = false, closeSidebarOnMobile = false } = {}) {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2020-08-22
         // Description:
         // Calls stellarpediaService to show a specific Stellarpedia article.
         //----------------------------------------------------------------------------//
         this.router.transitionTo("main.stellarpedia.article", this.database.transformId(bookId) + "+" + this.database.transformId(chapterId) + "+" + this.database.transformId(entryId));
+        if (updateScrollPosition) {
+            // this.stellarpedia.set("updateScrollPositionAfterTransition", true);
+        }
+        if (closeSidebarOnMobile && !this.isDesktop) {
+            this.tryCloseSidebar("navSidebar");
+        }
     }
 
     @action onMediaChange(mediaQuery) {

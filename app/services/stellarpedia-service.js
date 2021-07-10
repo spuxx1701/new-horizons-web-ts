@@ -9,6 +9,7 @@ import ENV from 'new-horizons-web/config/environment';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
+import { set } from '@ember/object';
 
 export default class StellarpediaService extends Service {
     @service manager;
@@ -24,8 +25,9 @@ export default class StellarpediaService extends Service {
     @tracked selectedEntry = {};
     @tracked currentPosition;
     @tracked returnRoute = "home";
-    @tracked updateNavBarOnRender = false;
+    @tracked updateScrollPositionAfterTransition = false;
     @tracked data;
+    @tracked sidebarData;
 
     init() {
         //----------------------------------------------------------------------------//
@@ -130,6 +132,7 @@ export default class StellarpediaService extends Service {
             this.selectedChapterId = chapterId;
             this.selectedEntry = entry;
             this.currentPosition = this.manager.localize(bookId) + " > " + this.get(bookId, chapterId).header + " > " + this.header;
+            this.setSidebarSelectionState(bookId, chapterId, entryId);
         } catch (exception) {
             this.manager.log("Unable to set Stellarpedia's selectedEntry (" + exception + ").", this.manager.msgType.x);
         }
@@ -314,7 +317,7 @@ export default class StellarpediaService extends Service {
             }
             // if not, extract article information and replace with <button>
             else {
-                let entryUrl = this.databaseService.transformId(linkPath);
+                let entryUrl = linkPath;
                 entryUrl = entryUrl.replaceAll(/\"/g, "");
                 result = result.replace(linkMatch[0], `<button type='button' class='button-link stellarpedia-link' data-target='${entryUrl}'>${linkText}</button>`);
             }
@@ -487,8 +490,75 @@ export default class StellarpediaService extends Service {
         let target = event.originalTarget.getAttribute("data-target");
         let split = target.split(";");
         let entryAddress = { bookId: split[0], chapterId: split[1], entryId: split[2] };
-        this.manager.showStellarpediaEntry(entryAddress.bookId, entryAddress.chapterId, entryAddress.entryId);
+        this.manager.showStellarpediaEntry(entryAddress.bookId, entryAddress.chapterId, entryAddress.entryId, { updateScrollPosition: true, closeSidebarOnMobile: true });
         // tell the route to update the nav bar after the article has been rendered
-        this.updateNavBarOnRender = true;
+        this.updateScrollPositionAfterTransition = true;
+    }
+
+
+    @action loadIntoSidebarData(bookId, chapterId) {
+        //----------------------------------------------------------------------------//
+        // Leopold Hock / 2021-07-10
+        // Description:
+        // Loads the given book or chapter into the sidebar data object so the
+        // corresponding DOM elements can be rendered lazily.
+        //----------------------------------------------------------------------------//
+        let sidebarData = this.sidebarData;
+        if (!sidebarData) {
+            this.sidebarData = sidebarData = [];
+            for (let book of this.data.content) {
+                let sidebarBook = { id: book.getRecord().id, faIcon: book.getRecord().faIcon, chapters: [] };
+                sidebarData.push(sidebarBook);
+            }
+        }
+        let sidebarBook = sidebarData.find(book => book.id === bookId);
+        if (sidebarBook.chapters?.length === 0) {
+            let book = this.get(bookId);
+            for (let chapter of book.chapters) {
+                sidebarBook.chapters.push({ id: chapter.id, header: chapter.header, entries: [] });
+            }
+        }
+        if (chapterId) {
+            let sidebarChapter = sidebarBook.chapters.find(chapter => chapter.id === chapterId);
+            if (sidebarChapter?.entries.length === 0) {
+                let chapter = this.get(bookId, chapterId);
+                for (let entry of chapter.entries) {
+                    sidebarChapter.entries.push({ id: entry.id, elements: [entry.elements[0]] });
+                }
+            }
+        }
+        // sidebar controller needs to be notified 
+        let sidebarController = Ember.getOwner(this).lookup("controller:nav-sidebar/stellarpedia");
+        if (sidebarController) {
+            sidebarController.notifyPropertyChange("data");
+        }
+    }
+
+    @action setSidebarSelectionState(bookId, chapterId, entryId, { state = true } = {}) {
+        //----------------------------------------------------------------------------//
+        // Leopold Hock / 2021-07-10
+        // Description:
+        // Toggles the expanded/collapsed state of a sidebar object.
+        //----------------------------------------------------------------------------//
+        this.loadIntoSidebarData(bookId, chapterId);
+        let book = this.sidebarData.find(book => book.id === bookId);
+        set(book, "expanded", state);
+        if (chapterId) {
+            let chapter = book.chapters.find(chapter => chapter.id === chapterId);
+            set(chapter, "expanded", state);
+            if (entryId && state) {
+                for (let otherBook of this.sidebarData) {
+                    for (let otherChapter of otherBook.chapters) {
+                        otherChapter.entries.forEach(function (entry) {
+                            if (entry.id === entryId) {
+                                set(entry, "selected", state);
+                            } else {
+                                set(entry, "selected", false);
+                            }
+                        })
+                    }
+                }
+            }
+        }
     }
 }
