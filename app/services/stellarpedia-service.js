@@ -13,9 +13,9 @@ import { set } from '@ember/object';
 
 export default class StellarpediaService extends Service {
     @service manager;
-    @service databaseService
+    @service database
     @service store;
-    @service localizationService;
+    @service localization;
 
     namespace = "/assets/stellarpedia/stellarpedia_";
     defaultEntry = { bookId: "basic-rules", chapterId: "introduction", entryId: "welcome" };
@@ -60,10 +60,10 @@ export default class StellarpediaService extends Service {
         // Description:
         // Returns a book and/or chapter and/or entry (chapterId and entryId are optional).
         //----------------------------------------------------------------------------//
-        bookId = this.databaseService.transformId(bookId);
+        bookId = this.database.transformId(bookId);
         // convert ids if needed
-        if (chapterId) chapterId = this.databaseService.transformId(chapterId);
-        if (entryId) entryId = this.databaseService.transformId(entryId);
+        if (chapterId) chapterId = this.database.transformId(chapterId);
+        if (entryId) entryId = this.database.transformId(entryId);
         var book = this.store.peekRecord("stellarpedia", bookId);
         if (!book) {
             this.manager.log("Stellarpedia book " + bookId + " does not exist.", this.manager.msgType.e);
@@ -291,7 +291,7 @@ export default class StellarpediaService extends Service {
         let dataMatches = [...result.matchAll(dataRegex)];
         for (let dataMatch of dataMatches) {
             let dataPath = dataMatch[1];
-            let dataResult = this.databaseService.getDataFromPath(dataPath);
+            let dataResult = this.database.getDataFromPath(dataPath);
             if (dataResult) {
                 result = result.replace(dataMatch[0], dataResult);
             } else {
@@ -474,7 +474,7 @@ export default class StellarpediaService extends Service {
                         let dataPath = dataMatch[1];
                         // get the name of the collection
                         let collectionName = dataPath.split(";")[1].split("_")[0];
-                        await this.databaseService.loadCollection(collectionName);
+                        await this.database.loadCollection(collectionName);
                     }
                 }
             }

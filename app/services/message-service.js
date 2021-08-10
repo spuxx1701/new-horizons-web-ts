@@ -15,7 +15,7 @@ import { inject as service } from '@ember/service';
 
 export default class ManagerService extends Service {
     @service manager;
-    @service localizationService;
+    @service localization;
     @service modalService;
     @service store;
 

@@ -9,11 +9,10 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import Character from '../classes/character-v1';
-import { Changeset } from 'ember-changeset';
 
 export default class GeneratorService extends Service {
     @service manager;
-    @service databaseService;
+    @service database;
 
     @tracked character;
     @tracked preset;
@@ -32,10 +31,11 @@ export default class GeneratorService extends Service {
     }
 
     getCharacter() {
-        return this.get("character");
+        let character = this.get("character");
+        return character;
     }
 
-    @action initializeGeneration(characterPreset, { showTutorials = false } = {}) {
+    @action initializeGeneration(characterPreset, { showTutorials = false, preventRouting = false } = {}) {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2021-03-13
         // Description:
@@ -44,13 +44,15 @@ export default class GeneratorService extends Service {
         let character = new Character(characterPreset.id, this.manager.appVersion, this.manager);
         this.set("preset", characterPreset);
         this.set("character", character);
-        this.manager.goToRoute("generator.origin");
+        if (!preventRouting) {
+            this.manager.goToRoute("generator.origin");
+        }
         this.set("generationInProcess", true);
         this.set("originChosen", false);
         // initialize gp, ap and ip budgets
-        this.apAvailable = characterPreset.get("apAvailable");
-        this.gpAvailable = 0 + characterPreset.get("gpBonus");
-        this.ipAvailable = characterPreset.get("ipAvailable");
+        this.apAvailable = characterPreset.apAvailable;
+        this.gpAvailable = 0 + characterPreset.gpBonus;
+        this.ipAvailable = characterPreset.ipAvailable;
         // initialize settings
         this.set("showTutorials", showTutorials);
     }
@@ -65,20 +67,24 @@ export default class GeneratorService extends Service {
         this.getCharacter().setPrimaryAttributeProperty(origin.specialPA, "max", 1, { logSuccess: false });
         // add and/or increase all fixed skills
         for (let skill of origin.skillsFixed) {
-            this.getCharacter().addSkill(skill.id, { logSuccess: false });
+            let skillRecord = this.database.getIdentifiable(skill.id);
+            skillRecord.addToCharacter(this.getCharacter(), { logSuccess: false, ignoreDuplicate: true, updateSkill: false });
             this.getCharacter().setSkillLevel(skill.id, skill.level, { logSuccess: false, updateSkill: false });
             this.getCharacter().updateSkill(skill.id, { logSuccess: false, updateMinimum: true });
         }
         // add and/or increase all chosen skills
         for (let skill of skillChoices) {
-            this.getCharacter().addSkill(skill.id, { logSuccess: false });
+            let skillRecord = this.database.getIdentifiable(skill.id);
+            skillRecord.addToCharacter(this.getCharacter(), { logSuccess: false, ignoreDuplicate: true, updateSkill: false });
             this.getCharacter().setSkillLevel(skill.id, skill.level, { logSuccess: false, updateSkill: false });
             this.getCharacter().updateSkill(skill.id, { logSuccess: false, updateMinimum: true });
         }
         // add the character's mother tongue as an ability
-        this.getCharacter().addAbility("Ability_General_Language", { input: motherTongue, logSuccess: false });
-        this.manager.log(`Applied origin '${origin.id}' to character '${this.getCharacter().getName()}'.`);
+        let motherTongueAbility = this.database.getIdentifiable("Ability_General_Language");
+        motherTongueAbility.addToCharacter(this.getCharacter(), { input: motherTongue, logSuccess: false });
+
         // update status
+        this.manager.log(`Applied origin '${origin.id}' to character '${this.getCharacter().getName()}'.`);
         this.set("originChosen", true);
     }
 
@@ -111,24 +117,28 @@ export default class GeneratorService extends Service {
         }
     }
 
-    @action getCollectionAsList(collectionName, { sortByLocalizedLabel = false, skipValidate = true } = {}) {
-        let collection = this.getCharacter().data[collectionName];
-        if (!collection && !Array.isArray(!collection)) {
-            return undefined;
+    /**
+     * Generates a dummy character for development purposes.
+     */
+    generateDummyCharater() {
+        let preset = {
+            id: "Dummy",
+            gpBonus: 0,
+            apAvailable: 32,
+            traitsMin: 5,
+            traitsMax: 15,
+            abilitiesMax: 4,
+            ipAvailable: 100,
+            epStart: 0,
+            crStart: 0,
+            fpStart: 1
+        };
+        this.initializeGeneration(preset, { preventRouting: true });
+        let origin = this.database.getIdentifiable("origin/earth-urban");
+        let skillChoices = [];
+        for (let skillOption of origin.skillOptions) {
+            skillChoices.push({ id: skillOption.options[0], level: skillOption.level })
         }
-        let result = [];
-        let that = this;
-        collection.forEach(function (element) {
-            let convertedElement = {
-                data: element,
-                changeset: new Changeset(element, { skipValidate: skipValidate }),
-                localizedLabel: that.manager.localize(element.id)
-            }
-            result.push(convertedElement);
-        });
-        if (sortByLocalizedLabel) {
-            this.manager.sortArray(result, "localizedLabel");
-        }
-        return result;
+        this.setOrigin(origin, "Solaire", skillChoices);
     }
 }

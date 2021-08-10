@@ -8,7 +8,7 @@ import { computed, set } from '@ember/object';
 
 export default class MainGeneratorOriginSelectController extends Controller {
     @service manager;
-    @service databaseService;
+    @service database;
     @service stellarpediaService;
     @service generator;
     @tracked changeset = Changeset(this.model.data);

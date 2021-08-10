@@ -6,7 +6,7 @@ export default class StellarpediaRoute extends Route {
     @service manager;
     @service router;
     @service stellarpediaService;
-    @service databaseService;
+    @service database;
 
     async model(params, transition) {
         // make sure scroll position will be adjusted to focus the targeted entry

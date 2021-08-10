@@ -13,9 +13,9 @@ import { inject as service } from '@ember/service';
 export default class ManagerService extends Service {
     @service store;
     @service("constantService") constants;
-    @service localizationService;
+    @service localization;
     @service messageService;
-    @service("databaseService") database;
+    @service database;
     @service("stellarpediaService") stellarpedia;
     @service router;
     @service modalService;
@@ -142,9 +142,9 @@ export default class ManagerService extends Service {
         //----------------------------------------------------------------------------//
         // Leopold Hock / 2020-08-22
         // Description:
-        // Sends the input to the localizationService and returns its value.
+        // Sends the input to the localization and returns its value.
         //----------------------------------------------------------------------------//
-        return (this.localizationService.getValue(key, allowUndefined));
+        return (this.localization.getValue(key, allowUndefined));
     }
 
     @action log(messageText, messageType = this.messageService.msgType.i, showToUser = false) {
@@ -164,7 +164,7 @@ export default class ManagerService extends Service {
         //----------------------------------------------------------------------------//
         this.router.transitionTo("main.stellarpedia.article", this.database.transformId(bookId) + "+" + this.database.transformId(chapterId) + "+" + this.database.transformId(entryId));
         if (updateScrollPosition) {
-            // this.stellarpedia.set("updateScrollPositionAfterTransition", true);
+            this.stellarpedia.set("updateScrollPositionAfterTransition", true);
         }
         if (closeSidebarOnMobile && !this.isDesktop) {
             this.tryCloseSidebar("navSidebar");
@@ -311,15 +311,17 @@ export default class ManagerService extends Service {
                 return result * sortOrder;
             }
         };
-        array.sort(function (obj1, obj2) {
-            var i = 0, result = 0, numberOfProperties = props.length;
-            while (result === 0 && i < numberOfProperties) {
-                let isNestedProperty = props[i].includes(".");
-                result = dynamicSort(props[i], isNestedProperty)(obj1, obj2);
-                i++;
-            }
-            return result;
-        });
+        if (array?.length > 1) {
+            array.sort(function (obj1, obj2) {
+                var i = 0, result = 0, numberOfProperties = props.length;
+                while (result === 0 && i < numberOfProperties) {
+                    let isNestedProperty = props[i].includes(".");
+                    result = dynamicSort(props[i], isNestedProperty)(obj1, obj2);
+                    i++;
+                }
+                return result;
+            });
+        }
         return array;
     }
 

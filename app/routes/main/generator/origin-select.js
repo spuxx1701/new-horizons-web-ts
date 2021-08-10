@@ -7,7 +7,7 @@ import StellarpediaService from '../../../services/stellarpedia-service';
 export default class MainGeneratorOriginSelectRoute extends Route {
     @service manager;
     @service generator;
-    @service databaseService;
+    @service database;
     @service stellarpediaService;
 
     async model(params) {
@@ -19,8 +19,8 @@ export default class MainGeneratorOriginSelectRoute extends Route {
             this.transitionTo("main.generator.origin");
         }
         await this.stellarpediaService.load();
-        await this.databaseService.loadCollection("origin");
-        let origin = this.databaseService.getIdentifiable("origin/" + reducedOriginId);
+        await this.database.loadCollection("origin");
+        let origin = this.database.getIdentifiable("origin/" + reducedOriginId);
         if (!origin) {
             this.transitionTo("main.generator.origin");
         }
@@ -46,8 +46,8 @@ export default class MainGeneratorOriginSelectRoute extends Route {
                 origin: origin,
                 skillOptions: skillRadioData
             },
-            skills: this.databaseService.loadCollection("skill"),
-            abilities: this.databaseService.loadCollection("ability")
+            skills: this.database.loadCollection("skill"),
+            abilities: this.database.loadCollection("ability")
         });
     }
 }

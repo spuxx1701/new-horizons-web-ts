@@ -9,5 +9,16 @@
 			"// ",
 			"//----------------------------------------------------------------------------//"
 		]
+	},
+	"JSDoc": {
+		"scope": "javascript,typescript",
+		"prefix": "c-jsdoc",
+		"body": [
+			"/*",
+			"* {description}",
+			"* @param {*} {name} - {description}",
+			"* @returns {undefined}",
+			"*/"
+		]
 	}
 }

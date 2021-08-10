@@ -2,11 +2,11 @@ import RESTAdapter from '@ember-data/adapter/rest';
 import { inject as service } from '@ember/service';
 
 export default class LocalizationAdapter extends RESTAdapter {
-    @service localizationService;
+    @service localization;
     namespace = "/assets/localization/localization_";
 
     urlForFindAll(modelName, snapshot) {
-        let url = this.namespace + this.localizationService.currentLocalization + ".json";
+        let url = this.namespace + this.localization.currentLocalization + ".json";
         return url;
     }
 

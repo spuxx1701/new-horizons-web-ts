@@ -6,11 +6,11 @@ import { inject as service } from '@ember/service';
 export default class MainGeneratorAppsRoute extends Route {
     @service manager;
     @service generator;
-    @service databaseService;
+    @service database;
 
     model() {
         return RSVP.hash({
-            apps: this.databaseService.loadCollection("app")
+            apps: this.database.loadCollection("app")
         });
     }
 }

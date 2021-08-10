@@ -8,6 +8,6 @@ import { inject as service } from '@ember/service';
 
 export default class GeneratorController extends Controller {
     @service manager;
-    @service databaseService;
+    @service database;
     @service generator;
 }

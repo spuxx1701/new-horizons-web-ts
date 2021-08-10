@@ -7,7 +7,7 @@ import { Changeset } from 'ember-changeset';
 
 export default class MainGeneratorPersonalController extends Controller {
     @service manager;
-    @service databaseService;
+    @service database;
     @service generator;
 
     @tracked changeset = Changeset(this.model);

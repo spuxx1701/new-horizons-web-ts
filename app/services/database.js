@@ -1,13 +1,12 @@
 //----------------------------------------------------------------------------//
 // Leopold Hock / 2020-08-22
 // Description:
-// The DatabaseService manages the database and ruleset.
+// The database manages the database and ruleset.
 //----------------------------------------------------------------------------//
 import Ember from 'ember';
 import Service from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
-import { Changeset } from 'ember-changeset';
 
 export default class DatabaseService extends Service {
     @service manager;
@@ -36,33 +35,6 @@ export default class DatabaseService extends Service {
             result = await this.store.findAll("database/" + transformedCollectionName);
             return result;
         }
-    }
-
-
-    async loadCollectionAsList(collectionName, { sortByLocalizedLabel = false, skipValidate = true } = {}) {
-        //----------------------------------------------------------------------------//
-        // Leopold Hock / 2021-06-03
-        // Description:
-        // Loads a collection and returns the content in a format that can be directly
-        // consumed by a UI list.
-        //----------------------------------------------------------------------------//
-        let collection = await this.loadCollection(collectionName);
-        if (!collection) return undefined;
-        let result = [];
-        let that = this;
-        collection.forEach(function (record) {
-            let data = that.cloneRecord(record);
-            let convertedRecord = {
-                data: data,
-                changeset: new Changeset(data, { skipValidate: skipValidate }),
-                localizedLabel: that.manager.localize(record.id)
-            }
-            result.push(convertedRecord);
-        });
-        if (sortByLocalizedLabel) {
-            this.manager.sortArray(result, "localizedLabel");
-        }
-        return result;
     }
 
     getCollection(collectionName) {
@@ -139,6 +111,13 @@ export default class DatabaseService extends Service {
         }
         result = split.join("/");
         return result;
+    }
+
+    getCollectionNameFromId(id) {
+        let transformedId = this.transformId(id);
+        let split = transformedId.split("/");
+        let collectionName = split[0];
+        return collectionName;
     }
 
     cloneRecord(record) {

@@ -48,7 +48,6 @@ export default class InputfieldComponent extends InteractableComponent {
     }
 
     @action invalidDidChange() {
-        console.log(this.invalid);
         this.set("hideInvalidity", !this.invalid);
     }
 }

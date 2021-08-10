@@ -7,22 +7,22 @@ import StellarpediaService from '../../../services/stellarpedia-service';
 export default class MainGeneratorOriginRoute extends Route {
     @service manager;
     @service generator;
-    @service databaseService;
+    @service database;
     @service stellarpediaService;
 
     async model() {
         await this.stellarpediaService.load();
-        await this.databaseService.loadCollection("origin");
+        await this.database.loadCollection("origin");
         let originId = "origin/earth-urban";
         if (this.generator.getCharacter() && this.generator.getCharacter().data.origin) {
             // If the character'rigin has already been chosen, show that origin and disable all interactables
             originId = this.generator.getCharacter().data.origin;
         }
         return RSVP.hash({
-            origins: this.databaseService.loadCollection("origin"),
-            selectedOrigin: this.databaseService.getIdentifiable(originId),
+            origins: this.database.loadCollection("origin"),
+            selectedOrigin: this.database.getIdentifiable(originId),
             selectedStellarpediaEntry: this.stellarpediaService.get("basic-rules", "supplement-origins", originId),
-            skills: this.databaseService.loadCollection("skill")
+            skills: this.database.loadCollection("skill")
         });
     }
 }

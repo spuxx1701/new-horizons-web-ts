@@ -6,10 +6,10 @@ import { inject as service } from '@ember/service';
 export default class MainGeneratorPersonalRoute extends Route {
     @service manager;
     @service generator;
-    @service databaseService;
+    @service database;
 
     async model() {
-        await this.databaseService.loadCollection("constant");
+        await this.database.loadCollection("constant");
         return RSVP.hash({
             name: "",
             sex: "",
@@ -21,7 +21,7 @@ export default class MainGeneratorPersonalRoute extends Route {
             family: "",
             socialStatus: 1,
             socialStatusMin: 1,
-            socialStatusMax: this.databaseService.getIdentifiable("Constant_SocialStatusMax").value
+            socialStatusMax: this.database.getIdentifiable("Constant_SocialStatusMax").value
         });
     }
 }

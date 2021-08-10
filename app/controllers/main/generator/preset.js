@@ -10,7 +10,7 @@ import EmberResolver from 'ember-resolver';
 
 export default class GeneratorPresetController extends Controller {
     @service manager;
-    @service databaseService;
+    @service database;
     @service generator;
 
     @tracked currentPreset;
@@ -28,7 +28,7 @@ export default class GeneratorPresetController extends Controller {
     }
 
     @action onChangePreset(selectedItem) {
-        this.currentPreset = this.databaseService.getIdentifiable(selectedItem.id);
+        this.currentPreset = this.database.getIdentifiable(selectedItem.id);
         this.currentPreset.set("isCustom", this.changeset.isCustom)
         this.set("changeset", Changeset(this.currentPreset));
         this.isModified = false;
@@ -37,7 +37,7 @@ export default class GeneratorPresetController extends Controller {
     @action onCustomToggle(event) {
         if (!event.srcElement.checked) {
             // reset preset when 'custom' is being turned off
-            this.onChangePreset(this.databaseService.getIdentifiable(this.changeset.get("id")));
+            this.onChangePreset(this.database.getIdentifiable(this.changeset.get("id")));
         }
     }
 

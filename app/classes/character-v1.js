@@ -4,16 +4,13 @@
 // Character Class Version 1.
 //----------------------------------------------------------------------------//
 import Ember from 'ember';
-// import EmberObject from '@ember/object';
+import { A } from '@ember/array';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { set } from '@ember/object';
 
 export default class CharacterV1 {
     manager;
-
-    // @service manager;
-    // @service databaseService;
 
     @tracked data = {
         //----------------------------------------------------------------------------//
@@ -43,22 +40,28 @@ export default class CharacterV1 {
 
         //----------------------------------------------------------------------------//
         // Collections
-        primaryAttributes: [],
-        secondaryAttributes: [],
-        traits: [],
-        skillCategories: [],
-        skills: [],
-        abilities: [],
-        specialisations: [],
-        apps: [],
+        primaryAttributes: A([]),
+        secondaryAttributes: A([]),
+        traits: A([]),
+        skillCategories: A([]),
+        skills: A([]),
+        abilities: A([]),
+        specialisations: A([]),
+        apps: A([]),
 
         //----------------------------------------------------------------------------//
         // Inventory
-        inventory: [],
+        inventory: A([]),
         inventoryWeight: 0,
         credits: 0
     }
 
+    /**
+     * Represents a character that can kept during the session and exported to JSON.
+     * @param  {string} characterPresetId
+     * @param  {string} version
+     * @param  {ManagerService} manager
+     */
     constructor(characterPresetId, version, manager) {
         // Set the character preset and game version
         this.data.characterPreset = characterPresetId;
@@ -80,7 +83,7 @@ export default class CharacterV1 {
         // Add all basic skills
         this.manager.database.getCollection("skill").forEach(function (skill) {
             if (skill.isBasic) {
-                that.addSkill(skill.id, { logSuccess: false });
+                skill.addToCharacter(that, { logSuccess: false, ignoreDuplicate: true });
             }
         })
         // Log initialization
@@ -90,6 +93,9 @@ export default class CharacterV1 {
     //----------------------------------------------------------------------------//
     // GENERAL
     //----------------------------------------------------------------------------//
+    /**
+     * Sets the character's name.
+     */
     getName() {
         if (this.manager.isNullOrWhitespace(this.data.name)) {
             return 'Anonynmous';
@@ -98,6 +104,17 @@ export default class CharacterV1 {
         }
     }
 
+
+    /**
+     * Sets a general property.
+     * @param  {string} property - The property key.
+     * @param  {*} value - The new property value.
+     * @param  {bool} override=true - Whether the new value should be overridden. 'false' only works on numbers.
+     * @param  {bool} checkType=true - Whether the type of the new value should be checked against the old one.
+     * @param  {bool} logSuccess=true - Whether success should be logged.
+     * @param  {bool} logOldValue=false - Whether the old value should be logged. Only works with 'logSuccess = true'.
+     * @returns {*} - Returns the property value or undefined.
+     */
     setGeneralProperty(property, value, { override = true, checkType = true, logSuccess = true, logOldValue = false } = {}) {
         if (this.data[property] !== undefined) {
             if (typeof this.data[property] !== typeof value && checkType) {
@@ -124,11 +141,21 @@ export default class CharacterV1 {
             return undefined;
         }
     }
-
+    /**
+     * Gets a general property.
+     * @param  {string} property - The propert key.
+     * @returns {*} - Returns the property value or undefined.
+     */
     getGeneralProperty(property) {
         return this.data[property];
     }
 
+
+    /**
+     * Recalculates and updates all properties.
+     * @param  {bool} logSuccess=true - Whether success should be logged.
+     * @param  {bool} updateSkillMinima=true - Whether skill minima should be updated.
+     */
     recalculate({ logSuccess = true, updateSkillMinima = true } = {}) {
         // update secondary attributes
         for (let secA of this.data.secondaryAttributes) {
@@ -143,6 +170,16 @@ export default class CharacterV1 {
     //----------------------------------------------------------------------------//
     // PRIMARY ATTRIBUTES
     //----------------------------------------------------------------------------//
+    /**
+     * Sets a skill's level.
+     * @param  {string} id - The id of the skill.
+     * @param  {number} value - The level value. Can be used for addition, substraction or replace the previous value.
+     * @param  {bool} override=false - Whether the old level value should be overriden.
+     * @param  {bool} logSuccess=true - Whether success should be logged.
+     * @param  {bool} validate=true - Whether skill level should be checked against minimum and maximum value.
+     * @param  {bool} updateDependencies=true - Whether dependencies should be updated.
+     * @param  {bool} setStart=false - Whether the 'start' value should also be set. Does only work with override = true.
+     */
     setPrimaryAttributeLevel(id, value, { override = false, logSuccess = true, validate = true, updateDependencies = true, setStart = false } = {}) {
         id = this.manager.database.transformId(id);
         let priA = this.getPrimaryAttribute(id);
@@ -177,6 +214,15 @@ export default class CharacterV1 {
         return priA;
     }
 
+    /**
+     * Sets a primary attribute's property. Can be any (number) property.
+     * @param  {string} id - The attribute's id.
+     * @param  {string} property - The property's name.
+     * @param  {number} value - The new value. Can be used for addition, substraction or replace the previous value.
+     * @param  {bool} override=false - Whether the old value should be replaced.
+     * @param  {bool} logSuccess=true - Whether success should be logged.
+     * @returns {object} - Returns the updated primary attribute or undefined.
+     */
     setPrimaryAttributeProperty(id, property, value, { override = false, logSuccess = true } = {}) {
         id = this.manager.database.transformId(id);
         for (let priA of this.data.primaryAttributes) {
@@ -307,31 +353,18 @@ export default class CharacterV1 {
     //----------------------------------------------------------------------------//
     // TRAITS
     //----------------------------------------------------------------------------//
-    addTrait(id, { input = undefined, selectedOption = undefined, ignoreDuplicates = true, logSuccess = true } = {}) {
-        id = this.manager.database.transformId(id);
-        let newTrait = this.manager.database.getIdentifiable(id, { clone: true });
-        if (this.getTrait(id, { input: input })) {
-            if (ignoreDuplicates) {
-                return this.getTrait(id, { input: input });
-            } else {
-                this.manager.log(`Unable to add trait '${id}' with input '${input}' to character '${this.getName()}': Character already has that trait and ignoreDuplicates was set to 'false'.`, "x");
-                return undefined;
-            }
-        }
-        if (input) {
-            newTrait.input = input;
-        } else if (selectedOption) {
-            newTrait.selectedOption = this.manager.clone(selectedOption);
-        }
-        this.data.traits.push(newTrait);
-        if (logSuccess) this.manager.log(`Trait '${newTrait.id}' with input '${newTrait.input}' has been added to character '${this.getName()}'.`, "i");
-    }
-
+    /**
+     * Removes a specific trait.
+     * @param  {string} id - The id of the trait.
+     * @param  {string} input=undefined input (optional) - The input of the trait.
+     * @param  {string} selectedOptionId=undefined (optional) - The selected option of the trait.
+     * @param  {bool} logSuccess=true (optional) - Whether success should bee logged.
+     */
     removeTrait(id, { input = undefined, selectedOptionId = undefined, logSuccess = true } = {}) {
 
     }
 
-    getTrait(id, { input = undefined, selectedOptionId = undefined }) {
+    getTrait(id, { input = undefined, selectedOptionId = undefined } = {}) {
         id = this.manager.database.transformId(id);
         for (let trait of this.data.traits) {
             if (trait.id === id) {
@@ -349,27 +382,6 @@ export default class CharacterV1 {
     //----------------------------------------------------------------------------//
     // SKILLS
     //----------------------------------------------------------------------------//
-    addSkill(id, { ignoreDuplicates = true, logSuccess = true, updateSkill = true } = {}) {
-        id = this.manager.database.transformId(id);
-        let newSkill = this.manager.database.getIdentifiable(id, { clone: true });
-        if (!newSkill) {
-            this.manager.log(`Unable add skill '${id}' to character '${this.getName()}': ID was given, but skill could not be found in database.`, "x");
-            return undefined;
-        }
-        if (this.getSkill(id)) {
-            if (ignoreDuplicates) {
-                return this.getSkill(id);
-            } else {
-                this.manager.log(`Unable to add skill '${newSkill.id}' to character '${this.getName()}': Character already has that skill and ignoreDuplicates was set to 'false'.`, "x");
-                return undefined;
-            }
-        }
-        this.data.skills.push(newSkill);
-        if (logSuccess) this.manager.log(`Skill '${newSkill.id}' has been added to character '${this.getName()}'.`, "i");
-        if (updateSkill) this.updateSkill(id, { logSuccess: false });
-        return newSkill;
-    }
-
     setSkillLevel(id, value, { override = false, validate = true, logSuccess = true } = {}) {
         id = this.manager.database.transformId(id);
         let skill = this.getSkill(id);
@@ -426,6 +438,10 @@ export default class CharacterV1 {
         }
     }
 
+    /**
+     * @param  {string} id - The id of the skill.
+     * @returns  {Object} - Returns the skill or undefined.
+     */
     getSkill(id) {
         id = this.manager.database.transformId(id);
         for (let skill of this.data.skills) {
@@ -434,6 +450,15 @@ export default class CharacterV1 {
             }
         }
         return undefined;
+    }
+
+    /**
+     * @param  {string} id - The id of the skill.
+     * @returns  {number} - Returns the skill's level or undefined.
+     */
+    getSkillLevel(id) {
+        let skill = this.getSkill();
+        return skill?.current;
     }
 
     updateSkill(id, { logSuccess = true, updateMinimum = false } = {}) {
@@ -465,24 +490,6 @@ export default class CharacterV1 {
     //----------------------------------------------------------------------------//
     // ABILITIES
     //----------------------------------------------------------------------------//
-    addAbility(id, { input = undefined, ignoreDuplicates = true, logSuccess = true } = {}) {
-        id = this.manager.database.transformId(id);
-        let newAbility = this.manager.database.getIdentifiable(id, { clone: true });
-        if (this.getAbility(id, { input: input })) {
-            if (ignoreDuplicates) {
-                return this.getAbility(id, { input: input });
-            } else {
-                this.manager.log(`Unable to add ability '${id}' with input '${input}' to character '${this.getName()}': Character already has that ability and ignoreDuplicates was set to 'false'.`, "x");
-                return undefined;
-            }
-        }
-        if (input) {
-            newAbility.input = input;
-        }
-        this.data.abilities.push(newAbility);
-        if (logSuccess) this.manager.log(`Ability '${newAbility.id}' with input '${newAbility.input}' has been added to character '${this.getName()}'.`, "i");
-    }
-
     getAbility(id, { input = undefined }) {
         id = this.manager.database.transformId(id);
         for (let ability of this.data.abilities) {
@@ -503,4 +510,63 @@ export default class CharacterV1 {
     //----------------------------------------------------------------------------//
     // INVENTORY
     //----------------------------------------------------------------------------//
+
+    //----------------------------------------------------------------------------//
+    // MISCELLANEOUS
+    //----------------------------------------------------------------------------//
+    /**
+     * Whether the character meets a certain set of requirements. Can return a simple bool or a complex object, including the failed requirements.
+     * @param {Object[]} requirements - The requirements array. A single requirement is also supported.
+     * @param {bool} detailedResult=false (optional) - Whether a detailed result object should be returned including the requirements that are not met.
+     * @returns {bool} OR
+     * @returns {Object} { result: {bool}, failedRequirements: {Object[]} };
+     */
+    meetsRequirements(requirements, { detailedResult = false } = {}) {
+        let resultObject = { result: true, failedRequirements: [] };
+        if (!Array.isArray(requirements)) {
+            requirements = [requirements];
+        }
+        for (let requirement of requirements) {
+            let collectionName = this.manager.database.getCollectionNameFromId(requirement.id);
+            let requirementFailed = false;
+            switch (collectionName) {
+                case "pri-a":
+                    requirementFailed = (!this.getPrimaryAttribute(requirement.id) || this.getPrimaryAttribute(requirement.id).current < requirement.level);
+                    break;
+                case "sec-a":
+                    requirementFailed = (!this.getSecondaryAttribute(requirement.id) || this.getSecondaryAttributeValue(requirement.id) < requirement.level);
+                    break;
+                case "trait":
+                    requirementFailed = (!this.getTrait(requirement.id, { selectedOptionId: requirement.input }));
+                    break;
+                case "skill":
+                    requirementFailed = (!this.getSkill(requirement.id) || this.getSkillLevel(requirement.id) < requirement.level);
+                    break;
+                case "ability":
+                    requirementFailed = (!this.getAbility(requirement.id));
+                    break;
+                default:
+                    switch (requirement.id) {
+                        case "SO":
+                            requirementFailed = this.getGeneralProperty("socialStatus") < requirement.level;
+                            break;
+                        case "EP":
+                            requirementFailed = this.getGeneralProperty("availableEP") < requirement.level;
+                            break;
+                        default:
+                            requirementFailed = true;
+                            this.manager.log(`Unable to interpret requirement with id '${requirement.id}'.`, "x");
+                    }
+            }
+            if (requirementFailed) {
+                resultObject.result = false;
+                resultObject.failedRequirements.push(requirement);
+            }
+        }
+        if (detailedResult) {
+            return resultObject;
+        } else {
+            return resultObject.result;
+        }
+    }
 }

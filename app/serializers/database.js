@@ -3,7 +3,7 @@ import JSONSerializer from '@ember-data/serializer/json';
 import { inject as service } from '@ember/service';
 
 export default class DatabaseSerializer extends JSONSerializer {
-    @service databaseService;
+    @service database;
 
     // dasherize model ids
     extractId(modelClass, resourceHash) {
@@ -15,7 +15,7 @@ export default class DatabaseSerializer extends JSONSerializer {
     // transform ids in all arrays
     normalize(typeClass, hash) {
         for (let entry of hash.entries) {
-            entry.id = this.databaseService.transformId(entry.id);
+            entry.id = this.database.transformId(entry.id);
         }
         return super.normalize(typeClass, hash);
     }

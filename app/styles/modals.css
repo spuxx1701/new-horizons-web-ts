@@ -28,7 +28,7 @@ Description: Contains style information for modals and their components.
     z-index: 5;
     background-color: var(--colorPanelBackground);
     border-radius: 5px;
-    width: 400px;
+    width: 500px;
     max-width: 90%;
     max-height: 75%;
 }

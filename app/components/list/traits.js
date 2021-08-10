@@ -11,35 +11,50 @@ import { set } from '@ember/object';
 
 export default class ListTraitsComponent extends ListComponent {
     @service manager;
-    @service databaseService;
+    @service database;
     @service generator;
 
     @tracked isGenerator = false;
     @tracked isOwned = false;
 
-    @action onAddClick(trait, event) {
-        if (trait.data.needsInput) {
-            // If trait needs input,  check for valid input
-            if (this.manager.isNullOrWhitespace(trait.data.input)) {
+    @action onAddClick(row, event) {
+        // Check requirements
+        let requirementCheckResult = this.generator.getCharacter().meetsRequirements(row.data.requirements, { detailedResult: true });
+        if (!requirementCheckResult.result) {
+            let texts = ["Modal_CharacterDoesNotMeetRequirements_Text"];
+            for (let failedRequirement of requirementCheckResult.failedRequirements) {
+                if (failedRequirement.level > 0) {
+                    texts.push(`${this.manager.localize(failedRequirement.id)} (${failedRequirement.level})`);
+                } else {
+                    texts.push(`${this.manager.localize(failedRequirement.id)}`);
+                }
+            }
+            this.manager.callModal("confirm", [{ name: "title", value: "Modal_CharacterDoesNotMeetRequirements_Title" }, { name: "text", value: ["Modal_CharacterDoesNotMeetRequirements_Text"] }]);
+        }
+
+        if (row.data.needsInput) {
+            if (this.manager.isNullOrWhitespace(row.data.input)) {
+                // If trait needs input,  check for valid input
                 set(trait, "invalid", true);
-                return;
+            } else if (this.generator.getCharacter().getTrait(row.data.id, { input: row.changeset.input })) {
+                // If trait needs input, check whether the character has the same trait with the same input
+                this.manager.callModal("confirm", [{ name: "title", value: "Modal_CharacterOwnsTrait_Title" }, { name: "text", value: ["Modal_CharacterOwnsTrait_Text"] }]);
+            } else {
+                row.data.addToCharacter(this.generator.getCharacter(), { input: row.changeset.input });
             }
-            // If trait needs input, check whether the character has the same trait with the same input
-            if (this.generator.getCharacter().getTrait(trait.data.id, { input: trait.changeset.input })) {
-                this.manager.callModal("confirm", [{ name: "title", value: "Modal_CannotAddTrait_Title" }, { name: "text", value: "Modal_CannotAddTrait_CharacterOwnsTrait" }]);
-                return;
-            }
-        } else if (trait.data.hasOptions) {
-            // If trait needs input, check whether the character has the same trait with the same input
-            if (this.generator.getCharacter().getTrait(trait.data.id, { input: trait.changeset.input })) {
-                this.manager.callModal("confirm", [{ name: "title", value: "Modal_CannotAddTrait_Title" }, { name: "text", value: "Modal_CannotAddTrait_CharacterOwnsTrait" }]);
-                return;
+        } else if (row.data.hasOptions) {
+            if (this.generator.getCharacter().getTrait(row.data.id, { selectedOption: row.data.selectedOption })) {
+                // If trait has options, check whether the character has the same trait with the same option
+                this.manager.callModal("confirm", [{ name: "title", value: "Modal_CharacterOwnsTrait_Title" }, { name: "text", value: ["Modal_CharacterOwnsTrait_Text"] }]);
+            } else {
+                row.data.addToCharacter(this.generator.getCharacter(), { selectedOption: row.data.selectedOption });
             }
         } else {
             // Else, just check whether the character already has that trait
-            if (this.generator.getCharacter().getTrait(trait.data.id)) {
-                this.managerr.callModal("confirm", [{ name: "title", value: "Modal_CannotAddTrait_Title" }, { name: "text", value: "Modal_CannotAddTrait_CharacterOwnsTrait" }]);
-                return;
+            if (this.generator.getCharacter().getTrait(row.data.id)) {
+                this.manager.callModal("confirm", [{ name: "title", value: "Modal_CharacterOwnsTrait_Title" }, { name: "text", value: ["Modal_CharacterOwnsTrait_Text"] }]);
+            } else {
+                row.data.addToCharacter(this.generator.getCharacter());
             }
         }
     }

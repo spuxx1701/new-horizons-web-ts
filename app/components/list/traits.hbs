@@ -19,39 +19,37 @@
         </tr>
     </thead>
     <tbody>
-        {{#each this.rows as |trait| }}
+        {{#each this.rows as |row| }}
         <tr>
             <td class="flex">
-                <Interactable::ButtonInfo class="float-left"
-                    @article="basic-rules/supplement-traits/{{trait.data.id}}" />
+                <Interactable::ButtonInfo class="float-left" @article="basic-rules/supplement-traits/{{row.data.id}}" />
                 {{#if @isOwned}}
-                <Interactable::ButtonSquare class="float-left" @icon="minus" @onClick={{fn this.onRemoveClick trait
-                    }} />
+                <Interactable::ButtonSquare class="float-left" @icon="minus" @onClick={{fn this.onRemoveClick row }} />
                 {{else}}
-                <Interactable::ButtonSquare class="float-left" @icon="plus" @onClick={{fn this.onAddClick trait}} />
+                <Interactable::ButtonSquare class="float-left" @icon="plus" @onClick={{fn this.onAddClick row}} />
                 {{/if}}
             </td>
             <td class="vertical-align-middle">
-                {{localize trait.data.id}}
+                {{row.localizedLabel}}
             </td>
             <td>
-                {{trait.inputInvalid}}
-                {{#if trait.data.needsInput}}
-                <Interactable::Inputfield @size="large" @changeset={{trait.changeset}} @key="input" @required={{true}}
-                    @invalid={{trait.invalid}} />
+                {{row.inputInvalid}}
+                {{#if row.data.needsInput}}
+                <Interactable::Inputfield @size="large" @changeset={{row.changeset}} @key="input" @required={{true}}
+                    @invalid={{row.invalid}} />
                 {{/if}}
-                {{#if trait.data.hasOptions}}
-                <Interactable::Dropdown @size="large" @items={{trait.data.options}}
-                    @onChangeListener={{this.onOptionChange}} @context={{trait}} />
+                {{#if row.data.hasOptions}}
+                <Interactable::Dropdown @size="large" @items={{row.data.options}}
+                    @onChangeListener={{this.onOptionChange}} @context={{row}} />
                 {{/if}}
             </td>
             <td>
-                {{#if trait.data.hasLevel}}
+                {{#if row.data.hasLevel}}
                 <Interactable::ValueControl @value="0" @disabled={{true}} />
                 {{/if}}
             </td>
             <td class="text-right margin-sides-small">
-                {{if (lt trait.data.costs 0) '+' }}{{mult -1 trait.data.costs}}
+                {{if (lt row.data.costs 0) '+' }}{{mult -1 row.data.costs}}
             </td>
         </tr>
         {{/each}}

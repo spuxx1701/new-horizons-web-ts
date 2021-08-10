@@ -1,6 +1,7 @@
-import Model, { attr } from '@ember-data/model';
+import DatabaseIdentifiableModel from './identifiable';
+import { attr } from '@ember-data/model';
 
-export default class DatabaseSkillCategoryModel extends Model {
+export default class DatabaseSkillCategoryModel extends DatabaseIdentifiableModel {
     @attr() available;
     @attr() total;
     @attr() min;

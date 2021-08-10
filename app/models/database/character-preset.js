@@ -1,6 +1,7 @@
-import Model, { attr } from '@ember-data/model';
+import DatabaseIdentifiableModel from './identifiable';
+import { attr } from '@ember-data/model';
 
-export default class DatabaseCharacterPresetModel extends Model {
+export default class DatabaseCharacterPresetModel extends DatabaseIdentifiableModel {
     @attr() gpBonus;
     @attr() apAvailable;
     @attr() traitsMax;

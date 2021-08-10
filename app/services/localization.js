@@ -1,5 +1,5 @@
 // Leopold Hock | 30.04.2020
-// Description: The LocalizationService manages the current localization and supplies localized values for keys.
+// Description: The localization manages the current localization and supplies localized values for keys.
 // Changes:
 // Leopold Hock | 17.06.2020 | Implemented ember-data. Localization now stored in localization model.
 
@@ -12,7 +12,7 @@ var that;
 export default class LocalizationService extends Service {
     @service manager;
     @service store;
-    @service databaseService;
+    @service database;
 
     @tracked supportedLanguages = ["en", "de"];
     @tracked currentLocalization = "de";
@@ -24,7 +24,7 @@ export default class LocalizationService extends Service {
 
     getValue(key, allowUndefined = false) {
         if (key.string) key = key.string;
-        key = this.databaseService.transformId(key);;
+        key = this.database.transformId(key);;
         if (that.store.peekAll("localization").length == 0) return "";
         let result = that.store.peekRecord("localization", key);
         if (result) {

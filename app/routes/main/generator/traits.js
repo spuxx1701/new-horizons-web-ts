@@ -6,19 +6,16 @@ import { inject as service } from '@ember/service';
 export default class MainGeneratorTraitsRoute extends Route {
     @service manager;
     @service generator;
-    @service databaseService;
+    @service database;
 
     async model() {
-        let traitsAvailable = await this.databaseService.loadCollectionAsList("trait");
-        await this.databaseService.loadCollection("skill");
-        await this.databaseService.loadCollection("constant");
-        let traitsOwned = [];
-        if (this.generator.originChosen) {
-            traitsOwned = this.generator.getCollectionAsList("traits");
-        }
+        // let traitsAvailable = await this.database.loadCollectionAsList("trait");
+        await this.database.loadCollection("trait");
+        await this.database.loadCollection("skill");
+        await this.database.loadCollection("constant");
         return RSVP.hash({
-            traitsAvailable: traitsAvailable,
-            traitsOwned: traitsOwned
+            traitsAvailable: this.database.getCollection("trait"),
+            traitsOwned: this.generator.getCharacter()?.data.traits,
         });
     }
 }

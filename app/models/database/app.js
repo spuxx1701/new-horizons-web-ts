@@ -1,6 +1,7 @@
-import Model, { attr } from '@ember-data/model';
+import DatabasePrefabModel from './prefab';
+import { attr } from '@ember-data/model';
 
-export default class DatabaseAppModel extends Model {
+export default class DatabaseAppModel extends DatabasePrefabModel {
     @attr() appCategory;
     @attr() factor;
     @attr() current;

@@ -8,7 +8,7 @@ import { computed, set } from '@ember/object';
 
 export default class MainGeneratorOriginController extends Controller {
     @service manager;
-    @service databaseService;
+    @service database;
     @service stellarpediaService;
     @service generator;
     @tracked changeset = Changeset({});
@@ -18,7 +18,7 @@ export default class MainGeneratorOriginController extends Controller {
     }
 
     @action onChangeOrigin(selectedItem, index) {
-        this.set("model.selectedOrigin", this.databaseService.getIdentifiable(selectedItem.id));
+        this.set("model.selectedOrigin", this.database.getIdentifiable(selectedItem.id));
         this.set("model.selectedStellarpediaEntry", this.stellarpediaService.get("basic-rules", "supplement-origins", selectedItem.id));
     }
 
