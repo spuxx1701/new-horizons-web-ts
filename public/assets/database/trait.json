@@ -39,7 +39,7 @@
         ],
         "requirements": [
             {
-                "id": "SO",
+                "id": "Character_SocialStatus",
                 "type": "",
                 "input": "",
                 "level": 5,
@@ -296,7 +296,7 @@
         ],
         "requirements": [
             {
-                "id": "SO",
+                "id": "Character_SocialStatus",
                 "type": "",
                 "input": "",
                 "level": 2,
@@ -791,7 +791,16 @@
         "input": "",
         "targets": [],
         "requirements": [],
-        "restrictions": []
+        "restrictions": [
+            {
+                "id": "Trait_Helpful",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            }
+        ]
     },
     {
         "id": "Trait_HeavySleeper",
@@ -835,6 +844,14 @@
         "restrictions": [
             {
                 "id": "Trait_Egoist",
+                "type": "",
+                "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "Trait_Greedy",
                 "type": "",
                 "input": "",
                 "level": 0,
@@ -1046,32 +1063,80 @@
             {
                 "id": "SkillCategory_Combat",
                 "changesCost": true,
-                "value": "<Constant_SkillsDefaultFactorCombat.value> * <Constant_TraitsInabilityBonusMultiplier.value>"
+                "value": "<Constant_SkillsDefaultFactorCombat.value> * <Constant_TraitsInabilityBonusMultiplier.value>",
+                "restrictions": [
+                    {
+                        "id": "Trait_CombatTraining",
+                        "input": "",
+                        "level": 0
+                    }
+                ],
+                "targets": []
             },
             {
                 "id": "SkillCategory_Physical",
                 "changesCost": true,
-                "value": "<Constant_SkillsDefaultFactorPhysical.value> * <Constant_TraitsInabilityBonusMultiplier.value>"
+                "value": "<Constant_SkillsDefaultFactorPhysical.value> * <Constant_TraitsInabilityBonusMultiplier.value>",
+                "restrictions": [
+                    {
+                        "id": "Trait_CompetetiveSportsman",
+                        "input": "",
+                        "level": 0
+                    }
+                ],
+                "targets": []
             },
             {
                 "id": "SkillCategory_Crafting",
                 "changesCost": true,
-                "value": "<Constant_SkillsDefaultFactorCrafting.value> * <Constant_TraitsInabilityBonusMultiplier.value>"
+                "value": "<Constant_SkillsDefaultFactorCrafting.value> * <Constant_TraitsInabilityBonusMultiplier.value>",
+                "restrictions": [
+                    {
+                        "id": "Trait_JobTraining",
+                        "input": "",
+                        "level": 0
+                    }
+                ],
+                "targets": []
             },
             {
                 "id": "SkillCategory_Vehicles",
                 "changesCost": true,
-                "value": "<Constant_SkillsDefaultFactorVehicles.value> * <Constant_TraitsInabilityBonusMultiplier.value>"
+                "value": "<Constant_SkillsDefaultFactorVehicles.value> * <Constant_TraitsInabilityBonusMultiplier.value>",
+                "restrictions": [
+                    {
+                        "id": "Trait_PilotTraining",
+                        "input": "",
+                        "level": 0
+                    }
+                ],
+                "targets": []
             },
             {
                 "id": "SkillCategory_Social",
                 "changesCost": true,
-                "value": "<Constant_SkillsDefaultFactorSocial.value> * <Constant_TraitsInabilityBonusMultiplier.value>"
+                "value": "<Constant_SkillsDefaultFactorSocial.value> * <Constant_TraitsInabilityBonusMultiplier.value>",
+                "restrictions": [
+                    {
+                        "id": "Trait_SocialNature",
+                        "input": "",
+                        "level": 0
+                    }
+                ],
+                "targets": []
             },
             {
                 "id": "SkillCategory_Knowledge",
                 "changesCost": true,
-                "value": "<Constant_SkillsDefaultFactorKnowledge.value> * <Constant_TraitsInabilityBonusMultiplier.value>"
+                "value": "<Constant_SkillsDefaultFactorKnowledge.value> * <Constant_TraitsInabilityBonusMultiplier.value>",
+                "restrictions": [
+                    {
+                        "id": "Trait_AcademicEducation",
+                        "input": "",
+                        "level": 0
+                    }
+                ],
+                "targets": []
             }
         ],
         "needsInput": false,
@@ -1161,7 +1226,7 @@
         ],
         "requirements": [
             {
-                "id": "SO",
+                "id": "Character_SocialStatus",
                 "type": "",
                 "input": "",
                 "level": 3,
@@ -1350,64 +1415,247 @@
             {
                 "id": "pri-a/cr",
                 "changesCost": false,
-                "value": ""
+                "value": "",
+                "restrictions": [
+                    {
+                        "id": "Trait_OutstandingAttribute",
+                        "input": "pri-a/cr",
+                        "level": 0
+                    }
+                ],
+                "targets": [
+                    {
+                        "id": "pri-a/cr",
+                        "type": "min",
+                        "input": "",
+                        "level": 7,
+                        "overrideCurrent": true,
+                        "oldLevel": 0
+                    },
+                    {
+                        "id": "pri-a/cr",
+                        "type": "max",
+                        "input": "",
+                        "level": 7,
+                        "overrideCurrent": true,
+                        "oldLevel": 0
+                    }
+                ]
             },
             {
                 "id": "pri-a/cl",
                 "changesCost": false,
-                "value": ""
+                "value": "",
+                "restrictions": [
+                    {
+                        "id": "Trait_OutstandingAttribute",
+                        "input": "pri-a/cl",
+                        "level": 0
+                    }
+                ],
+                "targets": [
+                    {
+                        "id": "pri-a/cl",
+                        "type": "min",
+                        "input": "",
+                        "level": 7,
+                        "overrideCurrent": true,
+                        "oldLevel": 0
+                    },
+                    {
+                        "id": "pri-a/cl",
+                        "type": "max",
+                        "input": "",
+                        "level": 7,
+                        "overrideCurrent": true,
+                        "oldLevel": 0
+                    }
+                ]
             },
             {
                 "id": "pri-a/in",
                 "changesCost": false,
-                "value": ""
+                "value": "",
+                "restrictions": [
+                    {
+                        "id": "Trait_OutstandingAttribute",
+                        "input": "pri-a/in",
+                        "level": 0
+                    }
+                ],
+                "targets": [
+                    {
+                        "id": "pri-a/in",
+                        "type": "min",
+                        "input": "",
+                        "level": 7,
+                        "overrideCurrent": true,
+                        "oldLevel": 0
+                    },
+                    {
+                        "id": "pri-a/in",
+                        "type": "max",
+                        "input": "",
+                        "level": 7,
+                        "overrideCurrent": true,
+                        "oldLevel": 0
+                    }
+                ]
             },
             {
                 "id": "pri-a/ch",
                 "changesCost": false,
-                "value": ""
+                "value": "",
+                "restrictions": [
+                    {
+                        "id": "Trait_OutstandingAttribute",
+                        "input": "pri-a/ch",
+                        "level": 0
+                    }
+                ],
+                "targets": [
+                    {
+                        "id": "pri-a/ch",
+                        "type": "min",
+                        "input": "",
+                        "level": 7,
+                        "overrideCurrent": true,
+                        "oldLevel": 0
+                    },
+                    {
+                        "id": "pri-a/ch",
+                        "type": "max",
+                        "input": "",
+                        "level": 7,
+                        "overrideCurrent": true,
+                        "oldLevel": 0
+                    }
+                ]
             },
             {
                 "id": "pri-a/ag",
                 "changesCost": false,
-                "value": ""
+                "value": "",
+                "restrictions": [
+                    {
+                        "id": "Trait_OutstandingAttribute",
+                        "input": "pri-a/ag",
+                        "level": 0
+                    }
+                ],
+                "targets": [
+                    {
+                        "id": "pri-a/ag",
+                        "type": "min",
+                        "input": "",
+                        "level": 7,
+                        "overrideCurrent": true,
+                        "oldLevel": 0
+                    },
+                    {
+                        "id": "pri-a/ag",
+                        "type": "max",
+                        "input": "",
+                        "level": 7,
+                        "overrideCurrent": true,
+                        "oldLevel": 0
+                    }
+                ]
             },
             {
                 "id": "pri-a/dx",
                 "changesCost": false,
-                "value": ""
+                "value": "",
+                "restrictions": [
+                    {
+                        "id": "Trait_OutstandingAttribute",
+                        "input": "pri-a/dx",
+                        "level": 0
+                    }
+                ],
+                "targets": [
+                    {
+                        "id": "pri-a/dx",
+                        "type": "min",
+                        "input": "",
+                        "level": 7,
+                        "overrideCurrent": true,
+                        "oldLevel": 0
+                    },
+                    {
+                        "id": "pri-a/dx",
+                        "type": "max",
+                        "input": "",
+                        "level": 7,
+                        "overrideCurrent": true,
+                        "oldLevel": 0
+                    }
+                ]
             },
             {
                 "id": "pri-a/cn",
                 "changesCost": false,
-                "value": ""
+                "value": "",
+                "restrictions": [
+                    {
+                        "id": "Trait_OutstandingAttribute",
+                        "input": "pri-a/cn",
+                        "level": 0
+                    }
+                ],
+                "targets": [
+                    {
+                        "id": "pri-a/cn",
+                        "type": "min",
+                        "input": "",
+                        "level": 7,
+                        "overrideCurrent": true,
+                        "oldLevel": 0
+                    },
+                    {
+                        "id": "pri-a/cn",
+                        "type": "max",
+                        "input": "",
+                        "level": 7,
+                        "overrideCurrent": true,
+                        "oldLevel": 0
+                    }
+                ]
             },
             {
                 "id": "pri-a/st",
                 "changesCost": false,
-                "value": ""
+                "value": "",
+                "restrictions": [
+                    {
+                        "id": "Trait_OutstandingAttribute",
+                        "input": "pri-a/st",
+                        "level": 0
+                    }
+                ],
+                "targets": [
+                    {
+                        "id": "pri-a/st",
+                        "type": "min",
+                        "input": "",
+                        "level": 7,
+                        "overrideCurrent": true,
+                        "oldLevel": 0
+                    },
+                    {
+                        "id": "pri-a/st",
+                        "type": "max",
+                        "input": "",
+                        "level": 7,
+                        "overrideCurrent": true,
+                        "oldLevel": 0
+                    }
+                ]
             }
         ],
         "needsInput": false,
         "input": "",
-        "targets": [
-            {
-                "id": "PriA",
-                "type": "min",
-                "input": "",
-                "level": 7,
-                "overrideCurrent": true,
-                "oldLevel": 0
-            },
-            {
-                "id": "PriA",
-                "type": "max",
-                "input": "",
-                "level": 7,
-                "overrideCurrent": true,
-                "oldLevel": 0
-            }
-        ],
+        "targets": [],
         "requirements": [],
         "restrictions": [
             {
@@ -1458,7 +1706,7 @@
                 "oldLevel": 0
             },
             {
-                "id": "SecA_VE",
+                "id": "sec-a/ve",
                 "type": "bonus",
                 "input": "",
                 "level": 1,
@@ -1502,7 +1750,6 @@
             {
                 "id": "pri-a/ag",
                 "type": "max",
-                "input": "",
                 "level": -2,
                 "overrideCurrent": false,
                 "oldLevel": 0
@@ -1510,7 +1757,6 @@
             {
                 "id": "pri-a/dx",
                 "type": "max",
-                "input": "",
                 "level": -2,
                 "overrideCurrent": false,
                 "oldLevel": 0
@@ -1518,7 +1764,6 @@
             {
                 "id": "pri-a/cn",
                 "type": "max",
-                "input": "",
                 "level": -2,
                 "overrideCurrent": false,
                 "oldLevel": 0
@@ -1526,15 +1771,13 @@
             {
                 "id": "sec-a/re",
                 "type": "bonus",
-                "input": "",
                 "level": -2,
                 "overrideCurrent": false,
                 "oldLevel": 0
             },
             {
-                "id": "SecA_VE",
+                "id": "sec-a/ve",
                 "type": "bonus",
-                "input": "",
                 "level": -4,
                 "overrideCurrent": false,
                 "oldLevel": 0
@@ -1605,64 +1848,239 @@
             {
                 "id": "pri-a/cr",
                 "changesCost": false,
-                "value": ""
+                "value": "",
+                "restrictions": [
+                    {
+                        "id": "Trait_MiserableAttribute",
+                        "input": "pri-a/cr",
+                        "level": 0
+                    }
+                ],
+                "targets": [
+                    {
+                        "id": "pri-a/cr",
+                        "type": "min",
+                        "level": 1,
+                        "overrideCurrent": false,
+                        "oldLevel": 0
+                    },
+                    {
+                        "id": "pri-a/cr",
+                        "type": "max",
+                        "input": "",
+                        "level": 1,
+                        "overrideCurrent": false,
+                        "oldLevel": 0
+                    }
+                ]
             },
             {
                 "id": "pri-a/cl",
                 "changesCost": false,
-                "value": ""
+                "value": "",
+                "restrictions": [
+                    {
+                        "id": "Trait_MiserableAttribute",
+                        "input": "pri-a/cl",
+                        "level": 0
+                    }
+                ],
+                "targets": [
+                    {
+                        "id": "pri-a/cl",
+                        "type": "min",
+                        "level": 1,
+                        "overrideCurrent": false,
+                        "oldLevel": 0
+                    },
+                    {
+                        "id": "pri-a/cl",
+                        "type": "max",
+                        "input": "",
+                        "level": 1,
+                        "overrideCurrent": false,
+                        "oldLevel": 0
+                    }
+                ]
             },
             {
                 "id": "pri-a/in",
                 "changesCost": false,
-                "value": ""
+                "value": "",
+                "restrictions": [
+                    {
+                        "id": "Trait_MiserableAttribute",
+                        "input": "pri-a/in",
+                        "level": 0
+                    }
+                ],
+                "targets": [
+                    {
+                        "id": "pri-a/in",
+                        "type": "min",
+                        "level": 1,
+                        "overrideCurrent": false,
+                        "oldLevel": 0
+                    },
+                    {
+                        "id": "pri-a/in",
+                        "type": "max",
+                        "input": "",
+                        "level": 1,
+                        "overrideCurrent": false,
+                        "oldLevel": 0
+                    }
+                ]
             },
             {
                 "id": "pri-a/ch",
                 "changesCost": false,
-                "value": ""
+                "value": "",
+                "restrictions": [
+                    {
+                        "id": "Trait_MiserableAttribute",
+                        "input": "pri-a/ch",
+                        "level": 0
+                    }
+                ],
+                "targets": [
+                    {
+                        "id": "pri-a/ch",
+                        "type": "min",
+                        "level": 1,
+                        "overrideCurrent": false,
+                        "oldLevel": 0
+                    },
+                    {
+                        "id": "pri-a/ch",
+                        "type": "max",
+                        "input": "",
+                        "level": 1,
+                        "overrideCurrent": false,
+                        "oldLevel": 0
+                    }
+                ]
             },
             {
                 "id": "pri-a/ag",
                 "changesCost": false,
-                "value": ""
+                "value": "",
+                "restrictions": [
+                    {
+                        "id": "Trait_MiserableAttribute",
+                        "input": "pri-a/ag",
+                        "level": 0
+                    }
+                ],
+                "targets": [
+                    {
+                        "id": "pri-a/ag",
+                        "type": "min",
+                        "level": 1,
+                        "overrideCurrent": false,
+                        "oldLevel": 0
+                    },
+                    {
+                        "id": "pri-a/ag",
+                        "type": "max",
+                        "input": "",
+                        "level": 1,
+                        "overrideCurrent": false,
+                        "oldLevel": 0
+                    }
+                ]
             },
             {
                 "id": "pri-a/dx",
                 "changesCost": false,
-                "value": ""
+                "value": "",
+                "restrictions": [
+                    {
+                        "id": "Trait_MiserableAttribute",
+                        "input": "pri-a/dx",
+                        "level": 0
+                    }
+                ],
+                "targets": [
+                    {
+                        "id": "pri-a/dx",
+                        "type": "min",
+                        "level": 1,
+                        "overrideCurrent": false,
+                        "oldLevel": 0
+                    },
+                    {
+                        "id": "pri-a/dx",
+                        "type": "max",
+                        "input": "",
+                        "level": 1,
+                        "overrideCurrent": false,
+                        "oldLevel": 0
+                    }
+                ]
             },
             {
                 "id": "pri-a/cn",
                 "changesCost": false,
-                "value": ""
+                "value": "",
+                "restrictions": [
+                    {
+                        "id": "Trait_MiserableAttribute",
+                        "input": "pri-a/cn",
+                        "level": 0
+                    }
+                ],
+                "targets": [
+                    {
+                        "id": "pri-a/cn",
+                        "type": "min",
+                        "level": 1,
+                        "overrideCurrent": false,
+                        "oldLevel": 0
+                    },
+                    {
+                        "id": "pri-a/cn",
+                        "type": "max",
+                        "input": "",
+                        "level": 1,
+                        "overrideCurrent": false,
+                        "oldLevel": 0
+                    }
+                ]
             },
             {
                 "id": "pri-a/st",
                 "changesCost": false,
-                "value": ""
+                "value": "",
+                "restrictions": [
+                    {
+                        "id": "Trait_MiserableAttribute",
+                        "input": "pri-a/st",
+                        "level": 0
+                    }
+                ],
+                "targets": [
+                    {
+                        "id": "pri-a/st",
+                        "type": "min",
+                        "level": 1,
+                        "overrideCurrent": false,
+                        "oldLevel": 0
+                    },
+                    {
+                        "id": "pri-a/st",
+                        "type": "max",
+                        "input": "",
+                        "level": 1,
+                        "overrideCurrent": false,
+                        "oldLevel": 0
+                    }
+                ]
             }
         ],
         "needsInput": false,
         "input": "",
-        "targets": [
-            {
-                "id": "PriA",
-                "type": "min",
-                "input": "",
-                "level": 1,
-                "overrideCurrent": false,
-                "oldLevel": 0
-            },
-            {
-                "id": "PriA",
-                "type": "max",
-                "input": "",
-                "level": 1,
-                "overrideCurrent": false,
-                "oldLevel": 0
-            }
-        ],
+        "targets": [],
         "requirements": [],
         "restrictions": [
             {
@@ -1692,11 +2110,8 @@
         "restrictions": [
             {
                 "id": "Trait_Bloodthirsty",
-                "type": "",
                 "input": "",
-                "level": 0,
-                "overrideCurrent": false,
-                "oldLevel": 0
+                "level": 0
             }
         ]
     },
@@ -1748,7 +2163,6 @@
             {
                 "id": "SkillCategory_Vehicles",
                 "type": "available",
-                "input": "",
                 "level": 10,
                 "overrideCurrent": false,
                 "oldLevel": 0
@@ -1756,7 +2170,6 @@
             {
                 "id": "SkillCategory_Vehicles",
                 "type": "total",
-                "input": "",
                 "level": 10,
                 "overrideCurrent": false,
                 "oldLevel": 0
@@ -1764,7 +2177,6 @@
             {
                 "id": "SkillCategory_Vehicles",
                 "type": "min",
-                "input": "",
                 "level": 10,
                 "overrideCurrent": false,
                 "oldLevel": 0
@@ -1772,22 +2184,16 @@
         ],
         "requirements": [
             {
-                "id": "SO",
-                "type": "",
+                "id": "Character_SocialStatus",
                 "input": "",
-                "level": 4,
-                "overrideCurrent": false,
-                "oldLevel": 0
+                "level": 4
             }
         ],
         "restrictions": [
             {
                 "id": "Trait_InabilityForSkillCategory",
-                "type": "",
                 "input": "SkillCategory_Vehicles",
-                "level": 0,
-                "overrideCurrent": false,
-                "oldLevel": 0
+                "level": 0
             }
         ]
     },
@@ -1807,7 +2213,6 @@
             {
                 "id": "sec-a/sp",
                 "type": "bonus",
-                "input": "",
                 "level": -1,
                 "overrideCurrent": false,
                 "oldLevel": 0
@@ -1818,7 +2223,6 @@
             {
                 "id": "Trait_HighStamina",
                 "type": "",
-                "input": "",
                 "level": 0,
                 "overrideCurrent": false,
                 "oldLevel": 0
@@ -1841,7 +2245,6 @@
             {
                 "id": "sec-a/lp",
                 "type": "bonus",
-                "input": "",
                 "level": -1,
                 "overrideCurrent": false,
                 "oldLevel": 0
@@ -1852,7 +2255,6 @@
             {
                 "id": "Trait_HighVigour",
                 "type": "",
-                "input": "",
                 "level": 0,
                 "overrideCurrent": false,
                 "oldLevel": 0
@@ -1992,7 +2394,6 @@
             {
                 "id": "Trait_HeavySleeper",
                 "type": "",
-                "input": "",
                 "level": 0,
                 "overrideCurrent": false,
                 "oldLevel": 0
@@ -2174,7 +2575,7 @@
                 "oldLevel": 0
             },
             {
-                "id": "SecA_VE",
+                "id": "sec-a/ve",
                 "type": "bonus",
                 "input": "",
                 "level": -1,
@@ -2210,15 +2611,13 @@
             {
                 "id": "pri-a/st",
                 "type": "max",
-                "input": "",
                 "level": -2,
                 "overrideCurrent": false,
                 "oldLevel": 0
             },
             {
-                "id": "SecA_VE",
+                "id": "sec-a/ve",
                 "type": "bonus",
-                "input": "",
                 "level": -2,
                 "overrideCurrent": false,
                 "oldLevel": 0
@@ -2243,7 +2642,6 @@
             {
                 "id": "SkillCategory_Social",
                 "type": "available",
-                "input": "",
                 "level": 10,
                 "overrideCurrent": false,
                 "oldLevel": 0
@@ -2251,7 +2649,6 @@
             {
                 "id": "SkillCategory_Social",
                 "type": "total",
-                "input": "",
                 "level": 10,
                 "overrideCurrent": false,
                 "oldLevel": 0
@@ -2259,7 +2656,6 @@
             {
                 "id": "SkillCategory_Social",
                 "type": "min",
-                "input": "",
                 "level": 10,
                 "overrideCurrent": false,
                 "oldLevel": 0
@@ -2269,11 +2665,8 @@
         "restrictions": [
             {
                 "id": "Trait_InabilityForSkillCategory",
-                "type": "",
                 "input": "SkillCategory_Social",
-                "level": 0,
-                "overrideCurrent": false,
-                "oldLevel": 0
+                "level": 0
             }
         ]
     },
@@ -2310,11 +2703,8 @@
         "restrictions": [
             {
                 "id": "Trait_Euphony",
-                "type": "",
                 "input": "",
-                "level": 0,
-                "overrideCurrent": false,
-                "oldLevel": 0
+                "level": 0
             }
         ]
     },
@@ -2388,337 +2778,471 @@
             {
                 "id": "Skill_Combat_EnergyWeapons",
                 "changesCost": true,
-                "value": "<Skill_Combat_EnergyWeapons.factor>"
+                "value": "<Skill_Combat_EnergyWeapons.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Combat_HeavyWeapons",
                 "changesCost": true,
-                "value": "<Skill_Combat_HeavyWeapons.factor>"
+                "value": "<Skill_Combat_HeavyWeapons.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Combat_MeleeHands",
                 "changesCost": true,
-                "value": "<Skill_Combat_MeleeHands.factor>"
+                "value": "<Skill_Combat_MeleeHands.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Combat_MeleeWeapons",
                 "changesCost": true,
-                "value": "<Skill_Combat_MeleeWeapons.factor>"
+                "value": "<Skill_Combat_MeleeWeapons.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Combat_OnboardWeapons",
                 "changesCost": true,
-                "value": "<Skill_Combat_OnboardWeapons.factor>"
+                "value": "<Skill_Combat_OnboardWeapons.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Combat_Pistols",
                 "changesCost": true,
-                "value": "<Skill_Combat_Pistols.factor>"
+                "value": "<Skill_Combat_Pistols.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Combat_Rifles",
                 "changesCost": true,
-                "value": "<Skill_Combat_Rifles.factor>"
+                "value": "<Skill_Combat_Rifles.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Combat_Throwing",
                 "changesCost": true,
-                "value": "<Skill_Combat_Throwing.factor>"
+                "value": "<Skill_Combat_Throwing.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Crafting_AnimalTraining",
                 "changesCost": true,
-                "value": "<Skill_Crafting_AnimalTraining.factor>"
+                "value": "<Skill_Crafting_AnimalTraining.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Crafting_Computers",
                 "changesCost": true,
-                "value": "<Skill_Crafting_Computers.factor>"
+                "value": "<Skill_Crafting_Computers.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Crafting_Cooking",
                 "changesCost": true,
-                "value": "<Skill_Crafting_Cooking.factor>"
+                "value": "<Skill_Crafting_Cooking.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Crafting_Disguising",
                 "changesCost": true,
-                "value": "<Skill_Crafting_Disguising.factor>"
+                "value": "<Skill_Crafting_Disguising.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Crafting_Drawing",
                 "changesCost": true,
-                "value": "<Skill_Crafting_Drawing.factor>"
+                "value": "<Skill_Crafting_Drawing.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Crafting_ElectricalEngineering",
                 "changesCost": true,
-                "value": "<Skill_Crafting_ElectricalEngineering.factor>"
+                "value": "<Skill_Crafting_ElectricalEngineering.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Crafting_Explosives",
                 "changesCost": true,
-                "value": "<Skill_Crafting_Explosives.factor>"
+                "value": "<Skill_Crafting_Explosives.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Crafting_MakingMusic",
                 "changesCost": true,
-                "value": "<Skill_Crafting_MakingMusic.factor>"
+                "value": "<Skill_Crafting_MakingMusic.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Crafting_MaterialProcessing",
                 "changesCost": true,
-                "value": "<Skill_Crafting_MaterialProcessing.factor>"
+                "value": "<Skill_Crafting_MaterialProcessing.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Crafting_MechanicalEngineering",
                 "changesCost": true,
-                "value": "<Skill_Crafting_MechanicalEngineering.factor>"
+                "value": "<Skill_Crafting_MechanicalEngineering.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Crafting_MedicalCare",
                 "changesCost": true,
-                "value": "<Skill_Crafting_MedicalCare.factor>"
+                "value": "<Skill_Crafting_MedicalCare.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Crafting_Pharmaceutics",
                 "changesCost": true,
-                "value": "<Skill_Crafting_Pharmaceutics.factor>"
+                "value": "<Skill_Crafting_Pharmaceutics.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Crafting_PlayingGames",
                 "changesCost": true,
-                "value": "<Skill_Crafting_PlayingGames.factor>"
+                "value": "<Skill_Crafting_PlayingGames.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Crafting_Programming",
                 "changesCost": true,
-                "value": "<Skill_Crafting_Programming.factor>"
+                "value": "<Skill_Crafting_Programming.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Crafting_Writing",
                 "changesCost": true,
-                "value": "<Skill_Crafting_Writing.factor>"
+                "value": "<Skill_Crafting_Writing.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Knowledge_Art",
                 "changesCost": true,
-                "value": "<Skill_Knowledge_Art.factor>"
+                "value": "<Skill_Knowledge_Art.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Knowledge_Astronomy",
                 "changesCost": true,
-                "value": "<Skill_Knowledge_Astronomy.factor>"
+                "value": "<Skill_Knowledge_Astronomy.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Knowledge_BiologyAndMedicine",
                 "changesCost": true,
-                "value": "<Skill_Knowledge_BiologyAndMedicine.factor>"
+                "value": "<Skill_Knowledge_BiologyAndMedicine.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Knowledge_Chemistry",
                 "changesCost": true,
-                "value": "<Skill_Knowledge_Chemistry.factor>"
+                "value": "<Skill_Knowledge_Chemistry.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Knowledge_Electronics",
                 "changesCost": true,
-                "value": "<Skill_Knowledge_Electronics.factor>"
+                "value": "<Skill_Knowledge_Electronics.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Knowledge_Gaming",
                 "changesCost": true,
-                "value": "<Skill_Knowledge_Gaming.factor>"
+                "value": "<Skill_Knowledge_Gaming.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Knowledge_GeneralKnowledge",
                 "changesCost": true,
-                "value": "<Skill_Knowledge_GeneralKnowledge.factor>"
+                "value": "<Skill_Knowledge_GeneralKnowledge.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Knowledge_Geology",
                 "changesCost": true,
-                "value": "<Skill_Knowledge_Geology.factor>"
+                "value": "<Skill_Knowledge_Geology.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Knowledge_History",
                 "changesCost": true,
-                "value": "<Skill_Knowledge_History.factor>"
+                "value": "<Skill_Knowledge_History.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Knowledge_Informatics",
                 "changesCost": true,
-                "value": "<Skill_Knowledge_Informatics.factor>"
+                "value": "<Skill_Knowledge_Informatics.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Knowledge_Law",
                 "changesCost": true,
-                "value": "<Skill_Knowledge_Law.factor>"
+                "value": "<Skill_Knowledge_Law.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Knowledge_MathematicsAndEconomy",
                 "changesCost": true,
-                "value": "<Skill_Knowledge_MathematicsAndEconomy.factor>"
+                "value": "<Skill_Knowledge_MathematicsAndEconomy.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Knowledge_Music",
                 "changesCost": true,
-                "value": "<Skill_Knowledge_Music.factor>"
+                "value": "<Skill_Knowledge_Music.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Knowledge_Orientation",
                 "changesCost": true,
-                "value": "<Skill_Knowledge_Orientation.factor>"
+                "value": "<Skill_Knowledge_Orientation.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Knowledge_PhysicsAndMechanics",
                 "changesCost": true,
-                "value": "<Skill_Knowledge_PhysicsAndMechanics.factor>"
+                "value": "<Skill_Knowledge_PhysicsAndMechanics.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Knowledge_Spaceflight",
                 "changesCost": true,
-                "value": "<Skill_Knowledge_Spaceflight.factor>"
+                "value": "<Skill_Knowledge_Spaceflight.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Knowledge_Survival",
                 "changesCost": true,
-                "value": "<Skill_Knowledge_Survival.factor>"
+                "value": "<Skill_Knowledge_Survival.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Knowledge_TacticsAndStrategy",
                 "changesCost": true,
-                "value": "<Skill_Knowledge_TacticsAndStrategy.factor>"
+                "value": "<Skill_Knowledge_TacticsAndStrategy.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Physical_BodyControl",
                 "changesCost": true,
-                "value": "<Skill_Physical_BodyControl.factor>"
+                "value": "<Skill_Physical_BodyControl.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Physical_Climbing",
                 "changesCost": true,
-                "value": "<Skill_Physical_Climbing.factor>"
+                "value": "<Skill_Physical_Climbing.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Physical_Dancing",
                 "changesCost": true,
-                "value": "<Skill_Physical_Dancing.factor>"
+                "value": "<Skill_Physical_Dancing.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Physical_Diving",
                 "changesCost": true,
-                "value": "<Skill_Physical_Diving.factor>"
+                "value": "<Skill_Physical_Diving.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Physical_ImitatingVoices",
                 "changesCost": true,
-                "value": "<Skill_Physical_ImitatingVoices.factor>"
+                "value": "<Skill_Physical_ImitatingVoices.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Physical_Inebriating",
                 "changesCost": true,
-                "value": "<Skill_Physical_Inebriating.factor>"
+                "value": "<Skill_Physical_Inebriating.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Physical_Perception",
                 "changesCost": true,
-                "value": "<Skill_Physical_Perception.factor>"
+                "value": "<Skill_Physical_Perception.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Physical_Running",
                 "changesCost": true,
-                "value": "<Skill_Physical_Running.factor>"
+                "value": "<Skill_Physical_Running.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Physical_Singing",
                 "changesCost": true,
-                "value": "<Skill_Physical_Singing.factor>"
+                "value": "<Skill_Physical_Singing.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Physical_SneakingHiding",
                 "changesCost": true,
-                "value": "<Skill_Physical_SneakingHiding.factor>"
+                "value": "<Skill_Physical_SneakingHiding.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Physical_Stealing",
                 "changesCost": true,
-                "value": "<Skill_Physical_Stealing.factor>"
+                "value": "<Skill_Physical_Stealing.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Physical_Swimming",
                 "changesCost": true,
-                "value": "<Skill_Physical_Swimming.factor>"
+                "value": "<Skill_Physical_Swimming.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Social_Acting",
                 "changesCost": true,
-                "value": "<Skill_Social_Acting.factor>"
+                "value": "<Skill_Social_Acting.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Social_Flirting",
                 "changesCost": true,
-                "value": "<Skill_Social_Flirting.factor>"
+                "value": "<Skill_Social_Flirting.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Social_Inspiring",
                 "changesCost": true,
-                "value": "<Skill_Social_Inspiring.factor>"
+                "value": "<Skill_Social_Inspiring.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Social_Intimidating",
                 "changesCost": true,
-                "value": "<Skill_Social_Intimidating.factor>"
+                "value": "<Skill_Social_Intimidating.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Social_Judgement",
                 "changesCost": true,
-                "value": "<Skill_Social_Judgement.factor>"
+                "value": "<Skill_Social_Judgement.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Social_Reasoning",
                 "changesCost": true,
-                "value": "<Skill_Social_Reasoning.factor>"
+                "value": "<Skill_Social_Reasoning.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Social_SelfControl",
                 "changesCost": true,
-                "value": "<Skill_Social_SelfControl.factor>"
+                "value": "<Skill_Social_SelfControl.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Social_SoftSkills",
                 "changesCost": true,
-                "value": "<Skill_Social_SoftSkills.factor>"
+                "value": "<Skill_Social_SoftSkills.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Social_Teaching",
                 "changesCost": true,
-                "value": "<Skill_Social_Teaching.factor>"
+                "value": "<Skill_Social_Teaching.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Social_Trading",
                 "changesCost": true,
-                "value": "<Skill_Social_Trading.factor>"
+                "value": "<Skill_Social_Trading.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Vehicles_ExtraplanetaryFlying",
                 "changesCost": true,
-                "value": "<Skill_Vehicles_ExtraplanetaryFlying.factor>"
+                "value": "<Skill_Vehicles_ExtraplanetaryFlying.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Vehicles_IntraplanetaryFlying",
                 "changesCost": true,
-                "value": "<Skill_Vehicles_IntraplanetaryFlying.factor>"
+                "value": "<Skill_Vehicles_IntraplanetaryFlying.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Vehicles_LandVehicles",
                 "changesCost": true,
-                "value": "<Skill_Vehicles_LandVehicles.factor>"
+                "value": "<Skill_Vehicles_LandVehicles.factor>",
+                "restrictions": [],
+                "targets": []
             },
             {
                 "id": "Skill_Vehicles_WaterVehicles",
                 "changesCost": true,
-                "value": "<Skill_Vehicles_WaterVehicles.factor>"
+                "value": "<Skill_Vehicles_WaterVehicles.factor>",
+                "restrictions": [],
+                "targets": []
             }
         ],
         "needsInput": false,

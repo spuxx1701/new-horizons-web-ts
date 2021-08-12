@@ -69,6 +69,10 @@
     font-size: 16px;
 }
 
+.value-control-field-disabled {
+    background-color: var(--colorGreyTrans);
+}
+
 .btn:disabled, .button:disabled, .button-square:disabled, .dropdown-toggle:disabled, .inputfield:disabled, .collapsible:disabled {
     background-color: var(--colorGreyTrans);
     cursor: default;
@@ -453,16 +457,19 @@ input:checked+.toggle-slider:before {
 
 .collapsible {
     border-radius: 5px 5px 5px 5px;
+    border: none;
 }
 
 .collapsible-expanded {
-    background-color: var(--colorTealDark);
     border-radius: 5px 5px 0px 0px;
+    border: 1px solid var(--colorGreyMedium);
+    border-bottom: none;
 }
 
 .collapsible-content {
     padding: 5px;
     border-radius: 0px 0px 5px 5px;
     border: 1px solid var(--colorGreyMedium);
+    border-top: none;
     overflow: auto;
 }

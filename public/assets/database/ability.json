@@ -401,10 +401,7 @@
             {
                 "id": "sec-a/re",
                 "type": "bonus",
-                "input": "",
-                "level": 4,
-                "overrideCurrent": false,
-                "oldLevel": 0
+                "level": 4
             }
         ]
     },
@@ -452,10 +449,7 @@
             {
                 "id": "sec-a/re",
                 "type": "bonus",
-                "input": "",
-                "level": 2,
-                "overrideCurrent": false,
-                "oldLevel": 0
+                "level": 2
             }
         ]
     },
@@ -651,15 +645,7 @@
                 "id": "pri-a/ag",
                 "type": "",
                 "input": "",
-                "level": 12,
-                "overrideCurrent": false,
-                "oldLevel": 0
-            },
-            {
-                "id": "sec-a/at",
-                "type": "",
-                "input": "",
-                "level": 8,
+                "level": 13,
                 "overrideCurrent": false,
                 "oldLevel": 0
             }
@@ -983,15 +969,7 @@
                 "id": "pri-a/st",
                 "type": "",
                 "input": "",
-                "level": 12,
-                "overrideCurrent": false,
-                "oldLevel": 0
-            },
-            {
-                "id": "sec-a/at",
-                "type": "",
-                "input": "",
-                "level": 8,
+                "level": 13,
                 "overrideCurrent": false,
                 "oldLevel": 0
             }
@@ -1279,15 +1257,7 @@
                 "id": "pri-a/dx",
                 "type": "",
                 "input": "",
-                "level": 12,
-                "overrideCurrent": false,
-                "oldLevel": 0
-            },
-            {
-                "id": "sec-a/at",
-                "type": "",
-                "input": "",
-                "level": 8,
+                "level": 13,
                 "overrideCurrent": false,
                 "oldLevel": 0
             }
@@ -1309,6 +1279,14 @@
         "abilityCategory": "AbilityCategory_Ranged",
         "editorOnly": false,
         "requirements": [
+            {
+                "id": "pri-a/dx",
+                "type": "",
+                "input": "",
+                "level": 14,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
             {
                 "id": "Ability_Ranged_PrecisionShot1",
                 "type": "",

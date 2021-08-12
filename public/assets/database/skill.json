@@ -9,8 +9,8 @@
         "max": 0,
         "primaryAttributes": [
             "pri-a/cr",
-            "pri-a/dx",
-            "pri-a/st"
+            "pri-a/cl",
+            "pri-a/dx"
         ],
         "hasSpecialisations": false,
         "isBasic": false,
@@ -28,7 +28,7 @@
         "max": 0,
         "primaryAttributes": [
             "pri-a/cr",
-            "pri-a/dx",
+            "pri-a/st",
             "pri-a/st"
         ],
         "hasSpecialisations": false,
@@ -47,7 +47,7 @@
         "max": 0,
         "primaryAttributes": [
             "pri-a/cr",
-            "pri-a/dx",
+            "pri-a/cn",
             "pri-a/st"
         ],
         "hasSpecialisations": false,
@@ -66,7 +66,7 @@
         "max": 0,
         "primaryAttributes": [
             "pri-a/cr",
-            "pri-a/dx",
+            "pri-a/ag",
             "pri-a/st"
         ],
         "hasSpecialisations": false,
@@ -85,8 +85,8 @@
         "max": 0,
         "primaryAttributes": [
             "pri-a/cr",
-            "pri-a/dx",
-            "pri-a/st"
+            "pri-a/cl",
+            "pri-a/in"
         ],
         "hasSpecialisations": true,
         "isBasic": false,
@@ -105,7 +105,7 @@
         "primaryAttributes": [
             "pri-a/cr",
             "pri-a/dx",
-            "pri-a/st"
+            "pri-a/dx"
         ],
         "hasSpecialisations": false,
         "isBasic": true,
@@ -123,8 +123,8 @@
         "max": 0,
         "primaryAttributes": [
             "pri-a/cr",
-            "pri-a/dx",
-            "pri-a/st"
+            "pri-a/in",
+            "pri-a/dx"
         ],
         "hasSpecialisations": true,
         "isBasic": false,
@@ -1318,7 +1318,7 @@
         "min": 0,
         "max": 0,
         "primaryAttributes": [
-            "pri-a/cr",
+            "pri-a/cl",
             "pri-a/in",
             "pri-a/cn"
         ],
@@ -1357,8 +1357,8 @@
         "max": 0,
         "primaryAttributes": [
             "pri-a/cr",
-            "pri-a/in",
-            "pri-a/cn"
+            "pri-a/cl",
+            "pri-a/in"
         ],
         "hasSpecialisations": false,
         "isBasic": false,
@@ -1376,8 +1376,8 @@
         "max": 0,
         "primaryAttributes": [
             "pri-a/cr",
-            "pri-a/in",
-            "pri-a/cn"
+            "pri-a/cl",
+            "pri-a/in"
         ],
         "hasSpecialisations": false,
         "isBasic": false,

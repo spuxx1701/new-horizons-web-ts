@@ -38,9 +38,14 @@
     margin-right: 2px;
 }
 
-.margin-sides-small {
+.margin-sides-smaller {
     margin-left: 5px;
     margin-right: 5px;
+}
+
+.margin-sides-small {
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .margin-sides-medium {

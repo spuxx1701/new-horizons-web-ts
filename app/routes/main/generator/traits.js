@@ -16,6 +16,8 @@ export default class MainGeneratorTraitsRoute extends Route {
         return RSVP.hash({
             traitsAvailable: this.database.getCollection("trait"),
             traitsOwned: this.generator.getCharacter()?.data.traits,
+            traitsMin: this.generator.preset.traitsMin,
+            traitsMax: this.generator.preset.traitsMax
         });
     }
 }

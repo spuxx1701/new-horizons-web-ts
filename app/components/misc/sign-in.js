@@ -32,7 +32,7 @@ export default class SignInComponent extends Component {
                 // if the request fails due to wrong credentials, notify the user
                 let modalTitle = { "name": "title", "value": "Modal_WrongCredentials_Title" };
                 let modalText = { "name": "text", "value": ["Modal_WrongCredentials_Text01"] };
-                let yesLabel = { "name": "noLabel", "value": "Misc_OK" };
+                let yesLabel = { "name": "noLabel", "value": "Misc_Ok" };
                 let noLabel = { "name": "yesLabel", "value": "Modal_WrongCredentials_Text02" };
                 let yesListener = {
                     "event": "click", "id": "modal-button-footer-yes", "function": function () {

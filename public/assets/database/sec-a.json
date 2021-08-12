@@ -1,7 +1,7 @@
 [
     {
         "id": "sec-a/lp",
-        "current": 24,
+        "current": 0,
         "remaining": 0,
         "bonus": 0,
         "primaryAttributes": [
@@ -12,7 +12,7 @@
     },
     {
         "id": "sec-a/sp",
-        "current": 12,
+        "current": 0,
         "remaining": 0,
         "bonus": 0,
         "primaryAttributes": [
@@ -24,7 +24,7 @@
     },
     {
         "id": "sec-a/re",
-        "current": 6,
+        "current": 0,
         "remaining": 0,
         "bonus": 0,
         "primaryAttributes": [
@@ -36,20 +36,8 @@
         "div": 5.0
     },
     {
-        "id": "sec-a/at",
-        "current": 5,
-        "remaining": 0,
-        "bonus": 0,
-        "primaryAttributes": [
-            "pri-a/cr",
-            "pri-a/dx",
-            "pri-a/st"
-        ],
-        "div": 5.0
-    },
-    {
         "id": "sec-a/de",
-        "current": 5,
+        "current": 0,
         "remaining": 0,
         "bonus": 0,
         "primaryAttributes": [
@@ -60,20 +48,8 @@
         "div": 5.0
     },
     {
-        "id": "sec-a/pi",
-        "current": 5,
-        "remaining": 0,
-        "bonus": 0,
-        "primaryAttributes": [
-            "pri-a/cr",
-            "pri-a/in",
-            "pri-a/cn"
-        ],
-        "div": 5.0
-    },
-    {
-        "id": "SecA_VE",
-        "current": 3,
+        "id": "sec-a/ve",
+        "current": 0,
         "remaining": 0,
         "bonus": 0,
         "primaryAttributes": [
@@ -84,8 +60,8 @@
         "div": 6.0
     },
     {
-        "id": "SecA_WT",
-        "current": 4,
+        "id": "sec-a/wt",
+        "current": 0,
         "remaining": 0,
         "bonus": 0,
         "primaryAttributes": [

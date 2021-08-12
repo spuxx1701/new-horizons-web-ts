@@ -33,14 +33,21 @@
                 {{row.localizedLabel}}
             </td>
             <td>
-                {{row.inputInvalid}}
                 {{#if row.data.needsInput}}
                 <Interactable::Inputfield @size="large" @changeset={{row.changeset}} @key="input" @required={{true}}
-                    @invalid={{row.invalid}} />
+                    @invalid={{row.invalid}} @disabled={{this.isOwned}} />
                 {{/if}}
                 {{#if row.data.hasOptions}}
-                <Interactable::Dropdown @size="large" @items={{row.data.options}}
-                    @onChangeListener={{this.onOptionChange}} @context={{row}} />
+                <div>
+                    {{#unless this.isOwned}}
+                    <Interactable::Dropdown @size="large" @items={{row.data.options}}
+                        @onChangeListener={{this.onOptionChange}} @context={{row}} />
+                    {{/unless}}
+                    {{#if this.isOwned}}
+                    <Interactable::Dropdown @size="large" @items={{row.data.options}}
+                        @selectedItem={{row.data.selectedOption}} @disabled={{true}} />
+                    {{/if}}
+                </div>
                 {{/if}}
             </td>
             <td>
@@ -48,7 +55,7 @@
                 <Interactable::ValueControl @value="0" @disabled={{true}} />
                 {{/if}}
             </td>
-            <td class="text-right margin-sides-small">
+            <td class="text-right margin-sides-smaller">
                 {{if (lt row.data.costs 0) '+' }}{{mult -1 row.data.costs}}
             </td>
         </tr>

@@ -110,6 +110,8 @@ Description: Contains style information for modals and their components.
 }
 
 .modal-button-close {
+    display: flex;
+    justify-content: center;
     height: 40px;
     width: 40px;
     border: none;

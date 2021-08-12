@@ -8,8 +8,9 @@
         </div>
     </Interactable::Collapsible>
     <Misc::Spacer />
-    <Interactable::Collapsible class="full-width" @noPadding={{true}} @size="medium"
-        @title={{localize "Route_Generator_Traits_OwnedTraits" }} @collapsed={{false}}>
+    <Interactable::Collapsible class="full-width" @noPadding={{true}} @size="medium" @title="{{localize "
+        Route_Generator_Traits_OwnedTraits" }}
+        ({{@model.traitsMin}}/{{@model.traitsOwned.length}}/{{@model.traitsMax}})" @collapsed={{false}}>
         <div class="responsive-table full-width">
             <List::Traits @data={{@model.traitsOwned}} @sortingKey="localizedLabel" @isGenerator={{true}}
                 @isOwned={{true}} />

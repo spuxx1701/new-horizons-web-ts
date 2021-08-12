@@ -1268,14 +1268,6 @@
         "value": "Stärke"
     },
     {
-        "key": "sec-a/at",
-        "value": "AT"
-    },
-    {
-        "key": "sec-a/at_Long",
-        "value": "Attacke"
-    },
-    {
         "key": "sec-a/de",
         "value": "VE"
     },
@@ -1290,14 +1282,6 @@
     {
         "key": "sec-a/lp_Long",
         "value": "Lebenspunkte"
-    },
-    {
-        "key": "sec-a/pi",
-        "value": "PI"
-    },
-    {
-        "key": "sec-a/pi_Long",
-        "value": "Pilotieren"
     },
     {
         "key": "sec-a/re",
@@ -1316,11 +1300,11 @@
         "value": "Ausdauerpunkte"
     },
     {
-        "key": "SecA_VE",
+        "key": "sec-a/ve",
         "value": "GS"
     },
     {
-        "key": "SecA_VE_Long",
+        "key": "sec-a/ve/long",
         "value": "Geschwindigkeit"
     },
     {

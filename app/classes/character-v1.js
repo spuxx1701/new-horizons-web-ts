@@ -7,7 +7,7 @@ import Ember from 'ember';
 import { A } from '@ember/array';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-import { set } from '@ember/object';
+import { get, computed, set } from '@ember/object';
 
 export default class CharacterV1 {
     manager;
@@ -33,17 +33,16 @@ export default class CharacterV1 {
 
         //----------------------------------------------------------------------------//
         // Status and Experience
-        currentConstraint: 0, // The charac
-        availableFP: 0,
-        totalEP: 0,
-        availableEP: 0,
+        currentConstraint: 0,
+        fpAvailable: 0,
+        epTotal: 0,
+        epAvailable: 0,
 
         //----------------------------------------------------------------------------//
         // Collections
         primaryAttributes: A([]),
         secondaryAttributes: A([]),
         traits: A([]),
-        skillCategories: A([]),
         skills: A([]),
         abilities: A([]),
         specialisations: A([]),
@@ -62,30 +61,13 @@ export default class CharacterV1 {
      * @param  {string} version
      * @param  {ManagerService} manager
      */
-    constructor(characterPresetId, version, manager) {
+    constructor(characterPresetId, version, manager, { generator } = {}) {
         // Set the character preset and game version
         this.data.characterPreset = characterPresetId;
         this.data.gameVersion = version;
         this.manager = manager;
+        this.generator = generator;
         let that = this;
-        // Initialize primary attributes
-        this.manager.database.getCollection("pri-a").forEach(function (priA) {
-            that.data.primaryAttributes.push(that.manager.database.cloneRecord(priA));
-        })
-        // Initialize secondary attributes
-        this.manager.database.getCollection("sec-a").forEach(function (secA) {
-            that.data.secondaryAttributes.push(that.manager.database.cloneRecord(secA));
-        })
-        // Initialize skill categories
-        this.manager.database.getCollection("skill-category").forEach(function (skillCategory) {
-            that.data.skillCategories.push(that.manager.database.cloneRecord(skillCategory));
-        })
-        // Add all basic skills
-        this.manager.database.getCollection("skill").forEach(function (skill) {
-            if (skill.isBasic) {
-                skill.addToCharacter(that, { logSuccess: false, ignoreDuplicate: true });
-            }
-        })
         // Log initialization
         this.manager.log(`Character initialization complete (character preset: ${characterPresetId}, game version: ${version}).`);
     }
@@ -103,7 +85,6 @@ export default class CharacterV1 {
             return this.data.name;
         }
     }
-
 
     /**
      * Sets a general property.
@@ -178,9 +159,8 @@ export default class CharacterV1 {
      * @param  {bool} logSuccess=true - Whether success should be logged.
      * @param  {bool} validate=true - Whether skill level should be checked against minimum and maximum value.
      * @param  {bool} updateDependencies=true - Whether dependencies should be updated.
-     * @param  {bool} setStart=false - Whether the 'start' value should also be set. Does only work with override = true.
      */
-    setPrimaryAttributeLevel(id, value, { override = false, logSuccess = true, validate = true, updateDependencies = true, setStart = false } = {}) {
+    setPrimaryAttributeLevel(id, value, { override = false, logSuccess = true, validate = true, updateDependencies = true } = {}) {
         id = this.manager.database.transformId(id);
         let priA = this.getPrimaryAttribute(id);
         if (!priA) {
@@ -204,9 +184,6 @@ export default class CharacterV1 {
             }
         }
         set(priA, "current", newValue);
-        if (setStart) {
-            set(priA, "start", newValue);
-        }
         if (logSuccess) this.manager.log(`Level of primary attribute '${id}' for character '${this.getName()}' has been changed from ${oldValue} to ${priA.current} (updating dependencies: ${updateDependencies}).`, "i");
         if (updateDependencies) {
             this.updatePrimaryAttributeDependencies(id);
@@ -221,9 +198,11 @@ export default class CharacterV1 {
      * @param  {number} value - The new value. Can be used for addition, substraction or replace the previous value.
      * @param  {bool} override=false - Whether the old value should be replaced.
      * @param  {bool} logSuccess=true - Whether success should be logged.
+     * @param  {bool} updateCurrent=true - Whether success should be logged.
+     * @param  {bool} updateGeneratorBudget=true - Whether success should be logged.
      * @returns {object} - Returns the updated primary attribute or undefined.
      */
-    setPrimaryAttributeProperty(id, property, value, { override = false, logSuccess = true } = {}) {
+    setPrimaryAttributeProperty(id, property, value, { override = false, logSuccess = true, updateCurrent = true, updateGeneratorBudget = true } = {}) {
         id = this.manager.database.transformId(id);
         for (let priA of this.data.primaryAttributes) {
             if (priA.id === id) {
@@ -234,14 +213,27 @@ export default class CharacterV1 {
                     } else {
                         set(priA, property, priA[property] + value);
                     }
-                    if (logSuccess) this.manager.log(`Value '${property}' of primary attribute '${id}' for character '${this.getName()}' has changed from '${oldValue}' to '${priA[property]}'.`)
+                    let oldCurrent = priA.current;
+                    // Update current value if required
+                    if (updateCurrent) {
+                        if (property === "min" && priA.current < priA.min) {
+                            this.setPrimaryAttributeLevel(priA.id, priA.min, { override: true });
+                        } else if (property === "max" && priA.current > priA.max) {
+                            this.setPrimaryAttributeLevel(priA.id, priA.max, { override: true });
+                        }
+                        // Update generator budget if required
+                        if (updateGeneratorBudget && this.generator) {
+                            this.generator.setAp(oldCurrent - priA.current)
+                        }
+                    }
+                    if (logSuccess) this.manager.log(`'${property}' of primary attribute '${id}' for character '${this.getName()}' has changed from '${oldValue}' to '${priA[property]}'.`)
                     return priA;
                 }
-                this.manager.log(`Unable to change value '${property}' of primary attribute '${id}' for character '${this.getName()}': Property not found.`, "x");
+                this.manager.log(`Unable to change '${property}' of primary attribute '${id}' for character '${this.getName()}': Property not found.`, "x");
                 return undefined;
             }
         }
-        this.manager.log(`Unable to change value '${property}' of primary attribute '${id}' for character '${this.getName()}': Primary Attribute not found.`, "x");
+        this.manager.log(`Unable to change '${property}' of primary attribute '${id}' for character '${this.getName()}': Primary Attribute not found.`, "x");
         return undefined;
     }
 
@@ -253,6 +245,15 @@ export default class CharacterV1 {
             }
         }
         return undefined;
+    }
+
+    getPrimaryAttributeProperty(id, property) {
+        let priA = this.getPrimaryAttribute(id);
+        if (priA) {
+            return priA[property];
+        } else {
+            return undefined;
+        }
     }
 
     updatePrimaryAttributeDependencies(id, { logSuccess = true } = {}) {
@@ -300,7 +301,7 @@ export default class CharacterV1 {
             }
             sum += priA.current;
         }
-        let newValue = Math.round(sum / secA.div);
+        let newValue = Math.round((sum / secA.div) * 10 / 10);
         if (newValue !== secA.current) {
             this.setSecondaryAttributeProperty(id, "current", newValue, { logSuccess: logSuccess, override: true });
         }
@@ -313,11 +314,11 @@ export default class CharacterV1 {
             this.manager.log(`Unable to change '${property}' of secondary attribute '${id}' for character '${this.getName()}': Secondary Attribute not found.`, "x");
             return undefined;
         }
-        if (!secA[property]) {
+        if (secA[property] === undefined) {
             this.manager.log(`Unable to change '${property}' of secondary attribute '${id}' for character '${this.getName()}': Property not found.`, "x");
             return undefined;
         }
-        let oldValue = secA.current;
+        let oldValue = secA[property];
         if (override) {
             set(secA, property, value);
         } else {
@@ -337,17 +338,23 @@ export default class CharacterV1 {
         return undefined;
     }
 
-    getSecondaryAttributeValue(id, { includeBonus = true } = {}) {
+    getSecondaryAttributeProperty(id, property) {
+        let secA = this.getSecondaryAttribute(id);
+        return secA[property];
+    }
+
+    getSecondaryAttributeCurrent(id, { includeBonus = true } = {}) {
         let secA = this.getSecondaryAttribute(id);
         if (!secA) {
             this.manager.log(`Unable to get value of secondary attribute '${id}' for character '${this.getName()}': Secondary Attribute not found.`, "x");
             return undefined;
         }
+        let result = secA.current;
         if (includeBonus) {
-            return (secA.current + secA.bonus);
-        } else {
-            return secA.current;
+            result += secA.bonus;
         }
+        if (result < 1) result = 1;
+        return result;
     }
 
     //----------------------------------------------------------------------------//
@@ -361,27 +368,37 @@ export default class CharacterV1 {
      * @param  {bool} logSuccess=true (optional) - Whether success should bee logged.
      */
     removeTrait(id, { input = undefined, selectedOptionId = undefined, logSuccess = true } = {}) {
-
+        let trait = this.getTrait(id, { input: input, selectedOptionId: selectedOptionId });
+        if (trait) {
+            // let index = this.data.traits.indexOf(trait);
+            // this.data.traits.slice(index, 1);
+            this.data.traits.removeObject(trait);
+            return true;
+        } else {
+            this.manager.log(`Unable to remove trait '${id}' from character '${this.getName()}': Character does not own that trait.`, "x");
+            return undefined;
+        }
     }
 
     getTrait(id, { input = undefined, selectedOptionId = undefined } = {}) {
         id = this.manager.database.transformId(id);
         for (let trait of this.data.traits) {
             if (trait.id === id) {
-                if (input && trait.input !== input) {
-                    continue;
-                } else if (selectedOptionId && selectedOptionId !== trait.selectedOption.id) {
-                    continue;
+                if (trait.needsInput) {
+                    if (trait.input === input) return trait;
+                } else if (trait.hasOptions) {
+                    if (selectedOptionId === trait.selectedOption.id) return trait;
+                } else {
+                    return trait;
                 }
-                return trait;
             }
         }
-        return undefined;
     }
 
     //----------------------------------------------------------------------------//
     // SKILLS
     //----------------------------------------------------------------------------//
+
     setSkillLevel(id, value, { override = false, validate = true, logSuccess = true } = {}) {
         id = this.manager.database.transformId(id);
         let skill = this.getSkill(id);
@@ -522,7 +539,7 @@ export default class CharacterV1 {
      * @returns {Object} { result: {bool}, failedRequirements: {Object[]} };
      */
     meetsRequirements(requirements, { detailedResult = false } = {}) {
-        let resultObject = { result: true, failedRequirements: [] };
+        let result = { requirementsMet: true, failedRequirements: [] };
         if (!Array.isArray(requirements)) {
             requirements = [requirements];
         }
@@ -547,11 +564,8 @@ export default class CharacterV1 {
                     break;
                 default:
                     switch (requirement.id) {
-                        case "SO":
+                        case "Character_SocialStatus":
                             requirementFailed = this.getGeneralProperty("socialStatus") < requirement.level;
-                            break;
-                        case "EP":
-                            requirementFailed = this.getGeneralProperty("availableEP") < requirement.level;
                             break;
                         default:
                             requirementFailed = true;
@@ -559,14 +573,67 @@ export default class CharacterV1 {
                     }
             }
             if (requirementFailed) {
-                resultObject.result = false;
-                resultObject.failedRequirements.push(requirement);
+                result.requirementsMet = false;
+                result.failedRequirements.push(requirement);
             }
         }
         if (detailedResult) {
-            return resultObject;
+            return result;
         } else {
-            return resultObject.result;
+            return result.requirementsMet;
+        }
+    }
+
+    /**
+     * Whether the character violates a certain set of restrictions. Can return a simple bool or a complex object, including the violated restrictions.
+     * @param {Object[]} requirements - The restrictions array. A single restriction is also supported.
+     * @param {bool} detailedResult=false (optional) - Whether a detailed result object should be returned including the restrictions that are violated.
+     * @returns {bool} OR
+     * @returns {Object} { result: {bool}, failedRequirements: {Object[]} };
+     */
+    violatesRestrictions(restrictions, { detailedResult = false } = {}) {
+        let result = { violated: false, violatedRestrictions: [] };
+        if (!Array.isArray(restrictions)) {
+            restrictions = [restrictions];
+        }
+        for (let restriction of restrictions) {
+            let collectionName = this.manager.database.getCollectionNameFromId(restriction.id);
+            let restrictionViolated = false;
+            switch (collectionName) {
+                case "pri-a":
+                    restrictionViolated = this.getPrimaryAttribute(restriction.id) && this.getPrimaryAttribute(restriction.id).current >= restriction.level;
+                    break;
+                case "sec-a":
+                    restrictionViolated = this.getSecondaryAttribute(restriction.id) && this.getSecondaryAttributeValue(restriction.id) >= restriction.level;
+                    break;
+                case "trait":
+                    restrictionViolated = this.getTrait(restriction.id, { selectedOptionId: restriction.input });
+                    break;
+                case "skill":
+                    restrictionViolated = this.getSkill(restriction.id) && this.getSkillLevel(restriction.id) >= restriction.level;
+                    break;
+                case "ability":
+                    restrictionViolated = this.getAbility(restriction.id);
+                    break;
+                default:
+                    switch (collectionName.id) {
+                        case "Character_SocialStatus":
+                            restrictionViolated = this.getGeneralProperty("socialStatus") < restriction.level;
+                            break;
+                        default:
+                            restrictionViolated = true;
+                            this.manager.log(`Unable to interpret restriction with id '${restriction.id}'.`, "x");
+                    }
+            }
+            if (restrictionViolated) {
+                result.violated = true;
+                result.violatedRestrictions.push(restriction);
+            }
+        }
+        if (detailedResult) {
+            return result;
+        } else {
+            return result.violated;
         }
     }
 }

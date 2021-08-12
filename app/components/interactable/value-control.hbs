@@ -11,7 +11,7 @@
             </button>
             {{/if}}
             <input id="{{@id}}-value-control-field"
-                class="value-control-field value-control-field-size-{{this.size}} text-{{this.textPosition}} interactable"
+                class="value-control-field value-control-field-size-{{this.size}} text-{{this.textPosition}} interactable {{if (and this.isDecreaseDisabled this.isIncreaseDisabled) 'value-control-field-disabled'}}"
                 disabled={{true}} autofocus={{@autofocus}} value={{@value}} placeholder={{@placeholder}} />
             {{#if this.showButtons}}
             <button type="button" class="button button-square" {{on "click" this.onIncreaseClick}}

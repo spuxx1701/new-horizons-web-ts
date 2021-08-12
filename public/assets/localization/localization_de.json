@@ -1,5 +1,21 @@
 [
     {
+        "key": "Modal_Game_RestrictionViolated_Title",
+        "value": "Unerlaubte Aktion"
+    },
+    {
+        "key": "Modal_Game_RestrictionViolated_Text",
+        "value": "Folgende Dinge sind nicht miteinander kombinierbar:"
+    },
+    {
+        "key": "Modal_Game_RequirementsFailed_Title",
+        "value": "Voraussetzungen nicht erfüllt"
+    },
+    {
+        "key": "Modal_Game_RequirementsFailed_Text",
+        "value": "Der Charakter erfüllt folgende Voraussetzungen nicht:"
+    },
+    {
         "key": "Modal_CharacterOwnsTrait_Title",
         "value": "Merkmal schon vorhanden"
     },
@@ -1784,43 +1800,43 @@
         "value": "Kategorie"
     },
     {
-        "key": "Misc_CharacterAge",
+        "key": "Character_Age",
         "value": "Alter"
     },
     {
-        "key": "Misc_CharacterAppearance",
+        "key": "Character_Appearance",
         "value": "Aussehen"
     },
     {
-        "key": "Misc_CharacterBirthday",
+        "key": "Character_Birthday",
         "value": "Geburtstag"
     },
     {
-        "key": "Misc_CharacterFamily",
+        "key": "Character_Family",
         "value": "Familie"
     },
     {
-        "key": "Misc_CharacterHeight",
+        "key": "Character_Height",
         "value": "Größe (cm)"
     },
     {
-        "key": "Misc_CharacterName",
+        "key": "Character_Name",
         "value": "Name"
     },
     {
-        "key": "Misc_CharacterOrigin",
+        "key": "Character_Origin",
         "value": "Herkunft"
     },
     {
-        "key": "Misc_CharacterSex",
+        "key": "Character_Sex",
         "value": "Geschlecht"
     },
     {
-        "key": "Misc_CharacterSocialStatus",
+        "key": "Character_SocialStatus",
         "value": "Sozialstatus"
     },
     {
-        "key": "Misc_CharacterWeight",
+        "key": "Character_Weight",
         "value": "Gewicht (kg)"
     },
     {
@@ -2784,19 +2800,11 @@
         "value": "Farbsparmodus"
     },
     {
-        "key": "sec-a/at",
-        "value": "AT"
-    },
-    {
-        "key": "sec-a/at_Long",
-        "value": "Attacke"
-    },
-    {
         "key": "sec-a/de",
         "value": "VE"
     },
     {
-        "key": "sec-a/de_Long",
+        "key": "sec-a/de/long",
         "value": "Verteidigung"
     },
     {
@@ -2804,23 +2812,15 @@
         "value": "LP"
     },
     {
-        "key": "sec-a/lp_Long",
+        "key": "sec-a/lp/long",
         "value": "Lebenspunkte"
-    },
-    {
-        "key": "sec-a/pi",
-        "value": "PI"
-    },
-    {
-        "key": "sec-a/pi_Long",
-        "value": "Pilotieren"
     },
     {
         "key": "sec-a/re",
         "value": "RE"
     },
     {
-        "key": "sec-a/re_Long",
+        "key": "sec-a/re/long",
         "value": "Reaktion"
     },
     {
@@ -2828,23 +2828,23 @@
         "value": "AP"
     },
     {
-        "key": "sec-a/sp_Long",
+        "key": "sec-a/sp/long",
         "value": "Ausdauerpunkte"
     },
     {
-        "key": "SecA_VE",
+        "key": "sec-a/ve",
         "value": "GS"
     },
     {
-        "key": "SecA_VE_Long",
+        "key": "sec-a/ve/long",
         "value": "Geschwindigkeit"
     },
     {
-        "key": "SecA_WT",
+        "key": "sec-a/wt",
         "value": "WS"
     },
     {
-        "key": "SecA_WT_Long",
+        "key": "sec-a/wt/long",
         "value": "Wundschwelle"
     },
     {

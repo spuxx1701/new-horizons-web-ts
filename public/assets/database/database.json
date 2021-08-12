@@ -136,7 +136,7 @@
                 "div": 5.0
             },
             {
-                "id": "SecA_VE",
+                "id": "sec-a/ve",
                 "current": 3,
                 "remaining": 0,
                 "bonus": 0,
@@ -2256,7 +2256,7 @@
                         "oldLevel": 0
                     },
                     {
-                        "id": "SecA_VE",
+                        "id": "sec-a/ve",
                         "type": "bonus",
                         "input": "",
                         "level": 1,
@@ -2328,7 +2328,7 @@
                         "oldLevel": 0
                     },
                     {
-                        "id": "SecA_VE",
+                        "id": "sec-a/ve",
                         "type": "bonus",
                         "input": "",
                         "level": -4,
@@ -2890,7 +2890,7 @@
                         "oldLevel": 0
                     },
                     {
-                        "id": "SecA_VE",
+                        "id": "sec-a/ve",
                         "type": "bonus",
                         "input": "",
                         "level": -1,
@@ -2930,7 +2930,7 @@
                         "oldLevel": 0
                     },
                     {
-                        "id": "SecA_VE",
+                        "id": "sec-a/ve",
                         "type": "bonus",
                         "input": "",
                         "level": -2,

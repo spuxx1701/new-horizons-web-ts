@@ -17,12 +17,9 @@ Description: Contains style information for all text elements.  */
         font-size: 16px;
     }
     h5, .h5 {
-        font-size: 14px;
+        font-size: 16px;
     }
-    h6, .h6, p, .th, th, .td, td {
-        font-size: 14px;
-    }
-    .inputfield {
+    h6, .h6, p, .th, th, .td, td, .inputfield {
         font-size: 14px;
     }
 }
@@ -42,11 +39,11 @@ Description: Contains style information for all text elements.  */
     h4, .h4 {
         font-size: 20px;
     }
-    h5, .h5, {
+    h5, .h5 {
         font-size: 16px;
     }
     h6, .h6, p, th, .th, td, .td, .inputfield {
-        font-size: 14px;
+        font-size: 15px;
     }
 }
 
