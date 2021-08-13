@@ -17,6 +17,7 @@ export default class GeneratorRoute extends Route {
             await this.database.loadCollection("sec-a");
             await this.database.loadCollection("trait");
             await this.database.loadCollection("skill");
+            await this.database.loadCollection("skill-category");
             await this.database.loadCollection("ability");
             this.generator.generateDummyCharater();
         }

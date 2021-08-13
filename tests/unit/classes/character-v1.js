@@ -4,8 +4,7 @@ import { module, test } from 'qunit';
 module('Unit | Class | character-v1', function (hooks) {
     test('Tests the character class', function (assert) {
         // Get the character instance
-        let manager = this.owner.lookup("service:manager");
-        let character = new Character('CharacterPreset_Default', '0.0', manager);
+        let character = new Character('CharacterPreset_Default', '0.0', { context: this });
         // does the name work?
         assert.equal(character.getName(), "Anonymous");
     });

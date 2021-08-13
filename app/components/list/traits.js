@@ -55,7 +55,7 @@ export default class ListTraitsComponent extends ListComponent {
             } else if (this.generator.getCharacter().getTrait(row.data.id, { input: row.changeset.input })) {
                 this.manager.callModal("confirm", [{ name: "type", value: "error" }, { name: "title", value: "Modal_CharacterOwnsTrait_Title" }, { name: "text", value: ["Modal_CharacterOwnsTrait_Text"] }]);
             } else {
-                addedTrait = row.data.addToCharacter(this.generator.getCharacter(), { input: row.changeset.input });
+                addedTrait = row.data.addToCharacter(this.generator.getCharacter(), { input: row.changeset.input, isGenerator: this.isGenerator });
                 row.changeset.rollback();
             }
         } else if (row.data.hasOptions) {
@@ -63,32 +63,25 @@ export default class ListTraitsComponent extends ListComponent {
             if (this.generator.getCharacter().getTrait(row.data.id, { selectedOptionId: row.data.selectedOption.id })) {
                 this.manager.callModal("confirm", [{ name: "type", value: "error" }, { name: "title", value: "Modal_CharacterOwnsTrait_Title" }, { name: "text", value: ["Modal_CharacterOwnsTrait_Text"] }]);
             } else {
-                addedTrait = row.data.addToCharacter(this.generator.getCharacter(), { selectedOption: row.data.selectedOption });
+                addedTrait = row.data.addToCharacter(this.generator.getCharacter(), { selectedOption: row.data.selectedOption, isGenerator: this.isGenerator });
             }
         } else {
             // Else, just check whether the character already has that trait
             if (this.generator.getCharacter().getTrait(row.data.id)) {
                 this.manager.callModal("confirm", [{ name: "type", value: "error" }, { name: "title", value: "Modal_CharacterOwnsTrait_Title" }, { name: "text", value: ["Modal_CharacterOwnsTrait_Text"] }]);
             } else {
-                addedTrait = row.data.addToCharacter(this.generator.getCharacter());
+                addedTrait = row.data.addToCharacter(this.generator.getCharacter(), { isGenerator: this.isGenerator });
             }
         }
 
         // If trait has been added successfully, apply changes and reduce generation point budget
         if (addedTrait) {
-            // Apply changes if needed
-            if (addedTrait.targets?.length > 0) {
-                row.data.applyChanges(this.generator.getCharacter(), addedTrait.targets, { isGenerator: this.isGenerator });
-            }
-            if (addedTrait.hasOptions && addedTrait.selectedOption.targets?.length > 0) {
-                row.data.applyChanges(this.generator.getCharacter(), addedTrait.selectedOption.targets, { isGenerator: this.isGenerator });
-            }
             this.generator.setGp(-(addedTrait.costs));
         }
     }
 
     @action onRemoveClick(row, event) {
-        let traitRemoved = this.generator.getCharacter().removeTrait(row.data.id, { input: row.data.input, selectedOptionId: row.data.selectedOption.id });
+        let traitRemoved = this.generator.getCharacter().getTrait(row.data.id, { input: row.data.input, selectedOptionId: row.data.selectedOption.id }).remove();
         if (traitRemoved) {
             this.generator.setGp(row.data.costs);
         }

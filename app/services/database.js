@@ -28,11 +28,11 @@ export default class DatabaseService extends Service {
         // Loads a collectioon.
         //----------------------------------------------------------------------------//
         let transformedCollectionName = this.transformId(collectionName);
-        let result = this.store.peekAll("database/" + transformedCollectionName);
+        let result = this.store.peekAll("identifiables/" + transformedCollectionName);
         if (result.content.length > 0) {
             return result;
         } else {
-            result = await this.store.findAll("database/" + transformedCollectionName);
+            result = await this.store.findAll("identifiables/" + transformedCollectionName);
             return result;
         }
     }
@@ -44,7 +44,7 @@ export default class DatabaseService extends Service {
         // Finds a collection in the database.
         //----------------------------------------------------------------------------//
         let transformedCollectionName = this.transformId(collectionName);
-        let result = this.store.peekAll("database/" + transformedCollectionName);
+        let result = this.store.peekAll("identifiables/" + transformedCollectionName);
         return result;
     }
 
@@ -59,7 +59,7 @@ export default class DatabaseService extends Service {
         if (splitTransformedId.length > 1) {
             let collectionId = splitTransformedId[0];
             let result;
-            if (result = this.store.peekRecord("database/" + collectionId, transformedId)) {
+            if (result = this.store.peekRecord("identifiables/" + collectionId, transformedId)) {
                 if (clone) {
                     return this.cloneRecord(result);
                 } else if (serialize) {

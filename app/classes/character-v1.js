@@ -3,14 +3,18 @@
 // Description:
 // Character Class Version 1.
 //----------------------------------------------------------------------------//
-import Ember from 'ember';
+import CustomObject from 'new-horizons-web/classes/custom-object';
 import { A } from '@ember/array';
 import { tracked } from '@glimmer/tracking';
+import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 import { get, computed, set } from '@ember/object';
 
-export default class CharacterV1 {
-    manager;
+export default class CharacterV1 extends CustomObject {
+    @service manager;
+    @service generator;
+    @service editor;
+    @service database;
 
     @tracked data = {
         //----------------------------------------------------------------------------//
@@ -59,15 +63,13 @@ export default class CharacterV1 {
      * Represents a character that can kept during the session and exported to JSON.
      * @param  {string} characterPresetId
      * @param  {string} version
-     * @param  {ManagerService} manager
+     * @param  {Object} context
      */
-    constructor(characterPresetId, version, manager, { generator } = {}) {
+    constructor(characterPresetId, version, { context } = {}) {
+        super({ context: context });
         // Set the character preset and game version
         this.data.characterPreset = characterPresetId;
         this.data.gameVersion = version;
-        this.manager = manager;
-        this.generator = generator;
-        let that = this;
         // Log initialization
         this.manager.log(`Character initialization complete (character preset: ${characterPresetId}, game version: ${version}).`);
     }
@@ -161,7 +163,7 @@ export default class CharacterV1 {
      * @param  {bool} updateDependencies=true - Whether dependencies should be updated.
      */
     setPrimaryAttributeLevel(id, value, { override = false, logSuccess = true, validate = true, updateDependencies = true } = {}) {
-        id = this.manager.database.transformId(id);
+        id = this.database.transformId(id);
         let priA = this.getPrimaryAttribute(id);
         if (!priA) {
             this.manager.log(`Unable to change level of primary attribute '${id}' for character '${this.getName()}': Primary Attribute not found.`, "x");
@@ -203,7 +205,7 @@ export default class CharacterV1 {
      * @returns {object} - Returns the updated primary attribute or undefined.
      */
     setPrimaryAttributeProperty(id, property, value, { override = false, logSuccess = true, updateCurrent = true, updateGeneratorBudget = true } = {}) {
-        id = this.manager.database.transformId(id);
+        id = this.database.transformId(id);
         for (let priA of this.data.primaryAttributes) {
             if (priA.id === id) {
                 if (priA[property] !== undefined) {
@@ -238,7 +240,7 @@ export default class CharacterV1 {
     }
 
     getPrimaryAttribute(id) {
-        id = this.manager.database.transformId(id);
+        id = this.database.transformId(id);
         for (let priA of this.data.primaryAttributes) {
             if (priA.id === id) {
                 return priA;
@@ -257,7 +259,7 @@ export default class CharacterV1 {
     }
 
     updatePrimaryAttributeDependencies(id, { logSuccess = true } = {}) {
-        id = this.manager.database.transformId(id);
+        id = this.database.transformId(id);
         let priA = this.getPrimaryAttribute(id);
         if (!priA) {
             this.manager.log(`Unable to update dependencies of primary attribute '${id}' for character '${this.getName()}': Primary Attribute not found.`, "x");
@@ -266,7 +268,7 @@ export default class CharacterV1 {
         // update secondary attributes
         for (let secA of this.data.secondaryAttributes) {
             for (let priA of secA.primaryAttributes) {
-                if (this.manager.database.transformId(priA) === id) {
+                if (this.database.transformId(priA) === id) {
                     this.updateSecondaryAttribute(secA.id, { logSuccess: false });
                     break;
                 }
@@ -275,7 +277,7 @@ export default class CharacterV1 {
         // update skills
         for (let skill of this.data.skills) {
             for (let priAId of skill.primaryAttributes) {
-                if (this.manager.database.transformId(priAId) === id) {
+                if (this.database.transformId(priAId) === id) {
                     this.updateSkill(skill.id, { logSuccess: false, updateMinimum: false });
                     break;
                 }
@@ -329,7 +331,7 @@ export default class CharacterV1 {
     }
 
     getSecondaryAttribute(id) {
-        id = this.manager.database.transformId(id);
+        id = this.database.transformId(id);
         for (let secA of this.data.secondaryAttributes) {
             if (secA.id === id) {
                 return secA;
@@ -360,28 +362,8 @@ export default class CharacterV1 {
     //----------------------------------------------------------------------------//
     // TRAITS
     //----------------------------------------------------------------------------//
-    /**
-     * Removes a specific trait.
-     * @param  {string} id - The id of the trait.
-     * @param  {string} input=undefined input (optional) - The input of the trait.
-     * @param  {string} selectedOptionId=undefined (optional) - The selected option of the trait.
-     * @param  {bool} logSuccess=true (optional) - Whether success should bee logged.
-     */
-    removeTrait(id, { input = undefined, selectedOptionId = undefined, logSuccess = true } = {}) {
-        let trait = this.getTrait(id, { input: input, selectedOptionId: selectedOptionId });
-        if (trait) {
-            // let index = this.data.traits.indexOf(trait);
-            // this.data.traits.slice(index, 1);
-            this.data.traits.removeObject(trait);
-            return true;
-        } else {
-            this.manager.log(`Unable to remove trait '${id}' from character '${this.getName()}': Character does not own that trait.`, "x");
-            return undefined;
-        }
-    }
-
     getTrait(id, { input = undefined, selectedOptionId = undefined } = {}) {
-        id = this.manager.database.transformId(id);
+        id = this.database.transformId(id);
         for (let trait of this.data.traits) {
             if (trait.id === id) {
                 if (trait.needsInput) {
@@ -400,7 +382,7 @@ export default class CharacterV1 {
     //----------------------------------------------------------------------------//
 
     setSkillLevel(id, value, { override = false, validate = true, logSuccess = true } = {}) {
-        id = this.manager.database.transformId(id);
+        id = this.database.transformId(id);
         let skill = this.getSkill(id);
         if (skill) {
             let oldValue = skill.current;
@@ -431,7 +413,7 @@ export default class CharacterV1 {
     }
 
     setSkillProperty(id, property, value, { override = false, logSuccess = true } = {}) {
-        id = this.manager.database.transformId(id);
+        id = this.database.transformId(id);
         let skill = this.getSkill(id);
         if (skill) {
             if (skill[property] !== undefined) {
@@ -460,7 +442,7 @@ export default class CharacterV1 {
      * @returns  {Object} - Returns the skill or undefined.
      */
     getSkill(id) {
-        id = this.manager.database.transformId(id);
+        id = this.database.transformId(id);
         for (let skill of this.data.skills) {
             if (skill.id === id) {
                 return skill;
@@ -495,7 +477,7 @@ export default class CharacterV1 {
             this.manager.log(`Unable to update skill '${id}' for character '${this.getName()}': None of the primary attributes could be found.`, "x");
             return undefined;
         }
-        let maxAllowedDiff = this.manager.database.getIdentifiable("Constant_SkillsPriAMaxDiff").value;
+        let maxAllowedDiff = this.database.getIdentifiable("Constant_SkillsPriAMaxDiff").value;
         let newMax = highestPriA.current + maxAllowedDiff;
         this.setSkillProperty(id, "max", newMax, { override: true, logSuccess: logSuccess });
         if (updateMinimum) {
@@ -508,7 +490,7 @@ export default class CharacterV1 {
     // ABILITIES
     //----------------------------------------------------------------------------//
     getAbility(id, { input = undefined }) {
-        id = this.manager.database.transformId(id);
+        id = this.database.transformId(id);
         for (let ability of this.data.abilities) {
             if (ability.id === id) {
                 if (input && ability.input !== input) {
@@ -544,7 +526,7 @@ export default class CharacterV1 {
             requirements = [requirements];
         }
         for (let requirement of requirements) {
-            let collectionName = this.manager.database.getCollectionNameFromId(requirement.id);
+            let collectionName = this.database.getCollectionNameFromId(requirement.id);
             let requirementFailed = false;
             switch (collectionName) {
                 case "pri-a":
@@ -597,7 +579,7 @@ export default class CharacterV1 {
             restrictions = [restrictions];
         }
         for (let restriction of restrictions) {
-            let collectionName = this.manager.database.getCollectionNameFromId(restriction.id);
+            let collectionName = this.database.getCollectionNameFromId(restriction.id);
             let restrictionViolated = false;
             switch (collectionName) {
                 case "pri-a":

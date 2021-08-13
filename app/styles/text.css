@@ -144,3 +144,10 @@ a:hover, a:active, .button-link:hover, .button-link:active {
 .text-area-height-large {
     height: 154px;
 }
+
+.required-mark {
+    color: var(--colorTextLinkHover);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    margin-left: 5px;
+}

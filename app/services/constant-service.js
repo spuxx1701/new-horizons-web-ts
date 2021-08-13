@@ -4,7 +4,7 @@ import Service from '@ember/service';
 
 export default class ConstantService extends Service {
     typeOfFunction = "function";
-    databaseModelPrefix = "database/"
+    databaseModelPrefix = "identifiables/"
     characterPresetIdDefault = "character-preset/default"
     sidebarIconSize = "1x";
 }
