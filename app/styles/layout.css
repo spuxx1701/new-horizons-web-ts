@@ -305,3 +305,9 @@
         width: 100% !important;
     }
 }
+
+.list-container {
+    border-radius: 5px;
+    border: 1px solid var(--colorGreyMedium);
+    overflow: auto;
+}

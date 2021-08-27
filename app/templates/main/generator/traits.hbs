@@ -1,19 +1,19 @@
 <h2 class="fg-white text-center">{{localize "Route_Generator_Traits_Title"}}</h2>
 <Layout::Panel @size="large" @alignment="center">
-    <Interactable::Collapsible class="full-width" @noPadding={{true}} @size="medium"
-        @title={{localize "Route_Generator_Traits_AvailableTraits" }} @collapsed={{false}}>
-        <div class="responsive-table full-width">
-            <List::Traits @data={{@model.traitsAvailable}} @sortingKey="localizedLabel" @isGenerator={{true}}
-                @isOwned={{false}} />
-        </div>
-    </Interactable::Collapsible>
-    <Misc::Spacer />
-    <Interactable::Collapsible class="full-width" @noPadding={{true}} @size="medium" @title="{{localize "
-        Route_Generator_Traits_OwnedTraits" }}
-        ({{@model.traitsMin}}/{{@model.traitsOwned.length}}/{{@model.traitsMax}})" @collapsed={{false}}>
-        <div class="responsive-table full-width">
-            <List::Traits @data={{@model.traitsOwned}} @sortingKey="localizedLabel" @isGenerator={{true}}
-                @isOwned={{true}} />
-        </div>
-    </Interactable::Collapsible>
+    <div class="full-width">
+        <BsTab as |tab|>
+            <tab.pane @title={{localize "Route_Generator_Traits_AvailableTraits" }}>
+                <List::Container class="full-width margin-vertical-medium" @size="large">
+                    <List::Traits @data={{@model.traitsAvailable}} @sortingKey="localizedLabel" @isGenerator={{true}}
+                        @isOwned={{false}} />
+                </List::Container>
+            </tab.pane>
+            <tab.pane @title={{localize "Route_Generator_Traits_OwnedTraits" }}>
+                <List::Container class="full-width margin-vertical-medium" @size="large">
+                    <List::Traits @data={{@model.traitsAvailable}} @sortingKey="localizedLabel" @isGenerator={{true}}
+                        @isOwned={{false}} />
+                </List::Container>
+            </tab.pane>
+        </BsTab>
+    </div>
 </Layout::Panel>

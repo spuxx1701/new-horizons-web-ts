@@ -47,7 +47,6 @@ export default class RadioGroupComponent extends InteractableComponent {
         }
     }
 
-    @computed("disabled", "busy")
     get isDisabled() {
         return (this.get("disabled") || this.get("busy"));
     }

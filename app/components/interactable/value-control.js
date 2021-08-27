@@ -21,6 +21,8 @@ export default class InputfieldComponent extends InteractableComponent {
     @tracked size = "small";
     step = 1;
     @tracked showButtons = true;
+    @tracked budget;
+    @tracked budgetMin = 1;
 
 
     init() {
@@ -32,9 +34,17 @@ export default class InputfieldComponent extends InteractableComponent {
         return (this.disabled || (this.getMin() !== undefined && this.value - this.step < this.getMin()));
     }
 
-    @computed("disabled", "value", "max")
+    @computed("disabled", "value", "max", "budget")
     get isIncreaseDisabled() {
-        return (this.disabled || (this.getMax() !== undefined && this.value + this.step > this.getMax()));
+        if (this.disabled) {
+            return true;
+        } else {
+            if (this.budget !== undefined && this.budget < this.budgetMin) {
+                return true;
+            } else {
+                return this.getMax() !== undefined && this.value + this.step > this.getMax();
+            }
+        }
     }
 
     getMin() {

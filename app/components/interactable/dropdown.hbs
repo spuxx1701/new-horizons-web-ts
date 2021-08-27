@@ -11,12 +11,12 @@
             <BsDropdown id={{@id}} class="dropdown dropdown-cycle-{{@cycle}}" @tagName="span" as |dropdown|>
                 {{#if this.isDisabled}}
                 <dropdown.button disabled>
-                    <h6 class="dropdown-caption">{{this.caption}}</h6>
+                    <p class="dropdown-caption">{{this.caption}}</p>
                     <span class="caret"></span>
                 </dropdown.button>
                 {{else}}
                 <dropdown.button>
-                    <h6 class="dropdown-caption">{{this.caption}}</h6>
+                    <p class="dropdown-caption">{{this.caption}}</p>
                     <span class="caret"></span>
                 </dropdown.button>
                 {{/if}}
@@ -25,7 +25,7 @@
                     <menu.item>
                         <a class="dropdown-item {{if (eq item.id this.firstItem.id) 'dropdown-item-first'}}  {{if (eq item.id this.lastItem.id) 'dropdown-item-last'}}"
                             href="#" {{on "click" (fn this.onItemClicked item)}}>
-                            <h6 class="dropdown-item-label"> {{localize item.id}}</h6>
+                            <p class="dropdown-item-label"> {{localize item.id}}</p>
                         </a>
                     </menu.item>
                     {{#if (not-eq item.id this.lastItem.id)}}

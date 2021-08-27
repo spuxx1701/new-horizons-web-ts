@@ -13,6 +13,7 @@ import { computed, set } from '@ember/object';
 export default class InteractableComponent extends Component {
     @service manager;
     @tracked focus = false;
+    @tracked style;
     initialRender = true;
 
     init() {
@@ -45,7 +46,6 @@ export default class InteractableComponent extends Component {
         }
     }
 
-    @computed("style")
     get escapedStyle() {
         if (this.get("style")) {
             return Ember.String.htmlSafe(this.get("style"));

@@ -21,7 +21,6 @@ export default class StellarpediaSidebarEntryComponent extends Component {
         this.checkFocus();
     }
 
-    @computed("selected")
     get highlighted() {
         let that = this;
         for (let book of this.stellarpediaService.sidebarData) {

@@ -7,6 +7,7 @@ export default class Identifiable extends CustomObject {
     @service manager;
     @service database;
     keys = [];
+    isRemovable = false;
 
     constructor({ data, character, context, isGenerator = false } = {}) {
         super({ context: context });
@@ -33,5 +34,9 @@ export default class Identifiable extends CustomObject {
 
     serialize() {
         return JSON.stringify(this.getPure());
+    }
+
+    getCharacter() {
+        return this.character;
     }
 }

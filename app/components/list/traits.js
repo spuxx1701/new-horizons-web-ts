@@ -83,25 +83,21 @@ export default class ListTraitsComponent extends ListComponent {
     @action onRemoveClick(row, event) {
         let traitRemoved = this.generator.getCharacter().getTrait(row.data.id, { input: row.data.input, selectedOptionId: row.data.selectedOption.id }).remove();
         if (traitRemoved) {
-            this.generator.setGp(row.data.costs);
+            if (row.data.hasLevel) {
+                this.generator.setGp(row.data.level * row.data.costs);
+            } else {
+                this.generator.setGp(row.data.costs);
+            }
         }
     }
 
     @action onOptionChange(selectedItem, dropdown) {
         // Update the currently selected option
-        let changeset = dropdown.context.changeset;
-        changeset.set("selectedOption", selectedItem);
-        // Check whether that option changes the cost
-        if (selectedItem.changesCost) {
-            if (this.manager.tryParseInt(selectedItem.value) !== false) {
-                // If it's a numeric value, set it accordingly
-                changeset.set("costs", this.manager.tryParseInt(selectedItem.value));
-            } else {
-                // if it's not, parse it as a mathematical function and get the result
-                let newCost = this.manager.database.parseMathFunction(selectedItem.value);
-                changeset.set("costs", newCost);
-            }
-        }
-        changeset.save();
+        set(dropdown.context.data, "selectedOption", selectedItem);
+    }
+
+    @action onLevelChange(event, { object, step } = {}) {
+        object.setLevel(step);
+        this.generator.setGp(-step * object.costs);
     }
 }

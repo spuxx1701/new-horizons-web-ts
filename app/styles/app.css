@@ -11,17 +11,30 @@
     --colorGreyMedium: #5F5F5F;
     --colorGreyDark: #2c2c2c;
     --colorGreyDarker: #252525;
-    --colorGreyTrans: rgba(100, 100, 100, 0.5);
     --colorTealNeon: #00FFFF;
     --colorTealBright: #64C8C8;
     --colorTealDark: #498082;
     --colorTealDarker: #416668;
     --colorTealTrans: rgba(100, 200, 200, 0.5);
     --colorGreenBright: #00FF00;
-    --colorPanelBackground: #2c2c2c;
+    --colorPanelBackground: rgb(44, 44, 44, 0.95);
     --colorPanelBorder: #5F5F5F;
     --colorPanelInnerBackground: #3b3b3b;
     --colorScreenBlocker: rgba(0, 0, 0, 0.75);
+    --colorModalFooter: rgba(0, 0, 0, 0);
+    --brandingBarHeight: 2px;
+    --headerToolbarHeight: 40px;
+    /*PANELS*/
+    /*INTERACTABLES*/
+    --colorActive: #498082;
+    --colorDisabled: #494949;
+    /*TEXT*/
+    --colorTextDefault: #f1f1f1;
+    --colorTextHighlight: #ffffff;
+    --colorTextLink: #64C8C8;
+    --colorTextLinkHover: #00FFFF;
+    --colorTextSubtitle: #c1c1c1;
+    /*MISCELLANEOUS*/
     --colorModalHeaderDefault: #498082;
     --colorModalHeaderWarning: #c89832;
     --colorModalHeaderError: #c83232;
@@ -29,16 +42,6 @@
     --colorWarning: #c89832;
     --colorError: #c83232;
     --colorSuccess: #21922b;
-    --colorModalFooter: rgba(0, 0, 0, 0);
-    --colorScrollbarHandle: #5F5F5F;
-    --colorScrollbarBackground: #252525;
-    --colorTextDefault: #f1f1f1;
-    --colorTextHighlight: #ffffff;
-    --colorTextLink: #64C8C8;
-    --colorTextLinkHover: #00FFFF;
-    --colorTextSubtitle: #c1c1c1;
-    --brandingBarHeight: 2px;
-    --headerToolbarHeight: 40px;
     --backgroundColor1: #0e1015;
     --backgroundColor2: #0e2525;
     --backgroundColor3: #133333;
@@ -54,21 +57,10 @@ html {
     width: 100%;
     overflow: hidden;
     color: var(--colorTextDefault);
-    background: linear-gradient(var(--backgroundColor1), var(--backgroundColor2), var(--backgroundColor3));
-    scrollbar-color: var(--colorScrollbarHandle) var(--colorScrollbarBackground);
-    scrollbar-arrow-color: var(--colorTealNeon);
 }
 
 .ember-view {
     max-width: 100%;
-}
-
-.branding-bar {
-    width: 100%;
-    height: var(--brandingBarHeight);
-    background-color: var(--colorTealNeon);
-    position: relative;
-    z-index: 3;
 }
 
 #outerPageContainer {
@@ -87,13 +79,13 @@ html {
     margin-left: auto;
     margin-right: auto;
     max-width: 1440px;
-    z-index: 0;
+    z-index: 5;
     padding: 10px 20px 20px 20px;
     overflow: hidden;
 }
 
 .screen-blocker {
-    background-color: var(--colorGreyTrans);
+    background-color: var(--colorDisabled);
 }
 
 .invisible {
@@ -116,7 +108,7 @@ html {
     flex-direction: column;
     position: absolute;
     top: 0;
-    z-index: 5;
+    z-index: 30;
     width: 100%;
     height: 100%;
     background-color: var(--colorScreenBlocker);

@@ -167,4 +167,63 @@ export default class DatabaseService extends Service {
             return undefined;
         }
     }
+    /**
+     * Returns a specific constant.
+     * @param  {string} id
+     * @returns {number}
+     */
+    getConstant(id) {
+        let result;
+        let constant = this.getIdentifiable(id);
+        if (constant) {
+            result = constant.value;
+        }
+        return result;
+    }
+
+    /**
+     * Calculates the costs for buying a skill or for a certain skill level.
+     * @param  {string} level - The skill's level.
+     * @param  {number} factor - The skill's factor.
+     * @param  {bool} buy=false (optional) - Calculate costs for buying an unowned skill.
+     * @param  {bool} useInterestPoints=false (optional) - Return the costs in form of interests point as used in the generator.
+     * @returns {number}
+     */
+    calculateSkillCosts(level, factor, { buy = false, useInterestPoints = false } = {}) {
+        let result;
+        if (useInterestPoints) {
+            if (buy) {
+                result = factor;
+            } else {
+                result = 1;
+            }
+        } else {
+            if (buy) {
+                return factor * this.getConstant("constant/skills-buy-multiplier");
+            } else {
+                return this.getConstant("constant/skills-cost-min") + level ^ (this.getConstant("constant/skills-cost-exponent")) * factor;
+            }
+        }
+        return result;
+    }
+
+    /**
+     * Calculates the costs for buying a trait.
+     * @param  {Object} trait - The trait.
+     * @returns  {number}
+     */
+    calculateTraitCosts(trait) {
+        if (trait.selectedOption && trait.selectedOption.changesCost) {
+            if (this.manager.tryParseInt(trait.selectedOption.value) !== false) {
+                // If it's a numeric value, set it accordingly
+                return this.manager.tryParseInt(trait.selectedOption.value);
+            } else {
+                // if it's not, parse it as a mathematical function and get the result
+                let newCost = this.manager.database.parseMathFunction(trait.selectedOption.value);
+                return newCost;
+            }
+        } else {
+            return trait.costs;
+        }
+    }
 }

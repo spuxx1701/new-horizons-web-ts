@@ -23,24 +23,28 @@ export default class CharacterV1 extends CustomObject {
         generatorPreset: "", // The id of the character preset the character has been created with.
 
         //----------------------------------------------------------------------------//
-        // Personal stuff
-        name: "", // The character's full name.
-        sex: "", // The character's sex/gender.
-        age: "", // The character's age.
-        birthday: "", // The character's birthday.
-        height: "", // The character's height.
-        weight: "", // The character's weight.
-        appearance: "", // The character's general apperance.
-        family: "", // Some information about the character's family or heritage.
-        origin: "", // The character's origin.
-        socialStatus: 1, // The character's general social status.
+        // General stuff
+        general: {
+            name: "", // The character's full name.
+            sex: "", // The character's sex/gender.
+            age: "", // The character's age.
+            birthday: "", // The character's birthday.
+            height: "", // The character's height.
+            weight: "", // The character's weight.
+            appearance: "", // The character's general apperance.
+            family: "", // Some information about the character's family or heritage.
+            origin: "", // The character's origin.
+            socialStatus: 1, // The character's general social status.
+        },
 
         //----------------------------------------------------------------------------//
         // Status and Experience
-        currentConstraint: 0,
-        fpAvailable: 0,
-        epTotal: 0,
-        epAvailable: 0,
+        status: {
+            currentConstraint: 0,
+            fpAvailable: 0,
+            epTotal: 0,
+            epAvailable: 0,
+        },
 
         //----------------------------------------------------------------------------//
         // Collections
@@ -54,9 +58,11 @@ export default class CharacterV1 extends CustomObject {
 
         //----------------------------------------------------------------------------//
         // Inventory
-        inventory: A([]),
-        inventoryWeight: 0,
-        credits: 0
+        inventory: {
+            items: A([]),
+            weight: 0,
+            credits: 0
+        }
     }
 
     /**
@@ -78,10 +84,11 @@ export default class CharacterV1 extends CustomObject {
     // GENERAL
     //----------------------------------------------------------------------------//
     /**
-     * Sets the character's name.
+     * Gets the character's name or a placeholder if the name hasn't been set.
+     * @returns  {string}
      */
     getName() {
-        if (this.manager.isNullOrWhitespace(this.data.name)) {
+        if (this.manager.isNullOrWhitespace(this.data.general.name)) {
             return 'Anonynmous';
         } else {
             return this.data.name;
@@ -99,40 +106,40 @@ export default class CharacterV1 extends CustomObject {
      * @returns {*} - Returns the property value or undefined.
      */
     setGeneralProperty(property, value, { override = true, checkType = true, logSuccess = true, logOldValue = false } = {}) {
-        if (this.data[property] !== undefined) {
-            if (typeof this.data[property] !== typeof value && checkType) {
-                this.manager.log(`Unable to change property '${property}' for character '${this.getName()}': Types don't match (got '${typeof value}', expected '${typeof this.data[property]}').`, "x");
+        if (this.data.general[property] !== undefined) {
+            if (typeof this.data.general[property] !== typeof value && checkType) {
+                this.manager.log(`Unable to change property '${property}' for character '${this.getName()}': Types don't match (got '${typeof value}', expected '${typeof this.data.general[property]}').`, "x");
                 return undefined;
             }
-            let oldValue = this.data[property];
-            if (!override && typeof value === "number" && typeof this.data[property] === "number") {
-                let newValue = this.data[property] += value;
-                set(this, property, newValue);
+            let oldValue = this.data.general[property];
+            if (!override && typeof value === "number" && typeof this.data.general[property] === "number") {
+                let newValue = this.data.general[property] += value;
+                set(this.data.general, property, newValue);
             } else {
-                set(this.data, property, value);
+                set(this.data.general, property, value);
             }
             if (logSuccess) {
                 if (logOldValue) {
-                    this.manager.log(`Property '${property}' for character '${this.getName()}' has been changed from '${oldValue}' to '${this.data[property]}'.`, "i");
+                    this.manager.log(`Property '${property}' for character '${this.getName()}' has been changed from '${oldValue}' to '${this.data.general[property]}'.`, "i");
                 } else {
-                    this.manager.log(`Property '${property}' for character '${this.getName()}' has been changed to '${this.data[property]}'.`, "i");
+                    this.manager.log(`Property '${property}' for character '${this.getName()}' has been changed to '${this.data.general[property]}'.`, "i");
                 }
             }
-            return this.data[property];
+            return this.data.general[property];
         } else {
             this.manager.log(`Unable to change property '${property}' for character '${this.getName()}': Property not found.`, "x");
             return undefined;
         }
     }
+
     /**
      * Gets a general property.
      * @param  {string} property - The propert key.
      * @returns {*} - Returns the property value or undefined.
      */
     getGeneralProperty(property) {
-        return this.data[property];
+        return this.data.general[property];
     }
-
 
     /**
      * Recalculates and updates all properties.
@@ -141,12 +148,12 @@ export default class CharacterV1 extends CustomObject {
      */
     recalculate({ logSuccess = true, updateSkillMinima = true } = {}) {
         // update secondary attributes
-        for (let secA of this.data.secondaryAttributes) {
+        for (let secA of this.data.getSecondaryAttributes()) {
             this.updateSecondaryAttribute(secA.id, { logSuccess: logSuccess });
         }
         // update skills
-        for (let skill of this.data.skills) {
-            this.updateSkill(skill.id, { logSuccess: logSuccess, updateMinimum: updateSkillMinima });
+        for (let skill of this.data.getSkills()) {
+            skill.update({ logSuccess: logSuccess, updateMinimum: updateSkillMinima });
         }
     }
 
@@ -154,94 +161,15 @@ export default class CharacterV1 extends CustomObject {
     // PRIMARY ATTRIBUTES
     //----------------------------------------------------------------------------//
     /**
-     * Sets a skill's level.
-     * @param  {string} id - The id of the skill.
-     * @param  {number} value - The level value. Can be used for addition, substraction or replace the previous value.
-     * @param  {bool} override=false - Whether the old level value should be overriden.
-     * @param  {bool} logSuccess=true - Whether success should be logged.
-     * @param  {bool} validate=true - Whether skill level should be checked against minimum and maximum value.
-     * @param  {bool} updateDependencies=true - Whether dependencies should be updated.
+     * @returns  {Object[]} - Returns the character's primary attributes.
      */
-    setPrimaryAttributeLevel(id, value, { override = false, logSuccess = true, validate = true, updateDependencies = true } = {}) {
-        id = this.database.transformId(id);
-        let priA = this.getPrimaryAttribute(id);
-        if (!priA) {
-            this.manager.log(`Unable to change level of primary attribute '${id}' for character '${this.getName()}': Primary Attribute not found.`, "x");
-            return undefined;
-        }
-        let oldValue = priA.current;
-        let newValue = priA.current;
-        if (override) {
-            newValue = value;
-        } else {
-            newValue += value;
-        }
-        if (validate) {
-            if (newValue > priA.max) {
-                this.manager.log(`Unable to change level of primary attribute '${id}' for character '${this.getName()}': New value ${newValue} would exceed maximum value ${priA.max}.`, "w");
-                return undefined;
-            } else if (newValue < priA.min) {
-                this.manager.log(`Unable to change level of primary attribute '${id}' for character '${this.getName()}': New value ${newValue} would subceed minimum value ${priA.min}.`, "w");
-                return undefined;
-            }
-        }
-        set(priA, "current", newValue);
-        if (logSuccess) this.manager.log(`Level of primary attribute '${id}' for character '${this.getName()}' has been changed from ${oldValue} to ${priA.current} (updating dependencies: ${updateDependencies}).`, "i");
-        if (updateDependencies) {
-            this.updatePrimaryAttributeDependencies(id);
-        }
-        return priA;
-    }
-
-    /**
-     * Sets a primary attribute's property. Can be any (number) property.
-     * @param  {string} id - The attribute's id.
-     * @param  {string} property - The property's name.
-     * @param  {number} value - The new value. Can be used for addition, substraction or replace the previous value.
-     * @param  {bool} override=false - Whether the old value should be replaced.
-     * @param  {bool} logSuccess=true - Whether success should be logged.
-     * @param  {bool} updateCurrent=true - Whether success should be logged.
-     * @param  {bool} updateGeneratorBudget=true - Whether success should be logged.
-     * @returns {object} - Returns the updated primary attribute or undefined.
-     */
-    setPrimaryAttributeProperty(id, property, value, { override = false, logSuccess = true, updateCurrent = true, updateGeneratorBudget = true } = {}) {
-        id = this.database.transformId(id);
-        for (let priA of this.data.primaryAttributes) {
-            if (priA.id === id) {
-                if (priA[property] !== undefined) {
-                    let oldValue = priA[property];
-                    if (override) {
-                        set(priA, property, value);
-                    } else {
-                        set(priA, property, priA[property] + value);
-                    }
-                    let oldCurrent = priA.current;
-                    // Update current value if required
-                    if (updateCurrent) {
-                        if (property === "min" && priA.current < priA.min) {
-                            this.setPrimaryAttributeLevel(priA.id, priA.min, { override: true });
-                        } else if (property === "max" && priA.current > priA.max) {
-                            this.setPrimaryAttributeLevel(priA.id, priA.max, { override: true });
-                        }
-                        // Update generator budget if required
-                        if (updateGeneratorBudget && this.generator) {
-                            this.generator.setAp(oldCurrent - priA.current)
-                        }
-                    }
-                    if (logSuccess) this.manager.log(`'${property}' of primary attribute '${id}' for character '${this.getName()}' has changed from '${oldValue}' to '${priA[property]}'.`)
-                    return priA;
-                }
-                this.manager.log(`Unable to change '${property}' of primary attribute '${id}' for character '${this.getName()}': Property not found.`, "x");
-                return undefined;
-            }
-        }
-        this.manager.log(`Unable to change '${property}' of primary attribute '${id}' for character '${this.getName()}': Primary Attribute not found.`, "x");
-        return undefined;
+    getPrimaryAttributes() {
+        return this.data.primaryAttributes;
     }
 
     getPrimaryAttribute(id) {
         id = this.database.transformId(id);
-        for (let priA of this.data.primaryAttributes) {
+        for (let priA of this.getPrimaryAttributes()) {
             if (priA.id === id) {
                 return priA;
             }
@@ -258,81 +186,19 @@ export default class CharacterV1 extends CustomObject {
         }
     }
 
-    updatePrimaryAttributeDependencies(id, { logSuccess = true } = {}) {
-        id = this.database.transformId(id);
-        let priA = this.getPrimaryAttribute(id);
-        if (!priA) {
-            this.manager.log(`Unable to update dependencies of primary attribute '${id}' for character '${this.getName()}': Primary Attribute not found.`, "x");
-            return undefined;
-        }
-        // update secondary attributes
-        for (let secA of this.data.secondaryAttributes) {
-            for (let priA of secA.primaryAttributes) {
-                if (this.database.transformId(priA) === id) {
-                    this.updateSecondaryAttribute(secA.id, { logSuccess: false });
-                    break;
-                }
-            }
-        }
-        // update skills
-        for (let skill of this.data.skills) {
-            for (let priAId of skill.primaryAttributes) {
-                if (this.database.transformId(priAId) === id) {
-                    this.updateSkill(skill.id, { logSuccess: false, updateMinimum: false });
-                    break;
-                }
-            }
-        }
-    }
-
     //----------------------------------------------------------------------------//
     // SECONDARY ATTRIBUTES
     //----------------------------------------------------------------------------//
-    updateSecondaryAttribute(id, { logSuccess = true } = {}) {
-        let secA = this.getSecondaryAttribute(id);
-        if (!secA) {
-            this.manager.log(`Unable to update secondary attribute '${id}' for character '${this.getName()}': Secondary Attribute not found.`, "x");
-            return undefined;
-        }
-        let sum = 0;
-        for (let priAId of secA.primaryAttributes) {
-            let priA = this.getPrimaryAttribute(priAId);
-            if (!priA) {
-                this.manager.log(`Unable to update secondary attribute '${id}' for character '${this.getName()}': Secondary Attribute not found.`, "x");
-                return undefined;
-            }
-            sum += priA.current;
-        }
-        let newValue = Math.round((sum / secA.div) * 10 / 10);
-        if (newValue !== secA.current) {
-            this.setSecondaryAttributeProperty(id, "current", newValue, { logSuccess: logSuccess, override: true });
-        }
-        return secA;
-    }
-
-    setSecondaryAttributeProperty(id, property, value, { logSuccess = true, override = false } = {}) {
-        let secA = this.getSecondaryAttribute(id);
-        if (!secA) {
-            this.manager.log(`Unable to change '${property}' of secondary attribute '${id}' for character '${this.getName()}': Secondary Attribute not found.`, "x");
-            return undefined;
-        }
-        if (secA[property] === undefined) {
-            this.manager.log(`Unable to change '${property}' of secondary attribute '${id}' for character '${this.getName()}': Property not found.`, "x");
-            return undefined;
-        }
-        let oldValue = secA[property];
-        if (override) {
-            set(secA, property, value);
-        } else {
-            set(secA, property, secA[property] + value);
-        }
-        if (logSuccess) this.manager.log(`'${property}' of secondary attribute '${id}' for character '${this.getName()}' has been changed from ${oldValue} to ${secA[property]}.`, "i");
-        return secA;
+    /**
+     * @returns  {Object[]} - Returns the character's secondary attributes.
+     */
+    getSecondaryAttributes() {
+        return this.data.secondaryAttributes;
     }
 
     getSecondaryAttribute(id) {
         id = this.database.transformId(id);
-        for (let secA of this.data.secondaryAttributes) {
+        for (let secA of this.getSecondaryAttributes()) {
             if (secA.id === id) {
                 return secA;
             }
@@ -362,9 +228,23 @@ export default class CharacterV1 extends CustomObject {
     //----------------------------------------------------------------------------//
     // TRAITS
     //----------------------------------------------------------------------------//
-    getTrait(id, { input = undefined, selectedOptionId = undefined } = {}) {
+    /**
+     * @returns  {Object[]} - Returns the character's traits.
+     */
+    getTraits() {
+        return this.data.traits;
+    }
+
+    /**
+     * Returns a trait via the given id and, optionally, input or selectedOption.
+     * @param  {} id - The trait's id.
+     * @param  {} input (optional) - The triat's input.
+     * @param  {} selectedOptionId (optional) - The trait's selected option.
+     * @return  {Object} - Returns the trait or undefined.
+     */
+    getTrait(id, { input, selectedOptionId } = {}) {
         id = this.database.transformId(id);
-        for (let trait of this.data.traits) {
+        for (let trait of this.getTraits()) {
             if (trait.id === id) {
                 if (trait.needsInput) {
                     if (trait.input === input) return trait;
@@ -380,70 +260,21 @@ export default class CharacterV1 extends CustomObject {
     //----------------------------------------------------------------------------//
     // SKILLS
     //----------------------------------------------------------------------------//
-
-    setSkillLevel(id, value, { override = false, validate = true, logSuccess = true } = {}) {
-        id = this.database.transformId(id);
-        let skill = this.getSkill(id);
-        if (skill) {
-            let oldValue = skill.current;
-            let newValue = skill.current;
-            if (override) {
-                newValue = value;
-            } else {
-                newValue += value;
-            }
-            // check against max
-            if (newValue > skill.max && validate) {
-                this.manager.log(`Unable to change level of skill '${id}' for character '${this.getName()}': New value ${newValue} would exceed maximum value ${skill.max}.`, "w");
-                return undefined;
-            } else if (newValue < skill.min && validate) {
-                this.manager.log(`Unable to change level of skill '${id}' for character '${this.getName()}': New value ${newValue} would subceed minimum value ${skill.min}.`, "w");
-                return undefined;
-            } else {
-                set(skill, "current", newValue);
-                if (logSuccess) {
-                    this.manager.log(`Level of skill '${id}' for character '${this.getName()}' has been changed from ${oldValue} to ${skill.current}.`, "i");
-                }
-                return skill;
-            }
-        } else {
-            this.manager.log(`Unable to change level of skill '${id}' for character '${this.getName()}': Character does not have that skill.`, "x");
-            return undefined;
-        }
-    }
-
-    setSkillProperty(id, property, value, { override = false, logSuccess = true } = {}) {
-        id = this.database.transformId(id);
-        let skill = this.getSkill(id);
-        if (skill) {
-            if (skill[property] !== undefined) {
-                let oldValue = skill[property];
-                if (override) {
-                    set(skill, property, value);
-                } else {
-                    set(skill, property, skill[property] + value);
-                }
-                if (logSuccess) {
-                    this.manager.log(`Value '${property}' of skill '${id}' for character '${this.getName()}' has been changed from ${oldValue} to ${skill[property]}.`, "i");
-                }
-                return skill;
-            } else {
-                this.manager.log(`Unable to change value '${property}' of skill '${id}' for character '${this.getName()}': Property not found`, "x");
-                return undefined;
-            }
-        } else {
-            this.manager.log(`Unable to change value '${property}' of skill '${id}' for character '${this.getName()}': Character does not have that skill.`, "x");
-            return undefined;
-        }
+    /**
+     * @returns {Object[]} - Returns all of the character's skills.
+     */
+    getSkills() {
+        return this.data.skills;
     }
 
     /**
+     * Gets a skill via the given id.
      * @param  {string} id - The id of the skill.
      * @returns  {Object} - Returns the skill or undefined.
      */
     getSkill(id) {
         id = this.database.transformId(id);
-        for (let skill of this.data.skills) {
+        for (let skill of this.getSkills()) {
             if (skill.id === id) {
                 return skill;
             }
@@ -452,46 +283,28 @@ export default class CharacterV1 extends CustomObject {
     }
 
     /**
+     * Gets a skill via the given id and returns its current level.
      * @param  {string} id - The id of the skill.
      * @returns  {number} - Returns the skill's level or undefined.
      */
     getSkillLevel(id) {
-        let skill = this.getSkill();
-        return skill?.current;
-    }
-
-    updateSkill(id, { logSuccess = true, updateMinimum = false } = {}) {
         let skill = this.getSkill(id);
-        if (!skill) {
-            this.manager.log(`Unable to update skill '${id}' for character '${this.getName()}': Character does not have that skill.`, "x");
-            return undefined;
-        }
-        let highestPriA;
-        for (let priAId of skill.primaryAttributes) {
-            let priA = this.getPrimaryAttribute(priAId);
-            if (!highestPriA || priA.current > highestPriA.current) {
-                highestPriA = priA;
-            }
-        }
-        if (!highestPriA) {
-            this.manager.log(`Unable to update skill '${id}' for character '${this.getName()}': None of the primary attributes could be found.`, "x");
-            return undefined;
-        }
-        let maxAllowedDiff = this.database.getIdentifiable("Constant_SkillsPriAMaxDiff").value;
-        let newMax = highestPriA.current + maxAllowedDiff;
-        this.setSkillProperty(id, "max", newMax, { override: true, logSuccess: logSuccess });
-        if (updateMinimum) {
-            this.setSkillProperty(id, "min", skill.current, { override: true, logSuccess: logSuccess });
-        }
-        return skill;
+        return skill?.current;
     }
 
     //----------------------------------------------------------------------------//
     // ABILITIES
     //----------------------------------------------------------------------------//
+    /**
+     * @returns  {Object[]} - Returns the character's abilities.
+     */
+    getAbilities() {
+        return this.data.abilities;
+    }
+
     getAbility(id, { input = undefined }) {
         id = this.database.transformId(id);
-        for (let ability of this.data.abilities) {
+        for (let ability of this.getAbilities()) {
             if (ability.id === id) {
                 if (input && ability.input !== input) {
                     continue;
@@ -505,10 +318,29 @@ export default class CharacterV1 extends CustomObject {
     //----------------------------------------------------------------------------//
     // APPS
     //----------------------------------------------------------------------------//
+    /**
+     * @returns  {Object[]} - Returns the character's apps.
+     */
+    getApps() {
+        return this.data.apps;
+    }
 
     //----------------------------------------------------------------------------//
     // INVENTORY
     //----------------------------------------------------------------------------//
+    /**
+     * @returns  {Object} - Returns the character's inventory.
+     */
+    getInventory() {
+        return this.data.inventory;
+    }
+
+    /**
+     * @returns  {Object} - Returns the character's items.
+     */
+    getItems() {
+        return this.data.inventory.items;
+    }
 
     //----------------------------------------------------------------------------//
     // MISCELLANEOUS

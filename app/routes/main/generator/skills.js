@@ -1,6 +1,6 @@
 import Route from '@ember/routing/route';
 import RSVP from 'rsvp';
-import { action } from '@ember/object';
+import { TrackedArray } from 'tracked-built-ins';
 import { inject as service } from '@ember/service';
 
 export default class MainGeneratorSkillsRoute extends Route {
@@ -9,8 +9,19 @@ export default class MainGeneratorSkillsRoute extends Route {
     @service database;
 
     model() {
+        if (!this.skillCategories) {
+            this.skillCategories = this.generator.skillCategories;
+            for (let skillCategory of this.skillCategories) {
+                skillCategory.collapsibleCollapsedAvailable = true;
+                skillCategory.collapsibleCollapsedOwned = true;
+            }
+        }
         return RSVP.hash({
-            skills: this.database.loadCollection("skill")
+            skillCategories: this.skillCategories,
+            ipAvailable: this.generator.ipAvailable,
+            skillsAvailable: this.database.getCollection("skill"),
+            skillsOwned: this.generator.getCharacter().getSkills(),
+            character: this.generator.getCharacter()
         });
     }
 }

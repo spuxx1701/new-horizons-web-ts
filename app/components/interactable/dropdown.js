@@ -20,7 +20,7 @@ export default class DropdownComponent extends InteractableComponent {
         super.init()
     }
 
-    willRender() {
+    didRender() {
         if (!this.isInitialized) {
             let items = this.get("items").content || this.get("items");
             if (this.defaultItem) {

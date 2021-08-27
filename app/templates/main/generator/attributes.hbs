@@ -1,7 +1,7 @@
-<Title @titleStyle="h2" @textPosition="center" @text={{localize "Route_Generator_Personal_Title" }} />
+<Title @titleStyle="h2" @textPosition="center" @text={{localize "Route_Generator_Attributes_Title" }} />
 <Layout::Panel @size="medium">
     <form class="container">
-        <Title @titleStyle="h3" @text={{localize "Misc_PrimaryAttributes" }} />
+        <Title @titleStyle="h3" @text={{localize "Route_Generator_Attributes_PrimaryAttributes" }} />
         <div class="row full-width justify-content-center align-items-start">
             {{#each @model.primaryAttributes as |primaryAttribute|}}
             <div class="col-md">
@@ -9,12 +9,13 @@
                     @value={{primaryAttribute.current}} @label={{localize (concat primaryAttribute.id '/long' ) }}
                     @labelSize="medium" @alignment="space-between" @onChangeListener={{this.onChange}}
                     @min={{primaryAttribute.min}} @max={{primaryAttribute.max}}
-                    @info="basic-rules/supplement-primary-attributes/{{primaryAttribute.id}}" />
+                    @info="basic-rules/supplement-primary-attributes/{{primaryAttribute.id}}"
+                    @budget={{this.generator.apAvailable}} />
             </div>
             {{/each}}
         </div>
         <Misc::Spacer />
-        <Title @titleStyle="h3" @text={{localize "Misc_SecondaryAttributes" }} />
+        <Title @titleStyle="h3" @text={{localize "Route_Generator_Attributes_SecondaryAttributes" }} />
         <div class="row full-width justify-content-center align-items-start">
             {{#each @model.secondaryAttributes as |secondaryAttribute|}}
             <div class="col-md">

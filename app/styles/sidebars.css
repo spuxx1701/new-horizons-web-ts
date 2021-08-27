@@ -15,7 +15,7 @@ Description: Contains style information for the sidebars and their child control
 }
 
 .header-sidebar-button:disabled {
-    color: var(--colorGreyTrans);
+    color: var(--colorDisabled);
 }
 
 .sidebar {
@@ -23,7 +23,7 @@ Description: Contains style information for the sidebars and their child control
     width: 0px;
     max-width: 300px;
     position: fixed;
-    z-index: 3;
+    z-index: 15;
     overflow-x: hidden;
     overflow-y: hidden;
     transition: 0.5s;
@@ -150,7 +150,7 @@ Description: Contains style information for the sidebars and their child control
 }
 
 .sidebar-button-2:disabled * {
-    color: var(--colorGreyTrans) !important;
+    color: var(--colorDisabled) !important;
 }
 
 .sidebar-button-2-selected {

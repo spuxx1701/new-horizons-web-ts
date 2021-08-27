@@ -15,7 +15,10 @@ export default class NavbarGeneratorController extends Controller {
     { id: "traits", icon: "yin-yang", routeName: "main.generator.traits" },
     { id: "skills", icon: "biking", routeName: "main.generator.skills" },
     { id: "abilities", icon: "book-open", routeName: "main.generator.abilities" },
-    { id: "apps", icon: "mobile-alt", routeName: "main.generator.apps" }];
+    { id: "apps", icon: "mobile-alt", routeName: "main.generator.apps" },
+    { id: "inventory", icon: "suitcase", routeName: "main.generator.inventory" },
+    { id: "finish", icon: "tasks", routeName: "main.generator.finish" },
+    ];
 
     init() {
         super.init();

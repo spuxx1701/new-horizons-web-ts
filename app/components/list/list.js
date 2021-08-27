@@ -1,15 +1,19 @@
-//----------------------------------------------------------------------------//
-// Leopold Hock / 2021-06-04
-// Description:
-// Parent class for all lists.
-//----------------------------------------------------------------------------//
 import Component from '@ember/component';
-import { tracked } from '@glimmer/tracking';
+import { tracked, cached } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { computed, set } from '@ember/object';
 import { Changeset } from 'ember-changeset';
 
+/**
+ * This is the prototype for all list components.
+ * @param  {Object[]} data - The data that is going to make up the list's rows.
+ * @param  {string} sortingKey (optional) - The key by which the table should be sorted by default. 
+ * @param  {bool} ascending=true (optional) - Should the table be sorted ascending by default?
+ * @param  {string} filterKey (optional) - If this is supplied, the data array will be filtered using this key and filterValue.
+ * @param  {string} filterValue (optional) - If this is supplied, the data array will be filtered using filterKey and this value.
+ * @param  {bool} filterValueIsId=false (optional) - When filtering, is the filtered value an id and needs to be transformed?
+ */
 export default class ListComponent extends Component {
     @service manager;
     @service database;
@@ -18,30 +22,23 @@ export default class ListComponent extends Component {
     @tracked sortingKey;
     @tracked ascending = true;
 
-    isInitialized = false;
-
-    @computed("data", "ascending")
+    @cached
     get rows() {
         let result = [];
+        let data;
+        // make sure data is an array
         if (Array.isArray(this.data)) {
-            for (let element of this.data) {
-                let row = {
-                    data: element,
-                    changeset: new Changeset(element, { skipValidate: true }),
-                    localizedLabel: this.manager.localize(element.id)
-                }
-                result.push(row);
+            data = this.data;
+        } else {
+            data = this.data.toArray();
+        }
+        for (let element of data) {
+            let row = {
+                data: element,
+                changeset: new Changeset(element, { skipValidate: true }),
+                localizedLabel: this.manager.localize(element.id)
             }
-        } else if (this.data?.content) {
-            let records = this.data.toArray();
-            for (let record of records) {
-                let row = {
-                    data: record,
-                    changeset: new Changeset(record, { skipValidate: true }),
-                    localizedLabel: this.manager.localize(record.id)
-                }
-                result.push(row);
-            }
+            result.push(row);
         }
         if (this.sortingKey) {
             if (this.ascending) {

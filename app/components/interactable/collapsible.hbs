@@ -1,8 +1,24 @@
 <button type="button"
-    class="collapsible full-width justify-content-start {{if (eq this.collapsed false) 'collapsible-expanded'}}"
+    class="collapsible full-width justify-content-between {{if (eq this.collapsed false) 'collapsible-expanded'}}"
     {{on "click" this.onClick}}>
-    <FaIcon @icon={{if (eq this.collapsed false) 'chevron-down' 'chevron-right' }} class="icon-fixed-width" />
-    <p>{{@title}}</p>
+    <div class="flex align-items-center">
+        <FaIcon @icon={{if (eq this.collapsed false) 'chevron-down' 'chevron-right' }} class="icon-fixed-width" />
+        <p>{{@title}}</p>
+    </div>
+    <div class="flex align-items-center">
+        {{#if (and this.counterLabel this.showCounter)}}
+        <p class="margin-sides-small fg-{{this.counterState}}">{{this.counterLabel}}:</p>
+        {{/if}}
+        {{#if (and this.counterMin this.showCounter)}}
+        <h5 class="fg-{{this.counterState}}">{{this.counterMin}}/</h5>
+        {{/if}}
+        {{#if this.showCounter}}
+        <h5 class="fg-{{this.counterState}}">{{this.counterValue}}</h5>
+        {{/if}}
+        {{#if (and this.counterMax this.showCounter)}}
+        <h5 class="fg-{{this.counterState}}">/{{this.counterMax}}</h5>
+        {{/if}}
+    </div>
 </button>
 <BsCollapse @collapsed={{this.collapsed}}>
     <div class="well collapsible-content collapsible-content-size-{{this.size}} {{if this.noPadding 'padding-none'}}">

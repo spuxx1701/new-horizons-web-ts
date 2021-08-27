@@ -24,6 +24,14 @@
         "value": 10
     },
     {
+        "id": "Constant_SkillsCostExponent",
+        "value": 1.5
+    },
+    {
+        "id": "Constant_SkillsCostMin",
+        "value": 10
+    },
+    {
         "id": "Constant_SkillsPriAMaxDiff",
         "value": 3
     },

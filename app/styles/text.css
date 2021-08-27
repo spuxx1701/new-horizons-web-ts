@@ -47,8 +47,15 @@ Description: Contains style information for all text elements.  */
     }
 }
 
+h1, h2, h3, h4 {
+    text-shadow: 0 0 10px #fff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 5px;
+}
+
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, th, .th {
-    margin-bottom: 0;
     margin-top: 0;
     color: var(--colorTextHighlight);
     font-family: ARJulian;
@@ -95,6 +102,11 @@ a:hover, a:active, .button-link:hover, .button-link:active {
 
 .highlighted {
     color: var(--colorTextHighlight);
+    text-shadow: 0 0 2px #fff;
+}
+
+.no-text-shadow {
+    text-shadow: none;
 }
 
 .stellarpedia-status-text {

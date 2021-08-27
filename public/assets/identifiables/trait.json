@@ -1428,16 +1428,16 @@
                         "id": "pri-a/cr",
                         "type": "min",
                         "input": "",
-                        "level": 7,
-                        "overrideCurrent": true,
+                        "level": -1,
+                        "overrideCurrent": false,
                         "oldLevel": 0
                     },
                     {
                         "id": "pri-a/cr",
                         "type": "max",
                         "input": "",
-                        "level": 7,
-                        "overrideCurrent": true,
+                        "level": -7,
+                        "overrideCurrent": false,
                         "oldLevel": 0
                     }
                 ]
@@ -1458,16 +1458,16 @@
                         "id": "pri-a/cl",
                         "type": "min",
                         "input": "",
-                        "level": 7,
-                        "overrideCurrent": true,
+                        "level": -1,
+                        "overrideCurrent": false,
                         "oldLevel": 0
                     },
                     {
                         "id": "pri-a/cl",
                         "type": "max",
                         "input": "",
-                        "level": 7,
-                        "overrideCurrent": true,
+                        "level": -7,
+                        "overrideCurrent": false,
                         "oldLevel": 0
                     }
                 ]
@@ -1488,16 +1488,16 @@
                         "id": "pri-a/in",
                         "type": "min",
                         "input": "",
-                        "level": 7,
-                        "overrideCurrent": true,
+                        "level": -1,
+                        "overrideCurrent": false,
                         "oldLevel": 0
                     },
                     {
                         "id": "pri-a/in",
                         "type": "max",
                         "input": "",
-                        "level": 7,
-                        "overrideCurrent": true,
+                        "level": -7,
+                        "overrideCurrent": false,
                         "oldLevel": 0
                     }
                 ]
@@ -1518,16 +1518,16 @@
                         "id": "pri-a/ch",
                         "type": "min",
                         "input": "",
-                        "level": 7,
-                        "overrideCurrent": true,
+                        "level": -1,
+                        "overrideCurrent": false,
                         "oldLevel": 0
                     },
                     {
                         "id": "pri-a/ch",
                         "type": "max",
                         "input": "",
-                        "level": 7,
-                        "overrideCurrent": true,
+                        "level": -7,
+                        "overrideCurrent": false,
                         "oldLevel": 0
                     }
                 ]
@@ -1541,6 +1541,11 @@
                         "id": "Trait_OutstandingAttribute",
                         "input": "pri-a/ag",
                         "level": 0
+                    },
+                    {
+                        "id": "Trait_Obese",
+                        "input": "",
+                        "level": 0
                     }
                 ],
                 "targets": [
@@ -1548,16 +1553,16 @@
                         "id": "pri-a/ag",
                         "type": "min",
                         "input": "",
-                        "level": 7,
-                        "overrideCurrent": true,
+                        "level": -1,
+                        "overrideCurrent": false,
                         "oldLevel": 0
                     },
                     {
                         "id": "pri-a/ag",
                         "type": "max",
                         "input": "",
-                        "level": 7,
-                        "overrideCurrent": true,
+                        "level": -7,
+                        "overrideCurrent": false,
                         "oldLevel": 0
                     }
                 ]
@@ -1578,16 +1583,16 @@
                         "id": "pri-a/dx",
                         "type": "min",
                         "input": "",
-                        "level": 7,
-                        "overrideCurrent": true,
+                        "level": -1,
+                        "overrideCurrent": false,
                         "oldLevel": 0
                     },
                     {
                         "id": "pri-a/dx",
                         "type": "max",
                         "input": "",
-                        "level": 7,
-                        "overrideCurrent": true,
+                        "level": -7,
+                        "overrideCurrent": false,
                         "oldLevel": 0
                     }
                 ]
@@ -1601,6 +1606,11 @@
                         "id": "Trait_OutstandingAttribute",
                         "input": "pri-a/cn",
                         "level": 0
+                    },
+                    {
+                        "id": "Trait_Obese",
+                        "input": "",
+                        "level": 0
                     }
                 ],
                 "targets": [
@@ -1608,16 +1618,16 @@
                         "id": "pri-a/cn",
                         "type": "min",
                         "input": "",
-                        "level": 7,
-                        "overrideCurrent": true,
+                        "level": -1,
+                        "overrideCurrent": false,
                         "oldLevel": 0
                     },
                     {
                         "id": "pri-a/cn",
                         "type": "max",
                         "input": "",
-                        "level": 7,
-                        "overrideCurrent": true,
+                        "level": -7,
+                        "overrideCurrent": false,
                         "oldLevel": 0
                     }
                 ]
@@ -1638,16 +1648,16 @@
                         "id": "pri-a/st",
                         "type": "min",
                         "input": "",
-                        "level": 7,
-                        "overrideCurrent": true,
+                        "level": -1,
+                        "overrideCurrent": false,
                         "oldLevel": 0
                     },
                     {
                         "id": "pri-a/st",
                         "type": "max",
                         "input": "",
-                        "level": 7,
-                        "overrideCurrent": true,
+                        "level": -7,
+                        "overrideCurrent": false,
                         "oldLevel": 0
                     }
                 ]
@@ -1755,13 +1765,6 @@
                 "oldLevel": 0
             },
             {
-                "id": "pri-a/dx",
-                "type": "max",
-                "level": -2,
-                "overrideCurrent": false,
-                "oldLevel": 0
-            },
-            {
                 "id": "pri-a/cn",
                 "type": "max",
                 "level": -2,
@@ -1797,6 +1800,22 @@
                 "id": "Trait_CompetetiveSportsman",
                 "type": "",
                 "input": "",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "trait/miserable-attribute",
+                "type": "",
+                "input": "pri-a/ag",
+                "level": 0,
+                "overrideCurrent": false,
+                "oldLevel": 0
+            },
+            {
+                "id": "trait/miserable-attribute",
+                "type": "",
+                "input": "pri-a/cn",
                 "level": 0,
                 "overrideCurrent": false,
                 "oldLevel": 0

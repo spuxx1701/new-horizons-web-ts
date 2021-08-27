@@ -9,7 +9,7 @@
         <FaIcon @icon={{if this.navSidebarExpanded "chevron-left" "bars" }} @size="2x" />
     </button>
     <div class="h-boxItem justify-content-center">
-        <h4 class="fg-teal-neon marginAuto">New Horizons</h4>
+        <h4 class="fg-teal-neon ts-teal-neon marginAuto">New Horizons</h4>
     </div>
     <button id="accountSidebarButton" class="header-sidebar-button" type="button" {{on 'click' (fn
         this.toggleSidebar "accountSidebar" )}}>
@@ -41,41 +41,50 @@
             <h4 class="fg-teal-neon text-right">
                 {{this.session.data.authenticated.username}} </h4>
             <div class="margin-sides-smaller" />
-            <h4 class="fg-white text-right">,{{localize "Misc_Hello"}}</h4>
+            <h4 class="fg-white text-right">,{{localize "sidebar/account/signed-in"}}</h4>
         </div>
         {{else}}
-        <h4 class="fg-white margin-vertical-medium text-right sidebar-header-r">{{localize "Misc_Account"}}</h4>
+        <h4 class="fg-white margin-vertical-medium text-right sidebar-header-r">{{localize
+            "sidebar/account/not-signed-in"}}</h4>
         {{/if}}
         <div class="sidebar-sep sidebar-item"></div>
         {{#if this.session.isAuthenticated}}
         <button class="sidebar-button-1" type="button" {{on 'click' (fn this.callSignOutModal )}}>
             <FaIcon @icon="sign-out-alt" @size={{this.sidebarIconSize}} class="margin-sides-medium fg-teal-neon" />
-            <p class="margin-vertical-auto">{{localize "Misc_SignOut"}}</p>
+            <p class="margin-vertical-auto">{{localize "sidebar/account/sign-out"}}</p>
+        </button>
+        <button class="sidebar-button-1" type="button" {{on 'click' (fn this.callSignOutModal )}}>
+            <FaIcon @icon="gear" @size={{this.sidebarIconSize}} class="margin-sides-medium fg-teal-neon" />
+            <p class="margin-vertical-auto">{{localize "sidebar/account/preferences"}}</p>
         </button>
         {{else}}
         <button class="sidebar-button-1" type="button" {{on 'click' (fn this.manager.goToSignIn "modal" )}}>
             <FaIcon @icon="sign-in-alt" @size={{this.sidebarIconSize}} class="margin-sides-medium fg-teal-neon" />
-            <p class="margin-vertical-auto">{{localize "Misc_SignIn"}}</p>
+            <p class="margin-vertical-auto">{{localize "sidebar/account/sign-in"}}</p>
         </button>
         <div class="sidebar-sep" />
         <button class="sidebar-button-1" type="button" {{on 'click' (fn this.manager.goToRoute "sign-up" )}}>
             <FaIcon @icon="user-plus" @size={{this.sidebarIconSize}} class="margin-sides-medium fg-teal-neon" />
-            <p class="margin-vertical-auto">{{localize "Misc_SignUp"}}</p>
+            <p class="margin-vertical-auto">{{localize "sidebar/account/sign-up"}}</p>
         </button>
         {{/if}}
         <div class="sidebar-sep" />
         <button class="sidebar-button-1" type="button" {{on 'click' (fn this.manager.modalService.render "bug-report"
             )}}>
             <FaIcon @icon="bug" @size={{this.sidebarIconSize}} class="margin-sides-medium fg-teal-neon" />
-            <p class="margin-vertical-auto">Report Bug</p>
+            <p class="margin-vertical-auto">{{localize "sidebar/account/report-bug"}}</p>
         </button>
         <div class="sidebar-sep" />
         <button class="sidebar-button-1" type="button" {{on 'click' this.manager.messageService.showApplog }}>
             <FaIcon @icon="align-left" @size={{this.sidebarIconSize}} class="margin-sides-medium fg-teal-neon" />
-            <p class="margin-vertical-auto">Application Log</p>
+            <p class="margin-vertical-auto">{{localize "sidebar/account/app-log"}}</p>
         </button>
     </div>
 </div>
+
+
+<div id="stars2"></div>
+<div id="stars3"></div>
 
 {{!--PAGE CONTENT--}}
 <div id="pageOutletContainer">

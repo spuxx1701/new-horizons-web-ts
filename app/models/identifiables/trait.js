@@ -51,6 +51,10 @@ export default class DatabaseTraitModel extends DatabasePrefabModel {
             newTrait.selectedOption = this.manager.clone(selectedOption);
         }
 
+        if (newTrait.hasLevel) {
+            newTrait.level = 1;
+        }
+
         character.data.traits.pushObject(newTrait);
 
         // Apply changes

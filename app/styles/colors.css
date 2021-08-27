@@ -17,6 +17,10 @@ Description: Contains simple color classes (fg = foreground, bg = background).  
     background-color: var(--colorTealNeon);
 }
 
+.ts-teal-neon {
+    text-shadow: 0 0 10px var(--colorTealNeon);
+}
+
 .fg-teal-bright {
     color: var(--colorTealBright);
 }
@@ -53,7 +57,7 @@ Description: Contains simple color classes (fg = foreground, bg = background).  
     color: var(--colorError);
 }
 
-.fg-text-default {
+.fg-text-default, .fg-default {
     color: var(--colorTextDefault);
 }
 

@@ -3,18 +3,18 @@
         <tr class="sticky-header">
             <th />
             <th>
-                <List::ColumnHeader @label={{localize "Misc_Trait" }} @sort={{this.sortByProperty}}
-                    @sortingKey="localizedLabel" />
+                <List::ColumnHeader @label={{localize "component/list/traits/column/trait" }}
+                    @sort={{this.sortByProperty}} @sortingKey="localizedLabel" />
             </th>
             <th>
-                <List::ColumnHeader @label={{localize "Misc_Details" }} />
+                <List::ColumnHeader @label={{localize "component/list/traits/column/details" }} />
             </th>
             <th>
-                <List::ColumnHeader @label={{localize "Misc_Level" }} />
+                <List::ColumnHeader @label={{localize "component/list/traits/column/level" }} />
             </th>
             <th>
-                <List::ColumnHeader @label={{localize "Misc_Gp" }} @sort={{this.sortByProperty}}
-                    @sortingKey="data.costs" />
+                <List::ColumnHeader @label={{localize "component/list/traits/column/costs" }}
+                    @sort={{this.sortByProperty}} @sortingKey="data.costs" />
             </th>
         </tr>
     </thead>
@@ -24,7 +24,9 @@
             <td class="flex">
                 <Interactable::ButtonInfo class="float-left" @article="basic-rules/supplement-traits/{{row.data.id}}" />
                 {{#if @isOwned}}
+                {{#unless row.hideRemoveButton}}
                 <Interactable::ButtonSquare class="float-left" @icon="minus" @onClick={{fn this.onRemoveClick row }} />
+                {{/unless}}
                 {{else}}
                 <Interactable::ButtonSquare class="float-left" @icon="plus" @onClick={{fn this.onAddClick row}} />
                 {{/if}}
@@ -52,11 +54,13 @@
             </td>
             <td>
                 {{#if row.data.hasLevel}}
-                <Interactable::ValueControl @value="0" @disabled={{true}} />
+                <Interactable::ValueControl @object={{row.data}} @value={{row.data.level}} @min={{row.data.minLevel}}
+                    @max={{row.data.maxLevel}} @onChangeListener={{this.onLevelChange}} @disabled={{if this.isOwned
+                    false true}} />
                 {{/if}}
             </td>
             <td class="text-right margin-sides-smaller">
-                {{if (lt row.data.costs 0) '+' }}{{mult -1 row.data.costs}}
+                {{trait-costs row.data}}
             </td>
         </tr>
         {{/each}}

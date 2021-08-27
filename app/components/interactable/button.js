@@ -18,7 +18,6 @@ export default class DropdownComponent extends InteractableComponent {
         super.init()
     }
 
-    @computed("disabled", "busy")
     get isDisabled() {
         return (this.get("disabled") || this.get("busy"));
     }

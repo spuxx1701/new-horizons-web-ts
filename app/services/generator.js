@@ -6,7 +6,7 @@
 import Ember from 'ember';
 import Service from '@ember/service';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
+import { computed, set, action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import Character from 'new-horizons-web/classes/character-v1';
 import { A } from '@ember/array';
@@ -54,17 +54,16 @@ export default class GeneratorService extends Service {
         let that = this;
         // Initialize primary attributes
         this.manager.database.getCollection("pri-a").forEach(function (priA) {
-            character.data.primaryAttributes.push(that.manager.database.cloneRecord(priA));
+            priA.addToCharacter(character);
         })
         // Initialize secondary attributes
         this.manager.database.getCollection("sec-a").forEach(function (secA) {
-            character.data.secondaryAttributes.push(that.manager.database.cloneRecord(secA));
-            character.updateSecondaryAttribute(secA.id, { logSuccess: false });
+            secA.addToCharacter(character);
         })
         // Add all basic skills
         this.manager.database.getCollection("skill").forEach(function (skill) {
             if (skill.isBasic) {
-                skill.addToCharacter(character, { logSuccess: false, ignoreDuplicate: true });
+                skill.addToCharacter(character, { logSuccess: false });
             }
         })
         // initialize gp, ap and ip budgets
@@ -72,9 +71,7 @@ export default class GeneratorService extends Service {
         this.gpAvailable = 0 + characterPreset.gpBonus;
         this.ipAvailable = characterPreset.ipAvailable;
         // initialize skill categories
-        this.manager.database.getCollection("skill-category").forEach(function (skillCategory) {
-            that.skillCategories.pushObject(that.manager.database.cloneRecord(skillCategory));
-        });
+        this.initializeSkillCategories();
         // initialize settings
         this.set("showTutorials", showTutorials);
     }
@@ -83,22 +80,29 @@ export default class GeneratorService extends Service {
         // set origin
         this.getCharacter().data.origin = origin.id;
         // increase the special primary attribute
-        this.getCharacter().setPrimaryAttributeProperty(origin.specialPA, "current", 1, { logSuccess: false });
-        this.getCharacter().setPrimaryAttributeProperty(origin.specialPA, "min", 1, { logSuccess: false });
-        this.getCharacter().setPrimaryAttributeProperty(origin.specialPA, "max", 1, { logSuccess: false });
+        let specialPrimaryAttribute = this.getCharacter().getPrimaryAttribute(origin.specialPA);
+        specialPrimaryAttribute.setProperty("current", 1, { logSuccess: false });
+        specialPrimaryAttribute.setProperty("min", 1, { logSuccess: false });
+        specialPrimaryAttribute.setProperty("max", 1, { logSuccess: false });
         // add and/or increase all fixed skills
         for (let skill of origin.skillsFixed) {
-            let skillRecord = this.database.getIdentifiable(skill.id);
-            skillRecord.addToCharacter(this.getCharacter(), { logSuccess: false, ignoreDuplicate: true, updateSkill: false });
-            this.getCharacter().setSkillLevel(skill.id, skill.level, { logSuccess: false, validate: false, updateSkill: false });
-            this.getCharacter().updateSkill(skill.id, { logSuccess: false, updateMinimum: true });
+            let ownedSkill = this.getCharacter().getSkill(skill.id);
+            if (!ownedSkill) {
+                let skillRecord = this.database.getIdentifiable(skill.id);
+                ownedSkill = skillRecord.addToCharacter(this.getCharacter(), { logSuccess: false, updateSkill: false, allowRemove: false });
+            }
+            ownedSkill.setLevel(skill.level, { logSuccess: false, validate: false, updateSkill: false });
+            ownedSkill.update({ logSuccess: false, updateMinimum: true });
         }
         // add and/or increase all chosen skills
         for (let skill of skillChoices) {
-            let skillRecord = this.database.getIdentifiable(skill.id);
-            skillRecord.addToCharacter(this.getCharacter(), { logSuccess: false, ignoreDuplicate: true, updateSkill: false });
-            this.getCharacter().setSkillLevel(skill.id, skill.level, { logSuccess: false, validate: false, updateSkill: false });
-            this.getCharacter().updateSkill(skill.id, { logSuccess: false, updateMinimum: true });
+            let ownedSkill = this.getCharacter().getSkill(skill.id);
+            if (!ownedSkill) {
+                let skillRecord = this.database.getIdentifiable(skill.id);
+                ownedSkill = skillRecord.addToCharacter(this.getCharacter(), { logSuccess: false, updateSkill: false, allowRemove: false });
+            }
+            ownedSkill.setLevel(skill.level, { logSuccess: false, validate: false, updateSkill: false });
+            ownedSkill.update({ logSuccess: false, updateMinimum: true });
         }
         // add the character's mother tongue as an ability
         let motherTongueAbility = this.database.getIdentifiable("Ability_General_Language");
@@ -145,10 +149,73 @@ export default class GeneratorService extends Service {
         }
     }
 
+    initializeSkillCategories() {
+        let that = this;
+        this.skillCategories = [];
+        this.manager.database.getCollection("skill-category").forEach(function (skillCategory) {
+            that.skillCategories.pushObject(that.manager.database.cloneRecord(skillCategory));
+        });
+        // add observers to the character's skill array
+        // this.getCharacter().getSkills().addArrayObserver(this, {
+        //     didChange: function () {
+        //         console.log("Array did change!");
+        //     }
+        // });
+    }
+
+    updateSkillCategories(skills, offset, removeCount, addCount) {
+        for (let category of this.skillCategories) {
+            let skillCategory = this.manager.clone(category);
+            let skillsAvailable = this.database.getCollection("skill");
+            set(skillCategory, "skillsAvailable", A([]));
+            for (let skill of skillsAvailable.toArray()) {
+                if (this.database.transformId(skill.skillCategory) === this.database.transformId(category.id)) {
+                    skillCategory.skillsAvailable.pushObject(skill);
+                }
+            }
+            let skillsOwned = this.getCharacter().getSkills();
+            set(skillCategory, "skillsOwned", A([]));
+            for (let skill of skillsOwned) {
+                if (this.database.transformId(skill.skillCategory) === this.database.transformId(category.id)) {
+                    skillCategory.skillsOwned.pushObject(skill);
+                }
+            }
+        }
+    }
+
+    /**
+     * Returns all available and owned skills, but distributed among their categories.
+     * @returns  {Object[]}
+     */
+    get detailedSkillCategories() {
+        let categories = this.skillCategories;
+        let result = [];
+        for (let category of categories) {
+            let skillCategory = this.manager.clone(category);
+            let skillsAvailable = this.database.getCollection("skill");
+            skillCategory.skillsAvailable = [];
+            for (let skill of skillsAvailable.toArray()) {
+                if (this.database.transformId(skill.skillCategory) === this.database.transformId(category.id)) {
+                    skillCategory.skillsAvailable.push(skill);
+                }
+            }
+            let skillsOwned = this.getCharacter().getSkills();
+            skillCategory.skillsOwned = [];
+            for (let skill of skillsOwned) {
+                if (this.database.transformId(skill.skillCategory) === this.database.transformId(category.id)) {
+                    skillCategory.skillsOwned.push(skill);
+                }
+            }
+            result.push(skillCategory);
+        }
+        return result;
+    }
+
     @action setSkillCategoryProperty(categoryId, property, value) {
         for (let category of this.skillCategories) {
-            if (this.database.transformId(category.id) === this.database.transformId(categoryId))
-                category[property] += value;
+            if (this.database.transformId(category.id) === this.database.transformId(categoryId)) {
+                set(category, property, category[property] + value);
+            }
         }
     }
 
